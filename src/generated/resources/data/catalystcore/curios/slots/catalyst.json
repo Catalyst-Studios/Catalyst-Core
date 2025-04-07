@@ -1,0 +1,9 @@
+{
+  "drop_rule": "ALWAYS_KEEP",
+  "icon": "catalystcore:item/catalyst_slot",
+  "order": 50,
+  "size": 1,
+  "validators": [
+    "curios:tag"
+  ]
+}

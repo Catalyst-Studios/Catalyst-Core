@@ -1,0 +1,17 @@
+{
+  "item.catalystcore.malicious_eye": "Malicious Eye",
+  "item.catalystcore.empty_catalyst": "Empty Catalyst",
+  "item.catalystcore.complete_catalyst": "Catalyst",
+
+  "curios.slot_type.catalyst": "Catalyst",
+  "curios.identifier.catalyst": "Catalyst",
+
+  "item.catalystcore.cataclystic_sword": "Cataclystic Longsword",
+  "item.catalystcore.cataclystic_broadsword": "Cataclystic Broadsword",
+  "item.catalystcore.cataclystic_sword.desc": "The Universe is Watching with Caution...",
+
+  "item.catalystcore.cataclystic_pickaxe": "Cataclystic Pickaxe",
+  "item.catalystcore.cataclystic_pickaxe.desc": "The Universe is Craving Its Creations...",
+
+  "creativetab.catalystcore.catalyst_core": "Catalyst Core"
+}
