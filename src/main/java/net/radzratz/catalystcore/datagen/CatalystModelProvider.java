@@ -21,9 +21,13 @@ public class CatalystModelProvider extends ItemModelProvider
         basicItem(CatalystItems.FRAME_CATALYST.get());
         basicItem(CatalystItems.PENTAGRAM.get());
         basicItem(CatalystItems.SELF_AWARE_CHIP.get());
+        basicItem(CatalystItems.CONTAINER.get());
+        basicItem(CatalystItems.COMET_SHARD.get());
+        basicItem(CatalystItems.RIFT.get());
+        basicItem(CatalystItems.ANTIMATTER.get());
+        basicItem(CatalystItems.MAGIC_ANOMALY.get());
+        basicItem(CatalystItems.BLOOD_VORTEX.get());
 
-        handheldItem(CatalystItems.CATALYST_SWORD.get());
         handheldItem(CatalystItems.CATALYST_BROADSWORD.get());
-        handheldItem(CatalystItems.CATALYST_PICKAXE.get());
     }
 }

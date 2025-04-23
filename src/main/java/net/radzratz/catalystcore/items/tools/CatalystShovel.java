@@ -11,8 +11,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class CatalystSword extends SwordItem {
-    public CatalystSword(Tier tier, Item.Properties properties, Tool toolComponentData, ItemAttributeModifiers attributes)
+public class CatalystShovel extends ShovelItem
+{
+    public CatalystShovel(Tier tier, Properties properties, Tool toolComponentData, ItemAttributeModifiers attributes)
     {
         super(tier, properties.component(DataComponents.TOOL, toolComponentData)
                 .component(DataComponents.ATTRIBUTE_MODIFIERS, attributes));
@@ -37,7 +38,7 @@ public class CatalystSword extends SwordItem {
 
     public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, List<Component> tooltip, @NotNull TooltipFlag flag)
     {
-        tooltip.add(Component.translatable("item.catalystcore.cataclystic_sword.desc").withStyle(ChatFormatting.DARK_BLUE));
+        tooltip.add(Component.translatable("item.catalystcore.cataclystic_shovel.desc").withStyle(ChatFormatting.DARK_BLUE));
         super.appendHoverText(stack, context, tooltip, flag);
     }
 }

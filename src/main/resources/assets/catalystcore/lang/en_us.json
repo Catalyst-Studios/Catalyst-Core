@@ -2,16 +2,40 @@
   "item.catalystcore.malicious_eye": "Malicious Eye",
   "item.catalystcore.empty_catalyst": "Empty Catalyst",
   "item.catalystcore.complete_catalyst": "Catalyst",
+  "item.catalystcore.crystallized_rift": "Crystallized Rift",
+  "item.catalystcore.comet_shard": "Comet Shard",
+  "item.catalystcore.nano_self_aware": "Self-Aware Nano Chip",
+  "item.catalystcore.pentagram": "Pentagram",
+  "item.catalystcore.pure_antimatter": "Pure Antimatter Cluster",
+  "item.catalystcore.universe_containment_cell": "Quantum Universe Container",
+  "item.catalystcore.magic_anomaly": "Magic Anomaly",
+  "item.catalystcore.blood_vortex": "Blood Vortex",
 
   "curios.slot_type.catalyst": "Catalyst",
   "curios.identifier.catalyst": "Catalyst",
 
   "item.catalystcore.cataclystic_sword": "Cataclystic Longsword",
+  "item.catalystcore.cataclystic_katar": "Cataclystic Katar",
   "item.catalystcore.cataclystic_broadsword": "Cataclystic Broadsword",
-  "item.catalystcore.cataclystic_sword.desc": "The Universe is Watching with Caution...",
+  "item.catalystcore.cataclystic_big_bonk": "Cataclystic Great Hammer",
+  "item.catalystcore.cataclystic_scythe": "Cataclystic Scythe",
+  "item.catalystcore.cataclystic_shield": "Cataclystic Shield",
+
+  "item.catalystcore.cataclystic_sword.desc": "The Universe Powers has Awoken within This Sword...",
+  "item.catalystcore.cataclystic_broadsword.desc": "The Universe Powers Concedes a glorious Balance",
+  "item.catalystcore.cataclystic_katar.desc": "The Universe Powers Grant Speed at Lower Damage",
+  "item.catalystcore.cataclystic_katar.desc2": "Dual Wielded Weapon",
+  "item.catalystcore.cataclystic_big_bonk.desc": "The Universe Powers Demand You to Bonk",
+  "item.catalystcore.cataclystic_scythe.desc": "The Universe Powers Whispers You to Reap and Sow",
+  "item.catalystcore.cataclystic_shield.desc": "The Universe Powers Grants You Perfect Protection",
 
   "item.catalystcore.cataclystic_pickaxe": "Cataclystic Pickaxe",
   "item.catalystcore.cataclystic_pickaxe.desc": "The Universe is Craving Its Creations...",
+  "item.catalystcore.cataclystic_shovel": "Cataclystic Shovel",
+  "item.catalystcore.cataclystic_shovel.desc": "The Universe Powers Says That It Can Create Paths",
+
+  "block.catalystcore.catalyst_pedestal": "Pedestal",
+  "block.catalystcore.eye_flower": "Eye Flower",
 
   "creativetab.catalystcore.catalyst_core": "Catalyst Core"
 }
