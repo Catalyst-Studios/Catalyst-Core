@@ -1,0 +1,10 @@
+{
+  "type": "catalystcore:pentagram",
+  "inputs": [
+    { "item": "minecraft:dirt" }
+  ],
+  "output": {
+    "id": "minecraft:stone",
+    "count": 1
+  }
+}

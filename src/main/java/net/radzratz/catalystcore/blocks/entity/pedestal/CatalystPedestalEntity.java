@@ -1,4 +1,4 @@
-package net.radzratz.catalystcore.blocks.entity;
+package net.radzratz.catalystcore.blocks.entity.pedestal;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -12,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.radzratz.catalystcore.blocks.entity.CatalystBlockEntities;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

@@ -1,0 +1,16 @@
+{
+  "pentagram_craft":
+  {
+    "category": "blocks",
+    "sounds": [
+      "catalystcore:pentagram_craft"
+    ]
+  },
+  "pentagram_place":
+  {
+    "category": "blocks",
+    "sounds": [
+      "catalystcore:pentagram_place"
+    ]
+  }
+}

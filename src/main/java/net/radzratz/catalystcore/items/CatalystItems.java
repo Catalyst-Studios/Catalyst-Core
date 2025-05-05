@@ -7,6 +7,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.radzratz.catalystcore.CatalystCore;
+import net.radzratz.catalystcore.custom.PentagramItem;
 import net.radzratz.catalystcore.items.tools.*;
 
 import java.util.List;
@@ -43,8 +44,14 @@ public class CatalystItems
 
     public static final DeferredItem<Item> FRAME_CATALYST = registerCatalystCoreMidGameItems("empty_catalyst");
     public static final DeferredItem<Item> SELF_AWARE_CHIP = registerCatalystCoreMidGameItems("nano_self_aware");
-    public static final DeferredItem<Item> PENTAGRAM = registerCatalystCoreMidGameItems("pentagram");
+    /*public static final DeferredItem<Item> PENTAGRAM = registerCatalystCoreMidGameItems("pentagram");*/
     public static final DeferredItem<Item> COMET_SHARD = registerCatalystCoreMidGameItems("comet_shard");
+
+    public static final DeferredItem<PentagramItem> PENTAGRAM = ITEMS.register("pentagram",
+            () -> new PentagramItem(new Item.Properties()
+                    .stacksTo(1)
+                    .rarity(Rarity.RARE)
+                    .fireResistant()));
 
     public static final DeferredItem<Item> CATALYST_INGOT = registerCatalystCoreNormalItems("cataclystic_ingot");
     public static final DeferredItem<Item> RAW_CATALYRIUM = registerCatalystCoreNormalItems("raw_catalyrium");

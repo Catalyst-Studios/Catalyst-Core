@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.radzratz.catalystcore.blocks.entity.CatalystPedestalEntity;
+import net.radzratz.catalystcore.blocks.entity.pedestal.CatalystPedestalEntity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

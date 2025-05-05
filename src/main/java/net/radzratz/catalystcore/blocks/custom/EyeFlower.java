@@ -42,7 +42,7 @@ public class EyeFlower extends Block
         }
     }
 
-
+    @SuppressWarnings("unused")
     @Override
     public boolean canSurvive(@NotNull BlockState state, LevelReader level, BlockPos pos)
     {

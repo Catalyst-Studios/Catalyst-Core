@@ -37,5 +37,9 @@
   "block.catalystcore.catalyst_pedestal": "Pedestal",
   "block.catalystcore.eye_flower": "Eye Flower",
 
-  "creativetab.catalystcore.catalyst_core": "Catalyst Core"
+  "creativetab.catalystcore.catalyst_core": "Catalyst Core",
+
+  "item.catalystcore.pentagram.desc": "Try Throwing Something in It's Center...",
+
+  "catalystcore.config.pentagram.enableHardcodedPentagramRecipes": "Enable Hardcoded Pentagram Recipes"
 }

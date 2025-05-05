@@ -6,6 +6,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.radzratz.catalystcore.CatalystCore;
 import net.radzratz.catalystcore.blocks.CatalystBlocks;
+import net.radzratz.catalystcore.blocks.entity.pedestal.CatalystPedestalEntity;
 
 import java.util.function.Supplier;
 

@@ -1,11 +1,45 @@
 **Catalyst Core Mod**
+-
+Catalyst Core adds **end-game items, dimensions, blocks, block entities, and tools** designed for Catalyst Studios modpacks.
 
-Catalyst Core only adds the End-Game Items, Blocks and Tools for Catalyst Studios modpacks.
+Using **KubeJS** or **CraftTweaker** is highly recommended!
 
-This mod by its own only adds these Items and Blocks and don't have a recipe, and the use of KubeJS or CraftTweaker is HIGHLY advised.
+___
 
-=====
+**This Mod Includes custom Recipe Types**, compatible with either Datapacks or Mods!
+-
 
-Feel free to use this mod in any of your modpacks!
+Some recipe types are hardcoded for debugging purposes — but don’t worry, they can be disabled via the config and are disabled by default.
 
-=====
+___
+
+**Pentagram Recipe Type Example**
+
+**{
+"type": "catalystcore:pentagram",
+"inputs": [
+{ "item": "minecraft:gold_ingot" } // Currently supports only 1 input
+],
+"output": {
+"id": "minecraft:nether_star",
+"count": 1 // Supports multiple outputs
+}
+}**
+
+___
+
+**Weapon Forge Recipe Type**
+
+Soon™
+
+___
+
+**Tool Assembler Recipe Type**
+
+Soon™
+
+____
+
+**Feel free to use this mod in any modpack!**
+
+____

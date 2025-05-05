@@ -18,6 +18,7 @@ public class CatalystCreativeTab
     public static final DeferredRegister<CreativeModeTab> CATALYST_CREATIVE_TAB =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CatalystCore.MOD_ID);
 
+    @SuppressWarnings("unused")
     public static final Supplier<CreativeModeTab> CATALYST_CORE = CATALYST_CREATIVE_TAB.register("eternal_ores_tab",
             ()-> CreativeModeTab.builder().icon(()-> new ItemStack(CatalystItems.FULL_CATALYST.get()))
                     .withTabsAfter(ResourceLocation.fromNamespaceAndPath(CatalystCore.MOD_ID, "catalystcore"))

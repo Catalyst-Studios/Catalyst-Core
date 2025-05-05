@@ -1,0 +1,10 @@
+{
+  "type": "catalystcore:pentagram",
+  "inputs": [
+    { "item": "minecraft:gold_ingot" }
+  ],
+  "output": {
+    "id": "minecraft:nether_star",
+    "count": 1
+  }
+}

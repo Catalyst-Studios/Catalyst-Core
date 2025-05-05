@@ -1,4 +1,4 @@
-package net.radzratz.catalystcore.blocks.entity.renderer;
+package net.radzratz.catalystcore.renderer.block;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -14,13 +14,14 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
-import net.radzratz.catalystcore.blocks.entity.CatalystPedestalEntity;
+import net.radzratz.catalystcore.blocks.entity.pedestal.CatalystPedestalEntity;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
 public class CatalystPedestalItemRenderer implements BlockEntityRenderer<CatalystPedestalEntity>
 {
+    @SuppressWarnings("unused")
     public CatalystPedestalItemRenderer(BlockEntityRendererProvider.Context context)
     {
     }
@@ -28,7 +29,7 @@ public class CatalystPedestalItemRenderer implements BlockEntityRenderer<Catalys
     @Override
     public void render(CatalystPedestalEntity pBlockEntity, float pPartialTick,
                        PoseStack pPoseStack,
-                       MultiBufferSource pBufferSource,
+                       @NotNull MultiBufferSource pBufferSource,
                        int pPackedLight,
                        int pPackedOverlay)
     {
