@@ -27,6 +27,15 @@ public class CatalystModelProvider extends ItemModelProvider
         basicItem(CatalystItems.ANTIMATTER.get());
         basicItem(CatalystItems.MAGIC_ANOMALY.get());
         basicItem(CatalystItems.BLOOD_VORTEX.get());
+        basicItem(CatalystItems.TREASURE.get());
+        basicItem(CatalystItems.BLACK_HOLE.get());
+        basicItem(CatalystItems.CONTAINER_INACTIVE.get());
+        basicItem(CatalystItems.WATER_ORB.get());
+        basicItem(CatalystItems.END_CORE.get());
+        basicItem(CatalystItems.NETHER_CORE.get());
+        basicItem(CatalystItems.OVERWORLD_CORE.get());
+        basicItem(CatalystItems.CHOCOLATE_BAR.get());
+        basicItem(CatalystItems.COSMIC_SHATTERER.get());
 
         handheldItem(CatalystItems.CATALYST_BROADSWORD.get());
     }

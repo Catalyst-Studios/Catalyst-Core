@@ -1,4 +1,4 @@
-package net.radzratz.catalystcore.items.tools;
+package net.radzratz.catalystcore.items.tools.weapons;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -8,7 +8,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class CatalystShield extends ShieldItem {
+public class CatalystShield extends ShieldItem
+{
 
     public CatalystShield(Item.Properties properties) {
         super(properties);

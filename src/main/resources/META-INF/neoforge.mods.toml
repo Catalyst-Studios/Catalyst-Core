@@ -1,0 +1,38 @@
+modLoader="javafml"
+
+loaderVersion="${loader_version_range}"
+
+license="All Rights Reserved"
+
+[[mods]]
+
+modId="catalystcore"
+
+version="0.0.1"
+
+displayName="Catalyst Core"
+
+authors="RadzRatz"
+
+description="Catalyst Core adds end-game items, dimensions, blocks, block entities, and tools designed for Catalyst Studios modpacks."
+
+[[dependencies.catalystcore]]
+modId="neoforge"
+type="required"
+versionRange="21.1.142"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.catalystcore]]
+modId="curios"
+type="optional"
+versionRange="9.2.2+1.21.1"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.catalystcore]]
+modId="minecraft"
+type="required"
+versionRange="1.21.1"
+ordering="NONE"
+side="BOTH"

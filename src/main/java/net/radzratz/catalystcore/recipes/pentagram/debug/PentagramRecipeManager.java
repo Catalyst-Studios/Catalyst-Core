@@ -33,7 +33,7 @@ public class PentagramRecipeManager
 
     private static boolean matches(PentagramRecipes recipe, List<ItemEntity> itemsAround)
     {
-        if(!CatalystConfig.CONFIG.enableHardcodedPentagramRecipes.get())
+        if(!CatalystConfig.CONFIG.pentagram.enableHardcodedRecipes.get())
         {
             return false;
         }

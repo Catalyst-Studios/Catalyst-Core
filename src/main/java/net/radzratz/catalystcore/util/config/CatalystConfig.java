@@ -8,26 +8,84 @@ public class CatalystConfig
     public static final CatalystConfig CONFIG;
     public static final ModConfigSpec CONFIG_SPEC;
 
-    ///Hardcoded Pentagram Recipes
-    public final ModConfigSpec.BooleanValue enableHardcodedPentagramRecipes;
+    public final PentagramConfig pentagram;
+    public final ModulesConfig modules;
+
+    static
+    {
+        Pair<CatalystConfig, ModConfigSpec> pair = new ModConfigSpec.Builder().configure(CatalystConfig::new);
+        CONFIG = pair.getLeft();
+        CONFIG_SPEC = pair.getRight();
+    }
 
     private CatalystConfig(ModConfigSpec.Builder builder)
     {
-        builder.push("pentagram");
-        enableHardcodedPentagramRecipes = builder
-                .comment("Enable hardcoded Pentagram recipes (for debugging or custom functionality)")
-                .translation("catalystcore.config.pentagram.enableHardcodedPentagramRecipes")
-                .define("enableHardcodedPentagramRecipes", false);
+        builder.comment("Catalyst Core Main Configuration").push("general");
+
+        this.pentagram = new PentagramConfig(builder);
+        this.modules = new ModulesConfig(builder);
 
         builder.pop();
     }
 
-    static
+    public static class PentagramConfig
     {
-        Pair<CatalystConfig, ModConfigSpec> pair =
-                new ModConfigSpec.Builder().configure(CatalystConfig::new);
+        public final ModConfigSpec.BooleanValue enablePentagramSpawn;
+        public final ModConfigSpec.BooleanValue enableHardcodedRecipes;
+        public final ModConfigSpec.BooleanValue enablePentagramSpecialRenderers;
+        public final ModConfigSpec.BooleanValue enablePentagramParticles;
+        public final ModConfigSpec.BooleanValue enablePentagramSounds;
 
-        CONFIG = pair.getLeft();
-        CONFIG_SPEC = pair.getRight();
+        public PentagramConfig(ModConfigSpec.Builder builder)
+        {
+            builder.comment("Pentagram settings").push("pentagram");
+
+            this.enablePentagramSpawn = builder
+                    .comment("Server/Client Side - Enable Pentagram spawn [REQUIRES GAME RESTART]")
+                    .translation("config.catalystcore.pentagram.entity")
+                    .gameRestart()
+                    .define("togglePentagramEntity", true); ///True by default
+
+            this.enableHardcodedRecipes = builder
+                    .comment("Server/Client Side - Enable Pentagram debug recipes")
+                    .translation("config.catalystcore.pentagram.hardcoded_recipes")
+                    .gameRestart()
+                    .define("toggleDebugRecipe", false); ///False by default
+
+            this.enablePentagramSpecialRenderers = builder
+                    .comment("Client Side - Enable Pentagram renderers")
+                    .translation("config.catalystcore.pentagram.special_renderers")
+                    .define("toggleRenderers", true); ///True by default
+
+            this.enablePentagramParticles = builder
+                    .comment("Client Side - Enable Pentagram particles")
+                    .translation("config.catalystcore.pentagram.particles")
+                    .define("toggleParticles", true); ///True by default
+
+            this.enablePentagramSounds = builder
+                    .comment("Client Side - Enable Pentagram sounds")
+                    .translation("config.catalystcore.pentagram.sounds")
+                    .define("toggleSounds", true); ///True by default
+
+            builder.pop();
+        }
+    }
+
+    public static class ModulesConfig
+    {
+        public final ModConfigSpec.BooleanValue weaponsModule;
+
+        public ModulesConfig(ModConfigSpec.Builder builder)
+        {
+            builder.comment("Toggle mod features/modules").push("modules");
+
+            this.weaponsModule = builder
+                    .comment("Server/Client Side - Enable weapons/tools/armor module")
+                    .translation("config.catalystcore.modules.weapons")
+                    .gameRestart()
+                    .define("toggleCataclysticArmouryAndWeaponry", true); ///True by default
+
+            builder.pop();
+        }
     }
 }

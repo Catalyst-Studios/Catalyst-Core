@@ -5,6 +5,7 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -18,17 +19,17 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.radzratz.catalystcore.particle.CatalystParticles;
 import net.radzratz.catalystcore.recipes.CatalystRecipeTypes;
 import net.radzratz.catalystcore.recipes.pentagram.PentagramJsonRecipe;
 import net.radzratz.catalystcore.recipes.pentagram.PentagramContainer;
 import net.radzratz.catalystcore.recipes.pentagram.debug.PentagramRecipeManager;
 import net.radzratz.catalystcore.recipes.pentagram.debug.PentagramRecipes;
 import net.radzratz.catalystcore.sound.CatalystSounds;
+import net.radzratz.catalystcore.util.config.CatalystConfig;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class PentagramEntity extends Entity
 {
@@ -55,11 +56,26 @@ public class PentagramEntity extends Entity
     public boolean isFadingOut = false;
     public int fadeOutTicks = 0;
     public static final int MAX_FADE_TICKS = 20;
-    private boolean hasPlayedPlaceSound = false;
+    private int particleCooldown = 0;
 
     public static final float MAX_INNER_SCALE = 1.0f;
     public static final float MAX_OUTER_SCALE = 1.2f;
     public static final float MAX_STATIC_SCALE = 0.6f;
+
+    private void playPentagramSound(SoundEvent sound)
+    {
+        if(CatalystConfig.CONFIG.pentagram.enablePentagramSounds.get())
+        {
+            this.level().playSound(
+                    null,
+                    this.blockPosition(),
+                    sound,
+                    SoundSource.BLOCKS,
+                    1.0f,
+                    1.0f
+            );
+        }
+    }
 
     public PentagramEntity(EntityType<? extends PentagramEntity> type, Level level)
     {
@@ -70,14 +86,7 @@ public class PentagramEntity extends Entity
 
         if(!level.isClientSide)
         {
-            level.playSound(
-                    null,
-                    this.blockPosition(),
-                    CatalystSounds.PENTAGRAM_CRAFT.get(),
-                    SoundSource.BLOCKS,
-                    1.0f,
-                    1.0f
-            );
+            playPentagramSound(CatalystSounds.PENTAGRAM_CRAFT.get());
         }
 
         this.entityData.set(CIRCLE_ROTATION, 0.0f);
@@ -135,14 +144,7 @@ public class PentagramEntity extends Entity
                 this.entityData.set(FADING_OUT, true);
                 this.entityData.set(FADE_TICKS, 0);
 
-                this.level().playSound(
-                        null,
-                        this.blockPosition(),
-                        CatalystSounds.PENTAGRAM_PLACE.get(),
-                        SoundSource.BLOCKS,
-                        1.0f,
-                        1.0f
-                );
+                playPentagramSound(CatalystSounds.PENTAGRAM_PLACE.get());
             }
             return InteractionResult.SUCCESS;
         }
@@ -219,16 +221,32 @@ public class PentagramEntity extends Entity
         return 1.0f;
     }
 
-    @SuppressWarnings("unused")
-    public boolean isHasPlayedPlaceSound()
+    private void spawnMysticParticles()
     {
-        return hasPlayedPlaceSound;
-    }
+        if (!CatalystConfig.CONFIG.pentagram.enablePentagramParticles.get())
+        {
+            return;
+        }
 
-    @SuppressWarnings("unused")
-    public void setHasPlayedPlaceSound(boolean hasPlayedPlaceSound)
-    {
-        this.hasPlayedPlaceSound = hasPlayedPlaceSound;
+        if(this.level() instanceof ServerLevel serverLevel)
+        {
+            Vec3 center = this.position();
+            double radius = 2.5;
+            double angle = random.nextDouble() * Math.PI * 2;
+            double height = (random.nextDouble() - 0.5) * 0.8;
+
+            double x = center.x() + radius * Math.cos(angle);
+            double y = center.y() + 0.5 + height;
+            double z = center.z() + radius * Math.sin(angle);
+
+            serverLevel.sendParticles(
+                    CatalystParticles.PENTAGRAM_PARTICLE.get(),
+                    x, y, z,
+                    1,
+                    0, 0, 0,
+                    0.05
+            );
+        }
     }
 
     ///Keeping this in here, as this was used before the JSON and Legacy unification
@@ -280,19 +298,6 @@ public class PentagramEntity extends Entity
     {
         super.tick();
 
-        if(!this.level().isClientSide && !hasPlayedPlaceSound)
-        {
-            this.level().playSound(
-                    null,
-                    this.blockPosition(),
-                    CatalystSounds.PENTAGRAM_PLACE.get(),
-                    SoundSource.BLOCKS,
-                    2f,
-                    1.0f
-            );
-            hasPlayedPlaceSound = true;
-        }
-
         if(recipeCooldown > 0)
         {
             recipeCooldown--;
@@ -310,6 +315,16 @@ public class PentagramEntity extends Entity
             return;
         }
 
+        if(particleCooldown <= 0)
+        {
+            spawnMysticParticles();
+            particleCooldown = 2;
+        }
+        else
+        {
+            particleCooldown--;
+        }
+
         if(!this.level().isClientSide)
         {
             float staticScale = Math.min(MAX_STATIC_SCALE, getStaticCircleScale() + 0.005f);
@@ -320,7 +335,7 @@ public class PentagramEntity extends Entity
             float innerAngle = 45.0f * (float)Math.sin(this.tickCount * 0.02f);
             float outerAngle = -45.0f * (float)Math.sin(this.tickCount * 0.02f);
 
-            float rotation = (getCircleRotation() + 0.5f) % 360;
+            float rotation = getCircleRotation() + 0.5f;
 
             this.entityData.set(STATIC_CIRCLE_SCALE, staticScale);
             this.entityData.set(INNER_CIRCLE_SCALE, innerScale);
@@ -364,48 +379,50 @@ public class PentagramEntity extends Entity
                                    List<ItemEntity> items,
                                    PentagramJsonRecipe recipe)
     {
-        List<Ingredient> ingredients = new ArrayList<>(recipe.getIngredients());
+        PentagramContainer container = new PentagramContainer(items);
 
-        /*System.out.println("Found Recipe" + level + items + recipe);*/
-
-        for(Ingredient ing : ingredients)
+        if(!recipe.matches(container, level))
         {
-            for(ItemEntity entity : items)
+            return;
+        }
+
+        Map<Ingredient, ItemEntity> matchedItems = new HashMap<>();
+        List<ItemEntity> entitiesToConsume = new ArrayList<>();
+
+        for(Ingredient ingredient : recipe.getIngredients())
+        {
+            for(ItemEntity entity : container.getEntities())
             {
                 ItemStack stack = entity.getItem();
-
-                if(!stack.isEmpty() && ing.test(stack))
+                if(!entitiesToConsume.contains(entity) && ingredient.test(stack))
                 {
-                    ItemStack one = stack.copy();
-                    one.setCount(1);
-                    /*System.out.println("Converting" + ingredients + items + entity);*/
+                    matchedItems.put(ingredient, entity);
+                    entitiesToConsume.add(entity);
                     break;
                 }
             }
         }
 
-        level.playSound(
-                null,
-                this.blockPosition(),
-                CatalystSounds.PENTAGRAM_CRAFT.get(),
-                SoundSource.BLOCKS,
-                1.0f,
-                1.0f
-        );
-
-        for(ItemEntity entity : items)
+        entitiesToConsume.forEach(e ->
         {
-            entity.discard();
-            /*System.out.println("Discarded" + items + entity + "Found Result");*/
-        }
+            ItemStack stack = e.getItem();
+            stack.shrink(1);
+            if(stack.isEmpty())
+            {
+                e.discard();
+            }
+        });
 
-        ItemStack result = recipe.getResultItem(level.registryAccess());
-        if(!result.isEmpty())
-        {
-            level.addFreshEntity(new ItemEntity(level, this.getX(), this.getY() + 0.5, this.getZ(), result.copy()));
-            /*System.out.println("Recipe" + recipe + result + level + "Done!");*/
-        }
-        /*System.out.println("Item Yeet Event!" + level + items + recipe + result + "Recipe Finished Correctly");*/
+        ItemStack resultStack = recipe.assemble(container, level.registryAccess());
+        level.addFreshEntity(new ItemEntity(
+                level,
+                this.getX(),
+                this.getY() + 0.5,
+                this.getZ(),
+                resultStack
+        ));
+
+        playPentagramSound(CatalystSounds.PENTAGRAM_CRAFT.get());
     }
 
     ///Debug only
@@ -419,14 +436,7 @@ public class PentagramEntity extends Entity
                 ItemStack stack = itemEntity.getItem();
                 if(ItemStack.isSameItemSameComponents(stack, needed))
                 {
-                    level.playSound(
-                            null,
-                            this.blockPosition(),
-                            CatalystSounds.PENTAGRAM_CRAFT.get(),
-                            SoundSource.BLOCKS,
-                            1.0f,
-                            1.0f
-                    );
+                    playPentagramSound(CatalystSounds.PENTAGRAM_CRAFT.get());
 
                     int consume = Math.min(stack.getCount(), remaining);
 

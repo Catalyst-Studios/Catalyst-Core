@@ -1,4 +1,4 @@
-package net.radzratz.catalystcore.items.tools;
+package net.radzratz.catalystcore.items.tools.tools;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;

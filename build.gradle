@@ -18,11 +18,10 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
-    repositories {
-        maven {
-            name = "Curios"
-            url = uri("https://maven.theillusivec4.top/")
-        }
+
+    maven {
+        name = "Curios"
+        url = uri("https://maven.theillusivec4.top/")
     }
 }
 
@@ -125,10 +124,9 @@ dependencies {
     // We add the full version to localRuntime, not runtimeOnly, so that we do not publish a dependency on it
     // localRuntime "mezz.jei:jei-${mc_version}-neoforge:${jei_version}"
 
-    dependencies {
-        runtimeOnly "top.theillusivec4.curios:curios-neoforge:${"9.3.1+1.21.1"}"
-        compileOnly "top.theillusivec4.curios:curios-neoforge:${"9.3.1+1.21.1"}:api"
-    }
+
+    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${"9.3.1+1.21.1"}"
+    compileOnly "top.theillusivec4.curios:curios-neoforge:${"9.3.1+1.21.1"}:api"
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar

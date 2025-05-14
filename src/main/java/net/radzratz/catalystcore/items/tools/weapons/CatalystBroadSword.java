@@ -1,4 +1,4 @@
-package net.radzratz.catalystcore.items.tools;
+package net.radzratz.catalystcore.items.tools.weapons;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
@@ -14,8 +14,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class CatalystBigBonk extends SwordItem {
-    public CatalystBigBonk(Tier tier, Properties properties, Tool toolComponentData, ItemAttributeModifiers attributes)
+public class CatalystBroadSword extends SwordItem
+{
+    public CatalystBroadSword(Tier tier, Properties properties, Tool toolComponentData, ItemAttributeModifiers attributes)
     {
         super(tier, properties.component(DataComponents.TOOL, toolComponentData)
                 .component(DataComponents.ATTRIBUTE_MODIFIERS, attributes));
@@ -40,7 +41,7 @@ public class CatalystBigBonk extends SwordItem {
 
     public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, List<Component> tooltip, @NotNull TooltipFlag flag)
     {
-        tooltip.add(Component.translatable("item.catalystcore.cataclystic_big_bonk.desc").withStyle(ChatFormatting.DARK_BLUE));
+        tooltip.add(Component.translatable("item.catalystcore.cataclystic_broadsword.desc").withStyle(ChatFormatting.DARK_BLUE));
         super.appendHoverText(stack, context, tooltip, flag);
     }
 }

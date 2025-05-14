@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.phys.Vec3;
 import net.radzratz.catalystcore.blocks.entity.pentagram.PentagramEntity;
+import net.radzratz.catalystcore.util.config.CatalystConfig;
 import org.joml.Matrix4f;
 
 public class PentagramRenderTop
@@ -33,12 +34,16 @@ public class PentagramRenderTop
                               MultiBufferSource buffer,
                               int packedLight)
     {
+        if(!CatalystConfig.CONFIG.pentagram.enablePentagramSpecialRenderers.get())
+        {
+            return;
+        }
+
         poseStack.pushPose();
         poseStack.translate(0, 1, 0);
 
         LocalPlayer clientPlayer = Minecraft.getInstance().player;
-
-        if(clientPlayer == null)
+        if (clientPlayer == null)
         {
             poseStack.popPose();
             return;

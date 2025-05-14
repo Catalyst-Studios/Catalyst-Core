@@ -17,10 +17,10 @@ ___
 
 **{
 "type": "catalystcore:pentagram",
-"inputs": [
+"ingredients": [
 { "item": "minecraft:gold_ingot" } // Currently supports only 1 input
 ],
-"output": {
+"result": {
 "id": "minecraft:nether_star",
 "count": 1 // Supports multiple outputs
 }
@@ -40,6 +40,13 @@ Soon™
 
 ____
 
+**This Mod Offers a friendly Config for pack devs**
+-
+
+Whether you only want the Items, Weapons and Armor or Entities to be shown it is advised to 
+toggle **off** everything you don't want.
+
+____
 **Feel free to use this mod in any modpack!**
 
 ____

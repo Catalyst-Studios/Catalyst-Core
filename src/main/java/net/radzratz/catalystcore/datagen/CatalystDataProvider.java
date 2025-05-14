@@ -19,12 +19,13 @@ import java.util.concurrent.CompletableFuture;
 import static net.radzratz.catalystcore.CatalystCore.MOD_ID;
 
 @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@SuppressWarnings("unused")
 public class CatalystDataProvider
 {
+    @SuppressWarnings("unused")
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event)
     {
-
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();

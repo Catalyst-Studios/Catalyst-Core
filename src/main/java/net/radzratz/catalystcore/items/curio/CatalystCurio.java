@@ -6,6 +6,7 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.item.ItemStack;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurio;
@@ -58,6 +59,21 @@ public class CatalystCurio implements ICurio
         }
     }
 
+    public boolean makesPiglinsNeutral(SlotContext slotContext)
+    {
+        return true;
+    }
+
+    public boolean canWalkOnPowderedSnow(SlotContext slotContext)
+    {
+        return true;
+    }
+
+    public boolean isEnderMask(SlotContext slotContext, EnderMan enderMan)
+    {
+        return true;
+    }
+
     private void applyPermanentEffect(LivingEntity entity, Holder<MobEffect> effect, int amplifier)
     {
         boolean hasEffect = entity.getActiveEffects().stream().anyMatch(instance -> instance.getEffect() == effect.value());
@@ -88,5 +104,4 @@ public class CatalystCurio implements ICurio
         return slotContext.identifier().equals("catalyst") ||
                 slotContext.identifier().equals("curio");
     }
-
 }

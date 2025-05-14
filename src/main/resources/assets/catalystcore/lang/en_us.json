@@ -10,6 +10,15 @@
   "item.catalystcore.universe_containment_cell": "Quantum Universe Container",
   "item.catalystcore.magic_anomaly": "Magic Anomaly",
   "item.catalystcore.blood_vortex": "Blood Vortex",
+  "item.catalystcore.explorers_treasure": "Explorer's Treasure",
+  "item.catalystcore.water_orb": "Oceans Orb",
+  "item.catalystcore.container_cell": "Empty Containment Cell",
+  "item.catalystcore.end_core": "End Nucleus",
+  "item.catalystcore.black_hole": "Black Hole",
+  "item.catalystcore.nether_core": "Nether Nucleus",
+  "item.catalystcore.overworld_core": "Overworld Nucleus",
+  "item.catalystcore.chocolate_bar": "Shaped Shifted Quantum Chocolate Bar",
+  "item.catalystcore.cosmic_shatterer": "Shaped Shifted Quantum Chocolate Bar",
 
   "curios.slot_type.catalyst": "Catalyst",
   "curios.identifier.catalyst": "Catalyst",
@@ -17,17 +26,21 @@
   "item.catalystcore.cataclystic_sword": "Cataclystic Longsword",
   "item.catalystcore.cataclystic_katar": "Cataclystic Katar",
   "item.catalystcore.cataclystic_broadsword": "Cataclystic Broadsword",
+  "item.catalystcore.cataclystic_halberd": "Cataclystic Halberd",
   "item.catalystcore.cataclystic_big_bonk": "Cataclystic Great Hammer",
   "item.catalystcore.cataclystic_scythe": "Cataclystic Scythe",
+  "item.catalystcore.cataclystic_gladius": "Cataclystic Gladius",
   "item.catalystcore.cataclystic_shield": "Cataclystic Shield",
 
   "item.catalystcore.cataclystic_sword.desc": "The Universe Powers has Awoken within This Sword...",
+  "item.catalystcore.cataclystic_gladius.desc": "The Universe Powers Whispers to You In a Ancient Language of Humankind...",
   "item.catalystcore.cataclystic_broadsword.desc": "The Universe Powers Concedes a glorious Balance",
   "item.catalystcore.cataclystic_katar.desc": "The Universe Powers Grant Speed at Lower Damage",
   "item.catalystcore.cataclystic_katar.desc2": "Dual Wielded Weapon",
   "item.catalystcore.cataclystic_big_bonk.desc": "The Universe Powers Demand You to Bonk",
   "item.catalystcore.cataclystic_scythe.desc": "The Universe Powers Whispers You to Reap and Sow",
   "item.catalystcore.cataclystic_shield.desc": "The Universe Powers Grants You Perfect Protection",
+  "item.catalystcore.cataclystic_halberd.desc": "The Universe Powers Grants Distance Over Damage",
 
   "item.catalystcore.cataclystic_pickaxe": "Cataclystic Pickaxe",
   "item.catalystcore.cataclystic_pickaxe.desc": "The Universe is Craving Its Creations...",
@@ -37,9 +50,8 @@
   "block.catalystcore.catalyst_pedestal": "Pedestal",
   "block.catalystcore.eye_flower": "Eye Flower",
 
-  "creativetab.catalystcore.catalyst_core": "Catalyst Core",
+  "creativetab.catalystcore.base": "Catalyst Core Base Module",
+  "creativetab.catalystcore.weapons": "Catalyst Core Weapons Module",
 
-  "item.catalystcore.pentagram.desc": "Try Throwing Something in It's Center...",
-
-  "catalystcore.config.pentagram.enableHardcodedPentagramRecipes": "Enable Hardcoded Pentagram Recipes"
+  "item.catalystcore.pentagram.desc": "Try Throwing Something in It's Center..."
 }

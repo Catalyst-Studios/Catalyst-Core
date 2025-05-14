@@ -1,27 +1,20 @@
-package net.radzratz.catalystcore.items.tools;
+package net.radzratz.catalystcore.items.tools.weapons;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
-import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.EntityHitResult;
-import net.minecraft.world.phys.HitResult;
-import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -69,11 +62,11 @@ public class CatalystKatar extends SwordItem
     {
         ItemStack stack = player.getItemInHand(hand);
 
-        if (hand == InteractionHand.OFF_HAND)
+        if(hand == InteractionHand.OFF_HAND)
         {
             player.swing(hand);
 
-            if (!world.isClientSide)
+            if(!world.isClientSide)
             {
                 AABB attackRange = new AABB(player.getX() - 2.5, player.getY() - 1, player.getZ() - 2.5,
                         player.getX() + 2.5, player.getY() + 2, player.getZ() + 2.5);
@@ -81,7 +74,7 @@ public class CatalystKatar extends SwordItem
                 List<LivingEntity> targets = world.getEntitiesOfClass(LivingEntity.class, attackRange,
                         e -> e != player && player.hasLineOfSight(e));
 
-                for (LivingEntity target : targets)
+                for(LivingEntity target : targets)
                 {
                     float damage = (float)player.getAttributeValue(Attributes.ATTACK_DAMAGE);
 
