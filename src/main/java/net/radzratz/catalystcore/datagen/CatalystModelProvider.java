@@ -36,7 +36,8 @@ public class CatalystModelProvider extends ItemModelProvider
         basicItem(CatalystItems.OVERWORLD_CORE.get());
         basicItem(CatalystItems.CHOCOLATE_BAR.get());
         basicItem(CatalystItems.COSMIC_SHATTERER.get());
-
-        handheldItem(CatalystItems.CATALYST_BROADSWORD.get());
+        basicItem(CatalystItems.FORBIDDEN_ORB.get());
+        basicItem(CatalystItems.LAVA_ORB.get());
+        basicItem(CatalystItems.CHAOS_CRYSTAL.get());
     }
 }

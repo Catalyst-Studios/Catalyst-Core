@@ -125,7 +125,7 @@ dependencies {
     // localRuntime "mezz.jei:jei-${mc_version}-neoforge:${jei_version}"
 
 
-    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${"9.3.1+1.21.1"}"
+    localRuntime "top.theillusivec4.curios:curios-neoforge:${"9.3.1+1.21.1"}"
     compileOnly "top.theillusivec4.curios:curios-neoforge:${"9.3.1+1.21.1"}:api"
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository

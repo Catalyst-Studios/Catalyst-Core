@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "catalystcore:item/cataclystic_sword"
+    "layer0": "catalystcore:item/cataclystic_battleaxe"
   },
   "display": {
     "thirdperson_righthand": {

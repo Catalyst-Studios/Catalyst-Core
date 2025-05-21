@@ -1,7 +1,6 @@
-// 1.21.1	2025-05-09T00:33:08.0517807	Item Models: catalystcore
+// 1.21.1	2025-05-19T01:59:24.0842633	Item Models: catalystcore
 5e20f92bd2379d3ade555cb8b89329ea8d46fad2 assets/catalystcore/models/item/black_hole.json
 1a5b55ea815f6b0c114fe46e6d82c407a07fdc61 assets/catalystcore/models/item/blood_vortex.json
-1bf7254e0472f9fe05662dff3133d4895c42b9c7 assets/catalystcore/models/item/cataclystic_broadsword.json
 086634a3ce23c3cd852931aeb5cd3e5713bb895a assets/catalystcore/models/item/chocolate_bar.json
 569d803ef0979026062a849f224d46b4b162fc92 assets/catalystcore/models/item/comet_shard.json
 4fa457d9d4239e46997fb709dcc8fb72d11480af assets/catalystcore/models/item/complete_catalyst.json
@@ -11,6 +10,9 @@ b8cfabea61efda9b7cf9e1496682e83f4f4a30a6 assets/catalystcore/models/item/cosmic_
 05fc1acff5c3861d5c56dcb4394f65b7d3678ad1 assets/catalystcore/models/item/empty_catalyst.json
 0d70e300eb04000be729119858e2871c842abe19 assets/catalystcore/models/item/end_core.json
 df00bc3cb942898d228b03897d0f9e450bd9dda9 assets/catalystcore/models/item/explorers_treasure.json
+a94ec44364bab3a90cb18c03b0bd5633ed51d07f assets/catalystcore/models/item/forbidden_orb.json
+a02e84c2b5137c3d541f9ca10e4402463c6e875b assets/catalystcore/models/item/fractured_chaos_seed.json
+26e4a1272160e13929afaef598ed0813e0ad8487 assets/catalystcore/models/item/lava_orb.json
 4b3250e0c78af3d7fc500765ceff1591a6721ce1 assets/catalystcore/models/item/magic_anomaly.json
 ee2b8ea4eb53c516e4d3b90bc8f12b5092453067 assets/catalystcore/models/item/malicious_eye.json
 33717c1b4a14da8917aacceba03f742f3680feee assets/catalystcore/models/item/nano_self_aware.json

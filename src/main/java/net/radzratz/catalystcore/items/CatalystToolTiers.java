@@ -9,7 +9,7 @@ public class CatalystToolTiers
 {
 
     public static final Tier CATALYST = new SimpleTier(CatalystTags.Blocks.CATALYST_TOOLS,
-            Integer.MAX_VALUE, 0.5f, 10f, 70,
+            Integer.MAX_VALUE, 10f, 0f, 70,
             ()-> Ingredient.of(CatalystItems.CATALYST_INGOT));
 
 }

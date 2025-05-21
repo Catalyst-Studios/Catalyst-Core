@@ -9,17 +9,21 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
+import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.radzratz.catalystcore.util.config.CatalystConfig;
+import net.radzratz.catalystcore.util.config.CatalystItemInterface;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class CatalystKatar extends SwordItem
+public class CatalystKatar extends SwordItem implements CatalystItemInterface
 {
     public CatalystKatar(Tier tier,
                          Properties properties,
@@ -27,7 +31,20 @@ public class CatalystKatar extends SwordItem
                          ItemAttributeModifiers attributes)
     {
         super(tier, properties.component(DataComponents.TOOL, toolComponentData)
-                .component(DataComponents.ATTRIBUTE_MODIFIERS, attributes));
+                .component(DataComponents.ATTRIBUTE_MODIFIERS, attributes)
+                .component(DataComponents.UNBREAKABLE, new Unbreakable(true)));
+    }
+
+    @Override
+    public boolean shouldAppear()
+    {
+        return CatalystConfig.CONFIG.modules.weaponsModule.get();
+    }
+
+    @Override
+    public boolean isEnabled(@NotNull FeatureFlagSet enabledFeatures)
+    {
+        return this.shouldAppear();
     }
 
     @Override
@@ -47,6 +64,12 @@ public class CatalystKatar extends SwordItem
     public boolean isDamageable(@NotNull ItemStack stack)
     {
         return false;
+    }
+
+    @Override
+    public boolean isEnchantable(@NotNull ItemStack stack)
+    {
+        return true;
     }
 
     @Override
@@ -85,8 +108,6 @@ public class CatalystKatar extends SwordItem
         }
         return super.use(world, player, hand);
     }
-
-
 
     @Override
     public boolean canAttackBlock(@NotNull BlockState state,

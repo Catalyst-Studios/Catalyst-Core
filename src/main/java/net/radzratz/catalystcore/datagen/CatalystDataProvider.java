@@ -38,7 +38,7 @@ public class CatalystDataProvider
 
         BlockTagsProvider blockTagsProvider = new CatalystBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
         generator.addProvider(event.includeServer(), blockTagsProvider);
-        event.getGenerator().addProvider(event.includeServer(), new CatalystTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
+        event.getGenerator().addProvider(event.includeServer(), new CatalystItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
 
         generator.addProvider(event.includeClient(), new CatalystModelProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeClient(), new CatalystBlockStateProvider(packOutput, existingFileHelper));

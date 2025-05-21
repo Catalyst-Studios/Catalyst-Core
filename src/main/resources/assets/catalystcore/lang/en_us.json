@@ -18,12 +18,17 @@
   "item.catalystcore.nether_core": "Nether Nucleus",
   "item.catalystcore.overworld_core": "Overworld Nucleus",
   "item.catalystcore.chocolate_bar": "Shaped Shifted Quantum Chocolate Bar",
-  "item.catalystcore.cosmic_shatterer": "Shaped Shifted Quantum Chocolate Bar",
+  "item.catalystcore.cosmic_shatterer": "Cosmic Shatterer",
+  "item.catalystcore.forbidden_orb": "Forbidden Warlock's Orb",
+  "item.catalystcore.lava_orb": "Magmatic Orb",
+  "item.catalystcore.fractured_chaos_seed": "Fractured Chaotic Crystal",
 
   "curios.slot_type.catalyst": "Catalyst",
   "curios.identifier.catalyst": "Catalyst",
 
-  "item.catalystcore.cataclystic_sword": "Cataclystic Longsword",
+  "item.catalystcore.cataclystic_greatsword": "Cataclystic Greatsword",
+  "item.catalystcore.cataclystic_zweihander": "Cataclystic Zweihänder",
+  "item.catalystcore.cataclystic_ulfberht": "Cataclystic Ulfberht",
   "item.catalystcore.cataclystic_katar": "Cataclystic Katar",
   "item.catalystcore.cataclystic_broadsword": "Cataclystic Broadsword",
   "item.catalystcore.cataclystic_halberd": "Cataclystic Halberd",
@@ -31,27 +36,43 @@
   "item.catalystcore.cataclystic_scythe": "Cataclystic Scythe",
   "item.catalystcore.cataclystic_gladius": "Cataclystic Gladius",
   "item.catalystcore.cataclystic_shield": "Cataclystic Shield",
+  "item.catalystcore.cataclystic_battleaxe": "Cataclystic Battleaxe",
+  "item.catalystcore.cataclystic_rapier": "Cataclystic Rapier",
 
-  "item.catalystcore.cataclystic_sword.desc": "The Universe Powers has Awoken within This Sword...",
-  "item.catalystcore.cataclystic_gladius.desc": "The Universe Powers Whispers to You In a Ancient Language of Humankind...",
-  "item.catalystcore.cataclystic_broadsword.desc": "The Universe Powers Concedes a glorious Balance",
-  "item.catalystcore.cataclystic_katar.desc": "The Universe Powers Grant Speed at Lower Damage",
+  "item.catalystcore.universe_sword": "Universe's Might",
+
+  "item.catalystcore.cataclystic_greatsword.desc": "The Universe Powers has Awoken within This Sword...",
+  "item.catalystcore.cataclystic_gladius.desc": "The Universe Powers Grants Great Balance",
+  "item.catalystcore.cataclystic_broadsword.desc": "The Universe Powers Concedes a Glorious Balance",
+  "item.catalystcore.cataclystic_katar.desc": "The Universe Powers Grant GodSpeed at Lower Damage",
   "item.catalystcore.cataclystic_katar.desc2": "Dual Wielded Weapon",
   "item.catalystcore.cataclystic_big_bonk.desc": "The Universe Powers Demand You to Bonk",
   "item.catalystcore.cataclystic_scythe.desc": "The Universe Powers Whispers You to Reap and Sow",
   "item.catalystcore.cataclystic_shield.desc": "The Universe Powers Grants You Perfect Protection",
-  "item.catalystcore.cataclystic_halberd.desc": "The Universe Powers Grants Distance Over Damage",
+  "item.catalystcore.cataclystic_halberd.desc": "The Universe Powers Grants Distance with Glorious Damage",
+  "item.catalystcore.cataclystic_zweihander.desc": "The Universe Powers Grants Great Distance over Damage",
+  "item.catalystcore.cataclystic_ulfberht.desc": "The Universe Powers Grants Great Balance with Glorious Damage",
+  "item.catalystcore.cataclystic_battleaxe.desc": "The Universe Powers Grants Great Damage at Lower Speed",
+  "item.catalystcore.cataclystic_rapier.desc": "The Universe Powers Grants Speed at Lower Damage",
 
   "item.catalystcore.cataclystic_pickaxe": "Cataclystic Pickaxe",
-  "item.catalystcore.cataclystic_pickaxe.desc": "The Universe is Craving Its Creations...",
+  "item.catalystcore.cataclystic_axe": "Cataclystic Axe",
   "item.catalystcore.cataclystic_shovel": "Cataclystic Shovel",
+  "item.catalystcore.cataclystic_paxel": "Cataclystic Paxel",
+
+  "item.catalystcore.cataclystic_pickaxe.desc": "The Universe is Craving Its Creations...",
+  "item.catalystcore.cataclystic_axe.desc": "The Universe Powers Says... WATCH OUT FOR THAT TREE!",
   "item.catalystcore.cataclystic_shovel.desc": "The Universe Powers Says That It Can Create Paths",
+  "item.catalystcore.cataclystic_paxel.desc": "The Universe's Finest Creation...",
+
+  "item.catalystcore.universe_sword.desc": "Unleash It's Powers...",
 
   "block.catalystcore.catalyst_pedestal": "Pedestal",
   "block.catalystcore.eye_flower": "Eye Flower",
 
+  "entity.catalystcore.pentagram": "Pentagram",
+
   "creativetab.catalystcore.base": "Catalyst Core Base Module",
   "creativetab.catalystcore.weapons": "Catalyst Core Weapons Module",
-
-  "item.catalystcore.pentagram.desc": "Try Throwing Something in It's Center..."
+  "creativetab.catalystcore.tools": "Catalyst Core Tools Module"
 }
