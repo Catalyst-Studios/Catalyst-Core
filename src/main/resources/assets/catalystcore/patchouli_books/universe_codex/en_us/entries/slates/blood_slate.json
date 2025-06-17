@@ -1,0 +1,12 @@
+{
+  "name": "Blood Slate",
+  "category": "catalystcore:slates",
+  "icon": "catalystcore:runic_blood_slate",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Obtaining a Runic Blood Slate",
+      "text": "WIP"
+    }
+  ]
+}

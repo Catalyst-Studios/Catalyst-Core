@@ -1,3 +1,5 @@
-// 1.21.1	2025-04-21T16:48:33.3672435	Loot Tables
+// 1.21.1	2025-06-15T18:16:19.2166192	Loot Tables
 ac532645a0f02923ce80f45c25ab0f9da7af75cc data/catalystcore/loot_table/blocks/catalyst_pedestal.json
+d8e5f08d65728347f577d32c9c92a515b8f5c43b data/catalystcore/loot_table/blocks/center_pedestal.json
 bb5ee8562f549f926f62c2f5b13ae5649cdd7f77 data/catalystcore/loot_table/blocks/eye_flower.json
+754250596f561a96b6a1ba05d2369343a982d2eb data/catalystcore/loot_table/blocks/reinforced_glass.json

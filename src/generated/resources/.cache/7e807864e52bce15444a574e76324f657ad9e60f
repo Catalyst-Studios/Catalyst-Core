@@ -1,1 +1,4 @@
-// 1.21.1	2025-04-07T17:22:17.7845769	Block States: catalystcore
+// 1.21.1	2025-06-15T18:16:19.2156174	Block States: catalystcore
+d6ca851c083dc264cb46b8984a7686b701d9c6ef assets/catalystcore/blockstates/reinforced_glass.json
+a2c50eb9bb8047d635ca2612836a25828cbd6e07 assets/catalystcore/models/block/reinforced_glass.json
+4eb8004df56431c3ef4aa165f410ebb7881fe4ee assets/catalystcore/models/item/reinforced_glass.json

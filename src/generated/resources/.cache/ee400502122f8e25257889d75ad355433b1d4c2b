@@ -1,1 +1,6 @@
-// 1.21.1	2025-04-01T19:12:00.7913577	Tags for minecraft:block mod id catalystcore
+// 1.21.1	2025-06-15T18:16:19.2166192	Tags for minecraft:block mod id catalystcore
+ebcd7207b9e8cfc8fbec054dc6aabf97c738476b data/minecraft/tags/block/dragon_immune.json
+ebcd7207b9e8cfc8fbec054dc6aabf97c738476b data/minecraft/tags/block/incorrect_for_stone_tool.json
+ebcd7207b9e8cfc8fbec054dc6aabf97c738476b data/minecraft/tags/block/mineable/pickaxe.json
+ebcd7207b9e8cfc8fbec054dc6aabf97c738476b data/minecraft/tags/block/needs_iron_tool.json
+ebcd7207b9e8cfc8fbec054dc6aabf97c738476b data/minecraft/tags/block/wither_immune.json

@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.radzratz.catalystcore.CatalystCore;
+import net.radzratz.catalystcore.blocks.CatalystBlocks;
 import net.radzratz.catalystcore.items.CatalystItems;
 import net.radzratz.catalystcore.util.tag.CatalystTags;
 import org.jetbrains.annotations.NotNull;
@@ -19,7 +20,8 @@ import java.util.concurrent.CompletableFuture;
 public class CatalystItemTagProvider extends ItemTagsProvider
 {
     public CatalystItemTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider,
-                                   CompletableFuture<TagLookup<Block>> blockTags, @Nullable ExistingFileHelper existingFileHelper)
+                                   CompletableFuture<TagLookup<Block>> blockTags,
+                                   @Nullable ExistingFileHelper existingFileHelper)
     {
         super(output, lookupProvider, blockTags, CatalystCore.MOD_ID, existingFileHelper);
     }
@@ -43,6 +45,8 @@ public class CatalystItemTagProvider extends ItemTagsProvider
                 .add(CatalystItems.COSMIC_SHATTERER.asItem())
                 .add(CatalystItems.FORBIDDEN_ORB.asItem())
                 .add(CatalystItems.CHAOS_CRYSTAL.asItem())
+                .add(CatalystItems.SPIRIT_AGGLOMERATIO.asItem())
+                .add(CatalystItems.COSMIC_ABOMINATION.asItem())
                 ///Mid Game
                 .add(CatalystItems.FRAME_CATALYST.asItem())
                 .add(CatalystItems.PENTAGRAM.asItem())
@@ -53,7 +57,36 @@ public class CatalystItemTagProvider extends ItemTagsProvider
                 .add(CatalystItems.LAVA_ORB.asItem())
                 .add(CatalystItems.END_CORE.asItem())
                 .add(CatalystItems.NETHER_CORE.asItem())
-                .add(CatalystItems.OVERWORLD_CORE.asItem());
+                .add(CatalystItems.OVERWORLD_CORE.asItem())
+                .add(CatalystItems.WARDEN_CORE.asItem())
+                .add(CatalystItems.ELDER_CORE.asItem())
+                .add(CatalystItems.WITHER_CORE.asItem())
+                .add(CatalystItems.DRAGON_CORE.asItem())
+                .add(CatalystItems.EMPTY_CRYSTAL.asItem())
+                .add(CatalystItems.FIRE_CRYSTAL.asItem())
+                .add(CatalystItems.WATER_CRYSTAL.asItem())
+                .add(CatalystItems.EARTH_CRYSTAL.asItem())
+                .add(CatalystItems.WIND_CRYSTAL.asItem())
+                .add(CatalystItems.LIGHT_CRYSTAL.asItem())
+                .add(CatalystItems.DARKNESS_CRYSTAL.asItem())
+                ///Foods
+                .add(CatalystItems.CODEX.asItem())
+                .add(CatalystItems.BURRITO.asItem())
+                ///Slates
+                .add(CatalystItems.RUNIC_EMPTY.get())
+                .add(CatalystItems.RUNIC_BLOOD.get())
+                .add(CatalystItems.RUNIC_ARCANE.get())
+                .add(CatalystItems.RUNIC_ENDER.get())
+                .add(CatalystItems.INFECTED_SLATE.get())
+                ///Bottles
+                .add(CatalystItems.REINFORCED_BOTTLE.asItem())
+                .add(CatalystItems.DRAGON_BLOOD.asItem())
+                .add(CatalystItems.WITHERED_BOTTLE.asItem())
+                .add(CatalystItems.SCULK_BOTTLE.asItem())
+                .add(CatalystItems.MYCELIUM_BOTTLE.asItem())
+                .add(CatalystItems.TORCHFLOWER_BOTTLE.asItem());
+
+        tag(Tags.Items.FOODS).add(CatalystItems.BURRITO.asItem());
 
         tag(CatalystTags.Items.CATALYST_TOOLS)
                 .add(CatalystItems.CATALYST_BIG_BONK.get())
@@ -144,5 +177,9 @@ public class CatalystItemTagProvider extends ItemTagsProvider
 
         ///Curios
         tag(CuriosTags.createItemTag("catalyst")).add(CatalystItems.FULL_CATALYST.get());
+
+        tag(Tags.Items.STORAGE_BLOCKS).add(CatalystBlocks.REINFORCED_GLASS.asItem());
+        tag(Tags.Items.GLASS_BLOCKS).add(CatalystBlocks.REINFORCED_GLASS.asItem());
+        tag(Tags.Items.GLASS_BLOCKS_TINTED).add(CatalystBlocks.REINFORCED_GLASS.asItem());
     }
 }

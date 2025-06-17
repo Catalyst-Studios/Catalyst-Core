@@ -1,9 +1,13 @@
-// 1.21.1	2025-05-20T21:04:00.0727244	Tags for minecraft:item mod id catalystcore
-e3b363a02085c0d307cce42a6879490dc6fba995 data/catalystcore/tags/item/catalyst_items.json
+// 1.21.1	2025-06-15T18:16:19.2146179	Tags for minecraft:item mod id catalystcore
+3daad38eb63f998fe1ccfb8118c0dc859ddd64a2 data/catalystcore/tags/item/catalyst_items.json
 8080780e55e762f4d2bee4140869ac9f2579ca22 data/catalystcore/tags/item/catalyst_tools.json
 d8ad4df9e7a6972237cbe31ca2069f043bf98351 data/curios/tags/item/catalyst.json
 292f8a58ddc3087713ee87d2343edfd53e05e761 data/c/tags/item/enchantables.json
+d4b6695b759b70b490376dde65d41fcd3f63896c data/c/tags/item/foods.json
+ebcd7207b9e8cfc8fbec054dc6aabf97c738476b data/c/tags/item/glass_blocks.json
+ebcd7207b9e8cfc8fbec054dc6aabf97c738476b data/c/tags/item/glass_blocks/tinted.json
 b000ba38bc7abf0c4a0c79c1fe88ac0ebb0072ad data/c/tags/item/hammer.json
+ebcd7207b9e8cfc8fbec054dc6aabf97c738476b data/c/tags/item/storage_blocks.json
 ac9850b0ff9f0b0b6a61996ea3d707e6c5e78946 data/c/tags/item/tools.json
 290964b3ba11f0084b436d06e2105f92c43829dd data/c/tags/item/tools/melee_weapon.json
 78f5e91abf9a61ebac23fdf86f693b91bb93f8c1 data/c/tags/item/tools/shield.json

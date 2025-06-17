@@ -1,0 +1,12 @@
+{
+  "name": "Malicious Eye",
+  "category": "catalystcore:catalyst",
+  "icon": "catalystcore:malicious_eye",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Eye Spy You",
+      "text": "This imprisoned entity is the achievement of something extremely dangerous that only a fool would dared to do. Contained and restrained from it's powers, it can only stare at you, cursing you for eternity."
+    }
+  ]
+}

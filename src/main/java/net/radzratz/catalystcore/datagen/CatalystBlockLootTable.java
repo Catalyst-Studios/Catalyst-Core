@@ -30,7 +30,9 @@ public class CatalystBlockLootTable extends BlockLootSubProvider
     protected void generate()
     {
         dropSelf(CatalystBlocks.CATALYST_PEDESTAL.get());
+        dropSelf(CatalystBlocks.CATALYST_ALTAR_PEDESTAL.get());
         dropSelf(CatalystBlocks.EYE_FLOWER.get());
+        dropSelf(CatalystBlocks.REINFORCED_GLASS.get());
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops)

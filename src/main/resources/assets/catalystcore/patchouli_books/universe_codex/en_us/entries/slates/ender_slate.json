@@ -1,0 +1,12 @@
+{
+  "name": "Ender Slate",
+  "category": "catalystcore:slates",
+  "icon": "catalystcore:runic_ender_slate",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Obtaining a Runic Ender Slate",
+      "text": "WIP"
+    }
+  ]
+}

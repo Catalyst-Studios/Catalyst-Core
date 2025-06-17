@@ -1,0 +1,12 @@
+{
+  "name": "Dragon's Blood",
+  "category": "catalystcore:phials",
+  "icon": "catalystcore:dragon_blood_bottle",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Obtaining the Dragon's Blood",
+      "text": "To obtain the blood of the dragoness at the edge of the existence, you will need a Sharp Sword and an Empty Reinforced Phial in any hand. Then you will Right-Click this marvelous creature to extract the blood."
+    }
+  ]
+}

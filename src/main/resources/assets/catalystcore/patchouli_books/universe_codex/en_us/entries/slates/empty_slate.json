@@ -1,0 +1,12 @@
+{
+  "name": "Empty Runic Slate",
+  "category": "catalystcore:slates",
+  "icon": "catalystcore:runic_slate",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Obtaining a Runic Slate",
+      "text": "WIP"
+    }
+  ]
+}

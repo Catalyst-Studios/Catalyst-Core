@@ -50,6 +50,8 @@ public class CatalystCreativeTab
                         output.accept(CatalystItems.COSMIC_SHATTERER);
                         output.accept(CatalystItems.FORBIDDEN_ORB);
                         output.accept(CatalystItems.CHAOS_CRYSTAL);
+                        output.accept(CatalystItems.SPIRIT_AGGLOMERATIO);
+                        output.accept(CatalystItems.COSMIC_ABOMINATION);
                         output.accept(CatalystItems.FRAME_CATALYST);
                         output.accept(CatalystItems.SELF_AWARE_CHIP);
                         output.accept(CatalystItems.PENTAGRAM);
@@ -60,7 +62,31 @@ public class CatalystCreativeTab
                         output.accept(CatalystItems.END_CORE);
                         output.accept(CatalystItems.NETHER_CORE);
                         output.accept(CatalystItems.OVERWORLD_CORE);
-                        output.accept(CatalystBlocks.CATALYST_PEDESTAL);
+                        output.accept(CatalystItems.WARDEN_CORE);
+                        output.accept(CatalystItems.ELDER_CORE);
+                        output.accept(CatalystItems.WITHER_CORE);
+                        output.accept(CatalystItems.DRAGON_CORE);
+                        output.accept(CatalystItems.EMPTY_CRYSTAL);
+                        output.accept(CatalystItems.FIRE_CRYSTAL);
+                        output.accept(CatalystItems.WATER_CRYSTAL);
+                        output.accept(CatalystItems.EARTH_CRYSTAL);
+                        output.accept(CatalystItems.WIND_CRYSTAL);
+                        output.accept(CatalystItems.LIGHT_CRYSTAL);
+                        output.accept(CatalystItems.DARKNESS_CRYSTAL);
+                        output.accept(CatalystItems.BURRITO);
+                        output.accept(CatalystItems.REINFORCED_BOTTLE);
+                        output.accept(CatalystItems.DRAGON_BLOOD);
+                        output.accept(CatalystItems.WITHERED_BOTTLE);
+                        output.accept(CatalystItems.SCULK_BOTTLE);
+                        output.accept(CatalystItems.MYCELIUM_BOTTLE);
+                        output.accept(CatalystItems.TORCHFLOWER_BOTTLE);
+                        output.accept(CatalystItems.RUNIC_EMPTY);
+                        output.accept(CatalystItems.RUNIC_BLOOD);
+                        output.accept(CatalystItems.RUNIC_ARCANE);
+                        output.accept(CatalystItems.RUNIC_ENDER);
+                        output.accept(CatalystItems.INFECTED_SLATE);
+                        output.accept(CatalystBlocks.CATALYST_ALTAR_PEDESTAL);
+                        output.accept(CatalystBlocks.REINFORCED_GLASS);
                     }).build());
 
     ///Weapons Module

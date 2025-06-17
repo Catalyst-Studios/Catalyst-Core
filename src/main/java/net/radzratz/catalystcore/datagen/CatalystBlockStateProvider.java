@@ -18,6 +18,7 @@ public class CatalystBlockStateProvider extends BlockStateProvider
     protected void registerStatesAndModels()
     {
         /*blockWithItem(CatalystBlocks.MULTIBLOCK_CONTROLLER);*/
+        blockWithItem(CatalystBlocks.REINFORCED_GLASS);
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock)

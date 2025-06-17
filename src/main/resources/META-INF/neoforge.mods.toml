@@ -19,7 +19,14 @@ description="Catalyst Core adds end-game items, dimensions, blocks, block entiti
 [[dependencies.catalystcore]]
 modId="neoforge"
 type="required"
-versionRange="21.1.142"
+versionRange="21.1.152"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.catalystcore]]
+modId="modopedia"
+type="optional"
+versionRange="1.0.13"
 ordering="NONE"
 side="BOTH"
 
@@ -27,6 +34,13 @@ side="BOTH"
 modId="curios"
 type="optional"
 versionRange="9.2.2+1.21.1"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.catalystcore]]
+modId="patchouli"
+type="optional"
+versionRange="1.21-88"
 ordering="NONE"
 side="BOTH"
 

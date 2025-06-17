@@ -1,0 +1,12 @@
+{
+  "name": "Magic Anomaly",
+  "category": "catalystcore:catalyst",
+  "icon": "catalystcore:magic_anomaly",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Breaking the Reality",
+      "text": "Formed by an unprecedented convergence of all magical disciplines — from Elven rites to Voidbinding — this anomaly defies categorization. It is not a spell, nor a creature, but a flaw in the arcane weave; a wound where reality collapses under magical overload."
+    }
+  ]
+}

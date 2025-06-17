@@ -1,0 +1,12 @@
+{
+  "name": "Withered Essence",
+  "category": "catalystcore:phials",
+  "icon": "catalystcore:withered_essence_bottle",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Obtaining the Withered Essence",
+      "text": "To start off, we highly suggest you contain this monster before proceeding. You will need a brush on your main hand, and a Reinforced Phial in your offhand to extract this essence cautiously."
+    }
+  ]
+}

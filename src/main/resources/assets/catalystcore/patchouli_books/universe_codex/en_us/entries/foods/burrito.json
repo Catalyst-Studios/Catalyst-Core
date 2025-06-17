@@ -1,0 +1,12 @@
+{
+  "name": "Catalyst Burrito™",
+  "category": "catalystcore:foods",
+  "icon": "catalystcore:burrito",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Catalyst Burrito",
+      "text": "This strange burrito appeared out of nowhere, it's origins are unknown even to the Universe itself. It's taste is great and its filled with an excessive amount of beans? Oh and it has a TM on it, great."
+    }
+  ]
+}

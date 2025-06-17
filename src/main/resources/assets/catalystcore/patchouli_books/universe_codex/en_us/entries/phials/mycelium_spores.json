@@ -1,0 +1,12 @@
+{
+  "name": "Mycelium Spres",
+  "category": "catalystcore:phials",
+  "icon": "catalystcore:mycelium_bottle",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Obtaining the Mycelium Spores",
+      "text": "This is easy peasy to do. You simply need to find some mycelium blocks, Right-Click them while having a Brush on your Main-Hand and the Reinforced Phial on your Off-Hand, and voila."
+    }
+  ]
+}

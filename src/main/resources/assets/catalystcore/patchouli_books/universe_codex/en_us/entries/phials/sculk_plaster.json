@@ -1,0 +1,12 @@
+{
+  "name": "Sculk Biomass",
+  "category": "catalystcore:phials",
+  "icon": "catalystcore:sculk_bottle",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Obtaining the Sculk Plaster",
+      "text": "Extracting this should be easy, in fact, it's extremely easy to do. You'll need a Golden Shovel on your main hand, as it has unique properties, and a Reinforced Phial on your Off-Hand. Right Click any sculk block (except the veins), and you should be able to extract this biomass."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Infected Slate",
+  "category": "catalystcore:slates",
+  "icon": "catalystcore:infected_slate",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Obtaining an Infected Slate",
+      "text": ""
+    }
+  ]
+}

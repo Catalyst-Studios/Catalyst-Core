@@ -10,6 +10,7 @@ public class CatalystConfig
 
     public final PentagramConfig pentagram;
     public final ModulesConfig modules;
+    public final PhialEvents phials;
     public final CatalystCurios curioCompatibility;
 
     static
@@ -25,6 +26,7 @@ public class CatalystConfig
 
         this.pentagram = new PentagramConfig(builder);
         this.modules = new ModulesConfig(builder);
+        this.phials = new PhialEvents(builder);
         this.curioCompatibility = new CatalystCurios(builder);
 
         builder.pop();
@@ -80,10 +82,9 @@ public class CatalystConfig
 
         public ModulesConfig(ModConfigSpec.Builder builder)
         {
-            ///Only Hides the tools and weapons from CatalystCore Mod
-            ///It does not unregister them in any way
-            ///Any existing Tool or Weapon within any world is safe and sound
-            ///With any of these values set to "false"
+            /// This part of the config does NOT unregister any of CatalystCore Items
+            ///
+            /// This only "hides" them Items and toggles their functionality over CatalystCore Mod
 
             builder.comment("Toggle mod features/modules").push("modules");
 
@@ -98,6 +99,63 @@ public class CatalystConfig
                     .translation("config.catalystcore.modules.tools")
                     .gameRestart()
                     .define("toggleCataclysticTools", true); ///True by default
+
+            builder.pop();
+        }
+    }
+
+    public static class PhialEvents
+    {
+        public final ModConfigSpec.BooleanValue phialEvents;
+        public final ModConfigSpec.BooleanValue dragonPhial;
+        public final ModConfigSpec.BooleanValue witheredPhial;
+        public final ModConfigSpec.BooleanValue sculkPhial;
+        public final ModConfigSpec.BooleanValue torchFlowerPhial;
+        public final ModConfigSpec.BooleanValue myceliumPhial;
+
+        public PhialEvents(ModConfigSpec.Builder builder)
+        {
+            /// This part of the config does NOT unregister any of CatalystCore Phials
+            ///
+            /// This only toggles their functionality over CatalystCore Mod
+
+            builder.comment("Catalyst Phial Events").push("phials");
+
+            this.phialEvents = builder
+                    .comment("Server/Client - Enables all phial events. If this is set to false, the rest of this config can be ignored")
+                    .translation("config.catalystcore.phials.all_phials")
+                    .gameRestart()
+                    .define("toggleAllPhialEvents", true); /// True by default
+
+            this.dragonPhial = builder
+                    .comment("Server/Client - Enables dragon phial event")
+                    .translation("config.catalystcore.phials.dragon_phial")
+                    .gameRestart()
+                    .define("toggleDragonPhial", true); /// True by default
+
+            this.witheredPhial = builder
+                    .comment("Server/Client - Enables withered phial event")
+                    .translation("config.catalystcore.phials.withered_phial")
+                    .gameRestart()
+                    .define("toggleWitheredPhial", true); /// True by default
+
+            this.sculkPhial = builder
+                    .comment("Server/Client - Enables sculk phial event")
+                    .translation("config.catalystcore.phials.sculk_phial")
+                    .gameRestart()
+                    .define("toggleSculkPhial", true); /// True by default
+
+            this.torchFlowerPhial = builder
+                    .comment("Server/Client - Enables torchflower phial event")
+                    .translation("config.catalystcore.phials.torchflower_phial")
+                    .gameRestart()
+                    .define("toggleTorchFlowerPhial", true); /// True by default
+
+            this.myceliumPhial = builder
+                    .comment("Server/Client - Enables mycelium phial event")
+                    .translation("config.catalystcore.phials.mycelium_phial")
+                    .gameRestart()
+                    .define("toggleMyceliumPhial", true); /// True by default
 
             builder.pop();
         }
@@ -122,7 +180,7 @@ public class CatalystConfig
         {
             ///Dedicated Config for PackDevs who don't want any type of effects within the Catalyst Item using CuriosAPI Mod
             ///
-            ///These values are set to use gameRestart() as it may or not crash with Server/Client incompatibility
+            ///These values are set to use gameRestart() as it may or not crash with a Server/Client incompatibility result
             ///and im not willing to find this out honestly... so restart yer game each time ye disable these
             ///
             ///Will someone read all of this!? Dunno but hey ya reader!

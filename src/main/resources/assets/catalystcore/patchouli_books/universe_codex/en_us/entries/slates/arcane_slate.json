@@ -1,0 +1,12 @@
+{
+  "name": "Arcane Slate",
+  "category": "catalystcore:slates",
+  "icon": "catalystcore:runic_arcane_slate",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Obtaining a Runic Arcane Slate",
+      "text": "WIP"
+    }
+  ]
+}

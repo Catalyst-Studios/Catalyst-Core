@@ -39,5 +39,31 @@ public class CatalystModelProvider extends ItemModelProvider
         basicItem(CatalystItems.FORBIDDEN_ORB.get());
         basicItem(CatalystItems.LAVA_ORB.get());
         basicItem(CatalystItems.CHAOS_CRYSTAL.get());
+        basicItem(CatalystItems.SPIRIT_AGGLOMERATIO.get());
+        basicItem(CatalystItems.WARDEN_CORE.get());
+        basicItem(CatalystItems.ELDER_CORE.get());
+        basicItem(CatalystItems.EMPTY_CRYSTAL.get());
+        basicItem(CatalystItems.FIRE_CRYSTAL.get());
+        basicItem(CatalystItems.WATER_CRYSTAL.get());
+        basicItem(CatalystItems.EARTH_CRYSTAL.get());
+        basicItem(CatalystItems.WIND_CRYSTAL.get());
+        basicItem(CatalystItems.LIGHT_CRYSTAL.get());
+        basicItem(CatalystItems.DARKNESS_CRYSTAL.get());
+        basicItem(CatalystItems.BURRITO.get());
+        basicItem(CatalystItems.COSMIC_ABOMINATION.get());
+        basicItem(CatalystItems.WITHER_CORE.get());
+        basicItem(CatalystItems.DRAGON_CORE.get());
+        basicItem(CatalystItems.REINFORCED_BOTTLE.get());
+        basicItem(CatalystItems.DRAGON_BLOOD.get());
+        basicItem(CatalystItems.WITHERED_BOTTLE.get());
+        basicItem(CatalystItems.SCULK_BOTTLE.get());
+        basicItem(CatalystItems.TORCHFLOWER_BOTTLE.get());
+        basicItem(CatalystItems.CODEX.get());
+        basicItem(CatalystItems.RUNIC_EMPTY.get());
+        basicItem(CatalystItems.RUNIC_BLOOD.get());
+        basicItem(CatalystItems.RUNIC_ARCANE.get());
+        basicItem(CatalystItems.INFECTED_SLATE.get());
+        basicItem(CatalystItems.MYCELIUM_BOTTLE.get());
+        basicItem(CatalystItems.RUNIC_ENDER.get());
     }
 }
