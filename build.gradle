@@ -1,7 +1,8 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '1.0.21'
+    id 'net.neoforged.moddev' version '2.0.94'
+    id 'idea'
 }
 
 tasks.named('wrapper', Wrapper).configure {
@@ -14,22 +15,30 @@ group = mod_group_id
 repositories {
     mavenLocal()
 
-    //Curios
     maven {
-        name = "Curios"
-        url = uri("https://maven.theillusivec4.top/")
+        name = 'Curios'
+        url = 'https://maven.theillusivec4.top/'
     }
 
-    //Patchouli
     maven {
-        url 'https://maven.blamejared.com'
+        name = 'BlameJared'
+        url = 'https://maven.blamejared.com'
     }
 
-    //Ponder
-    maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" }
-    maven { url = "https://maven.createmod.net" }
+    maven {
+        name = 'Fuzss Resources'
+        url = 'https://raw.githubusercontent.com/Fuzss/modresources/main/maven/'
+    }
 
-    //Modopedia soon™
+    maven {
+        name = 'Create'
+        url = 'https://maven.createmod.net'
+    }
+
+    maven {
+        name = 'Favouriteless Maven'
+        url = 'https://maven.favouriteless.net/releases'
+    }
 }
 
 base {
@@ -56,12 +65,10 @@ neoForge {
         server {
             server()
             programArgument '--nogui'
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 
         gameTestServer {
             type = "gameTestServer"
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 
         data {
@@ -90,15 +97,14 @@ configurations {
 }
 
 dependencies {
-    // Curios
     localRuntime "top.theillusivec4.curios:curios-neoforge:${"9.3.1+1.21.1"}"
     compileOnly "top.theillusivec4.curios:curios-neoforge:${"9.3.1+1.21.1"}:api"
-    //Patchouli
-    compileOnly "vazkii.patchouli:Patchouli:${project.patchouli_version}-NEOFORGE"
-    runtimeOnly "vazkii.patchouli:Patchouli:${project.patchouli_version}-NEOFORGE"
-    //Ponder
+
+    implementation "vazkii.patchouli:Patchouli:${project.patchouli_version}-NEOFORGE"
+
     implementation("net.createmod.ponder:Ponder-NeoForge-1.21.1:${ponder_version}")
-    //Modopedia soon™
+
+    implementation "net.favouriteless.modopedia:modopedia-neoforge-${minecraft_version}:${modopedia_version}"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

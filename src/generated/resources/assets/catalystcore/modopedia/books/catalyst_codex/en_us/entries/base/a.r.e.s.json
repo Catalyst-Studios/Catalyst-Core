@@ -1,0 +1,45 @@
+{
+  "assigned_items": [
+    "catalystcore:a.r.e.s"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:a.r.e.s"
+  },
+  "pages": [
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "Autonomous Reconnaissance & Elimination Sphere\nCreated through a fusion of high-order formulas and arcane blueprint schematics, A.R.E.S was meant\nto serve as a flawless autonomous unit.\nBut somewhere in the process, the logic fractured. The design turned inward.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "text": "Now it operates with corrupted purpose.\n\nIt refuses to harm its creator—recognizing that without them,\nit would not exist.\n\nBut to all other life, A.R.E.S is merciless. Its senses pierce the\nveil between life and death. It sees what should remain unseen\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "count": 1,
+              "id": "catalystcore:a.r.e.s"
+            }
+          ],
+          "template": "modopedia:large_framed_showcase",
+          "x": 65,
+          "y": 25
+        }
+      ]
+    }
+  ],
+  "title": "Project A.R.E.S"
+}

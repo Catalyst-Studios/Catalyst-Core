@@ -1,0 +1,25 @@
+{
+  "type": "catalystcore:reaction_item_brewing",
+  "fluid": "minecraft:water",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "minecraft:emerald"
+    },
+    {
+      "item": "minecraft:gunpowder"
+    }
+  ],
+  "output":
+  {
+    "id": "minecraft:nether_star"
+  },
+  "fluidAmount": 1000,
+  "cookingTime": 20,
+  "requiresHeat": true
+}

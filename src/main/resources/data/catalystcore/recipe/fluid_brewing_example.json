@@ -1,0 +1,9 @@
+{
+  "type": "catalystcore:fluid_brewing",
+  "ingredients": [{"item": "minecraft:blaze_powder"}],
+  "output": {"id": "minecraft:lava", "amount": 1000},
+  "fluidAmount": 1000,
+  "cookingTime": 20,
+  "requiresHeat": true,
+  "fluid": "minecraft:water"
+}

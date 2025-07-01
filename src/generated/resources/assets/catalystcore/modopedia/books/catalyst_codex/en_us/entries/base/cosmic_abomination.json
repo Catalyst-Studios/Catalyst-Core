@@ -1,0 +1,32 @@
+{
+  "assigned_items": [
+    "catalystcore:cosmic_abomination"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:cosmic_abomination"
+  },
+  "pages": [
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "It has awakened. Once dormant beyond the edge of all reality, this being was drawn to you by choices you thought noble—actions meant for a greater good, yet twisted by consequence. Now it follows. It clings to your presence. The world feels wrong when it’s near. It doesn’t speak."
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "It doesn’t remember why it exists. But it knows you. And it is watching."
+        }
+      ]
+    }
+  ],
+  "title": "Something is Wrong..."
+}

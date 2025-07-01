@@ -1,0 +1,19 @@
+{
+  "entries": [
+    "base/the_catalyst",
+    "base/a.r.e.s",
+    "base/chocolate_bar",
+    "base/cosmic_abomination",
+    "base/spirit_agglomeratio",
+    "base/cosmic_shatterer",
+    "base/fractured_crystal",
+    "base/magic_anomaly",
+    "base/icaros"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:complete_catalyst"
+  },
+  "landing_text": "The Universe's Finest Creations... Some shouldn't even see the light, but allas... here we are.",
+  "title": "Catalyst Core Base"
+}

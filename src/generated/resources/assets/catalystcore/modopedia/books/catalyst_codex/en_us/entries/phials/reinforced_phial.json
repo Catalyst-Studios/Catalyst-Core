@@ -1,0 +1,40 @@
+{
+  "assigned_items": [
+    "catalystcore:reinforced_bottle"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:reinforced_bottle"
+  },
+  "pages": [
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "This is an $(b)Empty Reinforced Phial$().\n\nThese can be crafted with the Reinforced Glass, a glass so strong that is capable of withstanding the\nmight of the Dragon and the Explosive Nature from the Wither.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "count": 1,
+              "id": "catalystcore:reinforced_bottle"
+            }
+          ],
+          "template": "modopedia:large_framed_showcase"
+        },
+        {
+          "type": "modopedia:text",
+          "line_height": 12,
+          "text": "\n\n\n\n\n\n\n\n\nThese type of bottles are the only ones 'capable' of containing these essences without Exploding.\n"
+        }
+      ]
+    }
+  ],
+  "title": "Reinforced Phial"
+}

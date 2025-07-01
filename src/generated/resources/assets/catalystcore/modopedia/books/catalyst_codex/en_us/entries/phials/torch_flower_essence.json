@@ -1,0 +1,40 @@
+{
+  "assigned_items": [
+    "catalystcore:torchflower_bottle"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:torchflower_bottle"
+  },
+  "pages": [
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "TorchFlower Essence is extremely easy to collect!\n\nAs you only need an $(el:phials/reinforced_phial)$(u)$(c:#ffffff)Empty Phial$() and a special type\nof shears to cut this plant's flower! Hold the Phial on your Off-Hand and the Shears\non your Main-Hand to collect this essence. And lastly, Right Click the Flower.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "count": 1,
+              "id": "catalystcore:torchflower_bottle"
+            }
+          ],
+          "template": "modopedia:large_framed_showcase"
+        },
+        {
+          "type": "modopedia:text",
+          "line_height": 12,
+          "text": "\n\n\n\n\n\n\n\n\nBy doing this, the Torchflower will loose it's properties and decay.\n"
+        }
+      ]
+    }
+  ],
+  "title": "TorchFlower Essence"
+}

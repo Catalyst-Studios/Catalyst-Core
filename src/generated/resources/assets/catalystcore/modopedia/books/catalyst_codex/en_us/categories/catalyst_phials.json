@@ -1,0 +1,19 @@
+{
+  "entries": [
+    "phials/reinforced_phial",
+    "phials/torch_flower_essence",
+    "phials/withered_essence",
+    "phials/dragon_blood",
+    "phials/pixie_essence",
+    "phials/mycelium_spores",
+    "phials/souls",
+    "phials/life_essence",
+    "phials/sculk_biomass"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:reinforced_bottle"
+  },
+  "landing_text": "Phials are essential to extract and store essences.\n\nAlso capable of storing Biomass of specific living creatures... and their souls.\n",
+  "title": "Reinforced Phials"
+}

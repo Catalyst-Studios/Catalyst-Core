@@ -1,0 +1,22 @@
+{
+  "assigned_items": [
+    "catalystcore:magic_anomaly"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:magic_anomaly"
+  },
+  "pages": [
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "Formed by an unprecedented convergence of all magical disciplines — from Elven rites to Voidbinding — this anomaly defies categorization. It is not a spell, nor a creature, but a flaw in the arcane weave; a wound where reality collapses under magical overload."
+        }
+      ]
+    }
+  ],
+  "title": "Breaking the Reality"
+}

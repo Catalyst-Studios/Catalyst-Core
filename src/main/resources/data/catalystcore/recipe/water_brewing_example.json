@@ -1,0 +1,13 @@
+{
+  "type": "catalystcore:water_brewing",
+  "ingredients": [
+    { "item": "minecraft:dirt" },
+    { "item": "minecraft:rotten_flesh" }
+  ],
+  "output": {
+    "id": "minecraft:diamond"
+  },
+  "fluidAmount": 1000,
+  "cookingTime": 20,
+  "requiresHeat": true
+}

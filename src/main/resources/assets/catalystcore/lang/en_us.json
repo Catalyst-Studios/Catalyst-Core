@@ -19,7 +19,7 @@
   "item.catalystcore.overworld_core": "Overworld Nucleus",
   "item.catalystcore.chocolate_bar": "Shaped Shifted Quantum Chocolate Bar",
   "item.catalystcore.cosmic_shatterer": "Cosmic Shatterer",
-  "item.catalystcore.forbidden_orb": "Forbidden Warlock's Orb",
+  "item.catalystcore.forbidden_orb": "Forbidden Artifact",
   "item.catalystcore.lava_orb": "Magmatic Orb",
   "item.catalystcore.fractured_chaos_seed": "Fractured Chaotic Crystal",
   "item.catalystcore.spirit_agglomeratio": "Spirit Agglomeratio",
@@ -35,20 +35,28 @@
   "item.catalystcore.elemental_wind_crystal": "Wind Crystal",
   "item.catalystcore.elemental_light_crystal": "Light Crystal",
   "item.catalystcore.elemental_darkness_crystal": "Darkness Crystal",
+  "item.catalystcore.a.r.e.s": "A.R.E.S",
+  "item.catalystcore.icaros": "ICar-Os Device",
 
   "item.catalystcore.burrito": "Cataclystic Burrito™",
+
   "item.catalystcore.reinforced_bottle": "Reinforced Empty Phial",
   "item.catalystcore.dragon_blood_bottle": "Reinforced Phial of Dragon's Blood",
   "item.catalystcore.withered_essence_bottle": "Reinforced Phial of Withered Essence",
   "item.catalystcore.sculk_bottle": "Reinforced Phial of Sculk Biomass",
   "item.catalystcore.torchflower_bottle": "Reinforced Phial of Torch Flower Essence",
   "item.catalystcore.mycelium_bottle": "Reinforced Phial of Mycelium Spores",
+  "item.catalystcore.pixie_essence": "Reinforced Phial of Pixie Essence",
+  "item.catalystcore.life_essence_bottle": "Reinforced Phial of Life Essence",
+
   "item.catalystcore.universe_codex": "Universe Codex",
-  "item.catalystcore.runic_slate": "Runic Slate",
+
+  "item.catalystcore.runic_slate": "Runic Blank Slate",
   "item.catalystcore.runic_blood_slate": "Runic Blood Slate",
   "item.catalystcore.runic_arcane_slate": "Runic Arcane Slate",
   "item.catalystcore.runic_ender_slate": "Runic Ender Slate",
   "item.catalystcore.infected_slate": "Infected Slate",
+  "item.catalystcore.esotherical_runic_slate": "Esotherical Runic Slate",
 
   "curios.slot_type.catalyst": "Catalyst",
   "curios.identifier.catalyst": "Catalyst",
@@ -94,9 +102,8 @@
 
   "item.catalystcore.universe_sword.desc": "Unleash It's Powers...",
 
-  "block.catalystcore.catalyst_pedestal": "Pedestal",
   "block.catalystcore.center_pedestal": "Pedestal",
-  "block.catalystcore.eye_flower": "Eye Flower",
+
   "block.catalystcore.reinforced_glass": "Reinforced Glass",
 
   "entity.catalystcore.pentagram": "Pentagram",
@@ -104,22 +111,48 @@
   "creativetab.catalystcore.base": "Catalyst Core Base Module",
   "creativetab.catalystcore.weapons": "Catalyst Core Weapons Module",
   "creativetab.catalystcore.tools": "Catalyst Core Tools Module",
+  "creativetab.catalystcore.components": "Catalyst Core Components",
+  "creativetab.catalystcore.foods": "Catalyst Core Foods",
+  "creativetab.catalystcore.blocks": "Catalyst Core Blocks",
 
-  "catalystcore.ponder.torch_flower_essence.header": "Extracting the Torch Flower Essence with a Phial",
+  "catalystcore.ponder.torch_flower_essence.header": "Extracting the Torch Flower Essence with a Phial.",
   "catalystcore.ponder.torch_flower_essence.text_1": "First, we'll need to grow a Torchflower to extract it's essence",
   "catalystcore.ponder.torch_flower_essence.text_2": "Next, we're going to need some Shears and a Reinforced Phial\n The Phial goes on the Left Hand\n And the Shears on the Right Hand",
   "catalystcore.ponder.torch_flower_essence.text_3": "The plant will lose its properties and decay in the process...",
   "catalystcore.ponder.torch_flower_essence.text_4": "So, a method to duplicate these flowers is suggested.",
 
-  "catalystcore.ponder.sculk_biomass.header": "Extracting the Biomass from the Sculk",
+  "catalystcore.ponder.sculk_biomass.header": "Extracting the Biomass from the Sculk.",
   "catalystcore.ponder.sculk_biomass.text_1": "To extract this biomass you will need to venture into the Deep Dark.",
   "catalystcore.ponder.sculk_biomass.text_2": "Hold a Golden Shovel on you Right Hand and a Reinforced Phial on your Left Hand.\n\nGolden Equipment has some unique traits to manipulate sculk with ease.",
   "catalystcore.ponder.sculk_biomass.text_3": "We can extract the Biomass from any Sculk block, except for the veins as they're extremely delicate.",
   "catalystcore.ponder.sculk_biomass.text_4": "But be careful to not attract unwanted attention from Shriekers.",
   "catalystcore.ponder.sculk_biomass.text_5": "And after all this, we now have a Reinforced Phial filled with Sculk Biomass.",
 
+  "catalystcore.ponder.wither_essence.header": "Extracting the Withered Essence.",
+  "catalystcore.ponder.wither_essence.text_1": "Before we proceed, Catalyst Core adds a new type of glass, capable of withstanding Wither explosions.\n\nThis being the Reinforced Glass",
+  "catalystcore.ponder.wither_essence.text_2": "Another method we recommend, if its available, its the Stasis Chamber from Industrial Foregoing.",
+  "catalystcore.ponder.wither_essence.text_3": "First, to extract this essence we'll need to capture a Wither.",
+  "catalystcore.ponder.wither_essence.text_4": "You'll need a special Brush in your main hand...",
+  "catalystcore.ponder.wither_essence.text_5": "...and a Reinforced Phial in your offhand.",
+  "catalystcore.ponder.wither_essence.text_6": "Cautiously, Right Click the Wither to extract this essence.",
+  "catalystcore.ponder.wither_essence.text_7": "The final result will be Withered Essence.",
+
+  "catalystcore.ponder.dragon_blood.header": "Extracting the Dragon's Blood.",
+  "catalystcore.ponder.dragon_blood.text_1": "To get Dragon's Blood we must venture into The End to get this Item. So be ready!",
+  "catalystcore.ponder.dragon_blood.text_2": "To extract the drake's blood, hold the God's Bain Dagger on your Right Hand and the Reinforced Phial on your Left Hand",
+  "catalystcore.ponder.dragon_blood.text_3": "Once we strike the beast with Right Click, we'll obtain the Dragon's Blood.",
+  "catalystcore.ponder.dragon_blood.text_4": "This blood is extremely rare and powerful. Use it wisely.",
+
+  "catalystcore.ponder.mycelium_spores.header": "Extracting Mycelium Spores.",
+  "catalystcore.ponder.mycelium_spores.text_1": "This might be a bit tricky, as the first step is Finding a single Mycelium Block.",
+  "catalystcore.ponder.mycelium_spores.text_2": "Once we find or create a single block of these, we may now proceed.",
+  "catalystcore.ponder.mycelium_spores.text_3": "You will hold a Brush on your Right Hand and a Reinforced Phial on you Left Hand. Right Click the block of Mycelium to extract some of it's Spores",
+  "catalystcore.ponder.mycelium_spores.text_4": "These spores are quite useful for multiple things. So gather as much as you can.",
+
   "catalystcore.ponder.tag.phials": "Reinforced Phials",
   "catalystcore.ponder.tag.phials.description": "Reinforced Phials capable of extracting and storing arcane or biological essence",
   "catalystcore.ponder.tag.slates": "Runic Slates",
-  "catalystcore.ponder.tag.slates.description": "Runic slates used for rituals or crafting"
+  "catalystcore.ponder.tag.slates.description": "Runic slates used for rituals or crafting",
+  "catalystcore.ponder.tag.books": "Universe Codex",
+  "catalystcore.ponder.tag.books.description": "In-Game Guide and Lore Book for CatalystCore"
 }

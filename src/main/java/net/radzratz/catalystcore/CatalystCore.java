@@ -3,18 +3,16 @@ package net.radzratz.catalystcore;
 import net.createmod.ponder.foundation.PonderIndex;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.config.ModConfig;
-import net.radzratz.catalystcore.blocks.CatalystBlocks;
-import net.radzratz.catalystcore.blocks.entity.CatalystBlockEntities;
-import net.radzratz.catalystcore.items.curio.CatalystCurioCompatibility;
-import net.radzratz.catalystcore.particle.CatalystParticles;
-import net.radzratz.catalystcore.ponder.CatalystPonderPlugin;
-import net.radzratz.catalystcore.recipes.pentagram.debug.PentagramRecipeManager;
-import net.radzratz.catalystcore.recipes.pentagram.debug.TransmutationRecipe;
-import net.radzratz.catalystcore.entities.CatalystEntities;
-import net.radzratz.catalystcore.items.CatalystItems;
-import net.radzratz.catalystcore.recipes.CatalystRecipeTypes;
-import net.radzratz.catalystcore.sound.CatalystSounds;
-import net.radzratz.catalystcore.util.CatalystCreativeTab;
+import net.radzratz.catalystcore.client.blocks.CTCEBlocks;
+import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
+import net.radzratz.catalystcore.common.compat.curios.curio.curios.CatalystCurioItem;
+import net.radzratz.catalystcore.client.visuals.particle.CTCEParticles;
+import net.radzratz.catalystcore.common.compat.ponder.CTCEPonderPlugin;
+import net.radzratz.catalystcore.client.entities.CTCEEntities;
+import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.recipes.CTCERecipeTypes;
+import net.radzratz.catalystcore.client.sound.CTCESounds;
+import net.radzratz.catalystcore.common.util.CTCECreativeTabs;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -22,7 +20,7 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.radzratz.catalystcore.util.config.CatalystConfig;
+import net.radzratz.catalystcore.common.util.config.CTCEConfig;
 
 @Mod(CatalystCore.MOD_ID)
 public class CatalystCore
@@ -33,31 +31,29 @@ public class CatalystCore
     {
         modEventBus.addListener(this::commonSetup);
 
-        modContainer.registerConfig(ModConfig.Type.COMMON, CatalystConfig.CONFIG_SPEC);
+        modContainer.registerConfig(ModConfig.Type.COMMON, CTCEConfig.CONFIG_SPEC);
 
-        CatalystSounds.init(modEventBus);
-        CatalystRecipeTypes.register(modEventBus);
-        CatalystItems.register(modEventBus);
-        CatalystBlocks.register(modEventBus);
-        CatalystBlockEntities.register(modEventBus);
-        CatalystEntities.register(modEventBus);
-        CatalystCreativeTab.register(modEventBus);
-        CatalystParticles.register(modEventBus);
+        CTCESounds.init(modEventBus);
+        CTCERecipeTypes.register(modEventBus);
+        CTCEItems.register(modEventBus);
+        CTCEBlocks.register(modEventBus);
+        CTCEBlockEntities.register(modEventBus);
+        CTCEEntities.register(modEventBus);
+        CTCECreativeTabs.register(modEventBus);
+        CTCEParticles.register(modEventBus);
 
         if(ModList.get().isLoaded("curios"))
         {
-            modEventBus.addListener(CatalystCurioCompatibility::registerCatalystCurioCapabilities);
+            modEventBus.addListener(CatalystCurioItem::registerCatalystCurioCapabilities);
         }
 
-        PonderIndex.addPlugin(new CatalystPonderPlugin());
+        PonderIndex.addPlugin(new CTCEPonderPlugin());
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
         event.enqueueWork(() ->
         {
-            ///Debug only
-            PentagramRecipeManager.addRecipe(new TransmutationRecipe());
         });
     }
 

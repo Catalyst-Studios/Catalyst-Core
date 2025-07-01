@@ -1,0 +1,32 @@
+{
+  "assigned_items": [
+    "catalystcore:fractured_chaos_seed"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:fractured_chaos_seed"
+  },
+  "pages": [
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "Born from a failed pursuit of elemental unity. Scholars and arcanists once sought to bind fire, water, earth, air, and other primordial forces into a single, perfect core. \n\nThey did not achieve balance—they summoned catastrophe."
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "The result was a fracture in the elemental order itself. \n\nWhat remains is this crystal—unstable, volatile, and eternally defiant. \n\nIt resonates with power, but not with purpose."
+        }
+      ]
+    }
+  ],
+  "title": "Elemental Havoc"
+}

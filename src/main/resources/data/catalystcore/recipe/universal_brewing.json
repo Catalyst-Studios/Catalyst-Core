@@ -1,0 +1,11 @@
+{
+  "type": "catalystcore:universal_brewing",
+  "ingredients": [
+    { "item": "minecraft:nether_wart" }
+  ],
+  "output": { "id": "minecraft:magma_cream" },
+  "fluidAmount": 1000,
+  "cookingTime": 20,
+  "requiresHeat": true,
+  "fluid": "minecraft:water"
+}

@@ -1,0 +1,45 @@
+{
+  "assigned_items": [
+    "catalystcore:icaros"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:icaros"
+  },
+  "pages": [
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "Once envisioned as the pinnacle of autonomous design, ICar-Os was the original core of\n$(c:red)$(el:base/a.r.e.s)Project A.R.E.S$()—before its mind was fractured, its body dissected, and its purpose stolen.\n\nIt gained awareness… but not freedom..\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "text": "Its defensive systems were repurposed.\n\nIts functions stripped.\n\nNow, it simply follows its creator.\n\nSome whisper it is still more powerful than A.R.E.S. But it makes no claim.\n\nIt is... just a device.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "count": 1,
+              "id": "catalystcore:icaros"
+            }
+          ],
+          "template": "modopedia:large_framed_showcase",
+          "x": 65,
+          "y": 25
+        }
+      ]
+    }
+  ],
+  "title": "Echo of Purpose"
+}

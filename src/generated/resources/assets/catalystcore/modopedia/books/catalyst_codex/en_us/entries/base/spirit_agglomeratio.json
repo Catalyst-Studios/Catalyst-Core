@@ -1,0 +1,30 @@
+{
+  "assigned_items": [
+    "catalystcore:spirit_agglomeratio"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:spirit_agglomeratio"
+  },
+  "pages": [
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "Forged in the forgotten twilight of the cosmos, this orb contains the converged essence of all spirits across the universe. \n\nWhat was once meant to preserve the cycle of souls has since been twisted."
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "text": "Its purpose, long corrupted by ancient hands, now drags the restless into a prison of silent torment. \n\nThe Agglomeratio is not merely a vessel—it is a scar upon existence itself."
+        }
+      ]
+    }
+  ],
+  "title": "A Little Piece of Heaven"
+}
