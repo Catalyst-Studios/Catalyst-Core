@@ -26,6 +26,21 @@
           "text": "It doesn’t remember why it exists. But it knows you. And it is watching."
         }
       ]
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "count": 1,
+              "id": "catalystcore:cosmic_abomination"
+            }
+          ],
+          "template": "modopedia:large_framed_showcase",
+          "x": 65,
+          "y": 25
+        }
+      ]
     }
   ],
   "title": "Something is Wrong..."

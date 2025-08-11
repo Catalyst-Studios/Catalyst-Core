@@ -23,12 +23,12 @@ import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
 import net.radzratz.catalystcore.client.items.tags.CTCETags;
-import net.radzratz.catalystcore.common.recipes.cauldron.reaction_brewing.item_output.RBExecutor;
+import net.radzratz.catalystcore.common.recipes.cauldron.recipe_executors.ReactionBrewingExecutor;
+import net.radzratz.catalystcore.common.recipes.cauldron.recipe_executors.WaterBrewingExecutor;
 import net.radzratz.catalystcore.common.recipes.cauldron.util.enums.CauldronMode;
-import net.radzratz.catalystcore.common.recipes.cauldron.types.fluid_brewing.FBExecutor;
-import net.radzratz.catalystcore.common.recipes.cauldron.types.lava_brewing.LBExecutor;
-import net.radzratz.catalystcore.common.recipes.cauldron.types.universal_brewing.UBExecutor;
-import net.radzratz.catalystcore.common.recipes.cauldron.types.water_brewing.WBExecutor;
+import net.radzratz.catalystcore.common.recipes.cauldron.recipe_executors.FluidBrewingExecutor;
+import net.radzratz.catalystcore.common.recipes.cauldron.recipe_executors.LavaBrewingExecutor;
+import net.radzratz.catalystcore.common.recipes.cauldron.recipe_executors.UniversalBrewingExecutor;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -86,7 +86,7 @@ public class CatalystCauldronBlockEntity extends BlockEntity
 
     public void setMode(CauldronMode newMode)
     {
-        if (this.mode != newMode)
+        if(this.mode != newMode)
         {
             this.mode = newMode;
             setChanged();
@@ -142,23 +142,27 @@ public class CatalystCauldronBlockEntity extends BlockEntity
         {
             case WATER_BREWING ->
             {
-                if(WBExecutor.tickWaterBrewing(be, level)) return;
+                if(WaterBrewingExecutor.tickWaterBrewing(be, level)) return;
             }
             case LAVA_BREWING ->
             {
-                if(LBExecutor.tickLavaBrewing(be, level)) return;
+                if(LavaBrewingExecutor.tickLavaBrewing(be, level)) return;
             }
             case UNIVERSAL_BREWING ->
             {
-                if(UBExecutor.tickUniversalBrewing(be, level)) return;
+                if(UniversalBrewingExecutor.tickUniversalBrewing(be, level)) return;
             }
             case FLUID_BREWING ->
             {
-                if(FBExecutor.tickFluidBrewing(be, level)) return;
+                if(FluidBrewingExecutor.tickFluidBrewing(be, level)) return;
             }
             case REACTION_BREWING_ITEM ->
             {
-                if(RBExecutor.tickReactionBrewingItem(be, level)) return;
+                if(ReactionBrewingExecutor.tickReactionBrewingItem(be, level)) return;
+            }
+            case REACTION_BREWING_FLUID ->
+            {
+                if(ReactionBrewingExecutor.tickReactionBrewingFluid(be, level)) return;
             }
             case NONE ->
             {

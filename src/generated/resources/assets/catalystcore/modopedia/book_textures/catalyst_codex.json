@@ -48,7 +48,7 @@
   },
   "tex_height": 310,
   "tex_width": 290,
-  "texture": "modopedia:textures/gui/books/brown_brass.png",
+  "texture": "catalystcore:textures/gui/modopedia/books/catalyst_codex.png",
   "title_backer": {
     "height": 35,
     "u": 0,

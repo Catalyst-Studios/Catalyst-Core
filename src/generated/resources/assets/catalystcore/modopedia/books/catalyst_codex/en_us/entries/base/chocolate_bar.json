@@ -24,6 +24,21 @@
           "text": "Its surface remains flawlessly smooth and pristine, as if hand-tempered by the universe's finest chocolatier.\n\n$(u)$(c:#fffc00)Do not bite$(). You may lose more than your teeth.\n\n(This item is legally considered a Class-3 Existential Hazard.)\n\n'Filed under anomaly $(b)047-B$(/b) by the $(c:blue)Catalyst Control Authority$(/c)'"
         }
       ]
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "count": 1,
+              "id": "catalystcore:chocolate_bar"
+            }
+          ],
+          "template": "modopedia:large_framed_showcase",
+          "x": 65,
+          "y": 25
+        }
+      ]
     }
   ],
   "title": "Quantum Confection"

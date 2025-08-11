@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 
 public class CTCECreativeTabs
 {
-    public static final DeferredRegister<CreativeModeTab> CATALYST_CREATIVE_TAB = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CatalystCore.MOD_ID);
+    public static final DeferredRegister<CreativeModeTab> CATALYST_CREATIVE_TAB = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CatalystCore.id);
 
     private static boolean shouldShowInCreative(Item item)
     {
@@ -42,7 +42,7 @@ public class CTCECreativeTabs
                         output.accept(CTCEItems.RIFT);
                         output.accept(CTCEItems.MAGIC_ANOMALY);
                         output.accept(CTCEItems.ICAROS);
-                        output.accept(CTCEItems.BLOOD_VORTEX);
+                        output.accept(CTCEItems.ETERNAL_VORTEX);
                         output.accept(CTCEItems.TREASURE);
                         output.accept(CTCEItems.BLACK_HOLE);
                         output.accept(CTCEItems.CHOCOLATE_BAR);
@@ -51,6 +51,7 @@ public class CTCECreativeTabs
                         output.accept(CTCEItems.CHAOS_CRYSTAL);
                         output.accept(CTCEItems.SPIRIT_AGGLOMERATIO);
                         output.accept(CTCEItems.COSMIC_ABOMINATION);
+                        output.accept(CTCEItems.ANCIENT_RELIC);
                         output.accept(CTCEItems.FRAME_CATALYST);
                         output.accept(CTCEItems.SELF_AWARE_CHIP);
                         output.accept(CTCEItems.PENTAGRAM);

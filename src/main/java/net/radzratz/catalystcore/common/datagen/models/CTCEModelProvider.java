@@ -10,7 +10,7 @@ public class CTCEModelProvider extends ItemModelProvider
 {
     public CTCEModelProvider(PackOutput output, ExistingFileHelper existingFileHelper)
     {
-        super(output, CatalystCore.MOD_ID, existingFileHelper);
+        super(output, CatalystCore.id, existingFileHelper);
     }
 
     @Override
@@ -26,7 +26,6 @@ public class CTCEModelProvider extends ItemModelProvider
         basicItem(CTCEItems.RIFT.get());
         basicItem(CTCEItems.ANTIMATTER.get());
         basicItem(CTCEItems.MAGIC_ANOMALY.get());
-        basicItem(CTCEItems.BLOOD_VORTEX.get());
         basicItem(CTCEItems.TREASURE.get());
         basicItem(CTCEItems.BLACK_HOLE.get());
         basicItem(CTCEItems.CONTAINER_INACTIVE.get());
@@ -74,7 +73,7 @@ public class CTCEModelProvider extends ItemModelProvider
         basicItem(CTCEItems.ARES.get());
         basicItem(CTCEItems.DRAGON_SCALE.get());
         basicItem(CTCEItems.ICAROS.get());
-
-        handheldItem(CTCEItems.WAND_1.get());
+        basicItem(CTCEItems.ETERNAL_VORTEX.get());
+        basicItem(CTCEItems.ANCIENT_RELIC.get());
     }
 }

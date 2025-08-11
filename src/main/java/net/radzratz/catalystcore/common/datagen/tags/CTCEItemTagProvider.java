@@ -24,77 +24,12 @@ public class CTCEItemTagProvider extends ItemTagsProvider
                                CompletableFuture<TagLookup<Block>> blockTags,
                                @Nullable ExistingFileHelper existingFileHelper)
     {
-        super(output, lookupProvider, blockTags, CatalystCore.MOD_ID, existingFileHelper);
+        super(output, lookupProvider, blockTags, CatalystCore.id, existingFileHelper);
     }
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider)
     {
-        ///Items
-        tag(CTCETags.Items.CATALYST_ITEMS)
-                ///End Game
-                .add(CTCEItems.FULL_CATALYST.asItem())
-                .add(CTCEItems.BLOOD_VORTEX.asItem())
-                .add(CTCEItems.MAGIC_ANOMALY.asItem())
-                .add(CTCEItems.ANTIMATTER.asItem())
-                .add(CTCEItems.RIFT.asItem())
-                .add(CTCEItems.CONTAINER.asItem())
-                .add(CTCEItems.MALICIOUS_EYE.asItem())
-                .add(CTCEItems.TREASURE.asItem())
-                .add(CTCEItems.BLACK_HOLE.asItem())
-                .add(CTCEItems.CHOCOLATE_BAR.asItem())
-                .add(CTCEItems.COSMIC_SHATTERER.asItem())
-                .add(CTCEItems.FORBIDDEN_ORB.asItem())
-                .add(CTCEItems.CHAOS_CRYSTAL.asItem())
-                .add(CTCEItems.SPIRIT_AGGLOMERATIO.asItem())
-                .add(CTCEItems.COSMIC_ABOMINATION.asItem())
-                ///Mid Game
-                .add(CTCEItems.FRAME_CATALYST.asItem())
-                .add(CTCEItems.PENTAGRAM.asItem())
-                .add(CTCEItems.SELF_AWARE_CHIP.asItem())
-                .add(CTCEItems.COMET_SHARD.asItem())
-                .add(CTCEItems.CONTAINER_INACTIVE.asItem())
-                .add(CTCEItems.WATER_ORB.asItem())
-                .add(CTCEItems.LAVA_ORB.asItem())
-                .add(CTCEItems.END_CORE.asItem())
-                .add(CTCEItems.NETHER_CORE.asItem())
-                .add(CTCEItems.OVERWORLD_CORE.asItem())
-                .add(CTCEItems.WARDEN_CORE.asItem())
-                .add(CTCEItems.ELDER_CORE.asItem())
-                .add(CTCEItems.WITHER_CORE.asItem())
-                .add(CTCEItems.DRAGON_CORE.asItem())
-                .add(CTCEItems.EMPTY_CRYSTAL.asItem())
-                .add(CTCEItems.FIRE_CRYSTAL.asItem())
-                .add(CTCEItems.WATER_CRYSTAL.asItem())
-                .add(CTCEItems.EARTH_CRYSTAL.asItem())
-                .add(CTCEItems.WIND_CRYSTAL.asItem())
-                .add(CTCEItems.LIGHT_CRYSTAL.asItem())
-                .add(CTCEItems.DARKNESS_CRYSTAL.asItem())
-                ///Misc
-                .add(CTCEItems.CODEX.asItem())
-                .add(CTCEItems.BROKEN_PEARL.asItem())
-                .add(CTCEItems.STRANGE_ROCK.asItem())
-                .add(CTCEItems.DAGGER.asItem())
-                .add(CTCEItems.DRAGON_SCALE.asItem())
-                ///Foods
-                .add(CTCEItems.BURRITO.asItem())
-                ///Slates
-                .add(CTCEItems.RUNIC_EMPTY.get())
-                .add(CTCEItems.RUNIC_BLOOD.get())
-                .add(CTCEItems.RUNIC_ARCANE.get())
-                .add(CTCEItems.RUNIC_ENDER.get())
-                .add(CTCEItems.INFECTED_SLATE.get())
-                .add(CTCEItems.RUNIC_ESOTHERICAL.get())
-                ///Bottles
-                .add(CTCEItems.REINFORCED_BOTTLE.asItem())
-                .add(CTCEItems.DRAGON_BLOOD.asItem())
-                .add(CTCEItems.WITHERED_BOTTLE.asItem())
-                .add(CTCEItems.SCULK_BOTTLE.asItem())
-                .add(CTCEItems.MYCELIUM_BOTTLE.asItem())
-                .add(CTCEItems.PIXIE_BOTTLE.asItem())
-                .add(CTCEItems.LIFE_ESSENCE_BOTTLE.asItem())
-                .add(CTCEItems.TORCHFLOWER_BOTTLE.asItem());
-
         tag(Tags.Items.FOODS).add(CTCEItems.BURRITO.asItem());
 
         tag(CTCETags.Items.CATALYST_TOOLS)
@@ -196,5 +131,6 @@ public class CTCEItemTagProvider extends ItemTagsProvider
         tag(CTCETags.Items.CAULDRON_ACTIVATOR_UNIVERSAL).add(Items.BONE);
         tag(CTCETags.Items.CAULDRON_ACTIVATOR_FLUID).add(Items.PRISMARINE);
         tag(CTCETags.Items.CAULDRON_ACTIVATOR_REACTION_ITEM).add(Items.GHAST_TEAR);
+        tag(CTCETags.Items.CAULDRON_ACTIVATOR_REACTION_FLUID).add(Items.FLINT);
     }
 }

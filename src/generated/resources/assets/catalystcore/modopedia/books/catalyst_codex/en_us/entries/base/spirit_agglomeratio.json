@@ -13,7 +13,7 @@
           "type": "modopedia:text",
           "justify": "left",
           "line_height": 12,
-          "text": "Forged in the forgotten twilight of the cosmos, this orb contains the converged essence of all spirits across the universe. \n\nWhat was once meant to preserve the cycle of souls has since been twisted."
+          "text": "Forged in the forgotten twilight of the cosmos, this orb contains the converged \"\n\"essence of all spirits across the universe.\n\nWhat was once meant to preserve the cycle of souls has since been twisted.\n"
         }
       ]
     },
@@ -21,7 +21,22 @@
       "components": [
         {
           "type": "modopedia:text",
-          "text": "Its purpose, long corrupted by ancient hands, now drags the restless into a prison of silent torment. \n\nThe Agglomeratio is not merely a vessel—it is a scar upon existence itself."
+          "text": "Its purpose, long corrupted by ancient hands, now drags the restless into a prison of silent torment.\n\nThe Agglomeratio is not merely a vessel—it is a scar upon existence itself.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "count": 1,
+              "id": "catalystcore:spirit_agglomeratio"
+            }
+          ],
+          "template": "modopedia:large_framed_showcase",
+          "x": 65,
+          "y": 25
         }
       ]
     }

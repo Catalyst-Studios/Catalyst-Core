@@ -11,14 +11,13 @@ public class CTCEBlockStateProvider extends BlockStateProvider
 {
     public CTCEBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper)
     {
-        super(output, CatalystCore.MOD_ID, exFileHelper);
+        super(output, CatalystCore.id, exFileHelper);
     }
 
     @Override
     protected void registerStatesAndModels()
     {
         blockWithItem(CTCEBlocks.REINFORCED_GLASS);
-        blockWithItem(CTCEBlocks.TILMAT_TABLE);
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock)

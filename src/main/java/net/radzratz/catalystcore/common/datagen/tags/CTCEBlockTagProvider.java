@@ -19,7 +19,7 @@ public class CTCEBlockTagProvider extends BlockTagsProvider
     public CTCEBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider,
                                 @Nullable ExistingFileHelper existingFileHelper)
     {
-        super(output, lookupProvider, CatalystCore.MOD_ID, existingFileHelper);
+        super(output, lookupProvider, CatalystCore.id, existingFileHelper);
     }
 
     @Override

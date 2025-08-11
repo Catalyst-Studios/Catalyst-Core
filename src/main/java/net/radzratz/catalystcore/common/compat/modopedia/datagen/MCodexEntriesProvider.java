@@ -1,7 +1,6 @@
 package net.radzratz.catalystcore.common.compat.modopedia.datagen;
 
-import com.google.gson.JsonElement;
-import net.favouriteless.modopedia.api.book.Category;
+import net.favouriteless.modopedia.api.datagen.BookContentOutput;
 import net.favouriteless.modopedia.api.datagen.providers.ContentSetProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -10,25 +9,24 @@ import net.radzratz.catalystcore.common.compat.modopedia.registry.MCategoriesReg
 import net.radzratz.catalystcore.common.compat.modopedia.registry.MEntriesRegistry;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.function.BiConsumer;
 
 public class MCodexEntriesProvider extends ContentSetProvider
 {
     public MCodexEntriesProvider(CompletableFuture<HolderLookup.Provider> registries, PackOutput output)
     {
-        super(CatalystCore.MOD_ID, "catalyst_codex", "en_us", registries, output);
+        super(CatalystCore.id, "catalyst_codex", "en_us", registries, output);
     }
 
     @Override
-    public void buildCategories(BiConsumer<String, Category> output)
+    public void buildCategories(HolderLookup.Provider registries, BookContentOutput output)
     {
-        MCategoriesRegistry.registerCategories(output);
+        MCategoriesRegistry.registerCategories(registries, output);
     }
 
     @Override
-    public void buildEntries(BiConsumer<String, JsonElement> output)
+    public void buildEntries(HolderLookup.Provider registries, BookContentOutput output)
     {
-        MEntriesRegistry.registerMainEntries(output);
-        MEntriesRegistry.registerPhialEntries(output);
+        MEntriesRegistry.registerMainEntries(registries, output);
+        MEntriesRegistry.registerPhialEntries(registries, output);
     }
 }

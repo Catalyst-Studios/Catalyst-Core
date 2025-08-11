@@ -1,34 +1,34 @@
 package net.radzratz.catalystcore.common.compat.modopedia.registry;
 
-import com.google.gson.JsonElement;
-import net.radzratz.catalystcore.common.compat.modopedia.entries.mainentries.base.*;
-import net.radzratz.catalystcore.common.compat.modopedia.entries.mainentries.phials.MDragonPhial;
-import net.radzratz.catalystcore.common.compat.modopedia.entries.mainentries.phials.MReinforcedPhial;
-import net.radzratz.catalystcore.common.compat.modopedia.entries.mainentries.phials.MTorchFlowerPhial;
-import net.radzratz.catalystcore.common.compat.modopedia.entries.mainentries.phials.MWitheredPhial;
-
-import java.util.function.BiConsumer;
+import net.favouriteless.modopedia.api.datagen.BookContentOutput;
+import net.minecraft.core.HolderLookup;
+import net.radzratz.catalystcore.common.compat.modopedia.entries.base.base.*;
+import net.radzratz.catalystcore.common.compat.modopedia.entries.base.phials.MDragonPhial;
+import net.radzratz.catalystcore.common.compat.modopedia.entries.base.phials.MReinforcedPhial;
+import net.radzratz.catalystcore.common.compat.modopedia.entries.base.phials.MTorchFlowerPhial;
+import net.radzratz.catalystcore.common.compat.modopedia.entries.base.phials.MWitheredPhial;
 
 public class MEntriesRegistry
 {
-    public static void registerMainEntries(BiConsumer<String, JsonElement> output)
+    public static void registerMainEntries(HolderLookup.Provider registries, BookContentOutput output)
     {
-        MCatalystEntry.registerCatalystEntry(output);
-        MAresEntry.registerAresEntry(output);
-        MChocolateBarEntry.registerFracturedEntry(output);
-        MCosmicAbominationEntry.registerAbominationEntry(output);
-        MSpiritAgglomeratioEntry.registerFracturedEntry(output);
-        MCosmicShattererEntry.registerShattererEntry(output);
-        MFracturedCrystalEntry.registerFracturedEntry(output);
-        MMagicAnomalyEntry.registerAnomalyEntry(output);
-        MICarosEntry.registerICarosEntry(output);
+        MCatalystEntry.registerCatalystEntry(registries, output);
+        MAresEntry.registerAresEntry(registries, output);
+        MChocolateBarEntry.registerFracturedEntry(registries, output);
+        MCosmicAbominationEntry.registerAbominationEntry(registries, output);
+        MSpiritAgglomeratioEntry.registerFracturedEntry(registries, output);
+        MCosmicShattererEntry.registerShattererEntry(registries, output);
+        MFracturedCrystalEntry.registerFracturedEntry(registries, output);
+        MMagicAnomalyEntry.registerAnomalyEntry(registries, output);
+        MICarosEntry.registerICarosEntry(registries, output);
+        MVortexEntry.registerVortexEntry(registries, output);
     }
 
-    public static void registerPhialEntries(BiConsumer<String, JsonElement> output)
+    public static void registerPhialEntries(HolderLookup.Provider registries, BookContentOutput output)
     {
-        MReinforcedPhial.registerReinforcedPhial(output);
-        MTorchFlowerPhial.registerTorchFlowerPhial(output);
-        MDragonPhial.registerDragonBloodPhial(output);
-        MWitheredPhial.registerWitheredPhial(output);
+        MReinforcedPhial.registerReinforcedPhial(registries, output);
+        MTorchFlowerPhial.registerTorchFlowerPhial(registries, output);
+        MDragonPhial.registerDragonBloodPhial(registries, output);
+        MWitheredPhial.registerWitheredPhial(registries, output);
     }
 }

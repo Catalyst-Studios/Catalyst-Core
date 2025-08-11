@@ -13,7 +13,7 @@ public class CauldronIngredientHelper
      */
     public static boolean matchIngredients(List<Ingredient> ingredients, List<ItemStack> inputs)
     {
-        if (ingredients.isEmpty()) return true;
+        if(ingredients.isEmpty()) return true;
 
         List<ItemStack> availableItems = new ArrayList<>();
         for(ItemStack stack : inputs)

@@ -8,14 +8,13 @@ import net.radzratz.catalystcore.CatalystCore;
 import net.radzratz.catalystcore.client.blocks.CTCEBlocks;
 import net.radzratz.catalystcore.client.blocks.entity.cauldron.CatalystCauldronBlockEntity;
 import net.radzratz.catalystcore.client.blocks.entity.pedestal.CatalystAltarPedestalEntity;
-import net.radzratz.catalystcore.client.blocks.entity.tilmat_table.TilmatTableBlockEntity;
 
 import java.util.function.Supplier;
 
 public class CTCEBlockEntities
 {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
-            DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, CatalystCore.MOD_ID);
+            DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, CatalystCore.id);
 
     public static final Supplier<BlockEntityType<CatalystAltarPedestalEntity>> PEDESTAL_ALTAR =
             BLOCK_ENTITIES.register("pedestal_altar_1", ()-> BlockEntityType.Builder.of(
@@ -24,10 +23,6 @@ public class CTCEBlockEntities
     public static final Supplier<BlockEntityType<CatalystCauldronBlockEntity>> CAULDRON =
             BLOCK_ENTITIES.register("cauldron", ()-> BlockEntityType.Builder.of(
                     CatalystCauldronBlockEntity::new, CTCEBlocks.CAULDRON.get()).build(null));
-
-    public static final Supplier<BlockEntityType<TilmatTableBlockEntity>> TILMAT_TABLE =
-            BLOCK_ENTITIES.register("tilmat_table", ()-> BlockEntityType.Builder.of(
-                    TilmatTableBlockEntity::new, CTCEBlocks.TILMAT_TABLE.get()).build(null));
 
     public static void register(IEventBus eventBus)
     {

@@ -58,10 +58,7 @@ public class CTCECauldron extends BaseEntityBlock
     }
 
     @Override
-    protected @NotNull VoxelShape getShape(@NotNull BlockState state,
-                                           @NotNull BlockGetter level,
-                                           @NotNull BlockPos pos,
-                                           @NotNull CollisionContext context)
+    protected @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context)
     {
         return SHAPE;
     }
@@ -79,33 +76,25 @@ public class CTCECauldron extends BaseEntityBlock
     }
 
     @Override
-    protected boolean canBeReplaced(@NotNull BlockState state,
-                                    @NotNull BlockPlaceContext useContext)
+    protected boolean canBeReplaced(@NotNull BlockState state, @NotNull BlockPlaceContext useContext)
     {
         return false;
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(@NotNull BlockPos pos,
-                                                @NotNull BlockState state)
+    public @Nullable BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state)
     {
         return new CatalystCauldronBlockEntity(pos, state);
     }
 
     @Override
-    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level,
-                                                                            @NotNull BlockState state,
-                                                                            @NotNull BlockEntityType<T> type)
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, @NotNull BlockState state, @NotNull BlockEntityType<T> type)
     {
         return level.isClientSide ? null : createTickerHelper(type, CTCEBlockEntities.CAULDRON.get(), CatalystCauldronBlockEntity::tick);
     }
 
     @Override
-    public void onRemove(BlockState state,
-                         @NotNull Level level,
-                         @NotNull BlockPos pos,
-                         BlockState newState,
-                         boolean isMoving)
+    public void onRemove(BlockState state, @NotNull Level level, @NotNull BlockPos pos, BlockState newState, boolean isMoving)
     {
         if(!state.is(newState.getBlock()))
         {
@@ -128,13 +117,8 @@ public class CTCECauldron extends BaseEntityBlock
     }
 
     @Override
-    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack,
-                                                       @NotNull BlockState state,
-                                                       Level level,
-                                                       @NotNull BlockPos pos,
-                                                       @NotNull Player player,
-                                                       @NotNull InteractionHand hand,
-                                                       @NotNull BlockHitResult hitResult)
+    protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, Level level, @NotNull BlockPos pos,
+                                                       @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult)
     {
         if(level.isClientSide) return ItemInteractionResult.SUCCESS;
 
@@ -186,48 +170,42 @@ public class CTCECauldron extends BaseEntityBlock
                 level.playSound(null, pos, SoundEvents.BREWING_STAND_BREW, SoundSource.BLOCKS, 1.0f, 1.0f);
                 return ItemInteractionResult.SUCCESS;
             }
-                else
-                    if(stack.is(CTCETags.Items.CAULDRON_ACTIVATOR_LAVA))
+                else if(stack.is(CTCETags.Items.CAULDRON_ACTIVATOR_LAVA))
             {
                 cauldron.setMode(CauldronMode.LAVA_BREWING);
                 player.displayClientMessage(Component.literal("§6Cauldron mode has been set to: Lava Brewing "), true);
                 level.playSound(null, pos, SoundEvents.LAVA_AMBIENT, SoundSource.BLOCKS, 1.0f, 1.0f);
                 return ItemInteractionResult.SUCCESS;
             }
-                  else
-                      if(stack.is(CTCETags.Items.CAULDRON_ACTIVATOR_UNIVERSAL))
+                  else if(stack.is(CTCETags.Items.CAULDRON_ACTIVATOR_UNIVERSAL))
             {
                 cauldron.setMode(CauldronMode.UNIVERSAL_BREWING);
                 player.displayClientMessage(Component.literal("§6Cauldron mode has been set to: Universal Brewing "), true);
-                level.playSound(null, pos, SoundEvents.WITHER_AMBIENT, SoundSource.BLOCKS, 1.0f, 1.0f);
+                level.playSound(null, pos, SoundEvents.END_GATEWAY_SPAWN, SoundSource.BLOCKS, 0.3f, 1.0f);
                 return ItemInteractionResult.SUCCESS;
             }
-                  else
-                      if(stack.is(CTCETags.Items.CAULDRON_ACTIVATOR_FLUID))
+                  else if(stack.is(CTCETags.Items.CAULDRON_ACTIVATOR_FLUID))
             {
                 cauldron.setMode(CauldronMode.FLUID_BREWING);
                 player.displayClientMessage(Component.literal("§6Cauldron mode has been set to: Fluid Brewing "), true);
                 level.playSound(null, pos, SoundEvents.WATER_AMBIENT, SoundSource.BLOCKS, 1.0f, 1.0f);
                 return ItemInteractionResult.SUCCESS;
             }
-                 else
-                      if(stack.is(CTCETags.Items.CAULDRON_ACTIVATOR_REACTION_ITEM))
+                 else if(stack.is(CTCETags.Items.CAULDRON_ACTIVATOR_REACTION_ITEM))
            {
                  cauldron.setMode(CauldronMode.REACTION_BREWING_ITEM);
                  player.displayClientMessage(Component.literal("§6Cauldron mode has been set to: Reaction/Item Brewing"), true);
-                 level.playSound(null, pos, SoundEvents.WITHER_HURT, SoundSource.BLOCKS, 0.3f, 1.0f);
+                 level.playSound(null, pos, SoundEvents.WITHER_HURT, SoundSource.BLOCKS, 0.2f, 1.0f);
                  return ItemInteractionResult.SUCCESS;
            }
-           /*      else
-                      if(stack.is(CTCETags.Items.CAULDRON_ACTIVATOR_REACTION_FLUID))
+                 else if(stack.is(CTCETags.Items.CAULDRON_ACTIVATOR_REACTION_FLUID))
            {
                  cauldron.setMode(CauldronMode.REACTION_BREWING_FLUID);
                  player.displayClientMessage(Component.literal("§6Cauldron mode has been set to: Reaction/Fluid Brewing"), true);
-                 level.playSound(null, pos, SoundEvents.WITHER_HURT, SoundSource.BLOCKS, 0.3f, 1.0f);
+                 level.playSound(null, pos, SoundEvents.WITHER_HURT, SoundSource.BLOCKS, 0.2f, 1.0f);
                  return ItemInteractionResult.SUCCESS;
-           }*/
-                else
-                    if(cauldron.getMode() == CauldronMode.NONE)
+           }
+                else if(cauldron.getMode() == CauldronMode.NONE)
             {
                 player.displayClientMessage(Component.literal("§7Cauldron is currently Inactive. Use the correct Item to set it's mode"), true);
             }
@@ -258,13 +236,8 @@ public class CTCECauldron extends BaseEntityBlock
     }
 
 
-    private ItemInteractionResult handleBucketInteraction(BucketItem bucketItem,
-                                                          ItemStack stack,
-                                                          Player player,
-                                                          InteractionHand hand,
-                                                          CatalystCauldronBlockEntity cauldron,
-                                                          Level level,
-                                                          BlockPos pos)
+    private ItemInteractionResult handleBucketInteraction(BucketItem bucketItem, ItemStack stack, Player player, InteractionHand hand,
+                                                          CatalystCauldronBlockEntity cauldron, Level level, BlockPos pos)
     {
         if(bucketItem.content != Fluids.EMPTY)
         {
@@ -307,13 +280,8 @@ public class CTCECauldron extends BaseEntityBlock
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
-    private ItemInteractionResult handleItemInteraction(ItemStack stack,
-                                                        Player player,
-                                                        InteractionHand hand,
-                                                        CatalystCauldronBlockEntity cauldron,
-                                                        Level level,
-                                                        BlockPos pos,
-                                                        BlockState state)
+    private ItemInteractionResult handleItemInteraction(ItemStack stack, Player player, InteractionHand hand, CatalystCauldronBlockEntity cauldron,
+                                                        Level level, BlockPos pos, BlockState state)
     {
         for(int i = 0; i < CatalystCauldronBlockEntity.INVENTORY_SIZE; i++)
         {

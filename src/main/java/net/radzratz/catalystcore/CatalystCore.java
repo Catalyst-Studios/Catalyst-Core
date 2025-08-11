@@ -5,7 +5,7 @@ import net.neoforged.fml.ModList;
 import net.neoforged.fml.config.ModConfig;
 import net.radzratz.catalystcore.client.blocks.CTCEBlocks;
 import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
-import net.radzratz.catalystcore.common.compat.curios.curio.curios.CatalystCurioItem;
+import net.radzratz.catalystcore.common.compat.curios.curio.curios.CTCECurioItems;
 import net.radzratz.catalystcore.client.visuals.particle.CTCEParticles;
 import net.radzratz.catalystcore.common.compat.ponder.CTCEPonderPlugin;
 import net.radzratz.catalystcore.client.entities.CTCEEntities;
@@ -22,10 +22,10 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.radzratz.catalystcore.common.util.config.CTCEConfig;
 
-@Mod(CatalystCore.MOD_ID)
+@Mod(CatalystCore.id)
 public class CatalystCore
 {
-    public static final String MOD_ID = "catalystcore";
+    public static final String id = "catalystcore";
 
     public CatalystCore(IEventBus modEventBus, ModContainer modContainer)
     {
@@ -44,7 +44,7 @@ public class CatalystCore
 
         if(ModList.get().isLoaded("curios"))
         {
-            modEventBus.addListener(CatalystCurioItem::registerCatalystCurioCapabilities);
+            modEventBus.addListener(CTCECurioItems::registerCatalystCurioCapabilities);
         }
 
         PonderIndex.addPlugin(new CTCEPonderPlugin());

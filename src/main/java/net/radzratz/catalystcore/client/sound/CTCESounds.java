@@ -11,7 +11,7 @@ import net.radzratz.catalystcore.CatalystCore;
 public class CTCESounds
 {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
-            DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, CatalystCore.MOD_ID);
+            DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, CatalystCore.id);
 
     public static final DeferredHolder<SoundEvent, SoundEvent> PENTAGRAM_CRAFT =
             SOUND_EVENTS.register("pentagram_craft",

@@ -21,7 +21,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.radzratz.catalystcore.client.visuals.particle.CTCEParticles;
 import net.radzratz.catalystcore.common.recipes.CTCERecipeTypes;
-import net.radzratz.catalystcore.common.recipes.pentagram.PentagramJsonRecipe;
+import net.radzratz.catalystcore.common.recipes.pentagram.PentagramRecipeType;
 import net.radzratz.catalystcore.common.recipes.pentagram.PentagramContainer;
 import net.radzratz.catalystcore.client.sound.CTCESounds;
 import net.radzratz.catalystcore.common.util.config.CTCEConfig;
@@ -112,14 +112,10 @@ public class PentagramEntity extends Entity
     }
 
     @Override
-    protected void readAdditionalSaveData(@NotNull CompoundTag tag)
-    {
-    }
+    protected void readAdditionalSaveData(@NotNull CompoundTag tag) {}
 
     @Override
-    protected void addAdditionalSaveData(@NotNull CompoundTag tag)
-    {
-    }
+    protected void addAdditionalSaveData(@NotNull CompoundTag tag) {}
 
     @Override
     public boolean isPickable()
@@ -221,10 +217,7 @@ public class PentagramEntity extends Entity
 
     private void spawnMysticParticles()
     {
-        if (!CTCEConfig.CONFIG.pentagram.enablePentagramParticles.get())
-        {
-            return;
-        }
+        if (!CTCEConfig.CONFIG.pentagram.enablePentagramParticles.get()) { return; }
 
         if(this.level() instanceof ServerLevel serverLevel)
         {
@@ -311,8 +304,7 @@ public class PentagramEntity extends Entity
                 .toList());
 
         PentagramContainer container = new PentagramContainer(nearbyItems);
-        Optional<RecipeHolder<PentagramJsonRecipe>> jsonRecipe = serverLevel.getRecipeManager()
-                .getRecipeFor(CTCERecipeTypes.PENTAGRAM_TYPE.get(), container, serverLevel);
+        Optional<RecipeHolder<PentagramRecipeType>> jsonRecipe = serverLevel.getRecipeManager().getRecipeFor(CTCERecipeTypes.PENTAGRAM_TYPE.get(), container, serverLevel);
 
         if(jsonRecipe.isPresent())
         {
@@ -321,9 +313,7 @@ public class PentagramEntity extends Entity
         }
     }
 
-    private void processJsonRecipe(ServerLevel level,
-                                   List<ItemEntity> items,
-                                   PentagramJsonRecipe recipe)
+    private void processJsonRecipe(ServerLevel level, List<ItemEntity> items, PentagramRecipeType recipe)
     {
         PentagramContainer container = new PentagramContainer(items);
 

@@ -17,7 +17,7 @@ public class CTCECuriosProvider extends CuriosDataProvider
                               ExistingFileHelper fileHelper,
                               CompletableFuture<HolderLookup.Provider> registries)
     {
-        super(CatalystCore.MOD_ID, output, fileHelper, registries);
+        super(CatalystCore.id, output, fileHelper, registries);
     }
 
     @Override

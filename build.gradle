@@ -100,7 +100,6 @@ dependencies {
     localRuntime "top.theillusivec4.curios:curios-neoforge:${"9.3.1+1.21.1"}"
     compileOnly "top.theillusivec4.curios:curios-neoforge:${"9.3.1+1.21.1"}:api"
 
-    implementation "vazkii.patchouli:Patchouli:${project.patchouli_version}-NEOFORGE"
 
     implementation("net.createmod.ponder:Ponder-NeoForge-1.21.1:${ponder_version}")
 

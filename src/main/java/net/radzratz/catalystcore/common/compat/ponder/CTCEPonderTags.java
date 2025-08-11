@@ -6,11 +6,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.radzratz.catalystcore.client.items.CTCEItems;
 
+import static net.radzratz.catalystcore.common.util.CTCEUtils.CTCE;
+
 public class CTCEPonderTags
 {
-    public static final ResourceLocation PHIALS = ResourceLocation.fromNamespaceAndPath("catalystcore", "phials");
-    public static final ResourceLocation SLATES = ResourceLocation.fromNamespaceAndPath("catalystcore", "slates");
-    public static final ResourceLocation BOOKS = ResourceLocation.fromNamespaceAndPath("catalystcore", "books");
+    public static final ResourceLocation PHIALS = CTCE("phials");
+    public static final ResourceLocation SLATES = CTCE("slates");
+    public static final ResourceLocation BOOKS = CTCE("books");
 
     public static void register(PonderTagRegistrationHelper<ResourceLocation> helper)
     {

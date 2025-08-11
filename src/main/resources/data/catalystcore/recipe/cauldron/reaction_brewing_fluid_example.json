@@ -1,0 +1,26 @@
+{
+  "type": "catalystcore:reaction_fluid_brewing",
+  "fluid": "minecraft:water",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "minecraft:emerald"
+    },
+    {
+      "item": "minecraft:gunpowder"
+    }
+  ],
+  "output":
+  {
+    "id": "minecraft:lava",
+    "amount": 1000
+  },
+  "fluidAmount": 1000,
+  "cookingTime": 20,
+  "requiresHeat": true
+}

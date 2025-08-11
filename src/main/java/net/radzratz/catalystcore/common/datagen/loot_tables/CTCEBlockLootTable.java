@@ -32,7 +32,6 @@ public class CTCEBlockLootTable extends BlockLootSubProvider
         dropSelf(CTCEBlocks.CATALYST_ALTAR_PEDESTAL.get());
         dropSelf(CTCEBlocks.REINFORCED_GLASS.get());
         dropSelf(CTCEBlocks.CAULDRON.get());
-        dropSelf(CTCEBlocks.TILMAT_TABLE.get());
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops)

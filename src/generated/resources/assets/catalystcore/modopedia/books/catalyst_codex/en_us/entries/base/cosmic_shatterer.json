@@ -26,6 +26,21 @@
           "text": "Something ancient noticed. A deity—unknown, silent, and furious—intervened. What remains is the Cosmic Shatter, a fragment of the process itself, crystallized at the moment of divine interruption."
         }
       ]
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "count": 1,
+              "id": "catalystcore:cosmic_shatterer"
+            }
+          ],
+          "template": "modopedia:large_framed_showcase",
+          "x": 65,
+          "y": 25
+        }
+      ]
     }
   ],
   "title": "A Failed Relic"

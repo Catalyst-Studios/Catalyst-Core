@@ -5,7 +5,7 @@ public enum CauldronMode
     /// Cauldron is in Standby
     NONE,
 
-    /// Activates WBExecutor Type
+    /// Activates WaterBrewingExecutor Type
     WATER_BREWING,
 
     /// Activates LavaBrewing Type

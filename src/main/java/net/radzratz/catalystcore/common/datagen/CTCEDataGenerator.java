@@ -10,6 +10,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.radzratz.catalystcore.CatalystCore;
 import net.radzratz.catalystcore.common.compat.curios.curio.datagen.CTCECuriosProvider;
 import net.radzratz.catalystcore.common.compat.modopedia.datagen.MCatalystCodexProvider;
 import net.radzratz.catalystcore.common.compat.modopedia.datagen.MCodexEntriesProvider;
@@ -25,9 +26,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import static net.radzratz.catalystcore.CatalystCore.MOD_ID;
-
-@EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = CatalystCore.id, bus = EventBusSubscriber.Bus.MOD)
 @SuppressWarnings("unused")
 public class CTCEDataGenerator
 {

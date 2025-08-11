@@ -11,7 +11,6 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.radzratz.catalystcore.CatalystCore;
 import net.radzratz.catalystcore.client.custom.CTCECauldron;
-import net.radzratz.catalystcore.client.custom.CTCETilmatTable;
 import net.radzratz.catalystcore.client.custom.CTCEPedestal;
 import net.radzratz.catalystcore.client.items.CTCEItems;
 
@@ -19,16 +18,13 @@ import java.util.function.Supplier;
 
 public class CTCEBlocks
 {
-    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(CatalystCore.MOD_ID);
+    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(CatalystCore.id);
 
     public static final DeferredBlock<CTCEPedestal> CATALYST_ALTAR_PEDESTAL = registerBlock("center_pedestal",
             ()-> new CTCEPedestal(BlockBehaviour.Properties.of().noOcclusion()));
 
     public static final DeferredBlock<CTCECauldron> CAULDRON = registerBlock("cauldron",
             ()-> new CTCECauldron(BlockBehaviour.Properties.of().noOcclusion()));
-
-    public static final DeferredBlock<CTCETilmatTable> TILMAT_TABLE = registerBlock("tilmat_table",
-            ()-> new CTCETilmatTable(BlockBehaviour.Properties.of().noOcclusion()));
 
     public static final DeferredBlock<TintedGlassBlock> REINFORCED_GLASS = registerBlock("reinforced_glass",
             ()-> new TintedGlassBlock(BlockBehaviour.Properties.of()

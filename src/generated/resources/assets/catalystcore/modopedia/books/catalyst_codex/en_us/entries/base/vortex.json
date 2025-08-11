@@ -1,0 +1,45 @@
+{
+  "assigned_items": [
+    "catalystcore:eternal_vortex"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:eternal_vortex"
+  },
+  "pages": [
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "A spiraling wound in the fabric of existence.\n\nThis vortex is the result of a cosmic event—one that nearly shattered every known layer of reality.\n\nBut it was halted.\n\nA benevolent deity intervened.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "text": "What remains is a scar—a swirling singularity, frozen in time.\n\nA reminder of what almost was.\n\nNo one knows what triggered it.\n\nOnly that without divine action, we would not be here to ask.\"\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "count": 1,
+              "id": "catalystcore:eternal_vortex"
+            }
+          ],
+          "template": "modopedia:large_framed_showcase",
+          "x": 65,
+          "y": 25
+        }
+      ]
+    }
+  ],
+  "title": "The Divine Scar"
+}

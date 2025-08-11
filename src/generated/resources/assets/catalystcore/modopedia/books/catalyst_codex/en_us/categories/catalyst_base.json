@@ -8,7 +8,8 @@
     "base/cosmic_shatterer",
     "base/fractured_crystal",
     "base/magic_anomaly",
-    "base/icaros"
+    "base/icaros",
+    "base/vortex"
   ],
   "icon": {
     "count": 1,

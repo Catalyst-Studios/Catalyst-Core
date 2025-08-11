@@ -26,6 +26,21 @@
           "text": "Some of these deities don't like to fight directly—or even fight at all. Others may enlighten the challenger with incredible, yet complex machinery and arcane technology that may or may not wreak havoc upon the lands. Will you be the one to set the difference?'"
         }
       ]
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "count": 1,
+              "id": "catalystcore:complete_catalyst"
+            }
+          ],
+          "template": "modopedia:large_framed_showcase",
+          "x": 65,
+          "y": 25
+        }
+      ]
     }
   ],
   "title": "The Final Destination"

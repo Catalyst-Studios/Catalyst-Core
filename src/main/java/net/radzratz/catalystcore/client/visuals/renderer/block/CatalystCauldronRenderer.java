@@ -34,12 +34,10 @@ public class CatalystCauldronRenderer implements BlockEntityRenderer<CatalystCau
                        int packedOverlay)
     {
         FluidStack fluidStack = entity.getFluidTank().getFluid();
-        if(fluidStack.isEmpty() || fluidStack.getFluid() == Fluids.EMPTY)
-            return;
+        if(fluidStack.isEmpty() || fluidStack.getFluid() == Fluids.EMPTY) return;
 
         Level level = entity.getLevel();
-        if(level == null)
-            return;
+        if(level == null) return;
 
         BlockPos pos = entity.getBlockPos();
 
@@ -57,7 +55,6 @@ public class CatalystCauldronRenderer implements BlockEntityRenderer<CatalystCau
 
         poseStack.pushPose();
 
-        // Superficie de arriba
         drawQuad(builder, poseStack,
                 3f/16f,
                 height,
@@ -84,14 +81,15 @@ public class CatalystCauldronRenderer implements BlockEntityRenderer<CatalystCau
                 .setColor(color)
                 .setUv(u, v)
                 .setLight(packedLight)
-                .setNormal(0, 1, 0); // arriba
+                .setNormal(0, 1, 0);
     }
 
     private static void drawQuad(VertexConsumer builder, PoseStack poseStack,
                                  float x0, float y0, float z0,
                                  float x1, float y1, float z1,
                                  float u0, float v0, float u1, float v1,
-                                 int packedLight, int color) {
+                                 int packedLight, int color)
+    {
         drawVertex(builder, poseStack, x0, y0, z0, u0, v0, packedLight, color);
         drawVertex(builder, poseStack, x0, y1, z1, u0, v1, packedLight, color);
         drawVertex(builder, poseStack, x1, y1, z1, u1, v1, packedLight, color);

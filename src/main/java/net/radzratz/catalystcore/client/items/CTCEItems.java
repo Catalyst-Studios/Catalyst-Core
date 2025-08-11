@@ -6,20 +6,19 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.radzratz.catalystcore.CatalystCore;
 import net.radzratz.catalystcore.client.items.custom.PentagramItem;
-import net.radzratz.catalystcore.client.items.custom.Wand;
-import net.radzratz.catalystcore.client.items.tools.tools.ICTCEPaxel;
+import net.radzratz.catalystcore.client.items.tools.tools.CTCEPaxel;
 
 import static net.radzratz.catalystcore.client.items.CTCEItemHelpers.*;
 
 @SuppressWarnings("all")
 public class CTCEItems
 {
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(CatalystCore.MOD_ID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(CatalystCore.id);
 
     //Items
     public static final DeferredItem<Item> FULL_CATALYST = registerCatalystCoreEndGameItems("complete_catalyst");
     public static final DeferredItem<Item> ARES = registerCatalystCoreEndGameItems("a.r.e.s");
-    public static final DeferredItem<Item> BLOOD_VORTEX = registerCatalystCoreEndGameItems("blood_vortex");
+    public static final DeferredItem<Item> ETERNAL_VORTEX = registerCatalystCoreEndGameItems("eternal_vortex");
     public static final DeferredItem<Item> MAGIC_ANOMALY = registerCatalystCoreEndGameItems("magic_anomaly");
     public static final DeferredItem<Item> RIFT = registerCatalystCoreEndGameItems("crystallized_rift");
     public static final DeferredItem<Item> CONTAINER = registerCatalystCoreEndGameItems("universe_containment_cell");
@@ -33,6 +32,7 @@ public class CTCEItems
     public static final DeferredItem<Item> SPIRIT_AGGLOMERATIO = registerCatalystCoreEndGameItems("spirit_agglomeratio");
     public static final DeferredItem<Item> COSMIC_ABOMINATION = registerCatalystCoreEndGameItems("cosmic_abomination");
     public static final DeferredItem<Item> ICAROS = registerCatalystCoreEndGameItems("icaros");
+    public static final DeferredItem<Item> ANCIENT_RELIC = registerCatalystCoreEndGameItems("ancient_relic");
 
     public static final DeferredItem<Item> FRAME_CATALYST = registerCatalystCoreMidGameItems("empty_catalyst");
     public static final DeferredItem<Item> SELF_AWARE_CHIP = registerCatalystCoreMidGameItems("nano_self_aware");
@@ -81,8 +81,6 @@ public class CTCEItems
 
     public static final DeferredItem<Item> CATALYST_INGOT = registerCatalystCoreNormalItems("cataclystic_ingot");
 
-    public static final DeferredItem<Wand> WAND_1 = registerWand("apprentice_wand");
-
     public static final DeferredItem<Item> BURRITO = registerCatalystCoreFoods("burrito");
 
     public static final DeferredItem<PentagramItem> PENTAGRAM = ITEMS.register("pentagram",
@@ -107,7 +105,7 @@ public class CTCEItems
     public static final DeferredItem<SwordItem> UNIVERSE_SWORD = registerUnivereSword();
 
     public static final DeferredItem<PickaxeItem> CATALYST_PICKAXE = registerCatalystPickaxe();
-    public static final DeferredItem<ICTCEPaxel> CATALYST_PAXEL = registerCatalystPaxel();
+    public static final DeferredItem<CTCEPaxel> CATALYST_PAXEL = registerCatalystPaxel();
     public static final DeferredItem<ShovelItem> CATALYST_SHOVEL = registerCatalystShovel();
     public static final DeferredItem<AxeItem> CATALYST_AXE = registerCatalystAxe();
 

@@ -13,7 +13,8 @@ This Block Entity currently has 5 Recipe Types.
 
 **5. Reaction Brewing**
 
-To perform any recipe within the Cauldron, Right-Click the Cauldron to insert and extract the Items.
+To perform any recipe within the Cauldron, you can either Right-Click or Throw your Items into it to insert these, if the
+recipe is set to use a fluid, you'll need to Right-Click the cauldron with a Bucket or any portable Tank to insert the fluids.
 
 Each work similar but with tiny little differences.
 ___
@@ -22,7 +23,7 @@ ___
 
 This recipe can be set to use a Heat Source, make sure to add the following block tag to work; { catalystcore:heat_sources }
 
-Requires any Item with the following Tag to activate this recipe type; { catalystcore: cauldron/water_activator }
+Requires any Item with the following Tag to activate this recipe type; { catalystcore:cauldron/water_activator }
 ___
 
 **Lava Brewing**, as the name suggest, only accept Lava as its Fluid Input and up to 4 Item Inputs. 
@@ -55,7 +56,9 @@ that anything can go wrong hehe...
 
 This recipe can be set to use a Heat Source, make sure to add the following block tag to work; { catalystcore:heat_sources }
 
-Requires any Item with the following Tag to activate this recipe type; { catalystcore:cauldron/reaction_activator }
+Requires any Item with the following Tag to activate the Item output recipe type; { catalystcore:cauldron/item_reaction }
+
+Requires any Item with the following Tag to activate the Fluid output recipe type; { catalystcore:cauldron/fluid_reaction }
 ___
 
 There are some blocks that already have heat_sources Tag on them such as the Campfire and the Magma Block. And for the
