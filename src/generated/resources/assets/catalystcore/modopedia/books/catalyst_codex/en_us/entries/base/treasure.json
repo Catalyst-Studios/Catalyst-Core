@@ -1,0 +1,45 @@
+{
+  "assigned_items": [
+    "catalystcore:explorers_treasure"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:explorers_treasure"
+  },
+  "pages": [
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "Its origin is unknown, yet its craftsmanship speaks of rare,\nexotic gems set in a frame of pure gold.\n\nDespite its size, it feels almost weightless in hand.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "text": "Those who have held it describe a sudden rush of adrenaline,\nas if the treasure itself whispers for more.\n\nWhether it is fortune or curse, the call is impossible to ignore.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "count": 1,
+              "id": "catalystcore:explorers_treasure"
+            }
+          ],
+          "template": "modopedia:large_framed_showcase",
+          "x": 65,
+          "y": 25
+        }
+      ]
+    }
+  ],
+  "title": "Treasure of the Unbound"
+}

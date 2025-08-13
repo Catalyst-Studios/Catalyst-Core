@@ -1,6 +1,5 @@
 package net.radzratz.catalystcore.common.compat.modopedia.entries.base.base;
 
-import com.google.gson.JsonElement;
 import net.favouriteless.modopedia.api.datagen.BookContentOutput;
 import net.favouriteless.modopedia.api.datagen.builders.EntryBuilder;
 import net.favouriteless.modopedia.api.datagen.builders.page_components.components.TextBuilder;
@@ -10,8 +9,6 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
 import net.radzratz.catalystcore.client.items.CTCEItems;
 
-import java.util.function.BiConsumer;
-
 public class MChocolateBarEntry
 {
     public static void registerFracturedEntry(HolderLookup.Provider registries, BookContentOutput output)
@@ -20,17 +17,27 @@ public class MChocolateBarEntry
                 .icon(new ItemStack(CTCEItems.CHOCOLATE_BAR.get()))
                 .assignedItems(CTCEItems.CHOCOLATE_BAR.get())
                 .page(
-                        TextBuilder.of("An artifact of unknown origin, theorized to be a dessert item crafted by an " +
-                                        "entity with mastery over both pastry and spacetime.\nThis chocolate bar phases in and out of local reality, " +
-                                        "occasionally vanishing entirely—presumably consumed in another dimension. Attempts to eat it have failed. $(c:red)$(b)Spectacularly$().")
+                        TextBuilder.of("""
+                                            An artifact of unknown origin, theorized to be a dessert item crafted by an
+                                            entity with mastery over both pastry and spacetime.
+                                            
+                                            This chocolate bar phases in and out of local reality,
+                                            occasionally vanishing entirely—presumably consumed in another dimension. Attempts to eat it have failed. $(c:red)$(b)Spectacularly$().
+                                            """)
                                 .justify(Justify.LEFT)
                                 .lineHeight(12)
                 )
                 .page(
-                        TextBuilder.of("Its surface remains flawlessly smooth and pristine, as if hand-tempered " +
-                                "by the universe's finest chocolatier.\n\n$(u)$(c:#fffc00)Do not bite$(). You may lose more than your teeth." +
-                                "\n\n(This item is legally considered a Class-3 Existential Hazard.)\n\n" +
-                                "'Filed under anomaly $(b)047-B$(/b) by the $(c:blue)Catalyst Control Authority$(/c)'")
+                        TextBuilder.of("""
+                                            Its surface remains flawlessly smooth and pristine, as if hand-tempered
+                                            by the universe's finest chocolatier.
+                                            
+                                            $(u)$(c:#fffc00)Do not bite$(). You may lose more than your teeth.
+                                            
+                                            (This item is legally considered a Class-3 Existential Hazard.)
+                                            
+                                            'Filed under anomaly $(b)047-B$(/b) by the $(c:blue)Catalyst Control Authority$(/c)'
+                                            """)
                 )
                 .page(
                         LargeFramedShowcaseBuilder.of(CTCEItems.CHOCOLATE_BAR.get().getDefaultInstance())

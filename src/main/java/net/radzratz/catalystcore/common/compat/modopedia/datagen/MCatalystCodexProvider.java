@@ -32,9 +32,11 @@ public class MCatalystCodexProvider extends BookProvider
                 .landingText("""
                              Welcome to the Universe Codex.
                              
-                             In here, you may find the $(b)Lore$(/b) behind some of our Items, an Explanation to some of our Events
-                             and Item transformations, Dimension list and how to access them, and lastly, how
-                             our Block entities and Entities work!$()
+                             This guide-lore book is under heavy W.I.P
+                             
+                             The Lore of Our Items are finished, but we are missing plenty of stuff that will come eventually.
+                             
+                             Soon™
                              """)
                 .texture(CTCE("catalyst_codex"))
                 .itemModel(CTCE("item/modopedia_books/universe_codex"))
@@ -42,7 +44,7 @@ public class MCatalystCodexProvider extends BookProvider
                 .openSound(MSoundEvents.BOOK_OPEN)
                 .flipSound(MSoundEvents.BOOK_FLIP)
                 .font(Modopedia.id("default"))
-                .textColour(0xd3b792)
+                .textColour(0xff6500)
                 .headerColour(0x660000)
                 .lineWidth(100)
                 .build("catalyst_codex", output);

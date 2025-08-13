@@ -1,6 +1,5 @@
 package net.radzratz.catalystcore.common.compat.modopedia.entries.base.base;
 
-import com.google.gson.JsonElement;
 import net.favouriteless.modopedia.api.datagen.BookContentOutput;
 import net.favouriteless.modopedia.api.datagen.builders.EntryBuilder;
 import net.favouriteless.modopedia.api.datagen.builders.page_components.components.TextBuilder;
@@ -9,8 +8,6 @@ import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
 import net.radzratz.catalystcore.client.items.CTCEItems;
-
-import java.util.function.BiConsumer;
 
 public class MICarosEntry
 {

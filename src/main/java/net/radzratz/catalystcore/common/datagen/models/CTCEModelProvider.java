@@ -67,11 +67,7 @@ public class CTCEModelProvider extends ItemModelProvider
         basicItem(CTCEItems.LIFE_ESSENCE_BOTTLE.get());
         basicItem(CTCEItems.PIXIE_BOTTLE.get());
         basicItem(CTCEItems.RUNIC_ESOTHERICAL.get());
-        basicItem(CTCEItems.BROKEN_PEARL.get());
-        basicItem(CTCEItems.DAGGER.get());
-        basicItem(CTCEItems.STRANGE_ROCK.get());
         basicItem(CTCEItems.ARES.get());
-        basicItem(CTCEItems.DRAGON_SCALE.get());
         basicItem(CTCEItems.ICAROS.get());
         basicItem(CTCEItems.ETERNAL_VORTEX.get());
         basicItem(CTCEItems.ANCIENT_RELIC.get());

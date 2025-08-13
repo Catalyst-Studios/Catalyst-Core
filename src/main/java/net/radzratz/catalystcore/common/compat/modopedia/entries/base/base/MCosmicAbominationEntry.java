@@ -17,15 +17,32 @@ public class MCosmicAbominationEntry
                 .icon(new ItemStack(CTCEItems.COSMIC_ABOMINATION.get()))
                 .assignedItems(CTCEItems.COSMIC_ABOMINATION.get())
                 .page(
-                        TextBuilder.of("It has awakened. Once dormant beyond the edge of all reality, " +
-                                        "this being was drawn to you by choices you thought noble—actions meant for a greater good, " +
-                                        "yet twisted by consequence. Now it follows. It clings to your presence. " +
-                                        "The world feels wrong when it’s near. It doesn’t speak.")
+                        TextBuilder.of("""
+                                            It has awakened.
+                                        
+                                            Once dormant beyond the edge of all reality,
+                                            this being was drawn to you by choices you thought noble—actions meant for a greater good,
+                                            yet twisted by consequence.
+                                            
+                                            Now it follows.
+                                            """)
                                 .justify(Justify.LEFT)
                                 .lineHeight(12)
                 )
                 .page(
-                        TextBuilder.of("It doesn’t remember why it exists. But it knows you. And it is watching.")
+                        TextBuilder.of("""
+                                            It clings to your presence.
+                                            
+                                            The world feels wrong when it’s near.
+                                            
+                                            It doesn’t speak.
+                                            
+                                            It doesn’t remember why it exists.
+                                            
+                                            But it knows you.
+                                            
+                                            And it is watching.
+                                            """)
                                 .justify(Justify.LEFT)
                                 .lineHeight(12)
                 )

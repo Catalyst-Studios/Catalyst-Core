@@ -7,10 +7,10 @@
   },
   "creative_tab": "catalystcore:catalystcore_tab1",
   "header_colour": "660000",
-  "landing_text": "Welcome to the Universe Codex.\n\nIn here, you may find the $(b)Lore$(/b) behind some of our Items, an Explanation to some of our Events\nand Item transformations, Dimension list and how to access them, and lastly, how\nour Block entities and Entities work!$()\n",
+  "landing_text": "Welcome to the Universe Codex.\n\nThis guide-lore book is under heavy W.I.P\n\nThe Lore of Our Items are finished, but we are missing plenty of stuff that will come eventually.\n\nSoon™\n",
   "model": "catalystcore:item/modopedia_books/universe_codex",
   "subtitle": "Unfathomable Power",
-  "text_colour": "d3b792",
+  "text_colour": "ff6500",
   "texture": "catalystcore:catalyst_codex",
   "title": "Universe Codex"
 }

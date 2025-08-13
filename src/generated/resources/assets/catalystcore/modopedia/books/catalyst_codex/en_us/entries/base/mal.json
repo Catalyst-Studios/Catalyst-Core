@@ -1,0 +1,63 @@
+{
+  "assigned_items": [
+    "catalystcore:malicious_eye"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:malicious_eye"
+  },
+  "pages": [
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "Trapped within an ancient snare, the entity watches—silent, yet unyielding.\n\nIt cannot speak, but its gaze carries the weight of countless unspoken curses.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "Eons ago, after the event that nearly unmade the world—\ncorrupting relics, artifacts, and treasures beyond count—\nthis being stood unmatched. With but a smile, it could erase all that existed.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "text": "Its name has faded from memory, but its will remains.\n\nBound in chains forged from forgotten magics, it watches without rest,\nwaiting for the moment its prison fails.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "text": "Should the bindings break, no wall, no god, and no star will stand against it.\n\nFor now, all we can do is pray—and hope it never smiles again.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "count": 1,
+              "id": "catalystcore:malicious_eye"
+            }
+          ],
+          "template": "modopedia:large_framed_showcase",
+          "x": 65,
+          "y": 25
+        }
+      ]
+    }
+  ],
+  "title": "Chains of the Forgotten"
+}

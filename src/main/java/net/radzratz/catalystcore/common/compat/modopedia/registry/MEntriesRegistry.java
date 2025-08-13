@@ -22,6 +22,13 @@ public class MEntriesRegistry
         MMagicAnomalyEntry.registerAnomalyEntry(registries, output);
         MICarosEntry.registerICarosEntry(registries, output);
         MVortexEntry.registerVortexEntry(registries, output);
+        MUniverContainerEntry.registerContainerEntry(registries, output);
+        MDivineRelicEntry.registerDivineEntry(registries, output);
+        MCrystallizedRiftEntry.registerRiftEntry(registries, output);
+        MBlackHoleEntry.registerBlackHoleEntry(registries, output);
+        MForbiddenArtifactEntry.registerForbiddenEntry(registries, output);
+        MTreasureEntry.registerTreasureEntry(registries, output);
+        MMaliciousEntry.registerMaliciousEntry(registries, output);
     }
 
     public static void registerPhialEntries(HolderLookup.Provider registries, BookContentOutput output)

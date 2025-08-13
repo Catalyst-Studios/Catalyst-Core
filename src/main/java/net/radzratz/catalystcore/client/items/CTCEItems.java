@@ -74,11 +74,6 @@ public class CTCEItems
     public static final DeferredItem<Item> RUNIC_ENDER = registerCatalystCoreBasicItems("runic_ender_slate");
     public static final DeferredItem<Item> RUNIC_ESOTHERICAL = registerCatalystCoreBasicItems("esotherical_runic_slate");
 
-    public static final DeferredItem<Item> BROKEN_PEARL = registerCatalystCoreBasicItems("broken_ender_pearl");
-    public static final DeferredItem<Item> DAGGER = registerCatalystCoreBasicItems("dagger");
-    public static final DeferredItem<Item> STRANGE_ROCK = registerCatalystCoreBasicItems("carved_rock");
-    public static final DeferredItem<Item> DRAGON_SCALE = registerCatalystCoreBasicItems("dragon_scale");
-
     public static final DeferredItem<Item> CATALYST_INGOT = registerCatalystCoreNormalItems("cataclystic_ingot");
 
     public static final DeferredItem<Item> BURRITO = registerCatalystCoreFoods("burrito");

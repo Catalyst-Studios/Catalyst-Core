@@ -14,9 +14,14 @@ public class MCatalystBaseCategory
                 .icon(new ItemStack(CTCEItems.FULL_CATALYST.get()))
                 .entries("base/the_catalyst", "base/a.r.e.s", "base/chocolate_bar", "base/cosmic_abomination",
                          "base/spirit_agglomeratio", "base/cosmic_shatterer", "base/fractured_crystal",
-                         "base/magic_anomaly", "base/icaros", "base/vortex")
+                         "base/magic_anomaly", "base/icaros", "base/vortex", "base/container", "base/divine",
+                         "base/rift", "base/black_hole", "base/forbidden", "base/treasure", "base/mal")
                 .displayOnFrontPage(true)
-                .landingText("The Universe's Finest Creations... Some shouldn't even see the light, but allas... here we are.")
+                .landingText("""
+                            The Universe's Finest Creations...
+                            
+                            Some shouldn't even see the light, but allas... here we are.
+                            """)
                 .build("catalyst_base", output);
     }
 }

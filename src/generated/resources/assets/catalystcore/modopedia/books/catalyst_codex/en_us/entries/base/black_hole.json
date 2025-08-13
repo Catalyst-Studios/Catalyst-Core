@@ -1,0 +1,45 @@
+{
+  "assigned_items": [
+    "catalystcore:black_hole"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:black_hole"
+  },
+  "pages": [
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "Created through unmatched technological mastery,\nthe Black Hole is the impossible made real.\n\nThough reduced to a miniature scale,\nits nature is unchanged—it consumes all without mercy.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "text": "The Catalyst Control Authority warns:\n\nNever place it near the Shaped Shifted Quantum Chocolate Bar.\n\nProximity triggers an expanding event horizon,\ndestabilizing containment and risking total collapse.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "count": 1,
+              "id": "catalystcore:black_hole"
+            }
+          ],
+          "template": "modopedia:large_framed_showcase",
+          "x": 65,
+          "y": 25
+        }
+      ]
+    }
+  ],
+  "title": "The Devourer"
+}

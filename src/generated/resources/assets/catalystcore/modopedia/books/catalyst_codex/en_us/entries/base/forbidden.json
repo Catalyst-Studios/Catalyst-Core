@@ -1,0 +1,45 @@
+{
+  "assigned_items": [
+    "catalystcore:forbidden_artifact"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:forbidden_artifact"
+  },
+  "pages": [
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "Born from the merging of lesser relics,\nits conflicting properties doomed it from the start.\n\nUnlike the Cosmic Shatterer,\nit drew the attention of entities and deities alike,\nwho saw in it the echo of a noble purpose.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "text": "Even with cosmic aid, the attempt failed.\n\nWhat remains is a flawed creation—neither relic nor ruin,\nyet carrying the weight of what it could have been.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "count": 1,
+              "id": "catalystcore:forbidden_artifact"
+            }
+          ],
+          "template": "modopedia:large_framed_showcase",
+          "x": 65,
+          "y": 25
+        }
+      ]
+    }
+  ],
+  "title": "The Failed Ascendant"
+}

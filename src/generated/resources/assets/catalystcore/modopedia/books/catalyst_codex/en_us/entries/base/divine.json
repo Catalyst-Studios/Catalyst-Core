@@ -1,0 +1,67 @@
+{
+  "assigned_items": [
+    "catalystcore:ancient_relic"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:ancient_relic"
+  },
+  "pages": [
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "Few relics of the old world have withstood the erosion of time.\n\nThe Divine Relic is one of these remnants, alongside the Spirit Agglomeratio\nand the Fractured Chaos Crystal. Yet unlike them, it remains whole,\nas if the ages themselves have spared it for a reason now lost.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "Its purpose has faded into shadow, a noble cause forgotten by history.\n\nThose who touch it speak of a cold whisper in the mind,\na presence that watches silently, neither hostile nor kind.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "Rumors claim the relic hums with power—vivid and unsettling.\n\nSome say it draws from light and shadow alike, a force that bends\nto no mortal hand. To possess it is to feel both awe and sorrow,\nas if the relic mourns the world that has forgotten its own guardians.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "Travelers, scholars, and seekers beware: the Divine Relic is not mere treasure.\n\nIt is a fragment of an age that no longer exists,\ncarrying a weight that none were meant to bear.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "count": 1,
+              "id": "catalystcore:ancient_relic"
+            }
+          ],
+          "template": "modopedia:large_framed_showcase",
+          "x": 65,
+          "y": 25
+        }
+      ]
+    }
+  ],
+  "title": "The Eternal Witness"
+}

@@ -1,0 +1,67 @@
+{
+  "assigned_items": [
+    "catalystcore:crystallized_rift"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:crystallized_rift"
+  },
+  "pages": [
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "Born from the convergence of all portals—arcane, magical, and technological—\nthe Crystallized Rift should not exist.\n\nIts creation was an accident,\nyet the deities watched in silence, taking no action, as if they had foreseen\nthis moment since the dawn of time.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "The Rift pulses with unstable power, shifting and bending\nas though struggling to contain itself.\n\nTo gaze upon it is to feel the pull of something vast,\nsomething not meant for mortal eyes.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "The Cosmic Abomination reacts with violent fury in its presence,\nas if recognizing an ancient enemy—or perhaps a key.\n\nWhispers claim the Rift is not merely a tear in reality,\nbut a passage to a place that defies the laws of existence.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "No record speaks of what lies beyond.\n\nOnly one question endures...\n\nWhat waits on the other side?\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "count": 1,
+              "id": "catalystcore:crystallized_rift"
+            }
+          ],
+          "template": "modopedia:large_framed_showcase",
+          "x": 65,
+          "y": 25
+        }
+      ]
+    }
+  ],
+  "title": "Where Worlds Bleed"
+}

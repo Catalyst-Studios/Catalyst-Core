@@ -20,10 +20,7 @@ public class CTCECreativeTabs
 
     private static boolean shouldShowInCreative(Item item)
     {
-        if(item instanceof ICTCEItem ghostItem)
-        {
-            return ghostItem.shouldAppear();
-        }
+        if(item instanceof ICTCEItem ghostItem) { return ghostItem.shouldAppear(); }
         return true;
     }
 
@@ -84,10 +81,6 @@ public class CTCECreativeTabs
                     .title(Component.translatable("creativetab.catalystcore.components"))
                     .displayItems((itemDisplayParameters, output) ->
                     {
-                        output.accept(CTCEItems.BROKEN_PEARL);
-                        output.accept(CTCEItems.DAGGER);
-                        output.accept(CTCEItems.STRANGE_ROCK);
-                        output.accept(CTCEItems.DRAGON_SCALE);
                         output.accept(CTCEItems.REINFORCED_BOTTLE);
                         output.accept(CTCEItems.DRAGON_BLOOD);
                         output.accept(CTCEItems.WITHERED_BOTTLE);

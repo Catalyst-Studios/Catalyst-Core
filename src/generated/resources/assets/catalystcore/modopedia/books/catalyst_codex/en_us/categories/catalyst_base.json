@@ -9,12 +9,19 @@
     "base/fractured_crystal",
     "base/magic_anomaly",
     "base/icaros",
-    "base/vortex"
+    "base/vortex",
+    "base/container",
+    "base/divine",
+    "base/rift",
+    "base/black_hole",
+    "base/forbidden",
+    "base/treasure",
+    "base/mal"
   ],
   "icon": {
     "count": 1,
     "id": "catalystcore:complete_catalyst"
   },
-  "landing_text": "The Universe's Finest Creations... Some shouldn't even see the light, but allas... here we are.",
+  "landing_text": "The Universe's Finest Creations...\n\nSome shouldn't even see the light, but allas... here we are.\n",
   "title": "Catalyst Core Base"
 }

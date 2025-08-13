@@ -1,0 +1,47 @@
+{
+  "assigned_items": [
+    "catalystcore:universe_containment_cell"
+  ],
+  "icon": {
+    "count": 1,
+    "id": "catalystcore:universe_containment_cell"
+  },
+  "pages": [
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "Forged with the most advanced technology ever conceived.\nIts construction combined countless exotic materials, impossible elements, and concepts beyond mortal comprehension.\nBut in the final stages of creation, something unprecedented happened: a universe was born within.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "type": "modopedia:text",
+          "justify": "left",
+          "line_height": 12,
+          "text": "At first, it was silent. Stable. Perfect.\n\nThe deities whispered among themselves, yet none moved to intervene.\n\nOver time, observers began to notice... something within was watching back.\n"
+        }
+      ]
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "count": 1,
+              "id": "catalystcore:universe_containment_cell"
+            }
+          ],
+          "template": "modopedia:large_framed_showcase",
+          "x": 65,
+          "y": 25
+        }
+      ]
+    }
+  ],
+  "title": "The Pocket Cosmos"
+}

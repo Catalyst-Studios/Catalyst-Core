@@ -18,27 +18,27 @@ public class MVortexEntry
                 .assignedItems(CTCEItems.ETERNAL_VORTEX.get())
                 .page(
                         TextBuilder.of("""
-                                        A spiraling wound in the fabric of existence.
+                                            A spiraling wound in the fabric of existence.
                                         
-                                        This vortex is the result of a cosmic event—one that nearly shattered every known layer of reality.
+                                            This vortex is the result of a cosmic event—one that nearly shattered every known layer of reality.
                                         
-                                        But it was halted.
+                                            But it was halted.
                                         
-                                        A benevolent deity intervened.
-                                        """)
+                                            A benevolent deity intervened.
+                                            """)
                                 .justify(Justify.LEFT)
                                 .lineHeight(12)
                 )
                 .page(
                         TextBuilder.of("""
-                                What remains is a scar—a swirling singularity, frozen in time.
+                                    What remains is a scar—a swirling singularity, frozen in time.
                                 
-                                A reminder of what almost was.
+                                    A reminder of what almost was.
                                 
-                                No one knows what triggered it.
+                                    No one knows what triggered it.
                                 
-                                Only that without divine action, we would not be here to ask."
-                                """)
+                                    Only that without divine action, we would not be here to ask.
+                                    """)
                 )
                 .page(
                         LargeFramedShowcaseBuilder.of(CTCEItems.ETERNAL_VORTEX.get().getDefaultInstance())

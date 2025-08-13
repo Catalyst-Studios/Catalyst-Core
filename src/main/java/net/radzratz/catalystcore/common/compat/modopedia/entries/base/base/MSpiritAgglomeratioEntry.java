@@ -18,21 +18,21 @@ public class MSpiritAgglomeratioEntry
                 .assignedItems(CTCEItems.SPIRIT_AGGLOMERATIO.get())
                 .page(
                         TextBuilder.of("""
-                                        Forged in the forgotten twilight of the cosmos, this orb contains the converged "
-                                        "essence of all spirits across the universe.
+                                            Forged in the forgotten twilight of the cosmos, this orb contains the converged
+                                            essence of all spirits across the universe.
                                         
-                                        What was once meant to preserve the cycle of souls has since been twisted.
-                                        """
+                                            What was once meant to preserve the cycle of souls has since been twisted.
+                                            """
                                 )
                                 .justify(Justify.LEFT)
                                 .lineHeight(12)
                 )
                 .page(
                         TextBuilder.of("""
-                                Its purpose, long corrupted by ancient hands, now drags the restless into a prison of silent torment.
+                                            Its purpose, long corrupted by ancient hands, now drags the restless into a prison of silent torment.
                                 
-                                The Agglomeratio is not merely a vessel—it is a scar upon existence itself.
-                                """
+                                            The Agglomeratio is not merely a vessel—it is a scar upon existence itself.
+                                            """
                         )
                 )
                 .page(
