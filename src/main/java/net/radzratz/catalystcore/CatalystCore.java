@@ -1,13 +1,16 @@
 package net.radzratz.catalystcore;
 
+import net.createmod.ponder.foundation.PonderIndex;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.loading.FMLEnvironment;
 import net.radzratz.catalystcore.client.blocks.CTCEBlocks;
 import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
 import net.radzratz.catalystcore.common.compat.curios.curio.curios.CTCECurioItems;
 import net.radzratz.catalystcore.client.visuals.particle.CTCEParticles;
 import net.radzratz.catalystcore.client.entities.CTCEEntities;
 import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.compat.ponder.CTCEPonderPlugin;
 import net.radzratz.catalystcore.common.recipes.CTCERecipeTypes;
 import net.radzratz.catalystcore.client.sound.CTCESounds;
 import net.radzratz.catalystcore.common.util.CTCECreativeTabs;
@@ -41,5 +44,7 @@ public class CatalystCore
         if(ModList.get().isLoaded("curios")) { bus.addListener(CTCECurioItems::registerCatalystCurioCapabilities); }
 
         // PonderIndex.addPlugin(new CTCEPonderPlugin());
+
+        if(FMLEnvironment.dist.isClient()) { PonderIndex.addPlugin(new CTCEPonderPlugin()); }
     }
 }

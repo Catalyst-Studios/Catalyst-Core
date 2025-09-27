@@ -36,6 +36,10 @@ repositories {
     }
 
     maven {
+        url = "https://mvn.devos.one/snapshots"
+    }
+
+    maven {
         name = 'Favouriteless Maven'
         url = 'https://maven.favouriteless.net/releases'
     }
@@ -97,9 +101,14 @@ configurations {
 }
 
 dependencies {
+
     localRuntime "top.theillusivec4.curios:curios-neoforge:${"9.3.1+1.21.1"}"
     compileOnly "top.theillusivec4.curios:curios-neoforge:${"9.3.1+1.21.1"}:api"
 
+    jarJar(group: 'net.createmod.ponder', name: 'Ponder-NeoForge-1.21.1', version: "${ponder_version}") { transitive(false) }
+    jarJar(group: 'dev.engine-room.flywheel', name: 'flywheel-neoforge-1.21.1', version: "${flywheel_version}") { transitive(false) }
+    compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
+    runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
     implementation("net.createmod.ponder:Ponder-NeoForge-1.21.1:${ponder_version}")
 
     implementation "net.favouriteless.modopedia:modopedia-neoforge-${minecraft_version}:${modopedia_version}"
