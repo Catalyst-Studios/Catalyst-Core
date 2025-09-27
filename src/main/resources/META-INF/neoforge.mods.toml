@@ -8,7 +8,7 @@ license="All Rights Reserved"
 
 modId="catalystcore"
 
-version="0.0.1"
+version="0.2"
 
 displayName="Catalyst Core"
 
@@ -19,7 +19,7 @@ description="Catalyst Core adds end-game items, dimensions, blocks, block entiti
 [[dependencies.catalystcore]]
 modId="neoforge"
 type="required"
-versionRange="21.1.152"
+versionRange="21.1.200"
 ordering="NONE"
 side="BOTH"
 

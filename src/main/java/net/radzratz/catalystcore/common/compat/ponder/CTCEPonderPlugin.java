@@ -4,6 +4,7 @@ import net.createmod.ponder.api.registration.PonderPlugin;
 import net.createmod.ponder.api.registration.PonderSceneRegistrationHelper;
 import net.createmod.ponder.api.registration.PonderTagRegistrationHelper;
 import net.minecraft.resources.ResourceLocation;
+import net.radzratz.catalystcore.CatalystCore;
 import org.jetbrains.annotations.NotNull;
 
 public class CTCEPonderPlugin implements PonderPlugin
@@ -11,7 +12,7 @@ public class CTCEPonderPlugin implements PonderPlugin
     @Override
     public @NotNull String getModId()
     {
-        return "catalystcore";
+        return CatalystCore.id;
     }
 
     @Override

@@ -1,13 +1,11 @@
 package net.radzratz.catalystcore;
 
-import net.createmod.ponder.foundation.PonderIndex;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.config.ModConfig;
 import net.radzratz.catalystcore.client.blocks.CTCEBlocks;
 import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
 import net.radzratz.catalystcore.common.compat.curios.curio.curios.CTCECurioItems;
 import net.radzratz.catalystcore.client.visuals.particle.CTCEParticles;
-import net.radzratz.catalystcore.common.compat.ponder.CTCEPonderPlugin;
 import net.radzratz.catalystcore.client.entities.CTCEEntities;
 import net.radzratz.catalystcore.client.items.CTCEItems;
 import net.radzratz.catalystcore.common.recipes.CTCERecipeTypes;
@@ -27,39 +25,21 @@ public class CatalystCore
 {
     public static final String id = "catalystcore";
 
-    public CatalystCore(IEventBus modEventBus, ModContainer modContainer)
+    public CatalystCore(IEventBus bus, ModContainer modContainer)
     {
-        modEventBus.addListener(this::commonSetup);
-
         modContainer.registerConfig(ModConfig.Type.COMMON, CTCEConfig.CONFIG_SPEC);
 
-        CTCESounds.init(modEventBus);
-        CTCERecipeTypes.register(modEventBus);
-        CTCEItems.register(modEventBus);
-        CTCEBlocks.register(modEventBus);
-        CTCEBlockEntities.register(modEventBus);
-        CTCEEntities.register(modEventBus);
-        CTCECreativeTabs.register(modEventBus);
-        CTCEParticles.register(modEventBus);
+        CTCESounds.init(bus);
+        CTCERecipeTypes.register(bus);
+        CTCEItems.register(bus);
+        CTCEBlocks.register(bus);
+        CTCEBlockEntities.register(bus);
+        CTCEEntities.register(bus);
+        CTCECreativeTabs.register(bus);
+        CTCEParticles.register(bus);
 
-        if(ModList.get().isLoaded("curios"))
-        {
-            modEventBus.addListener(CTCECurioItems::registerCatalystCurioCapabilities);
-        }
+        if(ModList.get().isLoaded("curios")) { bus.addListener(CTCECurioItems::registerCatalystCurioCapabilities); }
 
-        PonderIndex.addPlugin(new CTCEPonderPlugin());
-    }
-
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
-        event.enqueueWork(() ->
-        {
-        });
-    }
-
-    @SuppressWarnings("unused")
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event)
-    {
+        // PonderIndex.addPlugin(new CTCEPonderPlugin());
     }
 }
