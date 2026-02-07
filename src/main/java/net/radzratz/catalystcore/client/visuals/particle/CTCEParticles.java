@@ -5,19 +5,17 @@ import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.radzratz.catalystcore.CatalystCore;
 
 import java.util.function.Supplier;
 
-public class CTCEParticles
-{
-    public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES =
-            DeferredRegister.create(BuiltInRegistries.PARTICLE_TYPE.key(), "catalystcore");
+public class CTCEParticles {
+    public static final DeferredRegister<ParticleType<?>> CTCE_PARTICLES = DeferredRegister.create(BuiltInRegistries.PARTICLE_TYPE.key(), CatalystCore.id);
 
     public static final Supplier<SimpleParticleType> PENTAGRAM_PARTICLE =
-            PARTICLE_TYPES.register("pentagram", () -> new SimpleParticleType(true));
+            CTCE_PARTICLES.register("pentagram", () -> new SimpleParticleType(true));
 
-    public static void register(IEventBus eventBus)
-    {
-        PARTICLE_TYPES.register(eventBus);
+    public static void rgtr(IEventBus eventBus) {
+        CTCE_PARTICLES.register(eventBus);
     }
 }

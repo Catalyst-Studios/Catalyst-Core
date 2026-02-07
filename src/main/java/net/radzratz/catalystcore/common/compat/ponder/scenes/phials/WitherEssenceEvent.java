@@ -12,10 +12,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.radzratz.catalystcore.client.items.CTCEItems;
 
-public class WitherEssenceEvent
-{
-    public static void witherEssence(SceneBuilder scene, SceneBuildingUtil util)
-    {
+public class WitherEssenceEvent {
+    public static void witherEssence(SceneBuilder scene, SceneBuildingUtil util) {
         scene.title("wither_essence", "Extracting the Withered Essence");
         scene.world().showSection(util.select().fromTo(0, 0, 0, 4, 4, 4), Direction.DOWN);
         scene.idle(10);

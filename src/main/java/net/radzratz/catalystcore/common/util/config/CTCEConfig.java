@@ -3,8 +3,7 @@ package net.radzratz.catalystcore.common.util.config;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
 
-public class CTCEConfig
-{
+public class CTCEConfig {
     public static final CTCEConfig CONFIG;
     public static final ModConfigSpec CONFIG_SPEC;
 
@@ -13,15 +12,13 @@ public class CTCEConfig
     public final PhialEvents phials;
     public final CatalystCurios curioCompatibility;
 
-    static
-    {
+    static {
         Pair<CTCEConfig, ModConfigSpec> pair = new ModConfigSpec.Builder().configure(CTCEConfig::new);
         CONFIG = pair.getLeft();
         CONFIG_SPEC = pair.getRight();
     }
 
-    private CTCEConfig(ModConfigSpec.Builder builder)
-    {
+    private CTCEConfig(ModConfigSpec.Builder builder) {
         builder.comment("Catalyst Core Main Configuration").push("general");
 
         this.pentagram = new PentagramConfig(builder);
@@ -32,15 +29,13 @@ public class CTCEConfig
         builder.pop();
     }
 
-    public static class PentagramConfig
-    {
+    public static class PentagramConfig {
         public final ModConfigSpec.BooleanValue enablePentagramSpawn;
         public final ModConfigSpec.BooleanValue enablePentagramSpecialRenderers;
         public final ModConfigSpec.BooleanValue enablePentagramParticles;
         public final ModConfigSpec.BooleanValue enablePentagramSounds;
 
-        public PentagramConfig(ModConfigSpec.Builder builder)
-        {
+        public PentagramConfig(ModConfigSpec.Builder builder) {
             builder.comment("Pentagram settings").push("pentagram");
 
             this.enablePentagramSpawn = builder
@@ -68,13 +63,11 @@ public class CTCEConfig
         }
     }
 
-    public static class ModulesConfig
-    {
+    public static class ModulesConfig {
         public final ModConfigSpec.BooleanValue weaponsModule;
         public final ModConfigSpec.BooleanValue toolsModule;
 
-        public ModulesConfig(ModConfigSpec.Builder builder)
-        {
+        public ModulesConfig(ModConfigSpec.Builder builder) {
             /// This part of the config does NOT unregister any of CatalystCore Items
             ///
             /// This only "hides" them Items and toggles their functionality over CatalystCore Mod
@@ -97,8 +90,7 @@ public class CTCEConfig
         }
     }
 
-    public static class PhialEvents
-    {
+    public static class PhialEvents {
         public final ModConfigSpec.BooleanValue phialEvents;
         public final ModConfigSpec.BooleanValue dragonPhial;
         public final ModConfigSpec.BooleanValue witheredPhial;
@@ -106,8 +98,7 @@ public class CTCEConfig
         public final ModConfigSpec.BooleanValue torchFlowerPhial;
         public final ModConfigSpec.BooleanValue myceliumPhial;
 
-        public PhialEvents(ModConfigSpec.Builder builder)
-        {
+        public PhialEvents(ModConfigSpec.Builder builder) {
             /// This part of the config does NOT unregister any of CatalystCore Phials
             ///
             /// This only toggles their functionality over CatalystCore Mod
@@ -154,8 +145,7 @@ public class CTCEConfig
         }
     }
 
-    public static class CatalystCurios
-    {
+    public static class CatalystCurios {
         ///Catalyst Curio
         public final ModConfigSpec.BooleanValue catalystCurioEffects;
 
@@ -169,8 +159,7 @@ public class CTCEConfig
         public final ModConfigSpec.BooleanValue catalystFireResistance;
         public final ModConfigSpec.BooleanValue catalystRegeneration;
 
-        public CatalystCurios(ModConfigSpec.Builder builder)
-        {
+        public CatalystCurios(ModConfigSpec.Builder builder) {
             ///Dedicated Config for PackDevs who don't want any type of effects within the Catalyst Item using CuriosAPI Mod
             ///
             ///These values are set to use gameRestart() as it may or not crash with a Server/Client incompatibility result
@@ -246,5 +235,4 @@ public class CTCEConfig
             builder.pop();
         }
     }
-
 }

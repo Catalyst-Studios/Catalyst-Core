@@ -14,8 +14,7 @@ import net.radzratz.catalystcore.client.entities.pentagram.PentagramEntity;
 import net.radzratz.catalystcore.common.util.config.CTCEConfig;
 import org.joml.Matrix4f;
 
-public class PentagramRenderTop
-{
+public class PentagramRenderTop {
     private static final ResourceLocation STATIC_CIRCLE_TEXTURE =
             ResourceLocation.fromNamespaceAndPath("catalystcore", "textures/entity/eye1.png");
     private static final ResourceLocation INNER_CIRCLE_TEXTURE =
@@ -28,14 +27,8 @@ public class PentagramRenderTop
     private static float prevYaw = 0;
 
 
-    public static void render(PentagramEntity entity,
-                              float partialTicks,
-                              PoseStack poseStack,
-                              MultiBufferSource buffer,
-                              int packedLight)
-    {
-        if(!CTCEConfig.CONFIG.pentagram.enablePentagramSpecialRenderers.get())
-        {
+    public static void render(PentagramEntity entity, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
+        if(!CTCEConfig.CONFIG.pentagram.enablePentagramSpecialRenderers.get()) {
             return;
         }
 
@@ -43,8 +36,7 @@ public class PentagramRenderTop
         poseStack.translate(0, 1, 0);
 
         LocalPlayer clientPlayer = Minecraft.getInstance().player;
-        if (clientPlayer == null)
-        {
+        if (clientPlayer == null) {
             poseStack.popPose();
             return;
         }
@@ -68,14 +60,8 @@ public class PentagramRenderTop
         poseStack.popPose();
     }
 
-    private static void renderEyeFollowingPlayer(PentagramEntity entity,
-                                                 LocalPlayer player,
-                                                 float partialTicks,
-                                                 PoseStack poseStack,
-                                                 MultiBufferSource buffer,
-                                                 float scale,
-                                                 int packedLight)
-    {
+    private static void renderEyeFollowingPlayer(PentagramEntity entity, LocalPlayer player, float partialTicks, PoseStack poseStack,
+                                                 MultiBufferSource buffer, float scale, int packedLight) {
         poseStack.pushPose();
 
         poseStack.translate(0, -0.1, 0);
@@ -103,13 +89,7 @@ public class PentagramRenderTop
         poseStack.popPose();
     }
 
-    private static void renderEyeQuad(PoseStack poseStack,
-                                      VertexConsumer vertexConsumer,
-                                      float scale,
-                                      int packedLight,
-                                      float alpha,
-                                      float yOffset)
-    {
+    private static void renderEyeQuad(PoseStack poseStack, VertexConsumer vertexConsumer, float scale, int packedLight, float alpha, float yOffset) {
         float halfSize = scale / 2;
         Matrix4f pose = poseStack.last().pose();
 
@@ -145,26 +125,14 @@ public class PentagramRenderTop
     }
 
     @SuppressWarnings("unused")
-    private static void renderVerticalCircle(PoseStack poseStack,
-                                             VertexConsumer vertexConsumer,
-                                             float scale,
-                                             int packedLight,
-                                             float alpha)
-    {
+    private static void renderVerticalCircle(PoseStack poseStack, VertexConsumer vertexConsumer, float scale, int packedLight, float alpha) {
         poseStack.pushPose();
         poseStack.mulPose(Axis.ZP.rotationDegrees(90));
         renderQuad(poseStack, vertexConsumer, scale, 0, packedLight, alpha, 0.05f);
         poseStack.popPose();
     }
 
-    private static void renderDysonCircle(PoseStack poseStack,
-                                          VertexConsumer vertexConsumer,
-                                          float scale,
-                                          float rotation,
-                                          float angle,
-                                          int packedLight,
-                                          float alpha)
-    {
+    private static void renderDysonCircle(PoseStack poseStack, VertexConsumer vertexConsumer, float scale, float rotation, float angle, int packedLight, float alpha) {
         poseStack.pushPose();
         poseStack.mulPose(Axis.YP.rotationDegrees(rotation));
         poseStack.mulPose(Axis.XP.rotationDegrees(angle));
@@ -172,14 +140,7 @@ public class PentagramRenderTop
         poseStack.popPose();
     }
 
-    private static void renderQuad(PoseStack poseStack,
-                                   VertexConsumer vertexConsumer,
-                                   float scale,
-                                   float rotation,
-                                   int packedLight,
-                                   float alpha,
-                                   float yOffset)
-    {
+    private static void renderQuad(PoseStack poseStack, VertexConsumer vertexConsumer, float scale, float rotation, int packedLight, float alpha, float yOffset) {
         poseStack.pushPose();
         poseStack.mulPose(Axis.YP.rotationDegrees(rotation));
 

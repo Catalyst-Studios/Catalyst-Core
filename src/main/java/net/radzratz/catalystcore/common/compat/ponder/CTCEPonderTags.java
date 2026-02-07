@@ -8,14 +8,12 @@ import net.radzratz.catalystcore.client.items.CTCEItems;
 
 import static net.radzratz.catalystcore.common.util.CTCEUtils.CTCE;
 
-public class CTCEPonderTags
-{
+public class CTCEPonderTags {
     public static final ResourceLocation PHIALS = CTCE("phials");
     public static final ResourceLocation SLATES = CTCE("slates");
     public static final ResourceLocation BOOKS = CTCE("books");
 
-    public static void register(PonderTagRegistrationHelper<ResourceLocation> helper)
-    {
+    public static void register(PonderTagRegistrationHelper<ResourceLocation> helper) {
         PonderTagRegistrationHelper<Item> itemHelper = helper.withKeyFunction(BuiltInRegistries.ITEM::getKey);
 
         helper.registerTag(BOOKS)

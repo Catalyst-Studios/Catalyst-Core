@@ -12,10 +12,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.radzratz.catalystcore.client.items.CTCEItems;
 
-public class DragonBloodEvent
-{
-    public static void dragonBlood(SceneBuilder scene, SceneBuildingUtil util)
-    {
+public class DragonBloodEvent {
+    public static void dragonBlood(SceneBuilder scene, SceneBuildingUtil util) {
         scene.title("dragon_blood", "Extracting the Dragon's Blood");
 
         scene.configureBasePlate(0, 0, 13);
@@ -30,8 +28,7 @@ public class DragonBloodEvent
 
         scene.idle(10);
 
-        ElementLink<EntityElement> dragon = scene.world().createEntity(level ->
-        {
+        ElementLink<EntityElement> dragon = scene.world().createEntity(level -> {
             EnderDragon entity = new EnderDragon(EntityType.ENDER_DRAGON, level);
             entity.setPos(6.5, 5, 6.5);
             entity.setInvulnerable(true);

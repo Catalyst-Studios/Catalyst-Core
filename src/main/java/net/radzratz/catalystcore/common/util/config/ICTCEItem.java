@@ -1,7 +1,6 @@
 package net.radzratz.catalystcore.common.util.config;
 
-public interface ICTCEItem
-{
-    ///Only used for the Config
+///Only used for the Config
+public interface ICTCEItem {
     boolean shouldAppear();
 }

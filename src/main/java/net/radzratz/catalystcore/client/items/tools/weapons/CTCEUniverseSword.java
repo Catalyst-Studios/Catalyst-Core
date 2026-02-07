@@ -18,52 +18,42 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class CTCEUniverseSword extends SwordItem implements ICTCEItem
-{
-    public CTCEUniverseSword(Tier tier, Properties properties, Tool toolComponentData, ItemAttributeModifiers attributes)
-    {
+public class CTCEUniverseSword extends SwordItem implements ICTCEItem {
+    public CTCEUniverseSword(Tier tier, Properties properties, Tool toolComponentData, ItemAttributeModifiers attributes) {
         super(tier, properties.component(DataComponents.TOOL, toolComponentData)
                 .component(DataComponents.ATTRIBUTE_MODIFIERS, attributes)
                 .component(DataComponents.UNBREAKABLE, new Unbreakable(true)));
     }
 
     @Override
-    public boolean shouldAppear()
-    {
+    public boolean shouldAppear() {
         return CTCEConfig.CONFIG.modules.weaponsModule.get();
     }
 
     @Override
-    public boolean isEnabled(@NotNull FeatureFlagSet enabledFeatures)
-    {
+    public boolean isEnabled(@NotNull FeatureFlagSet enabledFeatures) {
         return this.shouldAppear();
     }
 
     @Override
-    public void postHurtEnemy(@NotNull ItemStack stack, @NotNull LivingEntity target, @NotNull LivingEntity attacker)
-    {
-    }
+    public void postHurtEnemy(@NotNull ItemStack stack, @NotNull LivingEntity target, @NotNull LivingEntity attacker) {}
 
     @Override
-    public boolean isBarVisible(@NotNull ItemStack stack)
-    {
+    public boolean isBarVisible(@NotNull ItemStack stack) {
         return false;
     }
 
     @Override
-    public boolean isDamageable(@NotNull ItemStack stack)
-    {
+    public boolean isDamageable(@NotNull ItemStack stack) {
         return false;
     }
 
     @Override
-    public boolean isEnchantable(@NotNull ItemStack stack)
-    {
+    public boolean isEnchantable(@NotNull ItemStack stack) {
         return true;
     }
 
-    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, List<Component> tooltip, @NotNull TooltipFlag flag)
-    {
+    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, List<Component> tooltip, @NotNull TooltipFlag flag) {
         tooltip.add(Component.translatable("item.catalystcore.universe_sword.desc").withStyle(ChatFormatting.WHITE));
         super.appendHoverText(stack, context, tooltip, flag);
     }

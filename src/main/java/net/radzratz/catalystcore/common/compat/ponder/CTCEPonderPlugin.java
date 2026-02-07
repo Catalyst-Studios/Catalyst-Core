@@ -7,23 +7,19 @@ import net.minecraft.resources.ResourceLocation;
 import net.radzratz.catalystcore.CatalystCore;
 import org.jetbrains.annotations.NotNull;
 
-public class CTCEPonderPlugin implements PonderPlugin
-{
+public class CTCEPonderPlugin implements PonderPlugin {
     @Override
-    public @NotNull String getModId()
-    {
+    public @NotNull String getModId() {
         return CatalystCore.id;
     }
 
     @Override
-    public void registerTags(@NotNull PonderTagRegistrationHelper<ResourceLocation> helper)
-    {
+    public void registerTags(@NotNull PonderTagRegistrationHelper<ResourceLocation> helper) {
         CTCEPonderTags.register(helper);
     }
 
     @Override
-    public void registerScenes(@NotNull PonderSceneRegistrationHelper<ResourceLocation> helper)
-    {
+    public void registerScenes(@NotNull PonderSceneRegistrationHelper<ResourceLocation> helper) {
         CTCEScenes.register(helper);
     }
 }

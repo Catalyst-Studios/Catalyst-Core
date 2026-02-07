@@ -18,11 +18,9 @@ import net.radzratz.catalystcore.client.items.CTCEItems;
 import net.radzratz.catalystcore.common.util.config.CTCEConfig;
 
 @EventBusSubscriber
-public class TorchFlowerBottleItem
-{
+public class TorchFlowerBottleItem {
     @SubscribeEvent
-    public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event)
-    {
+    public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
         if(!CTCEConfig.CONFIG.phials.phialEvents.isTrue()) return;
 
         if(!CTCEConfig.CONFIG.phials.torchFlowerPhial.isTrue()) return;
@@ -41,15 +39,12 @@ public class TorchFlowerBottleItem
         boolean mainIsShears = mainHand.is(Items.SHEARS);
         boolean offIsBottle = offHand.is(CTCEItems.REINFORCED_BOTTLE.get());
 
-        if(mainIsShears && offIsBottle)
-        {
-            if(!level.isClientSide)
-            {
+        if(mainIsShears && offIsBottle) {
+            if(!level.isClientSide) {
                 offHand.shrink(1);
 
                 ItemStack extract = new ItemStack(CTCEItems.TORCHFLOWER_BOTTLE.get());
-                if(!player.getInventory().add(extract))
-                {
+                if(!player.getInventory().add(extract)) {
                     player.drop(extract, false);
                 }
 

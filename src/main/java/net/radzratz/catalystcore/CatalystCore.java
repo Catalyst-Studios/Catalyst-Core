@@ -16,35 +16,32 @@ import net.radzratz.catalystcore.client.sound.CTCESounds;
 import net.radzratz.catalystcore.common.util.CTCECreativeTabs;
 
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.radzratz.catalystcore.common.util.config.CTCEConfig;
 
 @Mod(CatalystCore.id)
-public class CatalystCore
-{
+public class CatalystCore {
     public static final String id = "catalystcore";
 
-    public CatalystCore(IEventBus bus, ModContainer modContainer)
-    {
-        modContainer.registerConfig(ModConfig.Type.COMMON, CTCEConfig.CONFIG_SPEC);
+    public CatalystCore(IEventBus bus, ModContainer mCont) {
+        mCont.registerConfig(ModConfig.Type.COMMON, CTCEConfig.CONFIG_SPEC);
 
-        CTCESounds.init(bus);
-        CTCERecipeTypes.register(bus);
-        CTCEItems.register(bus);
-        CTCEBlocks.register(bus);
+        CTCESounds.rgtr(bus);
+        CTCERecipeTypes.rgtr(bus);
+        CTCEItems.rgtr(bus);
+        CTCEBlocks.rgtr(bus);
         CTCEBlockEntities.register(bus);
-        CTCEEntities.register(bus);
-        CTCECreativeTabs.register(bus);
-        CTCEParticles.register(bus);
+        CTCEEntities.rgtr(bus);
+        CTCECreativeTabs.rgtr(bus);
+        CTCEParticles.rgtr(bus);
 
-        if(ModList.get().isLoaded("curios")) { bus.addListener(CTCECurioItems::registerCatalystCurioCapabilities); }
+        if(ModList.get().isLoaded("curios")) {
+            bus.addListener(CTCECurioItems::registerCatalystCurioCapabilities);
+        }
 
-        // PonderIndex.addPlugin(new CTCEPonderPlugin());
-
-        if(FMLEnvironment.dist.isClient()) { PonderIndex.addPlugin(new CTCEPonderPlugin()); }
+        if(FMLEnvironment.dist.isClient()) {
+            PonderIndex.addPlugin(new CTCEPonderPlugin());
+        }
     }
 }

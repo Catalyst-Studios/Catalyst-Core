@@ -16,9 +16,8 @@ import net.radzratz.catalystcore.client.items.CTCEItems;
 
 import java.util.function.Supplier;
 
-public class CTCEBlocks
-{
-    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(CatalystCore.id);
+public class CTCEBlocks {
+    public static final DeferredRegister.Blocks CTCE_BLOCKS = DeferredRegister.createBlocks(CatalystCore.id);
 
     public static final DeferredBlock<CTCEPedestal> CATALYST_ALTAR_PEDESTAL = registerBlock("center_pedestal",
             ()-> new CTCEPedestal(BlockBehaviour.Properties.of().noOcclusion()));
@@ -35,20 +34,17 @@ public class CTCEBlocks
                     .sound(SoundType.GLASS)
                     .requiresCorrectToolForDrops()));
 
-    private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block)
-    {
-        DeferredBlock<T> toReturn = BLOCKS.register(name, block);
+    private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
+        DeferredBlock<T> toReturn = CTCE_BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
         return toReturn;
     }
 
-    public static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block)
-    {
-        CTCEItems.ITEMS.register(name, ()-> new BlockItem(block.get(), new Item.Properties()));
+    public static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
+        CTCEItems.CTCE_ITEMS.register(name, ()-> new BlockItem(block.get(), new Item.Properties()));
     }
 
-    public static void register(IEventBus eventBus)
-    {
-        BLOCKS.register(eventBus);
+    public static void rgtr(IEventBus eventBus) {
+        CTCE_BLOCKS.register(eventBus);
     }
 }

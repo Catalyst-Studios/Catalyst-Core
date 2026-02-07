@@ -8,23 +8,18 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.radzratz.catalystcore.CatalystCore;
 
-public class CTCESounds
-{
-    public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
-            DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, CatalystCore.id);
+public class CTCESounds {
+    public static final DeferredRegister<SoundEvent> CTCE_SOUND_EVENTS = DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, CatalystCore.id);
 
     public static final DeferredHolder<SoundEvent, SoundEvent> PENTAGRAM_CRAFT =
-            SOUND_EVENTS.register("pentagram_craft",
-                    () -> SoundEvent.createVariableRangeEvent(
+            CTCE_SOUND_EVENTS.register("pentagram_craft", () -> SoundEvent.createVariableRangeEvent(
                             ResourceLocation.fromNamespaceAndPath("catalystcore", "pentagram_craft")));
 
     public static final DeferredHolder<SoundEvent, SoundEvent> PENTAGRAM_PLACE =
-            SOUND_EVENTS.register("pentagram_place",
-                    () -> SoundEvent.createVariableRangeEvent(
+            CTCE_SOUND_EVENTS.register("pentagram_place", () -> SoundEvent.createVariableRangeEvent(
                             ResourceLocation.fromNamespaceAndPath("catalystcore", "pentagram_place")));
 
-    public static void init(IEventBus eventBus)
-    {
-        SOUND_EVENTS.register(eventBus);
+    public static void rgtr(IEventBus eventBus) {
+        CTCE_SOUND_EVENTS.register(eventBus);
     }
 }

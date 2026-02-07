@@ -10,8 +10,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import org.jetbrains.annotations.NotNull;
 
-public class PentagramCodec implements RecipeSerializer<PentagramRecipeType>
-{
+public class PentagramCodec implements RecipeSerializer<PentagramRecipeType> {
     public static final MapCodec<PentagramRecipeType> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(
                     Ingredient.CODEC.listOf().fieldOf("ingredients").forGetter(PentagramRecipeType::getIngredients),
@@ -20,8 +19,7 @@ public class PentagramCodec implements RecipeSerializer<PentagramRecipeType>
     );
 
     @Override
-    public @NotNull StreamCodec<RegistryFriendlyByteBuf, PentagramRecipeType> streamCodec()
-    {
+    public @NotNull StreamCodec<RegistryFriendlyByteBuf, PentagramRecipeType> streamCodec() {
         return StreamCodec.composite(
                 Ingredient.CONTENTS_STREAM_CODEC.apply(ByteBufCodecs.list()),
                 PentagramRecipeType::getIngredients,
@@ -32,8 +30,7 @@ public class PentagramCodec implements RecipeSerializer<PentagramRecipeType>
     }
 
     @Override
-    public @NotNull MapCodec<PentagramRecipeType> codec()
-    {
+    public @NotNull MapCodec<PentagramRecipeType> codec() {
         return CODEC;
     }
 }

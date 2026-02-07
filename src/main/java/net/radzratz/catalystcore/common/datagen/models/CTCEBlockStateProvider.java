@@ -7,21 +7,17 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.radzratz.catalystcore.CatalystCore;
 import net.radzratz.catalystcore.client.blocks.CTCEBlocks;
 
-public class CTCEBlockStateProvider extends BlockStateProvider
-{
-    public CTCEBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper)
-    {
+public class CTCEBlockStateProvider extends BlockStateProvider {
+    public CTCEBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
         super(output, CatalystCore.id, exFileHelper);
     }
 
     @Override
-    protected void registerStatesAndModels()
-    {
+    protected void registerStatesAndModels() {
         blockWithItem(CTCEBlocks.REINFORCED_GLASS);
     }
 
-    private void blockWithItem(DeferredBlock<?> deferredBlock)
-    {
+    private void blockWithItem(DeferredBlock<?> deferredBlock) {
         simpleBlockWithItem(deferredBlock.get(), cubeAll(deferredBlock.get()));
     }
 }

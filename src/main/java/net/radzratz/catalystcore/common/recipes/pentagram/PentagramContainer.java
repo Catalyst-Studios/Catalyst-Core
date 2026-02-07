@@ -9,22 +9,18 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PentagramContainer implements RecipeInput
-{
+public class PentagramContainer implements RecipeInput {
     private final List<ItemEntity> entities;
     private List<ItemStack> itemsCache;
 
-    public PentagramContainer(List<ItemEntity> entities)
-    {
+    public PentagramContainer(List<ItemEntity> entities) {
         this.entities = entities.stream()
                 .filter(e -> !e.isRemoved() && !e.getItem().isEmpty())
                 .collect(Collectors.toList());
     }
 
-    public List<ItemStack> getItems()
-    {
-        if(itemsCache == null)
-        {
+    public List<ItemStack> getItems() {
+        if(itemsCache == null) {
             itemsCache = entities.stream()
                     .map(ItemEntity::getItem)
                     .collect(Collectors.toList());
@@ -33,14 +29,12 @@ public class PentagramContainer implements RecipeInput
     }
 
     @Override
-    public @NotNull ItemStack getItem(int index)
-    {
+    public @NotNull ItemStack getItem(int index) {
         return getItems().get(index);
     }
 
     @Override
-    public int size()
-    {
+    public int size() {
         return getItems().size();
     }
 

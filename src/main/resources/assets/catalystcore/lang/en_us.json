@@ -61,6 +61,10 @@
   "item.catalystcore.infected_slate": "Infected Slate",
   "item.catalystcore.esotherical_runic_slate": "Esotherical Runic Slate",
 
+  "item.catalystcore.empty_containment_vessel": "Empty Containment Vessel",
+  "item.catalystcore.concentrated_radiance": "Concentrated Radiance",
+  "item.catalystcore.bound_voidspawn": "Bound Voidspawn",
+
   "curios.slot_type.catalyst": "Catalyst",
   "curios.identifier.catalyst": "Catalyst",
 

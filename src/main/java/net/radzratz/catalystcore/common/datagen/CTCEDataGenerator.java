@@ -26,43 +26,39 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-@EventBusSubscriber(modid = CatalystCore.id, bus = EventBusSubscriber.Bus.MOD)
-@SuppressWarnings("unused")
-public class CTCEDataGenerator
-{
-    @SuppressWarnings("unused")
+@EventBusSubscriber(modid = CatalystCore.id)
+public class CTCEDataGenerator {
     @SubscribeEvent
-    public static void gatherData(GatherDataEvent event)
-    {
-        DataGenerator generator = event.getGenerator();
-        PackOutput packOutput = generator.getPackOutput();
-        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
-        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+    public static void gatherData(GatherDataEvent evt) {
+        DataGenerator gntr = evt.getGenerator();
+        PackOutput pOutput = gntr.getPackOutput();
+        ExistingFileHelper eFileHelper = evt.getExistingFileHelper();
+        CompletableFuture<HolderLookup.Provider> lProvider = evt.getLookupProvider();
 
-        CTCEDataProvider provider = new CTCEDataProvider(packOutput);
+        CTCEDataProvider prv = new CTCEDataProvider(pOutput);
 
         /// Loot Tables
-        provider.addSubProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(),
-                List.of(new LootTableProvider.SubProviderEntry(CTCEBlockLootTable::new, LootContextParamSets.BLOCK)), lookupProvider));
+        prv.addSubProvider(evt.includeServer(), new LootTableProvider(pOutput, Collections.emptySet(),
+                List.of(new LootTableProvider.SubProviderEntry(CTCEBlockLootTable::new, LootContextParamSets.BLOCK)), lProvider));
 
         /// Tags
-        BlockTagsProvider blockTagsProvider = new CTCEBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
-        provider.addSubProvider(event.includeServer(), blockTagsProvider);
-        provider.addSubProvider(event.includeServer(), new CTCEItemTagProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
+        BlockTagsProvider blockTagsProvider = new CTCEBlockTagProvider(pOutput, lProvider, eFileHelper);
+        prv.addSubProvider(evt.includeServer(), blockTagsProvider);
+        prv.addSubProvider(evt.includeServer(), new CTCEItemTagProvider(pOutput, lProvider, blockTagsProvider.contentsGetter(), eFileHelper));
 
         /// Models
-        provider.addSubProvider(event.includeClient(), new CTCEModelProvider(packOutput, existingFileHelper));
-        provider.addSubProvider(event.includeClient(), new CTCEBlockStateProvider(packOutput, existingFileHelper));
+        prv.addSubProvider(evt.includeClient(), new CTCEModelProvider(pOutput, eFileHelper));
+        prv.addSubProvider(evt.includeClient(), new CTCEBlockStateProvider(pOutput, eFileHelper));
 
         /// Curios
-        provider.addSubProvider(event.includeServer(), new CTCECuriosProvider(packOutput, existingFileHelper, lookupProvider));
+        prv.addSubProvider(evt.includeServer(), new CTCECuriosProvider(pOutput, eFileHelper, lProvider));
 
         /// Modopedia
-        provider.addSubProvider(event.includeServer(), new MCatalystCodexProvider(lookupProvider, packOutput));
-        provider.addSubProvider(event.includeServer(), new MCodexEntriesProvider(lookupProvider, packOutput));
-        provider.addSubProvider(event.includeServer(), new MCodexTemplateProvider(lookupProvider, packOutput));
-        provider.addSubProvider(event.includeServer(), new MCodexTextureProvider(lookupProvider, packOutput));
+        prv.addSubProvider(evt.includeServer(), new MCatalystCodexProvider(lProvider, pOutput));
+        prv.addSubProvider(evt.includeServer(), new MCodexEntriesProvider(lProvider, pOutput));
+        prv.addSubProvider(evt.includeServer(), new MCodexTemplateProvider(lProvider, pOutput));
+        prv.addSubProvider(evt.includeServer(), new MCodexTextureProvider(lProvider, pOutput));
 
-        generator.addProvider(true, provider);
+        gntr.addProvider(true, prv);
     }
 }

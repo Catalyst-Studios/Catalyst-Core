@@ -45,7 +45,7 @@ public class CTCEBlockLootTable extends BlockLootSubProvider
     @Override
     protected @NotNull Iterable<Block> getKnownBlocks()
     {
-        return CTCEBlocks.BLOCKS.getEntries().stream().map(Holder::value)::iterator;
+        return CTCEBlocks.CTCE_BLOCKS.getEntries().stream().map(Holder::value)::iterator;
     }
 
 }

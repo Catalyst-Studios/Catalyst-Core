@@ -17,11 +17,9 @@ import net.radzratz.catalystcore.client.items.CTCEItems;
 import net.radzratz.catalystcore.common.util.config.CTCEConfig;
 
 @EventBusSubscriber
-public class SculkBottleItem
-{
+public class SculkBottleItem {
     @SubscribeEvent
-    public static void onBlockRightClick(PlayerInteractEvent.RightClickBlock event)
-    {
+    public static void onBlockRightClick(PlayerInteractEvent.RightClickBlock event) {
         if(!CTCEConfig.CONFIG.phials.phialEvents.isTrue()) return;
 
         if(!CTCEConfig.CONFIG.phials.sculkPhial.isTrue()) return;
@@ -39,15 +37,12 @@ public class SculkBottleItem
         boolean validBlock = blockState.is(Blocks.SCULK) || blockState.is(Blocks.SCULK_SENSOR)
                 || blockState.is(Blocks.SCULK_CATALYST) || blockState.is(Blocks.SCULK_SHRIEKER);
 
-        if(mainIsBrush && offIsBottle && validBlock)
-        {
-            if(!level.isClientSide)
-            {
+        if(mainIsBrush && offIsBottle && validBlock) {
+            if(!level.isClientSide) {
                 offHand.shrink(1);
 
                 ItemStack extract = new ItemStack(CTCEItems.SCULK_BOTTLE.get());
-                if(!player.getInventory().add(extract))
-                {
+                if(!player.getInventory().add(extract)) {
                     player.drop(extract, false);
                 }
 

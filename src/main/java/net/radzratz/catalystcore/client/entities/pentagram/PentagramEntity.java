@@ -29,27 +29,17 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
-@SuppressWarnings("all")
-public class PentagramEntity extends Entity
-{
-    private static final EntityDataAccessor<Boolean> FADING_OUT =
-            SynchedEntityData.defineId(PentagramEntity.class, EntityDataSerializers.BOOLEAN);
-    private static final EntityDataAccessor<Integer> FADE_TICKS =
-            SynchedEntityData.defineId(PentagramEntity.class, EntityDataSerializers.INT);
+public class PentagramEntity extends Entity {
+    private static final EntityDataAccessor<Boolean> FADING_OUT = SynchedEntityData.defineId(PentagramEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Integer> FADE_TICKS = SynchedEntityData.defineId(PentagramEntity.class, EntityDataSerializers.INT);
 
-    private static final EntityDataAccessor<Float> CIRCLE_ROTATION =
-            SynchedEntityData.defineId(PentagramEntity.class, EntityDataSerializers.FLOAT);
-    private static final EntityDataAccessor<Float> STATIC_CIRCLE_SCALE =
-            SynchedEntityData.defineId(PentagramEntity.class, EntityDataSerializers.FLOAT);
-    private static final EntityDataAccessor<Float> INNER_CIRCLE_SCALE =
-            SynchedEntityData.defineId(PentagramEntity.class, EntityDataSerializers.FLOAT);
-    private static final EntityDataAccessor<Float> OUTER_CIRCLE_SCALE =
-            SynchedEntityData.defineId(PentagramEntity.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<Float> CIRCLE_ROTATION = SynchedEntityData.defineId(PentagramEntity.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<Float> STATIC_CIRCLE_SCALE = SynchedEntityData.defineId(PentagramEntity.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<Float> INNER_CIRCLE_SCALE = SynchedEntityData.defineId(PentagramEntity.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<Float> OUTER_CIRCLE_SCALE = SynchedEntityData.defineId(PentagramEntity.class, EntityDataSerializers.FLOAT);
 
-    private static final EntityDataAccessor<Float> INNER_CIRCLE_ANGLE =
-            SynchedEntityData.defineId(PentagramEntity.class, EntityDataSerializers.FLOAT);
-    private static final EntityDataAccessor<Float> OUTER_CIRCLE_ANGLE =
-            SynchedEntityData.defineId(PentagramEntity.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<Float> INNER_CIRCLE_ANGLE = SynchedEntityData.defineId(PentagramEntity.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<Float> OUTER_CIRCLE_ANGLE = SynchedEntityData.defineId(PentagramEntity.class, EntityDataSerializers.FLOAT);
 
     private int recipeCooldown = 0;
     public boolean isFadingOut = false;
@@ -61,10 +51,8 @@ public class PentagramEntity extends Entity
     public static final float MAX_OUTER_SCALE = 1.2f;
     public static final float MAX_STATIC_SCALE = 0.6f;
 
-    private void playPentagramSound(SoundEvent sound)
-    {
-        if(CTCEConfig.CONFIG.pentagram.enablePentagramSounds.get())
-        {
+    private void playPentagramSound(SoundEvent sound) {
+        if (CTCEConfig.CONFIG.pentagram.enablePentagramSounds.get()) {
             this.level().playSound(
                     null,
                     this.blockPosition(),
@@ -76,14 +64,12 @@ public class PentagramEntity extends Entity
         }
     }
 
-    public PentagramEntity(EntityType<? extends PentagramEntity> type, Level level)
-    {
+    public PentagramEntity(EntityType<? extends PentagramEntity> type, Level level) {
         super(type, level);
         float eyeHeight = 0.0F;
         this.setBoundingBox(AABB.ofSize(this.position(), 1.0D, 0.1D, 1.0D));
 
-        if(!level.isClientSide)
-        {
+        if (!level.isClientSide) {
             playPentagramSound(CTCESounds.PENTAGRAM_CRAFT.get());
         }
 
@@ -97,8 +83,7 @@ public class PentagramEntity extends Entity
     }
 
     @Override
-    protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder)
-    {
+    protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
         builder.define(FADING_OUT, false);
         builder.define(FADE_TICKS, 0);
 
@@ -118,20 +103,14 @@ public class PentagramEntity extends Entity
     protected void addAdditionalSaveData(@NotNull CompoundTag tag) {}
 
     @Override
-    public boolean isPickable()
-    {
+    public boolean isPickable() {
         return true;
     }
 
     @Override
-    public @NotNull InteractionResult interactAt(@NotNull Player player,
-                                                 @NotNull Vec3 vec,
-                                                 @NotNull InteractionHand hand)
-    {
-        if(!this.level().isClientSide && player.isShiftKeyDown() && hand == InteractionHand.MAIN_HAND)
-        {
-            if(!isFadingOut)
-            {
+    public @NotNull InteractionResult interactAt(@NotNull Player player, @NotNull Vec3 vec, @NotNull InteractionHand hand) {
+        if (!this.level().isClientSide && player.isShiftKeyDown() && hand == InteractionHand.MAIN_HAND) {
+            if (!isFadingOut) {
                 isFadingOut = true;
                 fadeOutTicks = 0;
 
@@ -145,82 +124,66 @@ public class PentagramEntity extends Entity
         return InteractionResult.PASS;
     }
 
-    public float getStaticCircleScale()
-    {
+    public float getStaticCircleScale() {
         return this.entityData.get(STATIC_CIRCLE_SCALE);
     }
 
-    public float getInnerCircleAngle()
-    {
+    public float getInnerCircleAngle() {
         return this.entityData.get(INNER_CIRCLE_ANGLE);
     }
 
-    public float getOuterCircleAngle()
-    {
+    public float getOuterCircleAngle() {
         return this.entityData.get(OUTER_CIRCLE_ANGLE);
     }
 
-    public float getCircleRotation()
-    {
+    public float getCircleRotation() {
         return this.entityData.get(CIRCLE_ROTATION);
     }
 
-    public float getInnerCircleScale()
-    {
+    public float getInnerCircleScale() {
         return this.entityData.get(INNER_CIRCLE_SCALE);
     }
 
-    public float getOuterCircleScale()
-    {
+    public float getOuterCircleScale() {
         return this.entityData.get(OUTER_CIRCLE_SCALE);
     }
 
-    public boolean isFadingOutClient()
-    {
+    public boolean isFadingOutClient() {
         return this.entityData.get(FADING_OUT);
     }
 
-    public int getFadeOutTicksClient()
-    {
+    public int getFadeOutTicksClient() {
         return this.entityData.get(FADE_TICKS);
     }
 
-    public float getVisualScale(float partialTicks)
-    {
-        if(level().isClientSide && isFadingOutClient())
-        {
+    public float getVisualScale(float partialTicks) {
+        if (level().isClientSide && isFadingOutClient()) {
             float t = (getFadeOutTicksClient() + partialTicks) / MAX_FADE_TICKS;
             return 1.0f - t;
         }
 
-        if(this.tickCount < MAX_FADE_TICKS)
-        {
+        if (this.tickCount < MAX_FADE_TICKS) {
             return (this.tickCount + partialTicks) / MAX_FADE_TICKS;
         }
         return 1.0f;
     }
 
-    public float getAlpha(float partialTicks)
-    {
-        if(level().isClientSide && isFadingOutClient())
-        {
+    public float getAlpha(float partialTicks) {
+        if (level().isClientSide && isFadingOutClient()) {
             float t = (getFadeOutTicksClient() + partialTicks) / MAX_FADE_TICKS;
             return 1.0f - t;
         }
 
-        if(this.tickCount < MAX_FADE_TICKS)
-        {
+        if (this.tickCount < MAX_FADE_TICKS) {
             return (this.tickCount + partialTicks) / MAX_FADE_TICKS;
         }
         return 1.0f;
     }
 
-    private void spawnMysticParticles()
-    {
+    private void spawnMysticParticles() {
         if (!CTCEConfig.CONFIG.pentagram.enablePentagramParticles.get()) { return; }
 
-        if(this.level() instanceof ServerLevel serverLevel)
-        {
+        if (this.level() instanceof ServerLevel serverLevel) {
             Vec3 center = this.position();
             double radius = 2.5;
             double angle = random.nextDouble() * Math.PI * 2;
@@ -241,39 +204,32 @@ public class PentagramEntity extends Entity
     }
 
     @Override
-    public void tick()
-    {
+    public void tick() {
         super.tick();
 
-        if(recipeCooldown > 0)
-        {
+        if (recipeCooldown > 0) {
             recipeCooldown--;
             return;
         }
 
-        if(isFadingOut)
-        {
+        if (isFadingOut) {
             fadeOutTicks++;
             this.entityData.set(FADE_TICKS, fadeOutTicks);
-            if(fadeOutTicks >= MAX_FADE_TICKS)
-            {
+            if (fadeOutTicks >= MAX_FADE_TICKS) {
                 this.discard();
             }
             return;
         }
 
-        if(particleCooldown <= 0)
+        if (particleCooldown <= 0)
         {
             spawnMysticParticles();
             particleCooldown = 2;
-        }
-        else
-        {
+        } else {
             particleCooldown--;
         }
 
-        if(!this.level().isClientSide)
-        {
+        if (!this.level().isClientSide) {
             float staticScale = Math.min(MAX_STATIC_SCALE, getStaticCircleScale() + 0.005f);
 
             float innerScale = Math.min(MAX_INNER_SCALE, getInnerCircleScale() + 0.01f);
@@ -292,7 +248,7 @@ public class PentagramEntity extends Entity
             this.entityData.set(CIRCLE_ROTATION, rotation);
         }
 
-        if(!(this.level() instanceof ServerLevel serverLevel)) return;
+        if (!(this.level() instanceof ServerLevel serverLevel)) return;
 
         AABB centerBox = new AABB(
                 this.getX() - 0.25, this.getY(), this.getZ() - 0.25,
@@ -306,32 +262,26 @@ public class PentagramEntity extends Entity
         PentagramContainer container = new PentagramContainer(nearbyItems);
         Optional<RecipeHolder<PentagramRecipeType>> jsonRecipe = serverLevel.getRecipeManager().getRecipeFor(CTCERecipeTypes.PENTAGRAM_TYPE.get(), container, serverLevel);
 
-        if(jsonRecipe.isPresent())
-        {
+        if(jsonRecipe.isPresent()) {
             processJsonRecipe(serverLevel, nearbyItems, jsonRecipe.get().value());
             this.recipeCooldown = 20;
         }
     }
 
-    private void processJsonRecipe(ServerLevel level, List<ItemEntity> items, PentagramRecipeType recipe)
-    {
+    private void processJsonRecipe(ServerLevel level, List<ItemEntity> items, PentagramRecipeType recipe) {
         PentagramContainer container = new PentagramContainer(items);
 
-        if(!recipe.matches(container, level))
-        {
+        if (!recipe.matches(container, level)) {
             return;
         }
 
         Map<Ingredient, ItemEntity> matchedItems = new HashMap<>();
         List<ItemEntity> entitiesToConsume = new ArrayList<>();
 
-        for(Ingredient ingredient : recipe.getIngredients())
-        {
-            for(ItemEntity entity : container.getEntities())
-            {
+        for(Ingredient ingredient : recipe.getIngredients()) {
+            for (ItemEntity entity : container.getEntities()) {
                 ItemStack stack = entity.getItem();
-                if(!entitiesToConsume.contains(entity) && ingredient.test(stack))
-                {
+                if (!entitiesToConsume.contains(entity) && ingredient.test(stack)) {
                     matchedItems.put(ingredient, entity);
                     entitiesToConsume.add(entity);
                     break;
@@ -339,11 +289,10 @@ public class PentagramEntity extends Entity
             }
         }
 
-        entitiesToConsume.forEach(e ->
-        {
+        entitiesToConsume.forEach(e -> {
             ItemStack stack = e.getItem();
             stack.shrink(1);
-            if(stack.isEmpty())
+            if (stack.isEmpty())
             {
                 e.discard();
             }

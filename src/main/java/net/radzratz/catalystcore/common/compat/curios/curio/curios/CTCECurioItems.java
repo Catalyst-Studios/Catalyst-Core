@@ -18,19 +18,14 @@ import top.theillusivec4.curios.api.type.capability.ICurio;
 import java.util.List;
 import java.util.function.BooleanSupplier;
 
-public class CTCECurioItems
-{
-    private record CatalystCurioEffect(BooleanSupplier isActive, int amplifier)
-    {
-    }
+public class CTCECurioItems {
+    private record CatalystCurioEffect(BooleanSupplier isActive, int amplifier) {}
 
     ///Catalyst Item Curio
-    public static void registerCatalystCurioCapabilities(RegisterCapabilitiesEvent event)
-    {
+    public static void registerCatalystCurioCapabilities(RegisterCapabilitiesEvent event) {
         event.registerItem(
                 CuriosCapability.ITEM,
-                (stack, context) -> new ICurio()
-                {
+                (stack, context) -> new ICurio() {
                     private static final List<Holder<MobEffect>> CURIO_EFFECTS = List.of(
                             BuiltInRegistries.MOB_EFFECT.wrapAsHolder(MobEffects.NIGHT_VISION.value()),
                             BuiltInRegistries.MOB_EFFECT.wrapAsHolder(MobEffects.DAMAGE_BOOST.value()),
@@ -56,17 +51,13 @@ public class CTCECurioItems
                     );
 
                     @Override
-                    public void curioTick(SlotContext slotContext)
-                    {
+                    public void curioTick(SlotContext slotContext) {
                         LivingEntity entity = slotContext.entity();
 
-                        if(!entity.level().isClientSide() && CTCEConfig.CONFIG.curioCompatibility.catalystCurioEffects.get())
-                        {
-                            for(int i = 0; i < EFFECT_CONFIGS.size(); i++)
-                            {
+                        if (!entity.level().isClientSide() && CTCEConfig.CONFIG.curioCompatibility.catalystCurioEffects.get()) {
+                            for (int i = 0; i < EFFECT_CONFIGS.size(); i++) {
                                 CatalystCurioEffect config = EFFECT_CONFIGS.get(i);
-                                if(config.isActive().getAsBoolean())
-                                {
+                                if (config.isActive().getAsBoolean()) {
                                     applyPermanentEffect(entity, CURIO_EFFECTS.get(i), config.amplifier());
                                 }
                             }
@@ -74,21 +65,16 @@ public class CTCECurioItems
                     }
 
                     @Override
-                    public ItemStack getStack()
-                    {
+                    public ItemStack getStack() {
                         return stack;
                     }
 
-                    private void applyPermanentEffect(LivingEntity entity,
-                                                      Holder<MobEffect> effect,
-                                                      int amplifier)
-                    {
+                    private void applyPermanentEffect(LivingEntity entity, Holder<MobEffect> effect, int amplifier) {
                         boolean hasEffect = entity.getActiveEffects()
                                 .stream()
                                 .anyMatch(instance -> instance.getEffect() == effect.value());
 
-                        if(!hasEffect)
-                        {
+                        if (!hasEffect) {
                             entity.addEffect(new MobEffectInstance(
                                     effect,
                                     -1,
@@ -100,31 +86,26 @@ public class CTCECurioItems
                         }
                     }
 
-                    public boolean makesPiglinsNeutral(SlotContext slotContext)
-                    {
+                    public boolean makesPiglinsNeutral(SlotContext slotContext) {
                         return true;
                     }
 
-                    public boolean canWalkOnPowderedSnow(SlotContext slotContext)
-                    {
+                    public boolean canWalkOnPowderedSnow(SlotContext slotContext) {
                         return true;
                     }
 
-                    public boolean isEnderMask(SlotContext slotContext, EnderMan enderMan)
-                    {
+                    public boolean isEnderMask(SlotContext slotContext, EnderMan enderMan) {
                         return true;
                     }
 
                     @Override
-                    public void onUnequip(SlotContext slotContext, ItemStack newStack)
-                    {
+                    public void onUnequip(SlotContext slotContext, ItemStack newStack) {
                         LivingEntity entity = slotContext.entity();
                         CURIO_EFFECTS.forEach(entity::removeEffect);
                     }
 
                     @Override
-                    public boolean canEquip(SlotContext slotContext)
-                    {
+                    public boolean canEquip(SlotContext slotContext) {
                         return slotContext.identifier().equals("catalyst") || slotContext.identifier().equals("curio");
                     }
 

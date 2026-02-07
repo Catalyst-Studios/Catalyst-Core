@@ -6,16 +6,13 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.radzratz.catalystcore.CatalystCore;
 import net.radzratz.catalystcore.client.items.CTCEItems;
 
-public class CTCEModelProvider extends ItemModelProvider
-{
-    public CTCEModelProvider(PackOutput output, ExistingFileHelper existingFileHelper)
-    {
+public class CTCEModelProvider extends ItemModelProvider {
+    public CTCEModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, CatalystCore.id, existingFileHelper);
     }
 
     @Override
-    protected void registerModels()
-    {
+    protected void registerModels() {
         basicItem(CTCEItems.MALICIOUS_EYE.get());
         basicItem(CTCEItems.FULL_CATALYST.get());
         basicItem(CTCEItems.FRAME_CATALYST.get());
@@ -71,5 +68,8 @@ public class CTCEModelProvider extends ItemModelProvider
         basicItem(CTCEItems.ICAROS.get());
         basicItem(CTCEItems.ETERNAL_VORTEX.get());
         basicItem(CTCEItems.ANCIENT_RELIC.get());
+        basicItem(CTCEItems.BOUND_VOIDSPAWN.get());
+        basicItem(CTCEItems.EMPTY_CONTAINMENT_VESSEL.get());
+        basicItem(CTCEItems.CONCENTRATED_RADIANCE.get());
     }
 }

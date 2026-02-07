@@ -17,70 +17,57 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class CTCEPaxel extends PaxelRegistry implements ICTCEItem
-{
-    public CTCEPaxel(Tier tier, Item.Properties properties, Tool toolComponentData, ItemAttributeModifiers attributes)
-    {
+public class CTCEPaxel extends PaxelRegistry implements ICTCEItem {
+    public CTCEPaxel(Tier tier, Item.Properties properties, Tool toolComponentData, ItemAttributeModifiers attributes) {
         super(tier, properties.component(DataComponents.TOOL, toolComponentData)
                 .component(DataComponents.ATTRIBUTE_MODIFIERS, attributes)
                 .component(DataComponents.UNBREAKABLE, new Unbreakable(true)));
     }
 
     @Override
-    public boolean shouldAppear()
-    {
+    public boolean shouldAppear() {
         return CTCEConfig.CONFIG.modules.toolsModule.get();
     }
 
     @Override
-    public boolean isEnabled(@NotNull FeatureFlagSet enabledFeatures)
-    {
+    public boolean isEnabled(@NotNull FeatureFlagSet enabledFeatures) {
         return this.shouldAppear();
     }
 
     @Override
-    public boolean isCorrectToolForDrops(@NotNull ItemStack stack, @NotNull BlockState state)
-    {
+    public boolean isCorrectToolForDrops(@NotNull ItemStack stack, @NotNull BlockState state) {
         return true;
     }
 
     @Override
-    public float getDestroySpeed(@NotNull ItemStack stack, @NotNull BlockState state)
-    {
+    public float getDestroySpeed(@NotNull ItemStack stack, @NotNull BlockState state) {
         return 40f;
     }
 
     @Override
-    public boolean makesPiglinsNeutral(@NotNull ItemStack stack, @NotNull LivingEntity wearer)
-    {
+    public boolean makesPiglinsNeutral(@NotNull ItemStack stack, @NotNull LivingEntity wearer) {
         return true;
     }
 
     @Override
-    public void postHurtEnemy(@NotNull ItemStack stack, @NotNull LivingEntity target, @NotNull LivingEntity attacker)
-    {
-    }
+    public void postHurtEnemy(@NotNull ItemStack stack, @NotNull LivingEntity target, @NotNull LivingEntity attacker) {}
 
     @Override
-    public boolean isBarVisible(@NotNull ItemStack stack)
-    {
+    public boolean isBarVisible(@NotNull ItemStack stack) {
         return false;
     }
 
     @Override
-    public boolean isDamageable(@NotNull ItemStack stack)
-    {
+    public boolean isDamageable(@NotNull ItemStack stack) {
         return false;
     }
 
     @Override
-    public boolean isEnchantable(@NotNull ItemStack stack)
-    {
+    public boolean isEnchantable(@NotNull ItemStack stack) {
         return true;
     }
 
-    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, List<Component> tooltip, @NotNull TooltipFlag flag)
-    {
+    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, List<Component> tooltip, @NotNull TooltipFlag flag) {
         tooltip.add(Component.translatable("item.catalystcore.cataclystic_paxel.desc").withStyle(ChatFormatting.DARK_BLUE));
         super.appendHoverText(stack, context, tooltip, flag);
     }

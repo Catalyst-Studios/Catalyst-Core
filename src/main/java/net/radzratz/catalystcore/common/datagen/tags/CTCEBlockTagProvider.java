@@ -14,17 +14,14 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
-public class CTCEBlockTagProvider extends BlockTagsProvider
-{
+public class CTCEBlockTagProvider extends BlockTagsProvider {
     public CTCEBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider,
-                                @Nullable ExistingFileHelper existingFileHelper)
-    {
+                                @Nullable ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, CatalystCore.id, existingFileHelper);
     }
 
     @Override
-    protected void addTags(HolderLookup.@NotNull Provider provider)
-    {
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
         tag(BlockTags.WITHER_IMMUNE).add(CTCEBlocks.REINFORCED_GLASS.get());
         tag(BlockTags.NEEDS_IRON_TOOL).add(CTCEBlocks.REINFORCED_GLASS.get());
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(CTCEBlocks.REINFORCED_GLASS.get());

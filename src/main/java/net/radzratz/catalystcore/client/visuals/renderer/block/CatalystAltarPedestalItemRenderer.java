@@ -19,20 +19,13 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-public class CatalystAltarPedestalItemRenderer implements BlockEntityRenderer<CatalystAltarPedestalEntity>
-{
+public class CatalystAltarPedestalItemRenderer implements BlockEntityRenderer<CatalystAltarPedestalEntity> {
     @SuppressWarnings("unused")
-    public CatalystAltarPedestalItemRenderer(BlockEntityRendererProvider.Context context)
-    {
-    }
+    public CatalystAltarPedestalItemRenderer(BlockEntityRendererProvider.Context context) {}
 
     @Override
-    public void render(CatalystAltarPedestalEntity pBlockEntity, float pPartialTick,
-                       PoseStack pPoseStack,
-                       @NotNull MultiBufferSource pBufferSource,
-                       int pPackedLight,
-                       int pPackedOverlay)
-    {
+    public void render(CatalystAltarPedestalEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, @NotNull MultiBufferSource pBufferSource,
+                       int pPackedLight, int pPackedOverlay) {
         ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
         ItemStack stack = pBlockEntity.interior_holder.getStackInSlot(0);
 
@@ -46,8 +39,7 @@ public class CatalystAltarPedestalItemRenderer implements BlockEntityRenderer<Ca
         pPoseStack.popPose();
     }
 
-    private int getLightLevel(Level level, BlockPos pos)
-    {
+    private int getLightLevel(Level level, BlockPos pos) {
         int bLight = level.getBrightness(LightLayer.BLOCK, pos);
         int sLight = level.getBrightness(LightLayer.SKY, pos);
         return LightTexture.pack(bLight,sLight);

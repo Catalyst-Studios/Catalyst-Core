@@ -17,11 +17,9 @@ import net.radzratz.catalystcore.common.util.config.CTCEConfig;
 
 @EventBusSubscriber
 @SuppressWarnings("all")
-public class WitheredEssenceBottleItem
-{
+public class WitheredEssenceBottleItem {
     @SubscribeEvent
-    public static void onEntityInteract(PlayerInteractEvent.EntityInteract event)
-    {
+    public static void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
         if(!CTCEConfig.CONFIG.phials.phialEvents.isTrue()) return;
 
         if(!CTCEConfig.CONFIG.phials.witheredPhial.isTrue()) return;
@@ -36,16 +34,13 @@ public class WitheredEssenceBottleItem
         boolean mainIsBrush = mainHand.is(Items.BRUSH);
         boolean offIsBottle = offHand.is(CTCEItems.REINFORCED_BOTTLE.get());
 
-        if(mainIsBrush && offIsBottle)
-        {
-            if(!player.level().isClientSide)
-            {
+        if(mainIsBrush && offIsBottle) {
+            if(!player.level().isClientSide) {
                 offHand.shrink(1);
 
                 ItemStack witherEssence = new ItemStack(CTCEItems.WITHERED_BOTTLE.get());
 
-                if(!player.getInventory().add(witherEssence))
-                {
+                if(!player.getInventory().add(witherEssence)) {
                     player.drop(witherEssence, false);
                 }
 

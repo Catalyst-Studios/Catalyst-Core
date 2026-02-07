@@ -20,16 +20,11 @@ import net.radzratz.catalystcore.client.visuals.renderer.particle.PentagramMysti
 import net.radzratz.catalystcore.client.visuals.renderer.item.pentagram.PentagramRenderEntity;
 
 
-@SuppressWarnings("deprecation")
-public class CTCEClientRegistries
-{
-    @SuppressWarnings("unused")
-    @EventBusSubscriber(modid = CatalystCore.id, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
+public class CTCEClientRegistries {
+    @EventBusSubscriber(modid = CatalystCore.id, value = Dist.CLIENT)
+    public static class ClientModEvents {
         @SubscribeEvent
-        public static void registerParticleFactories(RegisterParticleProvidersEvent event)
-        {
+        public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
             event.registerSpriteSet(
                     CTCEParticles.PENTAGRAM_PARTICLE.get(),
                     spriteSet -> (params, level, x, y, z, xSpeed, ySpeed, zSpeed) ->
@@ -38,21 +33,18 @@ public class CTCEClientRegistries
         }
 
         @SubscribeEvent
-        public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event)
-        {
+        public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
             event.registerEntityRenderer(CTCEEntities.PENTAGRAM.get(), PentagramRenderEntity::new);
         }
 
         @SubscribeEvent
-        public static void registerCustomRenders(EntityRenderersEvent.RegisterRenderers event)
-        {
+        public static void registerCustomRenders(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(CTCEBlockEntities.PEDESTAL_ALTAR.get(), CatalystAltarPedestalItemRenderer::new);
             event.registerBlockEntityRenderer(CTCEBlockEntities.CAULDRON.get(), CatalystCauldronRenderer::new);
         }
 
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
+        public static void onClientSetup(FMLClientSetupEvent event) {
             ItemBlockRenderTypes.setRenderLayer(CTCEBlocks.REINFORCED_GLASS.get(), RenderType.translucent());
         }
     }

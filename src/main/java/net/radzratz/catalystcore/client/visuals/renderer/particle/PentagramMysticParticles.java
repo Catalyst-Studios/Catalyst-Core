@@ -7,20 +7,13 @@ import net.minecraft.world.phys.Vec3;
 import net.radzratz.catalystcore.common.util.config.CTCEConfig;
 import org.jetbrains.annotations.NotNull;
 
-public class PentagramMysticParticles extends TextureSheetParticle
-{
+public class PentagramMysticParticles extends TextureSheetParticle {
     private final SpriteSet sprites;
     private final float rotationSpeed;
     private final Vec3 centerPos;
     private final float baseSize;
 
-    public PentagramMysticParticles(ClientLevel level,
-                                    Vec3 centerPos,
-                                    double x,
-                                    double y,
-                                    double z,
-                                    SpriteSet sprites)
-    {
+    public PentagramMysticParticles(ClientLevel level, Vec3 centerPos, double x, double y, double z, SpriteSet sprites) {
         super(level, x, y, z);
         this.centerPos = centerPos;
         this.sprites = sprites;
@@ -42,18 +35,15 @@ public class PentagramMysticParticles extends TextureSheetParticle
     }
 
     @Override
-    public void tick()
-    {
-        if(!CTCEConfig.CONFIG.pentagram.enablePentagramParticles.get())
-        {
+    public void tick() {
+        if(!CTCEConfig.CONFIG.pentagram.enablePentagramParticles.get()) {
             this.remove();
             return;
         }
 
         super.tick();
 
-        if(this.age < 10)
-        {
+        if(this.age < 10) {
             this.alpha = Math.min(0.8f, this.age * 0.08f);
         }
 
@@ -70,21 +60,17 @@ public class PentagramMysticParticles extends TextureSheetParticle
 
         this.quadSize = this.baseSize * (0.5f + 0.5f * (float)Math.sin(progress * Math.PI));
 
-        if(progress > 0.8f)
-        {
+        if(progress > 0.8f) {
             this.alpha = 0.8f * (1 - (progress - 0.8f) / 0.2f);
         }
     }
 
     @Override
-    public @NotNull ParticleRenderType getRenderType()
-    {
+    public @NotNull ParticleRenderType getRenderType() {
         return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
     }
 
-    @SuppressWarnings("unused")
-    public static class Provider implements ParticleProvider<SimpleParticleType>
-    {
+    public static class Provider implements ParticleProvider<SimpleParticleType> {
         private final SpriteSet sprites;
 
         public Provider(SpriteSet sprites)
@@ -93,15 +79,7 @@ public class PentagramMysticParticles extends TextureSheetParticle
         }
 
         @Override
-        public Particle createParticle(@NotNull SimpleParticleType type,
-                                       @NotNull ClientLevel level,
-                                       double x,
-                                       double y,
-                                       double z,
-                                       double xSpeed,
-                                       double ySpeed,
-                                       double zSpeed)
-        {
+        public Particle createParticle(@NotNull SimpleParticleType type, @NotNull ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
             Vec3 center = new Vec3(x, y, z);
             return new PentagramMysticParticles(level, center, x, y, z, this.sprites);
         }

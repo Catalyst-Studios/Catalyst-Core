@@ -19,11 +19,9 @@ import net.radzratz.catalystcore.common.util.config.CTCEConfig;
 
 @EventBusSubscriber
 @SuppressWarnings("all")
-public class DragonBloodBottleitem
-{
+public class DragonBloodBottleitem {
     @SubscribeEvent
-    public static void onEntityInteract(PlayerInteractEvent.EntityInteract event)
-    {
+    public static void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
         if(!CTCEConfig.CONFIG.phials.phialEvents.isTrue()) return;
 
         if(!CTCEConfig.CONFIG.phials.dragonPhial.isTrue()) return;
@@ -31,13 +29,9 @@ public class DragonBloodBottleitem
         Entity target = event.getTarget();
         EnderDragon dragon = null;
 
-        if(target instanceof EnderDragon ed)
-        {
+        if(target instanceof EnderDragon ed) {
             dragon = ed;
-        }
-            else
-                if(target instanceof EnderDragonPart part)
-        {
+        } else if(target instanceof EnderDragonPart part) {
             dragon = part.parentMob;
         }
 
@@ -51,16 +45,13 @@ public class DragonBloodBottleitem
         boolean isHoldingBottle = heldItem.is(CTCEItems.REINFORCED_BOTTLE);
         boolean isHoldingSword = otherHand.getItem() instanceof SwordItem;
 
-        if(isHoldingBottle && isHoldingSword)
-        {
-            if(!player.level().isClientSide)
-            {
+        if(isHoldingBottle && isHoldingSword) {
+            if(!player.level().isClientSide) {
                 heldItem.shrink(1);
 
                 ItemStack blood = new ItemStack(CTCEItems.DRAGON_BLOOD.get());
 
-                if(!player.getInventory().add(blood))
-                {
+                if(!player.getInventory().add(blood)) {
                     player.drop(blood, false);
                 }
 

@@ -65,6 +65,7 @@ public class CTCEItemTagProvider extends ItemTagsProvider
                 .add(CTCEItems.CATALYST_AXE.asItem())
                 .add(CTCEItems.CATALYST_PAXEL.asItem())
                 .add(CTCEItems.CATALYST_BATTLEAXE.get())
+                .add(CTCEItems.UNIVERSE_SWORD.get())
                 .add(CTCEItems.CATALYST_SHOVEL.asItem());
 
         ///Weapons
@@ -83,6 +84,7 @@ public class CTCEItemTagProvider extends ItemTagsProvider
                 .add(CTCEItems.CATALYST_PICKAXE.asItem())
                 .add(CTCEItems.CATALYST_AXE.asItem())
                 .add(CTCEItems.CATALYST_BATTLEAXE.get())
+                .add(CTCEItems.UNIVERSE_SWORD.get())
                 .add(CTCEItems.CATALYST_SHOVEL.asItem());
 
         tag(ItemTags.SWORDS)
@@ -95,6 +97,7 @@ public class CTCEItemTagProvider extends ItemTagsProvider
                 .add(CTCEItems.CATALYST_BROADSWORD.asItem())
                 .add(CTCEItems.CATALYST_PAXEL.asItem())
                 .add(CTCEItems.CATALYST_RAPIER.asItem())
+                .add(CTCEItems.UNIVERSE_SWORD.get())
                 .add(CTCEItems.CATALYST_HALBERD.asItem());
 
         tag(ItemTags.AXES).add(CTCEItems.CATALYST_BATTLEAXE.get());

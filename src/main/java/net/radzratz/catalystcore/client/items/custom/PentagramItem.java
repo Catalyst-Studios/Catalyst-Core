@@ -17,22 +17,17 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-public class PentagramItem extends Item
-{
-    public PentagramItem(Properties properties)
-    {
+public class PentagramItem extends Item {
+    public PentagramItem(Properties properties) {
         super(properties);
     }
 
     @Override
-    public @NotNull InteractionResult useOn(@NotNull UseOnContext context)
-    {
+    public @NotNull InteractionResult useOn(@NotNull UseOnContext context) {
         boolean pentagramSpawnEnabled = CTCEConfig.CONFIG.pentagram.enablePentagramSpawn.get();
 
-        if(!pentagramSpawnEnabled)
-        {
-            if(context.getPlayer() != null)
-            {
+        if(!pentagramSpawnEnabled) {
+            if(context.getPlayer() != null) {
                 context.getPlayer().displayClientMessage(
                         Component.literal("Pentagram spawning is currently disabled. Change requires game restart."),
                         true
@@ -42,8 +37,7 @@ public class PentagramItem extends Item
         }
 
         Level level = context.getLevel();
-        if(level.isClientSide)
-        {
+        if(level.isClientSide) {
             return InteractionResult.SUCCESS;
         }
 
@@ -69,8 +63,7 @@ public class PentagramItem extends Item
         pentagram.moveTo(x, y, z, 0, 0);
         level.addFreshEntity(pentagram);
 
-        if(!Objects.requireNonNull(context.getPlayer()).isCreative())
-        {
+        if(!Objects.requireNonNull(context.getPlayer()).isCreative()) {
             stack.shrink(1);
         }
 

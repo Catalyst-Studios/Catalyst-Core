@@ -13,10 +13,8 @@ import net.radzratz.catalystcore.client.entities.pentagram.PentagramEntity;
 import net.radzratz.catalystcore.client.visuals.renderer.entity.PentagramRenderTop;
 import org.jetbrains.annotations.NotNull;
 
-public class PentagramRenderEntity extends EntityRenderer<PentagramEntity>
-{
-    private static final ResourceLocation PENTAGRAM_TEXTURE = ResourceLocation.fromNamespaceAndPath("catalystcore",
-            "textures/entity/pentagram.png");
+public class PentagramRenderEntity extends EntityRenderer<PentagramEntity> {
+    private static final ResourceLocation PENTAGRAM_TEXTURE = ResourceLocation.fromNamespaceAndPath("catalystcore", "textures/entity/pentagram.png");
 
     public PentagramRenderEntity(EntityRendererProvider.Context context)
     {
@@ -24,13 +22,7 @@ public class PentagramRenderEntity extends EntityRenderer<PentagramEntity>
     }
 
     @Override
-    public void render(PentagramEntity entity,
-                       float entityYaw,
-                       float partialTicks,
-                       PoseStack poseStack,
-                       MultiBufferSource buffer,
-                       int packedLight)
-    {
+    public void render(PentagramEntity entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
         poseStack.pushPose();
 
         float scale = entity.getVisualScale(partialTicks);
@@ -85,8 +77,7 @@ public class PentagramRenderEntity extends EntityRenderer<PentagramEntity>
     }
 
     @Override
-    public @NotNull ResourceLocation getTextureLocation(@NotNull PentagramEntity entity)
-    {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull PentagramEntity entity) {
         return PENTAGRAM_TEXTURE;
     }
 }

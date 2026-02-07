@@ -10,10 +10,8 @@ import net.minecraft.world.level.block.Blocks;
 
 import static net.radzratz.catalystcore.client.items.CTCEItems.*;
 
-public class SculkBiomassEvent
-{
-    public static void sculkBiomass(SceneBuilder scene, SceneBuildingUtil util)
-    {
+public class SculkBiomassEvent {
+    public static void sculkBiomass(SceneBuilder scene, SceneBuildingUtil util) {
         scene.title("sculk_biomass", "Extracting the Sculk Biomass");
 
         scene.world().showSection(util.select().fromTo(0, 0, 0, 2, 2, 2), Direction.DOWN);

@@ -12,10 +12,8 @@ import net.minecraft.world.level.block.Blocks;
 import static net.radzratz.catalystcore.client.items.CTCEItems.REINFORCED_BOTTLE;
 import static net.radzratz.catalystcore.client.items.CTCEItems.TORCHFLOWER_BOTTLE;
 
-public class TorchFlowerEssenceEvent
-{
-    public static void torchFlowerEssence(SceneBuilder scene, SceneBuildingUtil util)
-    {
+public class TorchFlowerEssenceEvent {
+    public static void torchFlowerEssence(SceneBuilder scene, SceneBuildingUtil util) {
         scene.title("torch_flower_essence", "Extracting the Torch Flower Essence with a Phial.");
 
         scene.world().showSection(util.select().position(1, 1, 1), Direction.DOWN);
@@ -31,7 +29,6 @@ public class TorchFlowerEssenceEvent
         scene.idle(70);
         scene.addKeyframe();
 
-        // TEXTO: Indicaciones de ítems
         scene.overlay()
                 .showText(60)
                 .text("Next, we're going to need some Shears and a Reinforced Phial.\n\nThe Phial goes on the Left Hand.\n\nAnd the Shears on the Right Hand.")

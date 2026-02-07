@@ -5,5 +5,7 @@ import net.radzratz.catalystcore.CatalystCore;
 
 public class CTCEUtils
 {
-    public static ResourceLocation CTCE(String path) { return ResourceLocation.fromNamespaceAndPath(CatalystCore.id, path); }
+    public static ResourceLocation CTCE(String path) {
+        return ResourceLocation.fromNamespaceAndPath(CatalystCore.id, path);
+    }
 }

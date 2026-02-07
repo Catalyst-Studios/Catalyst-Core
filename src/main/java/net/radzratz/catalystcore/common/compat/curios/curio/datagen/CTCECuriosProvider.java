@@ -11,18 +11,15 @@ import top.theillusivec4.curios.api.type.capability.ICurio;
 
 import java.util.concurrent.CompletableFuture;
 
-public class CTCECuriosProvider extends CuriosDataProvider
-{
+public class CTCECuriosProvider extends CuriosDataProvider {
     public CTCECuriosProvider(PackOutput output,
                               ExistingFileHelper fileHelper,
-                              CompletableFuture<HolderLookup.Provider> registries)
-    {
+                              CompletableFuture<HolderLookup.Provider> registries) {
         super(CatalystCore.id, output, fileHelper, registries);
     }
 
     @Override
-    public void generate(HolderLookup.Provider registries, ExistingFileHelper fileHelper)
-    {
+    public void generate(HolderLookup.Provider registries, ExistingFileHelper fileHelper) {
         this.createSlot("catalyst")
                 .size(1)
                 .order(50)

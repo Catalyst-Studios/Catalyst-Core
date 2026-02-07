@@ -9,27 +9,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-public class CTCEDataProvider implements DataProvider
-{
+public class CTCEDataProvider implements DataProvider {
     private final PackOutput packOutput;
     private final List<DataProvider> subProviders = new ArrayList<>();
 
-    public CTCEDataProvider(PackOutput packOutput)
-    {
+    public CTCEDataProvider(PackOutput packOutput) {
         this.packOutput = packOutput;
     }
 
-    public void addSubProvider(boolean include, DataProvider provider)
-    {
-        if(include)
-        {
+    public void addSubProvider(boolean include, DataProvider provider) {
+        if(include) {
             subProviders.add(provider);
         }
     }
 
     @Override
-    public @NotNull CompletableFuture<?> run(@NotNull CachedOutput cachedOutput)
-    {
+    public @NotNull CompletableFuture<?> run(@NotNull CachedOutput cachedOutput) {
         return CompletableFuture.allOf(
                 subProviders.stream()
                         .map(provider -> provider.run(cachedOutput))
@@ -38,8 +33,7 @@ public class CTCEDataProvider implements DataProvider
     }
 
     @Override
-    public @NotNull String getName()
-    {
+    public @NotNull String getName() {
         return "Catalyst Core Data Provider";
     }
 }

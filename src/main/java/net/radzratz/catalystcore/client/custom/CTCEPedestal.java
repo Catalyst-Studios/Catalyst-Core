@@ -22,48 +22,39 @@ import net.radzratz.catalystcore.client.blocks.entity.pedestal.CatalystAltarPede
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class CTCEPedestal extends BaseEntityBlock
-{
+public class CTCEPedestal extends BaseEntityBlock {
     public static final VoxelShape SHAPE = Block.box(2,0,2,14,10,14);
 
     public static final MapCodec<CTCEPedestal> CODEC = simpleCodec(CTCEPedestal::new);
 
-    public CTCEPedestal(Properties properties)
-    {
+    public CTCEPedestal(Properties properties) {
         super(properties);
     }
 
     @Override
-    protected @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context)
-    {
+    protected @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return SHAPE;
     }
 
     @Override
-    protected @NotNull MapCodec<? extends BaseEntityBlock> codec()
-    {
+    protected @NotNull MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
     }
 
     @Override
-    protected @NotNull RenderShape getRenderShape(@NotNull BlockState state)
-    {
+    protected @NotNull RenderShape getRenderShape(@NotNull BlockState state) {
         return RenderShape.MODEL;
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(@NotNull BlockPos blockPos, @NotNull BlockState blockState)
-    {
+    public @Nullable BlockEntity newBlockEntity(@NotNull BlockPos blockPos, @NotNull BlockState blockState) {
         return new CatalystAltarPedestalEntity(blockPos, blockState);
     }
 
     @Override
-    protected void onRemove(BlockState state, @NotNull Level level, @NotNull BlockPos pos, BlockState newState, boolean movedByPiston)
-    {
-        if(state.getBlock() != newState.getBlock())
-        {
-            if(level.getBlockEntity(pos) instanceof CatalystAltarPedestalEntity pedestalBlockEntity)
-            {
+    protected void onRemove(BlockState state, @NotNull Level level, @NotNull BlockPos pos, BlockState newState, boolean movedByPiston) {
+        if (state.getBlock() != newState.getBlock()) {
+            if (level.getBlockEntity(pos) instanceof CatalystAltarPedestalEntity pedestalBlockEntity) {
                 pedestalBlockEntity.drops();
                 level.updateNeighbourForOutputSignal(pos, this);
             }
@@ -73,18 +64,13 @@ public class CTCEPedestal extends BaseEntityBlock
 
     @Override
     protected @NotNull ItemInteractionResult useItemOn(@NotNull ItemStack stack, @NotNull BlockState state, Level level, @NotNull BlockPos pos,
-                                                       @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult)
-    {
-        if(level.getBlockEntity(pos) instanceof CatalystAltarPedestalEntity pedestalEntity)
-        {
-            if(pedestalEntity.interior_holder.getStackInSlot(0).isEmpty() && !stack.isEmpty())
-            {
+                                                       @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
+        if (level.getBlockEntity(pos) instanceof CatalystAltarPedestalEntity pedestalEntity) {
+            if (pedestalEntity.interior_holder.getStackInSlot(0).isEmpty() && !stack.isEmpty()) {
             pedestalEntity.interior_holder.insertItem(0, stack.copy(), false);
             stack.shrink(1);
             level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS,1f,2f);
-            }
-            else if(stack.isEmpty())
-            {
+            } else if (stack.isEmpty()) {
                 ItemStack stackPedestal = pedestalEntity.interior_holder.extractItem(0,1,false);
                 player.setItemInHand(InteractionHand.MAIN_HAND, stackPedestal);
                 pedestalEntity.clearContents();

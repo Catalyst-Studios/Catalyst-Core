@@ -7,10 +7,8 @@ import net.minecraft.world.item.Item;
 import net.radzratz.catalystcore.client.items.CTCEItems;
 import net.radzratz.catalystcore.common.compat.ponder.scenes.phials.*;
 
-public class CTCEScenes
-{
-    public static void register(PonderSceneRegistrationHelper<ResourceLocation> helper)
-    {
+public class CTCEScenes {
+    public static void register(PonderSceneRegistrationHelper<ResourceLocation> helper) {
         PonderSceneRegistrationHelper<Object> blockHelper = helper.withKeyFunction(block -> BuiltInRegistries.BLOCK.getDefaultKey());
 
         PonderSceneRegistrationHelper<Item> itemHelper = helper.withKeyFunction(BuiltInRegistries.ITEM::getKey);

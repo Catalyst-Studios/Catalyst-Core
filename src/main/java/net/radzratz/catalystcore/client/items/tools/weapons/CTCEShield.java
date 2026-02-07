@@ -12,23 +12,18 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class CTCEShield extends ShieldItem implements ICTCEItem
-{
-
-    public CTCEShield(Item.Properties properties)
-    {
+public class CTCEShield extends ShieldItem implements ICTCEItem {
+    public CTCEShield(Item.Properties properties) {
         super(properties);
     }
 
     @Override
-    public boolean shouldAppear()
-    {
+    public boolean shouldAppear() {
         return CTCEConfig.CONFIG.modules.weaponsModule.get();
     }
 
     @Override
-    public boolean isEnabled(@NotNull FeatureFlagSet enabledFeatures)
-    {
+    public boolean isEnabled(@NotNull FeatureFlagSet enabledFeatures) {
         return this.shouldAppear();
     }
 
@@ -37,14 +32,12 @@ public class CTCEShield extends ShieldItem implements ICTCEItem
         return false;
     }
 
-    public @NotNull UseAnim getUseAnimation(@NotNull ItemStack stack)
-    {
+    public @NotNull UseAnim getUseAnimation(@NotNull ItemStack stack) {
         return UseAnim.BLOCK;
     }
 
     @Override
-    public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ItemAbility itemAbility)
-    {
+    public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ItemAbility itemAbility) {
         return true;
     }
 
@@ -59,14 +52,12 @@ public class CTCEShield extends ShieldItem implements ICTCEItem
     }
 
     @Override
-    public boolean isEnchantable(@NotNull ItemStack stack)
-    {
+    public boolean isEnchantable(@NotNull ItemStack stack) {
         return true;
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, List<Component> tooltip, @NotNull TooltipFlag flag)
-    {
+    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, List<Component> tooltip, @NotNull TooltipFlag flag) {
         tooltip.add(Component.translatable("item.catalystcore.cataclystic_shield.desc").withStyle(ChatFormatting.DARK_BLUE));
         super.appendHoverText(stack, context, tooltip, flag);
     }

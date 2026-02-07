@@ -11,38 +11,36 @@ import net.radzratz.catalystcore.CatalystCore;
 public class CTCETagHelpers
 {
     /// Blocks
-    public static TagKey<Block> catalystHeatSources()
-    {
+    public static TagKey<Block> catalystHeatSources() {
         return BlockTags.create(ResourceLocation.fromNamespaceAndPath(CatalystCore.id, "heat_sources"));
     }
-    public static TagKey<Block> catalystTags()
-    {
+
+    public static TagKey<Block> catalystTags() {
         return BlockTags.create(ResourceLocation.fromNamespaceAndPath(CatalystCore.id, "catalyst_tools"));
     }
-    public static TagKey<Block> catalystPaxel()
-    {
+
+    public static TagKey<Block> catalystPaxel() {
         return BlockTags.create(ResourceLocation.fromNamespaceAndPath(CatalystCore.id, "mineable/paxel"));
     }
-    public static TagKey<Block> catalystBlocks(String path)
-    {
+
+    public static TagKey<Block> catalystBlocks(String path) {
         return BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", path));
     }
 
     ///Items
-    public static TagKey<Item> catalystItems()
-    {
+    public static TagKey<Item> catalystItems() {
         return ItemTags.create(ResourceLocation.fromNamespaceAndPath(CatalystCore.id, "catalyst_items"));
     }
-    public static TagKey<Item> catalystTools()
-    {
+
+    public static TagKey<Item> catalystTools() {
         return ItemTags.create(ResourceLocation.fromNamespaceAndPath(CatalystCore.id, "catalyst_tools"));
     }
-    public static TagKey<Item> catalystHammer(String path)
-    {
+
+    public static TagKey<Item> pathByC(String path) {
         return ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", path));
     }
-    public static TagKey<Item> catalystActivator(String path)
-    {
+
+    public static TagKey<Item> catalystActivator(String path) {
         return ItemTags.create(ResourceLocation.fromNamespaceAndPath(CatalystCore.id, path));
     }
 }
