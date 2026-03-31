@@ -1,25 +1,84 @@
 #version 150
 
-uniform sampler2D DiffuseSampler;
-uniform vec2 OutSize;
-uniform float AnomalyTime;
+uniform sampler2D DiffuseSampler; //base scene texture
+uniform vec2 OutSize; //screen or render target size
+uniform float AnomalyTime; //time variable for animations
 
-uniform int AnomalyCount;
-uniform float AnomalyCentersX[10];
-uniform float AnomalyCentersY[10];
-uniform float AnomalyRadii[10];
-uniform float AnomalyIntensities[10];
+uniform int AnomalyCount; //number of active anomalies
+uniform float AnomalyCentersX[10]; //x coordinates of the anomalies
+uniform float AnomalyCentersY[10]; //y coordinates of the anomalies
+uniform float AnomalyRadii[10]; //radii of the anomalies
+uniform float AnomalyIntensities[10]; //visual intensities of the anomalies
 
-in vec2 texCoord;
-out vec4 fragColor;
+in vec2 texCoord; //current texture coordinates
+out vec4 fragColor; //final output color for the fragment
 
-// --- FUNCIONES DE RUIDO 3D ---
-vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
-vec4 mod289(vec4 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
-vec4 permute(vec4 x) { return mod289(((x * 34.0) + 1.0) * x); }
-vec4 taylorInvSqrt(vec4 r) { return 1.79284291400159 - 0.85373472095314 * r; }
+const float EVENT_HORIZON_MULT = 1.5; //size multiplier for the event horizon
+const float LENS_RADIUS_MULT = 5.0; //size multiplier for the gravitational lens effect
+const float GRAVITY_STRENGTH_MULT = 2.0; //strength multiplier for the distortion
 
-float snoise(vec3 v) {
+const float DISK_Y_SCALE = 2.0; //vertical squash factor for the accretion disk
+const float DISK_INNER_LIMIT_MULT = 1.0; //inner boundary multiplier for the disk
+const float DISK_OUTER_LIMIT_MULT = 7.5; //outer boundary multiplier for the disk
+
+const float SPIRAL_NUM_ARMS = 12.0; //number of spiral arms in the galaxy
+const float SPIRAL_TWIST = 24.0; //how tightly the spiral arms are wound
+const float SPIN_SPEED_MULT = 1.5; //rotation speed multiplier for the galaxy
+const float SPIRAL_ARM_WIDTH_MIN = 0.1; //inner spiral arm thickness
+const float SPIRAL_ARM_WIDTH_MAX = 0.9; //outer spiral arm thickness
+const float SPIRAL_ARM_FALLOFF = 0.3; //sharpness of the spiral arm edges
+
+const float NOISE_SCALE = 3.5; //base scale for the noise texture
+const float NOISE_TIME_MULT_1 = 0.15; //animation speed for the primary noise
+const float NOISE_TIME_MULT_2 = 0.1; //animation speed for the secondary noise
+
+const float STAR1_DENSITY = 12.0; //density of the primary star layer
+const float STAR1_POW = 12.0; //sharpness/size of the primary stars
+const float STAR1_BRIGHTNESS = 2.5; //brightness of the primary stars
+
+const float STAR2_DENSITY = 25.0; //density of the secondary micro-stars layer
+const float STAR2_OFFSET = 10.0; //coordinate offset for the secondary stars
+const float STAR2_POW = 10.0; //sharpness/size of the secondary stars
+const float STAR2_BRIGHTNESS = 1.5; //brightness of the secondary stars
+
+const float STAR_ARM_MIX_MIN = 0.2; //minimum star visibility outside spiral arms
+const float STAR_ARM_MIX_MAX = 0.8; //maximum star visibility inside spiral arms
+
+const float ALPHA_SMOOTHSTEP_MAX = 0.6; //upper limit for alpha smoothstep transition
+const float ALPHA_ARM_MULT = 0.3; //alpha contribution from the spiral arms
+const float ALPHA_STAR_MULT = 0.2; //alpha contribution from the stars
+
+const vec3 COLOR_STAR = vec3(0.7, 0.25, 0.95); //primary color for the galaxy dust/stars (purple)
+const vec3 COLOR_VOID = vec3(0.05, 0.0, 0.1); //background color for the galaxy void (dark purple/black)
+const vec3 COLOR_PURE_STAR = vec3(0.9, 0.9, 1.0); //color for the bright star cores (slightly blue-white)
+
+//helper function: modulo 289 for a 3d vector
+vec3 mod289(vec3 x)
+{
+    return x - floor(x * (1.0 / 289.0)) * 289.0;
+}
+
+//helper function: modulo 289 for a 4d vector
+vec4 mod289(vec4 x)
+{
+    return x - floor(x * (1.0 / 289.0)) * 289.0;
+}
+
+//helper function: polynomial permutation
+vec4 permute(vec4 x)
+{
+    return mod289(((x * 34.0) + 1.0) * x);
+}
+
+//helper function: inverse square root approximation
+vec4 taylorInvSqrt(vec4 r)
+{
+    return 1.79284291400159 - 0.85373472095314 * r;
+}
+
+//simplex 3d noise function
+float snoise(vec3 v)
+{
     const vec2 C = vec2(1.0/6.0, 1.0/3.0);
     const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
     vec3 i = floor(v + dot(v, C.yyy));
@@ -50,121 +109,122 @@ float snoise(vec3 v) {
     m = m * m;
     return 42.0 * dot(m*m, vec4(dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3)));
 }
-// --------------------------------------------------------
 
-void main() {
-    vec2 totalDistortion = vec2(0.0);
-    float maxBlackHoleIntensity = 0.0;
-    vec4 totalDiskColor = vec4(0.0); 
+//main shader entry point
+void main()
+{
+    vec2 totalDistortion = vec2(0.0); //accumulator for gravitational distortion
+    float maxBlackHoleIntensity = 0.0; //highest intensity of the black hole core
+    vec4 totalDiskColor = vec4(0.0); //accumulated color for the accretion disk
 
     float aspectRatio = OutSize.x / OutSize.y;
 
-    for (int i = 0; i < 10; i++) {
-        if (i >= AnomalyCount) break;
+    //max 10 blackhole at the same time
+    for(int i = 0; i < 10; i++)
+    {
+        if(i >= AnomalyCount)
+        {
+            break; //stop if we processed all active anomalies
+        }
 
         vec2 center = vec2(AnomalyCentersX[i], AnomalyCentersY[i]);
-        if (center.x < 0.0 || center.y < 0.0) continue; 
+        if(center.x < 0.0 || center.y < 0.0)
+        {
+            continue;
+        }
 
-        vec2 dir = texCoord - center;
-        vec2 distortedDir = dir;
-        distortedDir.x *= aspectRatio;
-        float dist = length(distortedDir);
+        vec2 dir = texCoord - center; //direction vector from the center
+        vec2 distortedDir = dir; //direction vector with aspect ratio correction
+        distortedDir.x *= aspectRatio; //apply aspect ratio
+        float dist = length(distortedDir); //distance from the center
         
-        float eventHorizon = AnomalyRadii[i] * 1.5; 
-        float lensRadius = AnomalyRadii[i] * 5.0;
-        float strength = 2.0 * AnomalyIntensities[i]; 
+        float eventHorizon = AnomalyRadii[i] * EVENT_HORIZON_MULT; //radius of absolute blackness
+        float lensRadius = AnomalyRadii[i] * LENS_RADIUS_MULT; //radius of gravitational lensing
+        float strength = GRAVITY_STRENGTH_MULT * AnomalyIntensities[i]; //distortion power
 
-        // --- DISTORSIÓN GRAVITACIONAL ---
-        if (dist < lensRadius && dist > eventHorizon) {
-            float distortion = (lensRadius - dist) / lensRadius;
-            vec2 normDir = normalize(distortedDir);
-            normDir.x /= aspectRatio;
-            totalDistortion += normDir * (distortion * distortion) * strength * dist;
+        //process gravitational lens effect
+        if(dist < lensRadius && dist > eventHorizon)
+        {
+            float distortion = (lensRadius - dist) / lensRadius; //distortion falloff
+            vec2 normDir = normalize(distortedDir); //normalized direction
+            normDir.x /= aspectRatio; //revert aspect ratio for screen space
+            totalDistortion += normDir * (distortion * distortion) * strength * dist; //add to total distortion
         }
 
-        // --- GALAXIA ---
-        vec2 diskDir = dir;
-        diskDir.x *= aspectRatio; 
-        diskDir.y *= 2.5; 
-        float diskDist = length(diskDir);
+        vec2 diskDir = dir; //direction vector for the disk
+        diskDir.x *= aspectRatio; //aspect ratio correction
+        diskDir.y *= DISK_Y_SCALE; //flatten the y axis to simulate a 3d angled disk
+        float diskDist = length(diskDir); //distance for disk calculations
 
-        float diskInnerLimit = eventHorizon * 1.0;
-        float diskOuterLimit = eventHorizon * 7.5; 
+        float diskInnerLimit = eventHorizon * DISK_INNER_LIMIT_MULT; //start of the accretion disk
+        float diskOuterLimit = eventHorizon * DISK_OUTER_LIMIT_MULT; //end of the accretion disk
 
-        if (diskDist > diskInnerLimit && diskDist < diskOuterLimit && AnomalyIntensities[i] > 0.05) {
+        //process the galaxy/accretion disk if within bounds and visible
+        if(diskDist > diskInnerLimit && diskDist < diskOuterLimit && AnomalyIntensities[i] > 0.05)
+        {
+            float normDist = (diskDist - diskInnerLimit) / (diskOuterLimit - diskInnerLimit); //normalized distance (0.0 to 1.0) inside the disk
+            float diskFringe = smoothstep(1.0, 0.4, normDist); //soft fade at the edges of the disk
             
-            float normDist = (diskDist - diskInnerLimit) / (diskOuterLimit - diskInnerLimit);
-            float diskFringe = smoothstep(1.0, 0.4, normDist); 
+            float angle = atan(diskDir.y, diskDir.x); //current angle around the center
             
-            float angle = atan(diskDir.y, diskDir.x);
+            float spinSpeed = AnomalyTime * SPIN_SPEED_MULT; //rotation animation offset
             
-            // 1. MÁSCARA DE LOS BRAZOS
-            float numArms = 12.0;
-            float twist = 24.0;  
-            float spinSpeed = AnomalyTime * 1.5; 
+            float spiralBase = sin(angle * SPIRAL_NUM_ARMS - normDist * SPIRAL_TWIST + spinSpeed); //base wave for spiral arms
+            spiralBase = spiralBase * 0.5 + 0.5; //map from [-1, 1] to [0, 1]
             
-            float spiralBase = sin(angle * numArms - normDist * twist + spinSpeed);
-            spiralBase = spiralBase * 0.5 + 0.5; 
+            float thicknessCutoff = mix(SPIRAL_ARM_WIDTH_MIN, SPIRAL_ARM_WIDTH_MAX, normDist); //variable arm thickness depending on distance
+            float arm = smoothstep(thicknessCutoff - SPIRAL_ARM_FALLOFF, 1.0, spiralBase); //crispness of the spiral arm edges
             
-            float thicknessCutoff = mix(0.1, 0.8, normDist);
-            float arm = smoothstep(thicknessCutoff - 0.2, 1.0, spiralBase); 
+            vec3 p = vec3(diskDir * NOISE_SCALE, AnomalyTime * NOISE_TIME_MULT_1); //3d point for noise sampling
             
-            // 2. TEXTURA DE NEBULOSA
-            vec3 p = vec3(diskDir * 3.5, AnomalyTime * 0.15); 
+            float n1 = 1.0 - abs(snoise(p)); //first layer of billowy noise
+            float n2 = 1.0 - abs(snoise(p * 2.0 - vec3(AnomalyTime * NOISE_TIME_MULT_2))); //second layer of noise
+            float n3 = 1.0 - abs(snoise(p * 4.0)); //third, detailed layer of noise
             
-            float n1 = 1.0 - abs(snoise(p));
-            float n2 = 1.0 - abs(snoise(p * 2.0 - vec3(AnomalyTime * 0.1)));
-            float n3 = 1.0 - abs(snoise(p * 4.0));
+            float lines = pow(n1, 2.0) * 0.6 + pow(n2, 2.0) * 0.3 + pow(n3, 2.0) * 0.1; //combined nebula texture
             
-            float lines = pow(n1, 2.0) * 0.6 + pow(n2, 2.0) * 0.3 + pow(n3, 2.0) * 0.1;
+            float starNoise1 = max(0.0, snoise(p * STAR1_DENSITY)); //base noise for primary stars
+            float stars = pow(starNoise1, STAR1_POW) * STAR1_BRIGHTNESS; //emphasize peaks for primary stars
             
-            // 3. RECUPERAR LAS ESTRELLAS (SUTILES)
-            // Aumentado el pow() para hacerlas más pequeñas, bajado el multiplicador para menos brillo
-            float starNoise1 = max(0.0, snoise(p * 12.0));
-            float stars = pow(starNoise1, 12.0) * 2.5; 
+            float starNoise2 = max(0.0, snoise(p * STAR2_DENSITY + vec3(STAR2_OFFSET))); //base noise for secondary stars
+            float microStars = pow(starNoise2, STAR2_POW) * STAR2_BRIGHTNESS; //emphasize peaks for secondary stars
             
-            float starNoise2 = max(0.0, snoise(p * 25.0 + vec3(10.0)));
-            float microStars = pow(starNoise2, 10.0) * 1.5; 
-            
-            float totalStars = stars + microStars;
+            float totalStars = stars + microStars; //combined star layers
 
-            // 4. SEPARACIÓN: BRAZOS vs HUECOS
-            float intensity = mix(0.3, 1.2, arm);
-            float finalStructure = lines * intensity;
+            float intensity = mix(0.3, 1.2, arm); //nebula intensity varies with spiral arm presence
+            float finalStructure = lines * intensity; //final nebula structure
             
-            // Reducimos también la fuerza con la que las estrellas se muestran en los brazos
-            float finalStars = totalStars * mix(0.2, 0.8, arm);
+            float finalStars = totalStars * mix(STAR_ARM_MIX_MIN, STAR_ARM_MIX_MAX, arm); //stars are denser inside the arms
 
-            // 5. COLORES Y MEZCLA
-            vec3 color_star = vec3(0.7, 0.25, 0.95); 
-            vec3 color_void = vec3(0.05, 0.0, 0.1);  
-            vec3 pure_star_color = vec3(0.9, 0.9, 1.0); // Blanco ligeramente rebajado
+            vec3 skyColor = mix(COLOR_VOID, COLOR_STAR, clamp(finalStructure, 0.0, 1.0)); //blend void and star dust colors
             
-            vec3 skyColor = mix(color_void, color_star, clamp(finalStructure, 0.0, 1.0));
+            skyColor += COLOR_PURE_STAR * finalStars; //add the bright star dots
             
-            skyColor += pure_star_color * finalStars;
+            float alpha = smoothstep(0.0, ALPHA_SMOOTHSTEP_MAX, finalStructure + (arm * ALPHA_ARM_MULT) + (finalStars * ALPHA_STAR_MULT)) * diskFringe * AnomalyIntensities[i]; //calculate final transparency
             
-            // Bajamos el impacto de las estrellas en el canal Alpha para que no generen bloques opacos
-            float alpha = smoothstep(0.0, 0.6, finalStructure + (arm * 0.3) + (finalStars * 0.2)) * diskFringe * AnomalyIntensities[i];
-            
-            vec4 finalBlockDiskColor = vec4(skyColor, alpha);
-            totalDiskColor = mix(totalDiskColor, finalBlockDiskColor, finalBlockDiskColor.a);
+            vec4 finalBlockDiskColor = vec4(skyColor, alpha); //combine color and alpha
+            totalDiskColor = mix(totalDiskColor, finalBlockDiskColor, finalBlockDiskColor.a); //blend this disk over previous ones
         }
 
-        // --- NÚCLEO NEGRO ---
-        if (dist <= eventHorizon) {
-            maxBlackHoleIntensity = max(maxBlackHoleIntensity, AnomalyIntensities[i]);
+        //process the black hole core (event horizon)
+        if(dist <= eventHorizon)
+        {
+            maxBlackHoleIntensity = max(maxBlackHoleIntensity, AnomalyIntensities[i]); //keep the highest intensity core
         }
     }
 
-    vec2 finalUV = texCoord - totalDistortion;
+    vec2 finalUV = texCoord - totalDistortion; //apply gravitational lensing distortion to uvs
     vec4 sceneColor = texture(DiffuseSampler, finalUV);
 
-    if (maxBlackHoleIntensity > 0.0) {
-        sceneColor = mix(sceneColor, vec4(0.0, 0.0, 0.0, 1.0), maxBlackHoleIntensity);
-    } else {
-        sceneColor = mix(sceneColor, vec4(totalDiskColor.rgb, 1.0), totalDiskColor.a);
+    //apply the black hole or the accretion disk over the background
+    if(maxBlackHoleIntensity > 0.0)
+    {
+        sceneColor = mix(sceneColor, vec4(0.0, 0.0, 0.0, 1.0), maxBlackHoleIntensity); //draw black hole core
+    }
+    else
+    {
+        sceneColor = mix(sceneColor, vec4(totalDiskColor.rgb, 1.0), totalDiskColor.a); //draw accretion disk
     }
 
-    fragColor = sceneColor;
+    fragColor = sceneColor; //output the final pixel color
 }

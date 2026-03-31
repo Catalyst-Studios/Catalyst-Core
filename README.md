@@ -31,3 +31,11 @@ ____
 - Satherov - For Explaining how to make Ponder Scenes.
 
 - Favouriteless - For Helping me out fixing and updating Gradle.
+
+**Shaders**:
+Gravity Anomaly or Anomaly uses 2 shaders to get it, with some modifications
+
+Links:
+ - https://godotshaders.com/shader/abstract-3d/
+ - https://godotshaders.com/shader/2d-black-hole/ (this was the inspiration)
+ - https://godotshaders.com/shader/polar-coordinate-black-hole/ (this was the result wanted)
