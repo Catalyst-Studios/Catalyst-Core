@@ -11,6 +11,7 @@ public class CTCEConfig {
     public final ModulesConfig modules;
     public final PhialEvents phials;
     public final CatalystCurios curioCompatibility;
+    public final AnomalyConfig anomaly;
 
     static {
         Pair<CTCEConfig, ModConfigSpec> pair = new ModConfigSpec.Builder().configure(CTCEConfig::new);
@@ -25,6 +26,7 @@ public class CTCEConfig {
         this.modules = new ModulesConfig(builder);
         this.phials = new PhialEvents(builder);
         this.curioCompatibility = new CatalystCurios(builder);
+        this.anomaly = new AnomalyConfig(builder);
 
         builder.pop();
     }
@@ -231,6 +233,23 @@ public class CTCEConfig {
                     .translation("config.catalystcore.catalyst_curio.regeneration")
                     .gameRestart()
                     .define("toggleRegenerationEffect", true); ///True by default
+
+            builder.pop();
+        }
+    }
+
+    public static class AnomalyConfig
+    {
+        public final ModConfigSpec.BooleanValue enableAnomalyShader;
+
+        public AnomalyConfig(ModConfigSpec.Builder builder)
+        {
+            builder.comment("Gravity Anomaly Settings").push("anomaly");
+
+            this.enableAnomalyShader = builder
+                    .comment("Client Side - Enable the visual black hole shader effect for the Gravity Anomaly block")
+                    .translation("config.catalystcore.anomaly.shader")
+                    .define("enableAnomalyShader", true);
 
             builder.pop();
         }

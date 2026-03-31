@@ -181,6 +181,7 @@ public class CTCECreativeTabs {
                         output.accept(CTCEBlocks.CATALYST_ALTAR_PEDESTAL);
                         output.accept(CTCEBlocks.CAULDRON);
                         output.accept(CTCEBlocks.REINFORCED_GLASS);
+                        output.accept(CTCEBlocks.GRAVITY_ANOMALY);
                     }).build());
 
     public static void rgtr(IEventBus eventBus) {

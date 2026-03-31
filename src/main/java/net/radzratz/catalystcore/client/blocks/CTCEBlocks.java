@@ -6,12 +6,14 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.TintedGlassBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.radzratz.catalystcore.CatalystCore;
 import net.radzratz.catalystcore.client.custom.CTCECauldron;
 import net.radzratz.catalystcore.client.custom.CTCEPedestal;
+import net.radzratz.catalystcore.client.custom.GravityAnomalyBlock;
 import net.radzratz.catalystcore.client.items.CTCEItems;
 
 import java.util.function.Supplier;
@@ -34,6 +36,18 @@ public class CTCEBlocks {
                     .sound(SoundType.GLASS)
                     .requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> GRAVITY_ANOMALY = registerBlock("gravity_anomaly",
+            () -> new GravityAnomalyBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_BLACK)
+                    .strength(-1.0F, 3600000.0F)
+                    .explosionResistance(1000)
+                    .noLootTable()
+                    .noCollission()
+                    .isViewBlocking(((state, world, pos) -> true))
+                    .sound(SoundType.GLASS)
+                    .noOcclusion()
+            ));
+    
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = CTCE_BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);

@@ -6,6 +6,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.radzratz.catalystcore.CatalystCore;
 import net.radzratz.catalystcore.client.blocks.CTCEBlocks;
+import net.radzratz.catalystcore.client.blocks.entity.anomaly.GravityAnomalyBlockEntity;
 import net.radzratz.catalystcore.client.blocks.entity.cauldron.CatalystCauldronBlockEntity;
 import net.radzratz.catalystcore.client.blocks.entity.pedestal.CatalystAltarPedestalEntity;
 
@@ -23,6 +24,10 @@ public class CTCEBlockEntities
     public static final Supplier<BlockEntityType<CatalystCauldronBlockEntity>> CAULDRON =
             BLOCK_ENTITIES.register("cauldron", ()-> BlockEntityType.Builder.of(
                     CatalystCauldronBlockEntity::new, CTCEBlocks.CAULDRON.get()).build(null));
+
+    public static final Supplier<BlockEntityType<GravityAnomalyBlockEntity>> ANOMALY =
+            BLOCK_ENTITIES.register("anomaly", ()-> BlockEntityType.Builder.of(
+                    GravityAnomalyBlockEntity::new, CTCEBlocks.GRAVITY_ANOMALY.get()).build(null));
 
     public static void register(IEventBus eventBus)
     {
