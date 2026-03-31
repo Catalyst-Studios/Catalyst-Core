@@ -5,23 +5,18 @@ loaderVersion="${loader_version_range}"
 license="All Rights Reserved"
 
 [[mods]]
-
-modId="catalystcore"
-
-version="1.1"
-logoFile="ctce.png"
-displayURL="https://www.curseforge.com/minecraft/mc-mods/ctce"
-
-displayName="Catalyst Core"
-
-authors="RadzRatz, Titop54"
-
-description="Catalyst Core adds end-game items, dimensions, blocks, block entities, and tools designed for Catalyst Studios modpacks."
+modId = "catalystcore"
+version = "1.1.0"
+displayName = "Catalyst Core"
+authors = "RadzRatz, Titop54"
+description = "Catalyst Core adds end-game items, dimensions, blocks, block entities, and tools designed for Catalyst Studios modpacks."
+logoFile = "logo.png"
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/ctce"
 
 [[dependencies.catalystcore]]
 modId="neoforge"
 type="required"
-versionRange="21.1.200"
+versionRange="21.1.210"
 ordering="NONE"
 side="BOTH"
 

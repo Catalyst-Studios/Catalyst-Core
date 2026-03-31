@@ -25,7 +25,7 @@ public class CatalystCore {
     public static final String id = "catalystcore";
 
     public CatalystCore(IEventBus bus, ModContainer mCont) {
-        mCont.registerConfig(ModConfig.Type.COMMON, CTCEConfig.CONFIG_SPEC);
+        mCont.registerConfig(ModConfig.Type.COMMON, CTCEConfig.CONFIG_SPEC, CatalystCore.id + "/settings.toml");
 
         CTCESounds.rgtr(bus);
         CTCERecipeTypes.rgtr(bus);

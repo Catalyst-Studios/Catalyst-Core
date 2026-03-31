@@ -12,6 +12,7 @@ import net.radzratz.catalystcore.client.entities.pentagram.PentagramEntity;
 public class CTCEEntities {
     public static final DeferredRegister<EntityType<?>> CTCE_ENTITY_TYPES = DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, CatalystCore.id);
 
+    // todo: fix this unlawful thing
     public static final DeferredHolder<EntityType<?>, EntityType<PentagramEntity>> PENTAGRAM =
             CTCE_ENTITY_TYPES.register("pentagram", () -> EntityType.Builder.<PentagramEntity>of(PentagramEntity::new, MobCategory.MISC).sized(3.0F, 0.1F)
                     .build("pentagram"));

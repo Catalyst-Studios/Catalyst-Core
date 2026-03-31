@@ -59,6 +59,8 @@ public class CTCEClientRegistries {
             event.registerBlockEntityRenderer(CTCEBlockEntities.ANOMALY.get() ,GravityAnomalyRenderer::new);
         }
 
+        // WHY YA COMPLAIN!?
+        @SuppressWarnings("deprecation")
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             ItemBlockRenderTypes.setRenderLayer(CTCEBlocks.REINFORCED_GLASS.get(), RenderType.translucent());

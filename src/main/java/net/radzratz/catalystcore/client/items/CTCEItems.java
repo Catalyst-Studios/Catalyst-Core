@@ -86,6 +86,7 @@ public class CTCEItems {
             () -> new PentagramItem(new PentagramItem.Properties().stacksTo(1).rarity(Rarity.RARE).fireResistant()));
 
     //Tools and Weapons
+    // Todo: Move these to a different class
     public static final DeferredItem<CTCEGreatSword> CATALYST_GREATSWORD = rgrtGreatSword();
     public static final DeferredItem<CTCEZweihander> CATALYST_ZWEIHANDER = rgtrZweihander();
     public static final DeferredItem<CTCEUlfberht> CATALYST_ULFBERHT = rgtrUlfberht();

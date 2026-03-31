@@ -22,6 +22,10 @@ ____
 
 - RadzRatz - Owner/Author/Artist of Catalyst Core.
 
+- Titop - Contributor/Gravity Anomaly Render-Shader Creator
+
+// Special Thanks to;
+
 - BillBertKing - Mastermind behind Catalyst Core.
 
 - Satherov - For Explaining how to make Ponder Scenes.

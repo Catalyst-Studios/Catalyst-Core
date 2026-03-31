@@ -28,6 +28,9 @@ public class CTCEBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.INCORRECT_FOR_STONE_TOOL).add(CTCEBlocks.REINFORCED_GLASS.get());
         tag(BlockTags.DRAGON_IMMUNE).add(CTCEBlocks.REINFORCED_GLASS.get());
 
+        tag(BlockTags.DRAGON_IMMUNE).add(CTCEBlocks.GRAVITY_ANOMALY.get());
+        tag(BlockTags.WITHER_IMMUNE).add(CTCEBlocks.GRAVITY_ANOMALY.get());
+
         tag(BlockTags.INCORRECT_FOR_STONE_TOOL).add(CTCEBlocks.CAULDRON.get());
         tag(BlockTags.NEEDS_IRON_TOOL).add(CTCEBlocks.CAULDRON.get());
         tag(BlockTags.CAULDRONS).add(CTCEBlocks.CAULDRON.get());
