@@ -186,7 +186,7 @@ public class AnomalyShaderController
             event.getProjectionMatrix().transform(centerPos);
             event.getProjectionMatrix().transform(edgePos);
 
-            if(centerPos.w > 0.0f)
+            if(centerPos.w > 0.4f)
             {
                 float ndcX = centerPos.x / centerPos.w;
                 float ndcY = centerPos.y / centerPos.w;
@@ -195,7 +195,15 @@ public class AnomalyShaderController
 
                 float edgeNdcY = edgePos.y / edgePos.w;
                 float edgeScreenY = (edgeNdcY + 1.0f) * 0.5f;
-                radii[count] = Math.abs(edgeScreenY - centersY[count]);
+
+                float calculatedRadius = Math.abs(edgeScreenY - centersY[count]);
+                radii[count] = Math.min(calculatedRadius, 1.5f);
+                
+                if(centerPos.w < 1.0f)
+                {
+                    float proximityFade = (centerPos.w - 0.2f) / 0.8f;
+                    finalIntensity *= Math.max(0.0f, proximityFade);
+                }
                 
                 intensities[count] = finalIntensity;
                 count++;
