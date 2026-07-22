@@ -1,0 +1,38 @@
+{
+  "blend": {
+    "func": "add",
+    "srcrgb": "one",
+    "dstrgb": "zero"
+  },
+  "vertex": "catalystcore:nebula_shader",
+  "fragment": "catalystcore:nebula_shader",
+  "attributes": [
+    "Position"
+  ],
+  "samplers": [
+    {
+      "name": "DiffuseSampler"
+    }
+  ],
+  "uniforms": [
+    { "name": "ProjMat", "type": "matrix4x4", "count": 16, "values": [ 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 ] },
+    { "name": "OutSize", "type": "float", "count": 2, "values": [ 1.0, 1.0 ] },
+    { "name": "NebulaTime", "type": "float", "count": 1, "values": [ 0.0 ] },
+    { "name": "NebulaCount", "type": "int", "count": 1, "values": [ 0 ] },
+    { "name": "NebulaCentersX", "type": "float", "count": 10, "values": [ -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0 ] },
+    { "name": "NebulaCentersY", "type": "float", "count": 10, "values": [ -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0 ] },
+    { "name": "NebulaRadii", "type": "float", "count": 10, "values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ] },
+    { "name": "NebulaIntensities", "type": "float", "count": 10, "values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ] },
+    { "name": "NebulaModes", "type": "float", "count": 10, "values": [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 ] },
+    { "name": "NebulaColorsA", "type": "float", "count": 30, "values": [
+      0.7, 0.25, 0.95,  0.7, 0.25, 0.95,  0.7, 0.25, 0.95,  0.7, 0.25, 0.95,  0.7, 0.25, 0.95,
+      0.7, 0.25, 0.95,  0.7, 0.25, 0.95,  0.7, 0.25, 0.95,  0.7, 0.25, 0.95,  0.7, 0.25, 0.95
+    ] },
+    { "name": "NebulaColorsB", "type": "float", "count": 30, "values": [
+      0.2, 0.6, 1.0,   0.2, 0.6, 1.0,   0.2, 0.6, 1.0,   0.2, 0.6, 1.0,   0.2, 0.6, 1.0,
+      0.2, 0.6, 1.0,   0.2, 0.6, 1.0,   0.2, 0.6, 1.0,   0.2, 0.6, 1.0,   0.2, 0.6, 1.0
+    ] },
+    { "name": "NebulaProgress", "type": "float", "count": 10, "values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ] },
+    { "name": "NebulaStarDensity", "type": "float", "count": 10, "values": [ 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ] }
+  ]
+}

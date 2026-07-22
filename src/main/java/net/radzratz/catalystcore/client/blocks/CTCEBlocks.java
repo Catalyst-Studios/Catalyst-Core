@@ -12,10 +12,12 @@ import net.radzratz.catalystcore.client.blocks.type.CTCEGlass;
 import net.radzratz.catalystcore.client.custom.CTCECauldron;
 import net.radzratz.catalystcore.client.custom.CTCEPedestal;
 import net.radzratz.catalystcore.client.custom.GravityAnomalyBlock;
+import net.radzratz.catalystcore.client.custom.NebulaBlock;
 import net.radzratz.catalystcore.client.items.CTCEItems;
 
 import java.util.function.Supplier;
 
+@SuppressWarnings("null")
 public class CTCEBlocks {
     public static final DeferredRegister.Blocks CTCE_BLOCKS = DeferredRegister.createBlocks(CatalystCore.id);
 
@@ -38,6 +40,16 @@ public class CTCEBlocks {
                     .noCollission()
                     .isViewBlocking(((state, world, pos) -> true))
                     .noOcclusion()
+            ));
+
+        public static final DeferredBlock<NebulaBlock> NEBULA_ETERNA = rgtrBlock("nebula_eterna",
+            () -> new NebulaBlock(BlockBehaviour.Properties.of()
+                    .strength(-1.0F, 3600000.0F)
+                    .noLootTable()
+                    .noCollission()
+                    .isViewBlocking(((state, world, pos) -> true))
+                    .noOcclusion()
+                    .noTerrainParticles()
             ));
     
     private static <T extends Block> DeferredBlock<T> rgtrBlock(String name, Supplier<T> block) {

@@ -8,10 +8,12 @@ import net.radzratz.catalystcore.CatalystCore;
 import net.radzratz.catalystcore.client.blocks.CTCEBlocks;
 import net.radzratz.catalystcore.client.blocks.entity.anomaly.GravityAnomalyBlockEntity;
 import net.radzratz.catalystcore.client.blocks.entity.cauldron.CatalystCauldronBlockEntity;
+import net.radzratz.catalystcore.client.blocks.entity.nebula.NebulaBlockEntity;
 import net.radzratz.catalystcore.client.blocks.entity.pedestal.CatalystAltarPedestalEntity;
 
 import java.util.function.Supplier;
 
+@SuppressWarnings("null")
 public class CTCEBlockEntities
 {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
@@ -28,6 +30,10 @@ public class CTCEBlockEntities
     public static final Supplier<BlockEntityType<GravityAnomalyBlockEntity>> ANOMALY =
             BLOCK_ENTITIES.register("anomaly", ()-> BlockEntityType.Builder.of(
                     GravityAnomalyBlockEntity::new, CTCEBlocks.GRAVITY_ANOMALY.get()).build(null));
+
+    public static final Supplier<BlockEntityType<NebulaBlockEntity>> NEBULA_ETERNA =
+            BLOCK_ENTITIES.register("nebula", ()-> BlockEntityType.Builder.of(
+                    NebulaBlockEntity::new, CTCEBlocks.NEBULA_ETERNA.get()).build(null));
 
     public static void register(IEventBus eventBus)
     {

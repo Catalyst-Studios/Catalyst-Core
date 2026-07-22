@@ -14,6 +14,7 @@ import net.radzratz.catalystcore.common.util.config.ICTCEItem;
 
 import java.util.function.Supplier;
 
+@SuppressWarnings("null")
 public class CTCECreativeTabs {
     public static final DeferredRegister<CreativeModeTab> CTCE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CatalystCore.id);
 
@@ -25,7 +26,6 @@ public class CTCECreativeTabs {
     }
 
     ///Base Module
-    @SuppressWarnings("unused")
     public static final Supplier<CreativeModeTab> CATALYST_CORE_BASE = CTCE_TABS.register("catalystcore_tab1",
             ()-> CreativeModeTab.builder().icon(()-> new ItemStack(CTCEItems.FULL_CATALYST.get()))
                     .title(Component.translatable("creativetab.catalystcore.base")).displayItems((itemDisplayParameters, output) -> {
@@ -182,6 +182,7 @@ public class CTCECreativeTabs {
                         output.accept(CTCEBlocks.CAULDRON);
                         output.accept(CTCEBlocks.REINFORCED_GLASS);
                         output.accept(CTCEBlocks.GRAVITY_ANOMALY);
+                        output.accept(CTCEBlocks.NEBULA_ETERNA);
                     }).build());
 
     public static void rgtr(IEventBus eventBus) {

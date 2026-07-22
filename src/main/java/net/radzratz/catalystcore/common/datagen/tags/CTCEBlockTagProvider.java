@@ -14,6 +14,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
+@SuppressWarnings("null")
 public class CTCEBlockTagProvider extends BlockTagsProvider {
     public CTCEBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider,
                                 @Nullable ExistingFileHelper existingFileHelper) {
@@ -30,6 +31,8 @@ public class CTCEBlockTagProvider extends BlockTagsProvider {
 
         tag(BlockTags.DRAGON_IMMUNE).add(CTCEBlocks.GRAVITY_ANOMALY.get());
         tag(BlockTags.WITHER_IMMUNE).add(CTCEBlocks.GRAVITY_ANOMALY.get());
+        tag(BlockTags.DRAGON_IMMUNE).add(CTCEBlocks.NEBULA_ETERNA.get());
+        tag(BlockTags.WITHER_IMMUNE).add(CTCEBlocks.NEBULA_ETERNA.get());
 
         tag(BlockTags.INCORRECT_FOR_STONE_TOOL).add(CTCEBlocks.CAULDRON.get());
         tag(BlockTags.NEEDS_IRON_TOOL).add(CTCEBlocks.CAULDRON.get());

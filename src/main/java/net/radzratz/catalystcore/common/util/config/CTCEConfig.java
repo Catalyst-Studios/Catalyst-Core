@@ -12,6 +12,7 @@ public class CTCEConfig {
     public final PhialEvents phials;
     public final CatalystCurios curioCompatibility;
     public final AnomalyConfig anomaly;
+    public final NebulaConfig nebula;
 
     static {
         Pair<CTCEConfig, ModConfigSpec> pair = new ModConfigSpec.Builder().configure(CTCEConfig::new);
@@ -27,6 +28,7 @@ public class CTCEConfig {
         this.phials = new PhialEvents(builder);
         this.curioCompatibility = new CatalystCurios(builder);
         this.anomaly = new AnomalyConfig(builder);
+        this.nebula = new NebulaConfig(builder);
 
         builder.pop();
     }
@@ -250,6 +252,23 @@ public class CTCEConfig {
                     .comment("Client Side - Enable the visual black hole shader effect for the Gravity Anomaly block")
                     .translation("config.catalystcore.anomaly.shader")
                     .define("enableAnomalyShader", true);
+
+            builder.pop();
+        }
+    }
+
+    public static class NebulaConfig
+    {
+        public final ModConfigSpec.BooleanValue enableNebulaShader;
+
+        public NebulaConfig(ModConfigSpec.Builder builder)
+        {
+            builder.comment("Nebula Eterna Settings").push("nebula");
+
+            this.enableNebulaShader = builder
+                    .comment("Client Side - Enable the visual effect for the Nebula block")
+                    .translation("config.catalystcore.nebula.shader")
+                    .define("enableNebulaShader", true);
 
             builder.pop();
         }
