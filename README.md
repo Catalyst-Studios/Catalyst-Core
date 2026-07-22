@@ -39,3 +39,5 @@ Links:
  - https://godotshaders.com/shader/abstract-3d/
  - https://godotshaders.com/shader/2d-black-hole/ (this was the inspiration)
  - https://godotshaders.com/shader/polar-coordinate-black-hole/ (this was the result wanted)
+ - https://godotshaders.com/shader/deep-space-shader/
+ - https://godotshaders.com/shader/2d-nebula-shader/ (mainly this for the nebula)
