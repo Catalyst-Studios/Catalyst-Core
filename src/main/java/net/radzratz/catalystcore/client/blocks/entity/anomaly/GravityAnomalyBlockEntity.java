@@ -12,7 +12,7 @@ import net.minecraft.world.phys.Vec3;
 import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
 import net.radzratz.catalystcore.client.visuals.particle.CTCEParticles;
 
-
+@SuppressWarnings("null")
 public class GravityAnomalyBlockEntity extends BlockEntity {
 
     public float customRadius = 1.0f;

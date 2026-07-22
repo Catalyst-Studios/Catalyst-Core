@@ -1,6 +1,5 @@
 package net.radzratz.catalystcore.client.blocks.entity.anomaly;
 
-
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -8,6 +7,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.radzratz.catalystcore.common.util.config.CTCEConfig;
 
+@SuppressWarnings("null")
 public class GravityAnomalyRenderer implements BlockEntityRenderer<GravityAnomalyBlockEntity>
 {
     public GravityAnomalyRenderer(BlockEntityRendererProvider.Context context)

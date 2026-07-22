@@ -18,6 +18,7 @@ import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
 import net.radzratz.catalystcore.client.blocks.entity.anomaly.GravityAnomalyBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
+@SuppressWarnings("null")
 public class GravityAnomalyBlock extends Block implements EntityBlock
 {
 

@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-
+@SuppressWarnings("null")
 @EventBusSubscriber(modid = "catalystcore", value = Dist.CLIENT)
 public class AnomalyShaderController
 {

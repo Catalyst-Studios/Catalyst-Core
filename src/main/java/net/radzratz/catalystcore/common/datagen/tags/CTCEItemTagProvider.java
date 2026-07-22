@@ -18,6 +18,7 @@ import top.theillusivec4.curios.api.CuriosTags;
 
 import java.util.concurrent.CompletableFuture;
 
+@SuppressWarnings("null")
 public class CTCEItemTagProvider extends ItemTagsProvider
 {
     public CTCEItemTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider,
