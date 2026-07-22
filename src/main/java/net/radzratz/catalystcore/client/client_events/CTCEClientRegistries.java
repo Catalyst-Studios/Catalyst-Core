@@ -13,6 +13,7 @@ import net.radzratz.catalystcore.CatalystCore;
 import net.radzratz.catalystcore.client.blocks.CTCEBlocks;
 import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
 import net.radzratz.catalystcore.client.blocks.entity.anomaly.GravityAnomalyRenderer;
+import net.radzratz.catalystcore.client.blocks.entity.nebula.NebulaRenderer;
 import net.radzratz.catalystcore.client.entities.CTCEEntities;
 import net.radzratz.catalystcore.client.visuals.particle.CTCEParticles;
 import net.radzratz.catalystcore.client.visuals.renderer.block.CatalystAltarPedestalItemRenderer;
@@ -50,7 +51,7 @@ public class CTCEClientRegistries {
             event.registerBlockEntityRenderer(CTCEBlockEntities.PEDESTAL_ALTAR.get(), CatalystAltarPedestalItemRenderer::new);
             event.registerBlockEntityRenderer(CTCEBlockEntities.CAULDRON.get(), CatalystCauldronRenderer::new);
             event.registerBlockEntityRenderer(CTCEBlockEntities.ANOMALY.get() ,GravityAnomalyRenderer::new);
-            event.registerBlockEntityRenderer(CTCEBlockEntities.NEBULA_ETERNA.get(), net.radzratz.catalystcore.client.blocks.entity.nebula.NebulaRenderer::new);
+            event.registerBlockEntityRenderer(CTCEBlockEntities.NEBULA_ETERNA.get(), NebulaRenderer::new);
         }
 
         // WHY YA COMPLAIN!?
