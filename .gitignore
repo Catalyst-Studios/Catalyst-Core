@@ -24,3 +24,6 @@ runs
 run-data
 
 repo
+
+#Vscode auto launch
+.vscode/launch.json

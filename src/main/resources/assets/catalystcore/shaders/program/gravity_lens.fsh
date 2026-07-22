@@ -24,9 +24,9 @@ const float DISK_OUTER_LIMIT_MULT = 7.5; //outer boundary multiplier for the dis
 const float SPIRAL_NUM_ARMS = 12.0; //number of spiral arms in the galaxy
 const float SPIRAL_TWIST = 24.0; //how tightly the spiral arms are wound
 const float SPIN_SPEED_MULT = 1.5; //rotation speed multiplier for the galaxy
-const float SPIRAL_ARM_WIDTH_MIN = 0.1; //inner spiral arm thickness
-const float SPIRAL_ARM_WIDTH_MAX = 0.9; //outer spiral arm thickness
-const float SPIRAL_ARM_FALLOFF = 0.3; //sharpness of the spiral arm edges
+const float SPIRAL_ARM_WIDTH_MIN = 0.25; //inner spiral arm thickness
+const float SPIRAL_ARM_WIDTH_MAX = 0.95; //outer spiral arm thickness
+const float SPIRAL_ARM_FALLOFF = 0.65; //sharpness of the spiral arm edges (higher = softer/cloudier edges)
 
 const float NOISE_SCALE = 3.5; //base scale for the noise texture
 const float NOISE_TIME_MULT_1 = 0.15; //animation speed for the primary noise
@@ -169,11 +169,20 @@ void main()
             
             float spinSpeed = AnomalyTime * SPIN_SPEED_MULT; //rotation animation offset
             
-            float spiralBase = sin(angle * SPIRAL_NUM_ARMS - normDist * SPIRAL_TWIST + spinSpeed); //base wave for spiral arms
+            // Warp the angle with low-amplitude noise to give plasma/gas cloud texture
+            // without destroying the spiral arm structure ("""""""""accretion disk look""""""""")
+            vec3 warpP = vec3(diskDir * 2.5, AnomalyTime * 0.07);
+            float warp1 = snoise(warpP) * 0.15;
+            float warp2 = snoise(warpP * 2.1 + vec3(5.3, 1.7, 0.0)) * 0.08;
+            float warp3 = snoise(warpP * 4.3 - vec3(2.1, 3.4, 0.0)) * 0.04;
+            float angleWarp = warp1 + warp2 + warp3; //subtle turbulence keeps arms visible but with plasma edges
+            float warpedAngle = angle + angleWarp;
+            
+            float spiralBase = sin(warpedAngle * SPIRAL_NUM_ARMS - normDist * SPIRAL_TWIST + spinSpeed); //base wave for spiral arms with gas turbulence
             spiralBase = spiralBase * 0.5 + 0.5; //map from [-1, 1] to [0, 1]
             
             float thicknessCutoff = mix(SPIRAL_ARM_WIDTH_MIN, SPIRAL_ARM_WIDTH_MAX, normDist); //variable arm thickness depending on distance
-            float arm = smoothstep(thicknessCutoff - SPIRAL_ARM_FALLOFF, 1.0, spiralBase); //crispness of the spiral arm edges
+            float arm = smoothstep(thicknessCutoff - SPIRAL_ARM_FALLOFF, 1.0, spiralBase); //crispness of the spiral arm edges (soft = more cloud-like)
             
             vec3 p = vec3(diskDir * NOISE_SCALE, AnomalyTime * NOISE_TIME_MULT_1); //3d point for noise sampling
             
@@ -226,5 +235,5 @@ void main()
         sceneColor = mix(sceneColor, vec4(totalDiskColor.rgb, 1.0), totalDiskColor.a); //draw accretion disk
     }
 
-    fragColor = sceneColor; //output the final pixel color
+    fragColor = vec4(sceneColor.rgb, 1.0); //output the final pixel color with forced alpha=1.0 to avoid black bands
 }
