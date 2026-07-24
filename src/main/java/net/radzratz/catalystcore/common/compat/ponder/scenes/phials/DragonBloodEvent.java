@@ -10,7 +10,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class DragonBloodEvent {
     public static void dragonBlood(SceneBuilder scene, SceneBuildingUtil util) {
@@ -60,7 +60,7 @@ public class DragonBloodEvent {
         scene.overlay().showControls(
                 util.vector().of(5.2, 6.5, 6.5),
                 Pointing.LEFT, 60
-        ).rightClick().withItem(new ItemStack(CTCEItems.REINFORCED_BOTTLE.get()));
+        ).rightClick().withItem(new ItemStack(CTCEItemRegistry.REINFORCED_BOTTLE.get()));
 
         scene.idle(80);
         scene.addKeyframe();
@@ -76,7 +76,7 @@ public class DragonBloodEvent {
         scene.world().createItemEntity(
                 util.vector().of(6.5, 6.5, 6.5),
                 util.vector().of(0, 0.03, 0),
-                new ItemStack(CTCEItems.DRAGON_BLOOD.get())
+                new ItemStack(CTCEItemRegistry.DRAGON_BLOOD.get())
         );
 
         scene.idle(60);

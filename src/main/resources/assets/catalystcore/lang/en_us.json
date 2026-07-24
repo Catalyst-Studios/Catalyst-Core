@@ -117,12 +117,12 @@
 
   "entity.catalystcore.pentagram": "Pentagram",
 
-  "creativetab.catalystcore.base": "Catalyst Core Base Module",
-  "creativetab.catalystcore.weapons": "Catalyst Core Weapons Module",
-  "creativetab.catalystcore.tools": "Catalyst Core Tools Module",
-  "creativetab.catalystcore.components": "Catalyst Core Components",
-  "creativetab.catalystcore.foods": "Catalyst Core Foods",
-  "creativetab.catalystcore.blocks": "Catalyst Core Blocks",
+  "tab.catalystcore.materials": "Catalyst Core Items",
+  "tab.catalystcore.weaponry_armoury": "Catalyst Core Weapons",
+  "tab.catalystcore.tools": "Catalyst Core Tools",
+  "tab.catalystcore.components": "Catalyst Core Components",
+  "tab.catalystcore.foods": "Catalyst Core Foods",
+  "tab.catalystcore.blocks": "Catalyst Core Blocks",
 
   "catalystcore.ponder.torch_flower_essence.header": "Extracting the Torch Flower Essence with a Phial.",
   "catalystcore.ponder.torch_flower_essence.text_1": "First, we'll need to grow a Torchflower to extract it's essence",

@@ -7,15 +7,15 @@ import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedSho
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MUniverContainerEntry
 {
     public static void registerContainerEntry(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("The Pocket Cosmos")
-                .icon(new ItemStack(CTCEItems.CONTAINER.get()))
-                .assignedItems(CTCEItems.CONTAINER.get())
+                .icon(new ItemStack(CTCEItemRegistry.CONTAINER.get()))
+                .assignedItems(CTCEItemRegistry.CONTAINER.get())
                 .page(
                         TextBuilder.of("""
                                         Forged with the most advanced technology ever conceived.
@@ -37,7 +37,7 @@ public class MUniverContainerEntry
                                 .lineHeight(12)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.CONTAINER.get().getDefaultInstance())
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.CONTAINER.get().getDefaultInstance())
                                 .x(65)
                                 .y(25)
                 )

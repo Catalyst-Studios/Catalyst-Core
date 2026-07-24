@@ -7,7 +7,7 @@ import net.createmod.ponder.api.scene.SceneBuildingUtil;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MyceliumSporeEvent {
     public static void myceliumSpore(SceneBuilder scene, SceneBuildingUtil util) {
@@ -51,7 +51,7 @@ public class MyceliumSporeEvent {
         scene.overlay().showControls(
                 util.vector().of(2, 1.2, 3),
                 Pointing.LEFT, 80
-        ).rightClick().withItem(new ItemStack(CTCEItems.REINFORCED_BOTTLE.get()));
+        ).rightClick().withItem(new ItemStack(CTCEItemRegistry.REINFORCED_BOTTLE.get()));
 
         scene.idle(80);
         scene.addKeyframe();
@@ -59,7 +59,7 @@ public class MyceliumSporeEvent {
         scene.world().createItemEntity(
                 util.vector().of(2, 2, 1.5),
                 util.vector().of(0, 0.01, 0),
-                new ItemStack(CTCEItems.MYCELIUM_BOTTLE.get())
+                new ItemStack(CTCEItemRegistry.MYCELIUM_BOTTLE.get())
         );
 
         scene.idle(60);

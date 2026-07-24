@@ -7,15 +7,15 @@ import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedSho
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MForbiddenArtifactEntry
 {
     public static void registerForbiddenEntry(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("The Failed Ascendant")
-                .icon(new ItemStack(CTCEItems.FORBIDDEN_ORB.get()))
-                .assignedItems(CTCEItems.FORBIDDEN_ORB.get())
+                .icon(new ItemStack(CTCEItemRegistry.FORBIDDEN_ORB.get()))
+                .assignedItems(CTCEItemRegistry.FORBIDDEN_ORB.get())
                 .page(
                         TextBuilder.of("""
                                             Born from the merging of lesser relics,
@@ -37,7 +37,7 @@ public class MForbiddenArtifactEntry
                                             """)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.FORBIDDEN_ORB.get().getDefaultInstance())
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.FORBIDDEN_ORB.get().getDefaultInstance())
                                 .x(65)
                                 .y(25)
                 )

@@ -7,15 +7,15 @@ import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedSho
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MCrystallizedRiftEntry
 {
     public static void registerRiftEntry(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("Where Worlds Bleed")
-                .icon(new ItemStack(CTCEItems.RIFT.get()))
-                .assignedItems(CTCEItems.RIFT.get())
+                .icon(new ItemStack(CTCEItemRegistry.RIFT.get()))
+                .assignedItems(CTCEItemRegistry.RIFT.get())
                 .page(
                         TextBuilder.of("""
                                             Born from the convergence of all portals—arcane, magical, and technological—
@@ -62,7 +62,7 @@ public class MCrystallizedRiftEntry
                                 .lineHeight(12)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.RIFT.get().getDefaultInstance())
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.RIFT.get().getDefaultInstance())
                                 .x(65)
                                 .y(25)
                 )

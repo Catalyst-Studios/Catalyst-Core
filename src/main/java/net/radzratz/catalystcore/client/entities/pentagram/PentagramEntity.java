@@ -19,11 +19,11 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.radzratz.catalystcore.client.visuals.particle.CTCEParticles;
+import net.radzratz.catalystcore.common.registries.CTCEParticleRegistry;
 import net.radzratz.catalystcore.common.recipes.CTCERecipeTypes;
 import net.radzratz.catalystcore.common.recipes.pentagram.PentagramRecipeType;
 import net.radzratz.catalystcore.common.recipes.pentagram.PentagramContainer;
-import net.radzratz.catalystcore.client.sound.CTCESounds;
+import net.radzratz.catalystcore.common.registries.CTCESoundRegistry;
 import net.radzratz.catalystcore.common.util.config.CTCEConfig;
 import org.jetbrains.annotations.NotNull;
 
@@ -70,7 +70,7 @@ public class PentagramEntity extends Entity {
         this.setBoundingBox(AABB.ofSize(this.position(), 1.0D, 0.1D, 1.0D));
 
         if (!level.isClientSide) {
-            playPentagramSound(CTCESounds.PENTAGRAM_CRAFT.get());
+            playPentagramSound(CTCESoundRegistry.PENTAGRAM_CRAFT.get());
         }
 
         this.entityData.set(CIRCLE_ROTATION, 0.0f);
@@ -117,7 +117,7 @@ public class PentagramEntity extends Entity {
                 this.entityData.set(FADING_OUT, true);
                 this.entityData.set(FADE_TICKS, 0);
 
-                playPentagramSound(CTCESounds.PENTAGRAM_PLACE.get());
+                playPentagramSound(CTCESoundRegistry.PENTAGRAM_PLACE.get());
             }
             return InteractionResult.SUCCESS;
         }
@@ -194,7 +194,7 @@ public class PentagramEntity extends Entity {
             double z = center.z() + radius * Math.sin(angle);
 
             serverLevel.sendParticles(
-                    CTCEParticles.PENTAGRAM_PARTICLE.get(),
+                    CTCEParticleRegistry.PENTAGRAM_PARTICLE.get(),
                     x, y, z,
                     1,
                     0, 0, 0,
@@ -307,6 +307,6 @@ public class PentagramEntity extends Entity {
                 resultStack
         ));
 
-        playPentagramSound(CTCESounds.PENTAGRAM_CRAFT.get());
+        playPentagramSound(CTCESoundRegistry.PENTAGRAM_CRAFT.get());
     }
 }

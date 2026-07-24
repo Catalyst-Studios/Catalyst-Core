@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.radzratz.catalystcore.CatalystCore;
-import net.radzratz.catalystcore.client.blocks.CTCEBlocks;
+import net.radzratz.catalystcore.common.registries.CTCEBlockRegistry;
 import net.radzratz.catalystcore.client.items.tags.CTCETags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -23,21 +23,21 @@ public class CTCEBlockTagProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
-        tag(BlockTags.WITHER_IMMUNE).add(CTCEBlocks.REINFORCED_GLASS.get());
-        tag(BlockTags.NEEDS_IRON_TOOL).add(CTCEBlocks.REINFORCED_GLASS.get());
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(CTCEBlocks.REINFORCED_GLASS.get());
-        tag(BlockTags.INCORRECT_FOR_STONE_TOOL).add(CTCEBlocks.REINFORCED_GLASS.get());
-        tag(BlockTags.DRAGON_IMMUNE).add(CTCEBlocks.REINFORCED_GLASS.get());
+        tag(BlockTags.WITHER_IMMUNE).add(CTCEBlockRegistry.REINFORCED_GLASS.get());
+        tag(BlockTags.NEEDS_IRON_TOOL).add(CTCEBlockRegistry.REINFORCED_GLASS.get());
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(CTCEBlockRegistry.REINFORCED_GLASS.get());
+        tag(BlockTags.INCORRECT_FOR_STONE_TOOL).add(CTCEBlockRegistry.REINFORCED_GLASS.get());
+        tag(BlockTags.DRAGON_IMMUNE).add(CTCEBlockRegistry.REINFORCED_GLASS.get());
 
-        tag(BlockTags.DRAGON_IMMUNE).add(CTCEBlocks.GRAVITY_ANOMALY.get());
-        tag(BlockTags.WITHER_IMMUNE).add(CTCEBlocks.GRAVITY_ANOMALY.get());
-        tag(BlockTags.DRAGON_IMMUNE).add(CTCEBlocks.NEBULA_ETERNA.get());
-        tag(BlockTags.WITHER_IMMUNE).add(CTCEBlocks.NEBULA_ETERNA.get());
+        tag(BlockTags.DRAGON_IMMUNE).add(CTCEBlockRegistry.GRAVITY_ANOMALY.get());
+        tag(BlockTags.WITHER_IMMUNE).add(CTCEBlockRegistry.GRAVITY_ANOMALY.get());
+        tag(BlockTags.DRAGON_IMMUNE).add(CTCEBlockRegistry.NEBULA_ETERNA.get());
+        tag(BlockTags.WITHER_IMMUNE).add(CTCEBlockRegistry.NEBULA_ETERNA.get());
 
-        tag(BlockTags.INCORRECT_FOR_STONE_TOOL).add(CTCEBlocks.CAULDRON.get());
-        tag(BlockTags.NEEDS_IRON_TOOL).add(CTCEBlocks.CAULDRON.get());
-        tag(BlockTags.CAULDRONS).add(CTCEBlocks.CAULDRON.get());
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(CTCEBlocks.CAULDRON.get());
+        tag(BlockTags.INCORRECT_FOR_STONE_TOOL).add(CTCEBlockRegistry.CAULDRON.get());
+        tag(BlockTags.NEEDS_IRON_TOOL).add(CTCEBlockRegistry.CAULDRON.get());
+        tag(BlockTags.CAULDRONS).add(CTCEBlockRegistry.CAULDRON.get());
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(CTCEBlockRegistry.CAULDRON.get());
 
         tag(CTCETags.Blocks.HEAT_SOURCES).add(Blocks.LAVA);
         tag(CTCETags.Blocks.HEAT_SOURCES).add(Blocks.CAMPFIRE);

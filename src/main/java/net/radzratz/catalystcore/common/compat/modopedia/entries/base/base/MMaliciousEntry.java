@@ -7,15 +7,15 @@ import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedSho
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MMaliciousEntry
 {
     public static void registerMaliciousEntry(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("Chains of the Forgotten")
-                .icon(new ItemStack(CTCEItems.MALICIOUS_EYE.get()))
-                .assignedItems(CTCEItems.MALICIOUS_EYE.get())
+                .icon(new ItemStack(CTCEItemRegistry.MALICIOUS_EYE.get()))
+                .assignedItems(CTCEItemRegistry.MALICIOUS_EYE.get())
                 .page(
                         TextBuilder.of("""
                                             Trapped within an ancient snare, the entity watches—silent, yet unyielding.
@@ -50,7 +50,7 @@ public class MMaliciousEntry
                                             """)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.MALICIOUS_EYE.get().getDefaultInstance())
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.MALICIOUS_EYE.get().getDefaultInstance())
                                 .x(65)
                                 .y(25)
                 )

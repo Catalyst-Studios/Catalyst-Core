@@ -1,23 +1,20 @@
 package net.radzratz.catalystcore.common.compat.modopedia.entries.base.phials;
 
-import com.google.gson.JsonElement;
 import net.favouriteless.modopedia.api.datagen.BookContentOutput;
 import net.favouriteless.modopedia.api.datagen.builders.EntryBuilder;
 import net.favouriteless.modopedia.api.datagen.builders.page_components.components.TextBuilder;
 import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedShowcaseBuilder;
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
-import net.radzratz.catalystcore.client.items.CTCEItems;
-
-import java.util.function.BiConsumer;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MTorchFlowerPhial
 {
     public static void registerTorchFlowerPhial(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("TorchFlower Essence")
-                .icon(CTCEItems.TORCHFLOWER_BOTTLE.get().getDefaultInstance())
-                .assignedItems(CTCEItems.TORCHFLOWER_BOTTLE.get())
+                .icon(CTCEItemRegistry.TORCHFLOWER_BOTTLE.get().getDefaultInstance())
+                .assignedItems(CTCEItemRegistry.TORCHFLOWER_BOTTLE.get())
                 .page(
                         TextBuilder.of("""
                                             TorchFlower Essence is extremely easy to collect!
@@ -30,7 +27,7 @@ public class MTorchFlowerPhial
                                 .justify(Justify.LEFT)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.TORCHFLOWER_BOTTLE.get().getDefaultInstance()),
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.TORCHFLOWER_BOTTLE.get().getDefaultInstance()),
                         TextBuilder.of("""
                                             
                                             

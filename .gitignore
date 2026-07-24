@@ -27,3 +27,4 @@ repo
 
 #Vscode auto launch
 .vscode/launch.json
+/src/generated/resources/.cache/

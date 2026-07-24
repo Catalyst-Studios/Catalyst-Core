@@ -9,8 +9,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
-import static net.radzratz.catalystcore.client.items.CTCEItems.REINFORCED_BOTTLE;
-import static net.radzratz.catalystcore.client.items.CTCEItems.TORCHFLOWER_BOTTLE;
+import static net.radzratz.catalystcore.common.registries.CTCEItemRegistry.REINFORCED_BOTTLE;
+import static net.radzratz.catalystcore.common.registries.CTCEItemRegistry.TORCHFLOWER_BOTTLE;
 
 public class TorchFlowerEssenceEvent {
     public static void torchFlowerEssence(SceneBuilder scene, SceneBuildingUtil util) {

@@ -7,15 +7,15 @@ import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedSho
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MCosmicAbominationEntry
 {
     public static void registerAbominationEntry(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("Something is Wrong...")
-                .icon(new ItemStack(CTCEItems.COSMIC_ABOMINATION.get()))
-                .assignedItems(CTCEItems.COSMIC_ABOMINATION.get())
+                .icon(new ItemStack(CTCEItemRegistry.COSMIC_ABOMINATION.get()))
+                .assignedItems(CTCEItemRegistry.COSMIC_ABOMINATION.get())
                 .page(
                         TextBuilder.of("""
                                             It has awakened.
@@ -47,7 +47,7 @@ public class MCosmicAbominationEntry
                                 .lineHeight(12)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.COSMIC_ABOMINATION.get().getDefaultInstance())
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.COSMIC_ABOMINATION.get().getDefaultInstance())
                                 .x(65)
                                 .y(25)
                 )

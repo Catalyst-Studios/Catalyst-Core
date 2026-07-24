@@ -1,0 +1,48 @@
+package net.radzratz.catalystcore.client.items.tools.weapons;
+
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
+import net.minecraft.world.item.component.Tool;
+import net.minecraft.world.item.component.Unbreakable;
+import net.radzratz.catalystcore.client.items.tools.CTCEConfigSwordItem;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
+import java.util.function.BooleanSupplier;
+
+public class CataclysticUlfberht extends CTCEConfigSwordItem {
+    public CataclysticUlfberht(Tier tier, Properties properties, Tool toolComponentData, ItemAttributeModifiers attributes, BooleanSupplier module, BooleanSupplier type) {
+        super(tier, properties.component(DataComponents.TOOL, toolComponentData)
+                .component(DataComponents.ATTRIBUTE_MODIFIERS, attributes)
+                .component(DataComponents.UNBREAKABLE, new Unbreakable(true)), module, type);
+    }
+
+    @Override
+    public void postHurtEnemy(@NotNull ItemStack stack, @NotNull LivingEntity target, @NotNull LivingEntity attacker) {}
+
+    @Override
+    public boolean isBarVisible(@NotNull ItemStack stack) {
+        return false;
+    }
+
+    @Override
+    public boolean isDamageable(@NotNull ItemStack stack) {
+        return false;
+    }
+
+    @Override
+    public boolean isEnchantable(@NotNull ItemStack stack) {
+        return true;
+    }
+
+    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, List<Component> tooltip, @NotNull TooltipFlag flag) {
+        tooltip.add(Component.translatable("item.catalystcore.cataclystic_ulfberht.desc").withStyle(ChatFormatting.DARK_BLUE));
+        super.appendHoverText(stack, context, tooltip, flag);
+    }
+}

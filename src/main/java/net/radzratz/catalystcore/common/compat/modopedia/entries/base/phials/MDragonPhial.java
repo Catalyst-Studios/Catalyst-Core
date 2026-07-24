@@ -6,15 +6,15 @@ import net.favouriteless.modopedia.api.datagen.builders.page_components.componen
 import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedShowcaseBuilder;
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MDragonPhial
 {
     public static void registerDragonBloodPhial(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("Dragon's Blood")
-                .icon(CTCEItems.DRAGON_BLOOD.get().getDefaultInstance())
-                .assignedItems(CTCEItems.DRAGON_BLOOD.get())
+                .icon(CTCEItemRegistry.DRAGON_BLOOD.get().getDefaultInstance())
+                .assignedItems(CTCEItemRegistry.DRAGON_BLOOD.get())
                 .page(
                         TextBuilder.of("""
                                             We must venture into the End for this one.
@@ -27,7 +27,7 @@ public class MDragonPhial
                                 .justify(Justify.LEFT)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.DRAGON_BLOOD.get().getDefaultInstance()),
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.DRAGON_BLOOD.get().getDefaultInstance()),
                         TextBuilder.of("""
                                             
                                             

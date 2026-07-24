@@ -7,15 +7,15 @@ import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedSho
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MBlackHoleEntry
 {
     public static void registerBlackHoleEntry(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("The Devourer")
-                .icon(new ItemStack(CTCEItems.BLACK_HOLE.get()))
-                .assignedItems(CTCEItems.BLACK_HOLE.get())
+                .icon(new ItemStack(CTCEItemRegistry.BLACK_HOLE.get()))
+                .assignedItems(CTCEItemRegistry.BLACK_HOLE.get())
                 .page(
                         TextBuilder.of("""
                                             Created through unmatched technological mastery,
@@ -38,7 +38,7 @@ public class MBlackHoleEntry
                                             """)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.BLACK_HOLE.get().getDefaultInstance())
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.BLACK_HOLE.get().getDefaultInstance())
                                 .x(65)
                                 .y(25)
                 )

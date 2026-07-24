@@ -4,15 +4,16 @@ import net.createmod.ponder.foundation.PonderIndex;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.loading.FMLEnvironment;
-import net.radzratz.catalystcore.client.blocks.CTCEBlocks;
+import net.radzratz.catalystcore.common.registries.CTCEBlockRegistry;
 import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
 import net.radzratz.catalystcore.common.compat.curios.curio.curios.CTCECurioItems;
-import net.radzratz.catalystcore.client.visuals.particle.CTCEParticles;
-import net.radzratz.catalystcore.client.entities.CTCEEntities;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEParticleRegistry;
+import net.radzratz.catalystcore.common.registries.CTCEEntityRegistry;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 import net.radzratz.catalystcore.common.compat.ponder.CTCEPonderPlugin;
 import net.radzratz.catalystcore.common.recipes.CTCERecipeTypes;
-import net.radzratz.catalystcore.client.sound.CTCESounds;
+import net.radzratz.catalystcore.common.registries.CTCESoundRegistry;
+import net.radzratz.catalystcore.common.registries.CTCEToolsRegistry;
 import net.radzratz.catalystcore.common.util.CTCECreativeTabs;
 
 import net.neoforged.bus.api.IEventBus;
@@ -27,14 +28,15 @@ public class CatalystCore {
     public CatalystCore(IEventBus bus, ModContainer mCont) {
         mCont.registerConfig(ModConfig.Type.COMMON, CTCEConfig.CONFIG_SPEC, CatalystCore.id + "/settings.toml");
 
-        CTCESounds.rgtr(bus);
+        CTCESoundRegistry.rgtr(bus);
         CTCERecipeTypes.rgtr(bus);
-        CTCEItems.rgtr(bus);
-        CTCEBlocks.rgtr(bus);
+        CTCEItemRegistry.rgtr(bus);
+        CTCEToolsRegistry.rgtr(bus);
+        CTCEBlockRegistry.rgtr(bus);
         CTCEBlockEntities.register(bus);
-        CTCEEntities.rgtr(bus);
+        CTCEEntityRegistry.rgtr(bus);
+        CTCEParticleRegistry.rgtr(bus);
         CTCECreativeTabs.rgtr(bus);
-        CTCEParticles.rgtr(bus);
 
         if(ModList.get().isLoaded("curios")) {
             bus.addListener(CTCECurioItems::registerCatalystCurioCapabilities);

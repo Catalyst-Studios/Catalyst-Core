@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
-import net.radzratz.catalystcore.client.visuals.particle.CTCEParticles;
+import net.radzratz.catalystcore.common.registries.CTCEParticleRegistry;
 
 /*
 KubeJS
@@ -104,7 +104,7 @@ public class NebulaBlockEntity extends BlockEntity
                 double pY = pos.getY() + 0.5 + (level.random.nextDouble() - 0.5) * radius;
                 double pZ = pos.getZ() + 0.5 + (level.random.nextDouble() - 0.5) * radius;
 
-                level.addParticle(CTCEParticles.PENTAGRAM_PARTICLE.get(), 
+                level.addParticle(CTCEParticleRegistry.PENTAGRAM_PARTICLE.get(),
                         pX, pY, pZ, 
                         pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5);
             }

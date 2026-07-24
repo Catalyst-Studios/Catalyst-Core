@@ -7,15 +7,15 @@ import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedSho
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MSpiritAgglomeratioEntry
 {
     public static void registerFracturedEntry(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("A Little Piece of Heaven")
-                .icon(new ItemStack(CTCEItems.SPIRIT_AGGLOMERATIO.get()))
-                .assignedItems(CTCEItems.SPIRIT_AGGLOMERATIO.get())
+                .icon(new ItemStack(CTCEItemRegistry.SPIRIT_AGGLOMERATIO.get()))
+                .assignedItems(CTCEItemRegistry.SPIRIT_AGGLOMERATIO.get())
                 .page(
                         TextBuilder.of("""
                                             Forged in the forgotten twilight of the cosmos, this orb contains the converged
@@ -36,7 +36,7 @@ public class MSpiritAgglomeratioEntry
                         )
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.SPIRIT_AGGLOMERATIO.get().getDefaultInstance())
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.SPIRIT_AGGLOMERATIO.get().getDefaultInstance())
                                 .x(65)
                                 .y(25)
                 )

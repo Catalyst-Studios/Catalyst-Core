@@ -7,15 +7,15 @@ import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedSho
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MChocolateBarEntry
 {
     public static void registerFracturedEntry(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("Quantum Confection")
-                .icon(new ItemStack(CTCEItems.CHOCOLATE_BAR.get()))
-                .assignedItems(CTCEItems.CHOCOLATE_BAR.get())
+                .icon(new ItemStack(CTCEItemRegistry.CHOCOLATE_BAR.get()))
+                .assignedItems(CTCEItemRegistry.CHOCOLATE_BAR.get())
                 .page(
                         TextBuilder.of("""
                                             An artifact of unknown origin, theorized to be a dessert item crafted by an
@@ -40,7 +40,7 @@ public class MChocolateBarEntry
                                             """)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.CHOCOLATE_BAR.get().getDefaultInstance())
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.CHOCOLATE_BAR.get().getDefaultInstance())
                                 .x(65)
                                 .y(25)
                 )

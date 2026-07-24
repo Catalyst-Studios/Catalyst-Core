@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
-import static net.radzratz.catalystcore.client.items.CTCEItems.*;
+import static net.radzratz.catalystcore.common.registries.CTCEItemRegistry.*;
 
 public class SculkBiomassEvent {
     public static void sculkBiomass(SceneBuilder scene, SceneBuildingUtil util) {

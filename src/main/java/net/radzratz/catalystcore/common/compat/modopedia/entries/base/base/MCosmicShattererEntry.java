@@ -7,15 +7,15 @@ import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedSho
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MCosmicShattererEntry
 {
     public static void registerShattererEntry(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("A Failed Relic")
-                .icon(new ItemStack(CTCEItems.COSMIC_SHATTERER.get()))
-                .assignedItems(CTCEItems.COSMIC_SHATTERER.get())
+                .icon(new ItemStack(CTCEItemRegistry.COSMIC_SHATTERER.get()))
+                .assignedItems(CTCEItemRegistry.COSMIC_SHATTERER.get())
                 .page(
                         TextBuilder.of("""
                                             The result of an experiment that should have never been.
@@ -38,7 +38,7 @@ public class MCosmicShattererEntry
                                 .lineHeight(12)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.COSMIC_SHATTERER.get().getDefaultInstance())
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.COSMIC_SHATTERER.get().getDefaultInstance())
                                 .x(65)
                                 .y(25)
                 )

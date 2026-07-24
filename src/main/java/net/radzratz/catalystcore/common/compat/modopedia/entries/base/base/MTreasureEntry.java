@@ -7,15 +7,15 @@ import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedSho
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MTreasureEntry
 {
     public static void registerTreasureEntry(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("Treasure of the Unbound")
-                .icon(new ItemStack(CTCEItems.TREASURE.get()))
-                .assignedItems(CTCEItems.TREASURE.get())
+                .icon(new ItemStack(CTCEItemRegistry.TREASURE.get()))
+                .assignedItems(CTCEItemRegistry.TREASURE.get())
                 .page(
                         TextBuilder.of("""
                                             Its origin is unknown, yet its craftsmanship speaks of rare,
@@ -35,7 +35,7 @@ public class MTreasureEntry
                                             """)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.TREASURE.get().getDefaultInstance())
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.TREASURE.get().getDefaultInstance())
                                 .x(65)
                                 .y(25)
                 )

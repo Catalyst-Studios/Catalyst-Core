@@ -7,15 +7,15 @@ import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedSho
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MICarosEntry
 {
     public static void registerICarosEntry(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("Echo of Purpose")
-                .icon(new ItemStack(CTCEItems.ICAROS.get()))
-                .assignedItems(CTCEItems.ICAROS.get())
+                .icon(new ItemStack(CTCEItemRegistry.ICAROS.get()))
+                .assignedItems(CTCEItemRegistry.ICAROS.get())
                 .page(
                         TextBuilder.of("""
                                         Once envisioned as the pinnacle of autonomous design, ICar-Os was the original core of
@@ -40,7 +40,7 @@ public class MICarosEntry
                                 """)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.ICAROS.get().getDefaultInstance())
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.ICAROS.get().getDefaultInstance())
                                 .x(65)
                                 .y(25)
                 )

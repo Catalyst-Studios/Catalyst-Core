@@ -14,28 +14,24 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.radzratz.catalystcore.client.blocks.CTCEBlocks;
+import net.radzratz.catalystcore.common.registries.CTCEBlockRegistry;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;
 
-public class CTCEBlockLootTable extends BlockLootSubProvider
-{
-    public CTCEBlockLootTable(HolderLookup.Provider registries)
-    {
+public class CTCEBlockLootTable extends BlockLootSubProvider {
+    public CTCEBlockLootTable(HolderLookup.Provider registries) {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
     }
 
     @Override
-    protected void generate()
-    {
-        dropSelf(CTCEBlocks.CATALYST_ALTAR_PEDESTAL.get());
-        dropSelf(CTCEBlocks.REINFORCED_GLASS.get());
-        dropSelf(CTCEBlocks.CAULDRON.get());
+    protected void generate() {
+        dropSelf(CTCEBlockRegistry.CATALYST_ALTAR_PEDESTAL.get());
+        dropSelf(CTCEBlockRegistry.REINFORCED_GLASS.get());
+        dropSelf(CTCEBlockRegistry.CAULDRON.get());
     }
 
-    protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops)
-    {
+    protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {
         HolderLookup.RegistryLookup<Enchantment> registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
         return this.createSilkTouchDispatchTable(pBlock, LootItem.lootTableItem(item)
                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(minDrops, maxDrops)))
@@ -43,9 +39,8 @@ public class CTCEBlockLootTable extends BlockLootSubProvider
     }
 
     @Override
-    protected @NotNull Iterable<Block> getKnownBlocks()
-    {
-        return CTCEBlocks.CTCE_BLOCKS.getEntries().stream().map(Holder::value)::iterator;
+    protected @NotNull Iterable<Block> getKnownBlocks() {
+        return CTCEBlockRegistry.CTCE_BLOCKS.getEntries().stream().map(Holder::value)::iterator;
     }
 
 }

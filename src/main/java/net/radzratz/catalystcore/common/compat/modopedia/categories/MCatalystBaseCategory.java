@@ -4,14 +4,14 @@ import net.favouriteless.modopedia.api.datagen.BookContentOutput;
 import net.favouriteless.modopedia.api.datagen.builders.CategoryBuilder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MCatalystBaseCategory
 {
     public static void registerBaseCategory(HolderLookup.Provider registries, BookContentOutput output)
     {
         CategoryBuilder.of("Catalyst Core Base")
-                .icon(new ItemStack(CTCEItems.FULL_CATALYST.get()))
+                .icon(new ItemStack(CTCEItemRegistry.FULL_CATALYST.get()))
                 .entries("base/the_catalyst", "base/a.r.e.s", "base/chocolate_bar", "base/cosmic_abomination",
                          "base/spirit_agglomeratio", "base/cosmic_shatterer", "base/fractured_crystal",
                          "base/magic_anomaly", "base/icaros", "base/vortex", "base/container", "base/divine",

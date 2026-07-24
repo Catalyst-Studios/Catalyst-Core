@@ -9,7 +9,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 import net.radzratz.catalystcore.common.util.config.CTCEConfig;
 import top.theillusivec4.curios.api.CuriosCapability;
 import top.theillusivec4.curios.api.SlotContext;
@@ -110,7 +110,7 @@ public class CTCECurioItems {
                     }
 
                 },
-                CTCEItems.FULL_CATALYST.get()
+                CTCEItemRegistry.FULL_CATALYST.get()
         );
     }
     ///Possibly others...

@@ -7,15 +7,15 @@ import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedSho
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MMagicAnomalyEntry
 {
     public static void registerAnomalyEntry(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("Breaking the Reality")
-                .icon(new ItemStack(CTCEItems.MAGIC_ANOMALY.get()))
-                .assignedItems(CTCEItems.MAGIC_ANOMALY.get())
+                .icon(new ItemStack(CTCEItemRegistry.MAGIC_ANOMALY.get()))
+                .assignedItems(CTCEItemRegistry.MAGIC_ANOMALY.get())
                 .page(
                         TextBuilder.of("""
                                         Formed by an unprecedented convergence of all magical disciplines —
@@ -28,7 +28,7 @@ public class MMagicAnomalyEntry
                                 .lineHeight(12)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.MAGIC_ANOMALY.get().getDefaultInstance())
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.MAGIC_ANOMALY.get().getDefaultInstance())
                                 .x(0)
                                 .y(25)
                 )

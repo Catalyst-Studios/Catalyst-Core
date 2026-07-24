@@ -7,15 +7,15 @@ import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedSho
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MVortexEntry
 {
     public static void registerVortexEntry(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("The Divine Scar")
-                .icon(new ItemStack(CTCEItems.ETERNAL_VORTEX.get()))
-                .assignedItems(CTCEItems.ETERNAL_VORTEX.get())
+                .icon(new ItemStack(CTCEItemRegistry.ETERNAL_VORTEX.get()))
+                .assignedItems(CTCEItemRegistry.ETERNAL_VORTEX.get())
                 .page(
                         TextBuilder.of("""
                                             A spiraling wound in the fabric of existence.
@@ -41,7 +41,7 @@ public class MVortexEntry
                                     """)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.ETERNAL_VORTEX.get().getDefaultInstance())
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.ETERNAL_VORTEX.get().getDefaultInstance())
                                 .x(65)
                                 .y(25)
                 )

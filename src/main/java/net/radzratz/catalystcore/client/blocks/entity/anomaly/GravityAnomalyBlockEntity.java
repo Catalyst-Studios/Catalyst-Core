@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
-import net.radzratz.catalystcore.client.visuals.particle.CTCEParticles;
+import net.radzratz.catalystcore.common.registries.CTCEParticleRegistry;
 
 @SuppressWarnings("null")
 public class GravityAnomalyBlockEntity extends BlockEntity {
@@ -35,7 +35,7 @@ public class GravityAnomalyBlockEntity extends BlockEntity {
                 double pY = pos.getY() + 0.5 + (level.random.nextDouble() - 0.5) * radius;
                 double pZ = pos.getZ() + 0.5 + (level.random.nextDouble() - 0.5) * radius;
 
-                level.addParticle(CTCEParticles.PENTAGRAM_PARTICLE.get(), 
+                level.addParticle(CTCEParticleRegistry.PENTAGRAM_PARTICLE.get(),
                         pX, pY, pZ, 
                         pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5);
             }

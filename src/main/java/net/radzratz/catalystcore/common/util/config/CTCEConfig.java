@@ -9,7 +9,7 @@ public class CTCEConfig {
 
     public final PentagramConfig pentagram;
     public final ModulesConfig modules;
-    public final PhialEvents phials;
+    public final Phials phials;
     public final CatalystCurios curioCompatibility;
     public final AnomalyConfig anomaly;
     public final NebulaConfig nebula;
@@ -25,7 +25,7 @@ public class CTCEConfig {
 
         this.pentagram = new PentagramConfig(builder);
         this.modules = new ModulesConfig(builder);
-        this.phials = new PhialEvents(builder);
+        this.phials = new Phials(builder);
         this.curioCompatibility = new CatalystCurios(builder);
         this.anomaly = new AnomalyConfig(builder);
         this.nebula = new NebulaConfig(builder);
@@ -68,89 +68,134 @@ public class CTCEConfig {
     }
 
     public static class ModulesConfig {
-        public final ModConfigSpec.BooleanValue weaponsModule;
-        public final ModConfigSpec.BooleanValue toolsModule;
+        public final ModConfigSpec.BooleanValue weaponry;
+        public final ModConfigSpec.BooleanValue battleAxe;
+        public final ModConfigSpec.BooleanValue broadsword;
+        public final ModConfigSpec.BooleanValue gladius;
+        public final ModConfigSpec.BooleanValue greatSword;
+        public final ModConfigSpec.BooleanValue halberd;
+        public final ModConfigSpec.BooleanValue hammer;
+        public final ModConfigSpec.BooleanValue katar;
+        public final ModConfigSpec.BooleanValue rapier;
+        public final ModConfigSpec.BooleanValue scythe;
+        public final ModConfigSpec.BooleanValue shield;
+        public final ModConfigSpec.BooleanValue ulfberht;
+        public final ModConfigSpec.BooleanValue universeSword;
+        public final ModConfigSpec.BooleanValue zweihander;
+
+        public final ModConfigSpec.BooleanValue tools;
+        public final ModConfigSpec.BooleanValue axe;
+        public final ModConfigSpec.BooleanValue paxel;
+        public final ModConfigSpec.BooleanValue pickaxe;
+        public final ModConfigSpec.BooleanValue shovel;
 
         public ModulesConfig(ModConfigSpec.Builder builder) {
-            /// This part of the config does NOT unregister any of CatalystCore Items
-            ///
-            /// This only "hides" them Items and toggles their functionality over CatalystCore Mod
+            builder.comment("Catalyst Tools, Weaponry and Armoury").push("tools_and_weaponry");
 
-            builder.comment("Toggle mod features/modules").push("modules");
+            this.weaponry = weaponAndTool(builder, "catalyst_weaponry_module");
+            this.battleAxe = weaponAndTool(builder, "cataclystic_battle_axe");
+            this.broadsword = weaponAndTool(builder, "cataclystic_broadsword");
+            this.gladius = weaponAndTool(builder, "cataclystic_gladius");
+            this.greatSword = weaponAndTool(builder, "cataclystic_greatsword");
+            this.halberd = weaponAndTool(builder, "cataclystic_halberd");
+            this.hammer = weaponAndTool(builder, "cataclystic_hammer");
+            this.katar = weaponAndTool(builder, "cataclystic_katar");
+            this.rapier = weaponAndTool(builder, "cataclystic_rapier");
+            this.scythe = weaponAndTool(builder, "cataclystic_scythe");
+            this.shield = weaponAndTool(builder, "cataclystic_shield");
+            this.ulfberht = weaponAndTool(builder, "cataclystic_ulfberht");
+            this.universeSword = weaponAndTool(builder, "universe_sword");
+            this.zweihander = weaponAndTool(builder, "cataclystic_zweihander");
 
-            this.weaponsModule = builder
-                    .comment("Server/Client Side - Enable weapons/armor module")
-                    .translation("config.catalystcore.modules.weapons")
-                    .gameRestart()
-                    .define("toggleCataclysticArmouryAndWeaponry", true); ///True by default
+            builder.pop();
+            builder.push("tools");
 
-            this.toolsModule = builder
-                    .comment("Server/Client Side - Enable tools module")
-                    .translation("config.catalystcore.modules.tools")
-                    .gameRestart()
-                    .define("toggleCataclysticTools", true); ///True by default
+            this.tools = weaponAndTool(builder, "catalyst_tools_module");
+            this.axe = weaponAndTool(builder, "cataclystic_axe");
+            this.paxel = weaponAndTool(builder, "cataclystic_paxel");
+            this.pickaxe = weaponAndTool(builder, "cataclystic_pickaxe");
+            this.shovel = weaponAndTool(builder, "cataclystic_shovel");
 
             builder.pop();
         }
+
+        private ModConfigSpec.BooleanValue weaponAndTool(ModConfigSpec.Builder bldr, String name) {
+            String id = toDisplayName(name);
+            String path = toPathName(name);
+
+            return bldr.comment("[Server] Defines if " + id + " is enabled")
+                    .gameRestart()
+                    .define("is" + path + "Enabled", true);
+        }
     }
 
-    public static class PhialEvents {
+    public static class Phials {
         public final ModConfigSpec.BooleanValue phialEvents;
+        public final ModConfigSpec.BooleanValue dragonPhialEvent;
         public final ModConfigSpec.BooleanValue dragonPhial;
+        public final ModConfigSpec.BooleanValue witheredPhialEvent;
         public final ModConfigSpec.BooleanValue witheredPhial;
+        public final ModConfigSpec.BooleanValue sculkPhialEvent;
         public final ModConfigSpec.BooleanValue sculkPhial;
+        public final ModConfigSpec.BooleanValue torchFlowerPhialEvent;
         public final ModConfigSpec.BooleanValue torchFlowerPhial;
+        public final ModConfigSpec.BooleanValue myceliumPhialEvent;
         public final ModConfigSpec.BooleanValue myceliumPhial;
+        public final ModConfigSpec.BooleanValue lifeEssencePhialEvent;
+        public final ModConfigSpec.BooleanValue lifeEssencePhial;
+        public final ModConfigSpec.BooleanValue pixiePhial;
 
-        public PhialEvents(ModConfigSpec.Builder builder) {
-            /// This part of the config does NOT unregister any of CatalystCore Phials
-            ///
-            /// This only toggles their functionality over CatalystCore Mod
-
-            builder.comment("Catalyst Phial Events").push("phials");
+        public Phials(ModConfigSpec.Builder builder) {
+            builder.comment("Catalyst Phials").push("phials");
 
             this.phialEvents = builder
-                    .comment("Server/Client - Enables all phial events. If this is set to false, the rest of this config can be ignored")
-                    .translation("config.catalystcore.phials.all_phials")
+                    .comment("[Server/Client] - Enables all phial events. If this is set to false, the rest of this config can be ignored")
                     .gameRestart()
-                    .define("toggleAllPhialEvents", true); /// True by default
+                    .define("arePhialEventsEnabled", true);
 
-            this.dragonPhial = builder
-                    .comment("Server/Client - Enables dragon phial event")
-                    .translation("config.catalystcore.phials.dragon_phial")
-                    .gameRestart()
-                    .define("toggleDragonPhial", true); /// True by default
+            this.dragonPhialEvent = phialEvent(builder, "dragon_phial");
+            this.dragonPhial = phialToggle(builder, "dragon_phial");
 
-            this.witheredPhial = builder
-                    .comment("Server/Client - Enables withered phial event")
-                    .translation("config.catalystcore.phials.withered_phial")
-                    .gameRestart()
-                    .define("toggleWitheredPhial", true); /// True by default
+            this.witheredPhialEvent = phialEvent(builder, "withered_phial");
+            this.witheredPhial = phialToggle(builder, "withered_phial");
 
-            this.sculkPhial = builder
-                    .comment("Server/Client - Enables sculk phial event")
-                    .translation("config.catalystcore.phials.sculk_phial")
-                    .gameRestart()
-                    .define("toggleSculkPhial", true); /// True by default
+            this.sculkPhialEvent = phialEvent(builder, "sculk_phial");
+            this.sculkPhial = phialToggle(builder, "sculk_phial");
 
-            this.torchFlowerPhial = builder
-                    .comment("Server/Client - Enables torchflower phial event")
-                    .translation("config.catalystcore.phials.torchflower_phial")
-                    .gameRestart()
-                    .define("toggleTorchFlowerPhial", true); /// True by default
+            this.torchFlowerPhialEvent = phialEvent(builder, "torch_flower_phial");
+            this.torchFlowerPhial = phialToggle(builder, "torch_flower_phial");
 
-            this.myceliumPhial = builder
-                    .comment("Server/Client - Enables mycelium phial event")
-                    .translation("config.catalystcore.phials.mycelium_phial")
-                    .gameRestart()
-                    .define("toggleMyceliumPhial", true); /// True by default
+            this.myceliumPhialEvent = phialEvent(builder, "mycelium_phial");
+            this.myceliumPhial = phialToggle(builder, "mycelium_phial");
+
+            this.lifeEssencePhialEvent = phialEvent(builder, "life_essence_phial");
+            this.lifeEssencePhial = phialToggle(builder, "life_essence_phial");
+
+            this.pixiePhial = phialToggle(builder, "pixie_phial");
 
             builder.pop();
+        }
+
+        private ModConfigSpec.BooleanValue phialEvent(ModConfigSpec.Builder bldr, String phialName) {
+            String phial = toDisplayName(phialName);
+            String phialPath = toPathName(phialName);
+
+            return bldr.comment("[Server/Client] Defines if " + phial + " Event is Enabled")
+                    .worldRestart()
+                    .define("is" + phialPath + "EventEnabled", true);
+        }
+
+        private ModConfigSpec.BooleanValue phialToggle(ModConfigSpec.Builder bldr, String phialName) {
+            String phial = toDisplayName(phialName);
+            String phialPath = toPathName(phialName);
+
+            return bldr.comment("[Server] Defines if " + phial + " item is enabled")
+                    .gameRestart()
+                    .define("is" + phialPath + "Enabled", true);
         }
     }
 
     public static class CatalystCurios {
-        ///Catalyst Curio
         public final ModConfigSpec.BooleanValue catalystCurioEffects;
 
         public final ModConfigSpec.BooleanValue catalystNightVision;
@@ -164,12 +209,6 @@ public class CTCEConfig {
         public final ModConfigSpec.BooleanValue catalystRegeneration;
 
         public CatalystCurios(ModConfigSpec.Builder builder) {
-            ///Dedicated Config for PackDevs who don't want any type of effects within the Catalyst Item using CuriosAPI Mod
-            ///
-            ///These values are set to use gameRestart() as it may or not crash with a Server/Client incompatibility result
-            ///and im not willing to find this out honestly... so restart yer game each time ye disable these
-            ///
-            ///Will someone read all of this!? Dunno but hey ya reader!
             builder.comment("Catalyst Curio Effects").push("catalyst_curio");
 
             this.catalystCurioEffects = builder
@@ -180,61 +219,61 @@ public class CTCEConfig {
                             "Requires Game Restart")
                     .translation("config.catalystcore.catalyst_curio.all_effects")
                     .gameRestart()
-                    .define("toggleAllEffects", true); ///True by default
+                    .define("toggleAllEffects", true);
 
             this.catalystNightVision = builder
                     .comment("Defines if Night Vision Effect is enabled" + " - " + "Requires Game Restart")
                     .translation("config.catalystcore.catalyst_curio.night_vision")
                     .gameRestart()
-                    .define("toggleNightVisionEffect", true); ///True by default
+                    .define("toggleNightVisionEffect", true);
 
             this.catalystDamageBoost = builder
                     .comment("Defines if Damage Boost Effect is enabled" + " - " + "Requires Game Restart")
                     .translation("config.catalystcore.catalyst_curio.damage_boost")
                     .gameRestart()
-                    .define("toggleDamageBoostEffect", true); ///True by default
+                    .define("toggleDamageBoostEffect", true);
 
             this.catalystMovementSpeed = builder
                     .comment("Defines if Movement Speed Effect is Enabled" + " - " + "Requires Game Restart")
                     .translation("config.catalystcore.catalyst_curio.movement_speed")
                     .gameRestart()
-                    .define("toggleMovementSpeedEffect", true); ///True by default
+                    .define("toggleMovementSpeedEffect", true);
 
             this.catalystSaturation = builder
                     .comment("Defines if Saturation Effect is Enabled" + " - " + "Requires Game Restart")
                     .translation("config.catalystcore.catalyst_curio.saturation")
                     .gameRestart()
-                    .define("toggleSaturationEffect", true); ///True by default
+                    .define("toggleSaturationEffect", true);
 
             this.catalystWaterBreathing = builder
                     .comment("Defines if Water Breathing Effect is Enabled" + " - " + "Requires Game Restart")
                     .translation("config.catalystcore.catalyst_curio.water_breathing")
                     .gameRestart()
-                    .define("toggleWaterBreathingEffect", true); ///True by default
+                    .define("toggleWaterBreathingEffect", true);
 
             this.catalystLuck = builder
                     .comment("Defines if Luck Effect is Enabled" + " - " + "Requires Game Restart")
                     .translation("config.catalystcore.catalyst_curio.luck")
                     .gameRestart()
-                    .define("toggleLuckEffect", true); ///True by default
+                    .define("toggleLuckEffect", true);
 
             this.catalystHealthBoost = builder
                     .comment("Defines if Health Boost Effect is Enabled" + " - " + "Requires Game Restart")
                     .translation("config.catalystcore.catalyst_curio.health_boost")
                     .gameRestart()
-                    .define("toggleHealthBoostEffect", true); ///True by default
+                    .define("toggleHealthBoostEffect", true);
 
             this.catalystFireResistance = builder
                     .comment("Defines if Fire Resistance Effect is Enabled" + " - " + "Requires Game Restart")
                     .translation("config.catalystcore.catalyst_curio.fire_resistance")
                     .gameRestart()
-                    .define("toggleFireResistanceEffect", true); ///True by default
+                    .define("toggleFireResistanceEffect", true);
 
             this.catalystRegeneration = builder
                     .comment("Defines if Regeneration Effect is Enabled" + " - " + "Requires Game Restart")
                     .translation("config.catalystcore.catalyst_curio.regeneration")
                     .gameRestart()
-                    .define("toggleRegenerationEffect", true); ///True by default
+                    .define("toggleRegenerationEffect", true);
 
             builder.pop();
         }
@@ -272,5 +311,20 @@ public class CTCEConfig {
 
             builder.pop();
         }
+    }
+
+    private static String toDisplayName(String snakeCase) {
+        String[] parts = snakeCase.split("_");
+        StringBuilder sb = new StringBuilder();
+        for (String part : parts) {
+            if (part.isEmpty()) continue;
+            if (!sb.isEmpty()) sb.append(' ');
+            sb.append(Character.toUpperCase(part.charAt(0))).append(part.substring(1));
+        }
+        return sb.toString();
+    }
+
+    private static String toPathName(String snakeCase) {
+        return toDisplayName(snakeCase).replace(" ", "");
     }
 }

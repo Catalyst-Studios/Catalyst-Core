@@ -7,15 +7,15 @@ import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedSho
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MFracturedCrystalEntry
 {
     public static void registerFracturedEntry(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("Elemental Havoc")
-                .icon(new ItemStack(CTCEItems.CHAOS_CRYSTAL.get()))
-                .assignedItems(CTCEItems.CHAOS_CRYSTAL.get())
+                .icon(new ItemStack(CTCEItemRegistry.CHAOS_CRYSTAL.get()))
+                .assignedItems(CTCEItemRegistry.CHAOS_CRYSTAL.get())
                 .page(
                         TextBuilder.of("""
                                             Born from a failed pursuit of elemental unity.
@@ -40,7 +40,7 @@ public class MFracturedCrystalEntry
                                 .lineHeight(12)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.CHAOS_CRYSTAL.get().getDefaultInstance())
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.CHAOS_CRYSTAL.get().getDefaultInstance())
                                 .x(65)
                                 .y(25)
                 )

@@ -40,7 +40,7 @@ public class MCatalystCodexProvider extends BookProvider
                              """)
                 .texture(CTCE("catalyst_codex"))
                 .itemModel(CTCE("item/modopedia_books/universe_codex"))
-                .tab(CTCE("catalystcore_tab1"))
+                .tab(CTCE("tab.catalystcore.materials"))
                 .openSound(MSoundEvents.BOOK_OPEN)
                 .flipSound(MSoundEvents.BOOK_FLIP)
                 .font(Modopedia.id("default"))

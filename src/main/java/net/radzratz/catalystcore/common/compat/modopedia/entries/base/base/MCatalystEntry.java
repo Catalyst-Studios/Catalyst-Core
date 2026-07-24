@@ -7,15 +7,15 @@ import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedSho
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MCatalystEntry
 {
     public static void registerCatalystEntry(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("The Final Destination")
-                .icon(new ItemStack(CTCEItems.FULL_CATALYST.get()))
-                .assignedItems(CTCEItems.FULL_CATALYST.get())
+                .icon(new ItemStack(CTCEItemRegistry.FULL_CATALYST.get()))
+                .assignedItems(CTCEItemRegistry.FULL_CATALYST.get())
                 .page(
                         TextBuilder.of("""
                                             A strange man once said:
@@ -41,7 +41,7 @@ public class MCatalystEntry
                                 .lineHeight(12)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.FULL_CATALYST.get().getDefaultInstance())
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.FULL_CATALYST.get().getDefaultInstance())
                                 .x(65)
                                 .y(25)
                 )

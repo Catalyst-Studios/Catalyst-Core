@@ -10,7 +10,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class WitherEssenceEvent {
     public static void witherEssence(SceneBuilder scene, SceneBuildingUtil util) {
@@ -74,7 +74,7 @@ public class WitherEssenceEvent {
 
         scene.overlay().showControls(util.vector().of(1.5, 3.5, 2), Pointing.LEFT, 60)
                 .rightClick()
-                .withItem(new ItemStack(CTCEItems.REINFORCED_BOTTLE.get()));
+                .withItem(new ItemStack(CTCEItemRegistry.REINFORCED_BOTTLE.get()));
 
         scene.idle(80);
         scene.addKeyframe();
@@ -90,7 +90,7 @@ public class WitherEssenceEvent {
         scene.world().createItemEntity(
                 util.vector().of(2, 3, 2),
                 util.vector().of(0, 0.05, 0),
-                new ItemStack(CTCEItems.WITHERED_BOTTLE.get())
+                new ItemStack(CTCEItemRegistry.WITHERED_BOTTLE.get())
         );
 
         scene.idle(60);

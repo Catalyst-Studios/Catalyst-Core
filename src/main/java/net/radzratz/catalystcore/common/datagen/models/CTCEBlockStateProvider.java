@@ -5,7 +5,7 @@ import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.radzratz.catalystcore.CatalystCore;
-import net.radzratz.catalystcore.client.blocks.CTCEBlocks;
+import net.radzratz.catalystcore.common.registries.CTCEBlockRegistry;
 
 public class CTCEBlockStateProvider extends BlockStateProvider {
     public CTCEBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -14,7 +14,7 @@ public class CTCEBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        blockWithItem(CTCEBlocks.REINFORCED_GLASS);
+        blockWithItem(CTCEBlockRegistry.REINFORCED_GLASS);
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {

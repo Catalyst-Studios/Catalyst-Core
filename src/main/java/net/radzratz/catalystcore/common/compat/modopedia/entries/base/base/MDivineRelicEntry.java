@@ -7,15 +7,15 @@ import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedSho
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MDivineRelicEntry
 {
     public static void registerDivineEntry(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("The Eternal Witness")
-                .icon(new ItemStack(CTCEItems.ANCIENT_RELIC.get()))
-                .assignedItems(CTCEItems.ANCIENT_RELIC.get())
+                .icon(new ItemStack(CTCEItemRegistry.ANCIENT_RELIC.get()))
+                .assignedItems(CTCEItemRegistry.ANCIENT_RELIC.get())
                 .page(
                         TextBuilder.of("""
                                             Few relics of the old world have withstood the erosion of time.
@@ -59,7 +59,7 @@ public class MDivineRelicEntry
                                 .lineHeight(12)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.ANCIENT_RELIC.get().getDefaultInstance())
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.ANCIENT_RELIC.get().getDefaultInstance())
                                 .x(65)
                                 .y(25)
                 )

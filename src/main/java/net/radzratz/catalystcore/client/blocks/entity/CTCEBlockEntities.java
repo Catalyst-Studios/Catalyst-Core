@@ -5,7 +5,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.radzratz.catalystcore.CatalystCore;
-import net.radzratz.catalystcore.client.blocks.CTCEBlocks;
+import net.radzratz.catalystcore.common.registries.CTCEBlockRegistry;
 import net.radzratz.catalystcore.client.blocks.entity.anomaly.GravityAnomalyBlockEntity;
 import net.radzratz.catalystcore.client.blocks.entity.cauldron.CatalystCauldronBlockEntity;
 import net.radzratz.catalystcore.client.blocks.entity.nebula.NebulaBlockEntity;
@@ -21,19 +21,19 @@ public class CTCEBlockEntities
 
     public static final Supplier<BlockEntityType<CatalystAltarPedestalEntity>> PEDESTAL_ALTAR =
             BLOCK_ENTITIES.register("pedestal_altar_1", ()-> BlockEntityType.Builder.of(
-                    CatalystAltarPedestalEntity::new, CTCEBlocks.CATALYST_ALTAR_PEDESTAL.get()).build(null));
+                    CatalystAltarPedestalEntity::new, CTCEBlockRegistry.CATALYST_ALTAR_PEDESTAL.get()).build(null));
 
     public static final Supplier<BlockEntityType<CatalystCauldronBlockEntity>> CAULDRON =
             BLOCK_ENTITIES.register("cauldron", ()-> BlockEntityType.Builder.of(
-                    CatalystCauldronBlockEntity::new, CTCEBlocks.CAULDRON.get()).build(null));
+                    CatalystCauldronBlockEntity::new, CTCEBlockRegistry.CAULDRON.get()).build(null));
 
     public static final Supplier<BlockEntityType<GravityAnomalyBlockEntity>> ANOMALY =
             BLOCK_ENTITIES.register("anomaly", ()-> BlockEntityType.Builder.of(
-                    GravityAnomalyBlockEntity::new, CTCEBlocks.GRAVITY_ANOMALY.get()).build(null));
+                    GravityAnomalyBlockEntity::new, CTCEBlockRegistry.GRAVITY_ANOMALY.get()).build(null));
 
     public static final Supplier<BlockEntityType<NebulaBlockEntity>> NEBULA_ETERNA =
             BLOCK_ENTITIES.register("nebula", ()-> BlockEntityType.Builder.of(
-                    NebulaBlockEntity::new, CTCEBlocks.NEBULA_ETERNA.get()).build(null));
+                    NebulaBlockEntity::new, CTCEBlockRegistry.NEBULA_ETERNA.get()).build(null));
 
     public static void register(IEventBus eventBus)
     {

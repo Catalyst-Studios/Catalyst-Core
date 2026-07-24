@@ -7,15 +7,15 @@ import net.favouriteless.modopedia.api.datagen.builders.templates.LargeFramedSho
 import net.favouriteless.modopedia.book.text.Justify;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
-import net.radzratz.catalystcore.client.items.CTCEItems;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 
 public class MAresEntry
 {
     public static void registerAresEntry(HolderLookup.Provider registries, BookContentOutput output)
     {
         EntryBuilder.of("Project A.R.E.S")
-                .icon(new ItemStack(CTCEItems.ARES.get()))
-                .assignedItems(CTCEItems.ARES.get())
+                .icon(new ItemStack(CTCEItemRegistry.ARES.get()))
+                .assignedItems(CTCEItemRegistry.ARES.get())
                 .page(
                         TextBuilder.of("""
                                         Autonomous Reconnaissance & Elimination Sphere
@@ -38,7 +38,7 @@ public class MAresEntry
                                 """)
                 )
                 .page(
-                        LargeFramedShowcaseBuilder.of(CTCEItems.ARES.get().getDefaultInstance())
+                        LargeFramedShowcaseBuilder.of(CTCEItemRegistry.ARES.get().getDefaultInstance())
                                 .x(65)
                                 .y(25)
                 )

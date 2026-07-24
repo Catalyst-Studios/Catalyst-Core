@@ -5,188 +5,127 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.radzratz.catalystcore.CatalystCore;
-import net.radzratz.catalystcore.client.blocks.CTCEBlocks;
-import net.radzratz.catalystcore.client.items.CTCEItems;
-import net.radzratz.catalystcore.common.util.config.ICTCEItem;
+import net.radzratz.catalystcore.client.items.tools.*;
+import net.radzratz.catalystcore.client.items.tools.tools.CataclysticAxe;
+import net.radzratz.catalystcore.client.items.tools.weapons.*;
+import net.radzratz.catalystcore.client.items.types.*;
+import net.radzratz.catalystcore.common.registries.CTCEBlockRegistry;
+import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
+import net.radzratz.catalystcore.common.registries.CTCEToolsRegistry;
 
+import java.util.Comparator;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
-@SuppressWarnings("null")
+import static net.radzratz.catalystcore.common.util.CTCEUtils.*;
+
 public class CTCECreativeTabs {
     public static final DeferredRegister<CreativeModeTab> CTCE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CatalystCore.id);
 
-    private static boolean shouldShowInCreative(Item item) {
-        if(item instanceof ICTCEItem ghostItem) {
-            return ghostItem.shouldAppear();
-        }
-        return true;
+    private static final String TAB = "catalystcore_tab_";
+
+    public static final Supplier<CreativeModeTab> MATERIALS;
+    public static final Supplier<CreativeModeTab> PHIALS;
+    public static final Supplier<CreativeModeTab> FOODS;
+    public static final Supplier<CreativeModeTab> WEAPONRY;
+    public static final Supplier<CreativeModeTab> TOOLS;
+    public static final Supplier<CreativeModeTab> BLOCKS;
+
+    static {
+        MATERIALS = rgtrTab(1, CTCEItemRegistry.FULL_CATALYST, "materials", tab ->
+                tab.displayItems((params, output) -> {
+                    acceptItems(output, CTCEEndgameItem.class);
+                    acceptItems(output, CTCEMidGameItem.class);
+                    output.accept(CTCEItemRegistry.PENTAGRAM.get());
+                    output.accept(CTCEItemRegistry.CODEX.get());
+                })
+        );
+
+        PHIALS = rgtrTab(2, CTCEItemRegistry.REINFORCED_BOTTLE, "components", tab ->
+                tab.displayItems((params, output) -> {
+                    acceptItems(output, CTCEPhialItem.class);
+                    acceptItems(output, CTCESlateItem.class);
+                })
+        );
+
+        FOODS = rgtrTab(3, CTCEItemRegistry.BURRITO, "foods", tab ->
+                tab.displayItems((params, output) -> {
+                    acceptItems(output, CTCEFoodItem.class);
+                })
+        );
+
+        WEAPONRY = rgtrTab(4, CTCEToolsRegistry.CATALYST_GREATSWORD, "weaponry_armoury", tab ->
+                tab.displayItems((params, output) -> {
+                    acceptItems(output, CTCEConfigSwordItem.class);
+                    acceptItems(output, CataclysticBattleAxe.class);
+                    acceptItems(output, CTCEConfigShieldItem.class);
+                })
+        );
+
+        TOOLS = rgtrTab(5, CTCEToolsRegistry.CATALYST_PICKAXE, "tools", tab ->
+                tab.displayItems((params, output) -> {
+                    acceptItems(output, CTCEConfigPickaxeItem.class);
+                    acceptItems(output, CTCEConfigShovelItem.class);
+                    acceptItems(output, CTCEConfigPaxelItem.class);
+                    acceptItems(output, CataclysticAxe.class);
+                })
+        );
+
+        BLOCKS = rgtrTab(6, CTCEToolsRegistry.CATALYST_GREATSWORD, "blocks", tab ->
+                tab.displayItems((params, output) -> acceptBlocks(output, CTCEBlockRegistry.class)));
     }
 
-    ///Base Module
-    public static final Supplier<CreativeModeTab> CATALYST_CORE_BASE = CTCE_TABS.register("catalystcore_tab1",
-            ()-> CreativeModeTab.builder().icon(()-> new ItemStack(CTCEItems.FULL_CATALYST.get()))
-                    .title(Component.translatable("creativetab.catalystcore.base")).displayItems((itemDisplayParameters, output) -> {
-                        output.accept(CTCEItems.FULL_CATALYST);
-                        output.accept(CTCEItems.ARES);
-                        output.accept(CTCEItems.MALICIOUS_EYE);
-                        output.accept(CTCEItems.CONTAINER);
-                        output.accept(CTCEItems.RIFT);
-                        output.accept(CTCEItems.MAGIC_ANOMALY);
-                        output.accept(CTCEItems.ICAROS);
-                        output.accept(CTCEItems.ETERNAL_VORTEX);
-                        output.accept(CTCEItems.TREASURE);
-                        output.accept(CTCEItems.BLACK_HOLE);
-                        output.accept(CTCEItems.CHOCOLATE_BAR);
-                        output.accept(CTCEItems.COSMIC_SHATTERER);
-                        output.accept(CTCEItems.FORBIDDEN_ORB);
-                        output.accept(CTCEItems.CHAOS_CRYSTAL);
-                        output.accept(CTCEItems.SPIRIT_AGGLOMERATIO);
-                        output.accept(CTCEItems.COSMIC_ABOMINATION);
-                        output.accept(CTCEItems.ANCIENT_RELIC);
-                        output.accept(CTCEItems.FRAME_CATALYST);
-                        output.accept(CTCEItems.SELF_AWARE_CHIP);
-                        output.accept(CTCEItems.PENTAGRAM);
-                        output.accept(CTCEItems.COMET_SHARD);
-                        output.accept(CTCEItems.CONTAINER_INACTIVE);
-                        output.accept(CTCEItems.ANTIMATTER);
-                        output.accept(CTCEItems.LAVA_ORB);
-                        output.accept(CTCEItems.WATER_ORB);
-                        output.accept(CTCEItems.END_CORE);
-                        output.accept(CTCEItems.NETHER_CORE);
-                        output.accept(CTCEItems.OVERWORLD_CORE);
-                        output.accept(CTCEItems.WARDEN_CORE);
-                        output.accept(CTCEItems.ELDER_CORE);
-                        output.accept(CTCEItems.WITHER_CORE);
-                        output.accept(CTCEItems.DRAGON_CORE);
-                        output.accept(CTCEItems.EMPTY_CRYSTAL);
-                        output.accept(CTCEItems.FIRE_CRYSTAL);
-                        output.accept(CTCEItems.WATER_CRYSTAL);
-                        output.accept(CTCEItems.EARTH_CRYSTAL);
-                        output.accept(CTCEItems.WIND_CRYSTAL);
-                        output.accept(CTCEItems.LIGHT_CRYSTAL);
-                        output.accept(CTCEItems.DARKNESS_CRYSTAL);
-                        output.accept(CTCEItems.BOUND_VOIDSPAWN);
-                        output.accept(CTCEItems.CONCENTRATED_RADIANCE);
-                        output.accept(CTCEItems.EMPTY_CONTAINMENT_VESSEL);
-                    }).build());
+    public static CreativeModeTab.Builder base(Supplier<? extends ItemLike> icon) {
+        return CreativeModeTab.builder().icon(() -> new ItemStack(icon.get()));
+    }
 
-    /// Components
-    @SuppressWarnings("unused")
-    public static final Supplier<CreativeModeTab> CATALYST_CORE_COMPONENTS = CTCE_TABS.register("catalystcore_tab4",
-            ()-> CreativeModeTab.builder().icon(()-> new ItemStack(CTCEItems.REINFORCED_BOTTLE.get())).title(Component.translatable("creativetab.catalystcore.components"))
-                    .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(CTCEItems.REINFORCED_BOTTLE);
-                        output.accept(CTCEItems.DRAGON_BLOOD);
-                        output.accept(CTCEItems.WITHERED_BOTTLE);
-                        output.accept(CTCEItems.SCULK_BOTTLE);
-                        output.accept(CTCEItems.MYCELIUM_BOTTLE);
-                        output.accept(CTCEItems.TORCHFLOWER_BOTTLE);
-                        output.accept(CTCEItems.PIXIE_BOTTLE);
-                        output.accept(CTCEItems.LIFE_ESSENCE_BOTTLE);
-                        output.accept(CTCEItems.RUNIC_EMPTY);
-                        output.accept(CTCEItems.RUNIC_BLOOD);
-                        output.accept(CTCEItems.RUNIC_ARCANE);
-                        output.accept(CTCEItems.RUNIC_ENDER);
-                        output.accept(CTCEItems.INFECTED_SLATE);
-                        output.accept(CTCEItems.RUNIC_ESOTHERICAL);
-                    }).build());
+    public static void acceptItems(CreativeModeTab.Output output, Class<?> type, Predicate<DeferredHolder<Item, ? extends Item>> extraFilter) {
+        allItemEntries()
+                .filter(e -> type.isInstance(e.get()))
+                .filter(extraFilter)
+                .sorted(Comparator.comparing(e -> e.getId().getPath()))
+                .forEach(e -> output.accept(e.get()));
 
-    /// Foods
-    @SuppressWarnings("unused")
-    public static final Supplier<CreativeModeTab> CATALYST_CORE_FOODS = CTCE_TABS.register("catalystcore_tab5",
-            ()-> CreativeModeTab.builder().icon(()-> new ItemStack(CTCEItems.BURRITO.get())).title(Component.translatable("creativetab.catalystcore.foods"))
-                    .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(CTCEItems.BURRITO);
-                    }).build());
+        allToolEntries()
+                .filter(e -> type.isInstance(e.get()))
+                .filter(extraFilter)
+                .sorted(Comparator.comparing(e -> e.getId().getPath()))
+                .forEach(e -> output.accept(e.get()));
+    }
 
-    ///Weapons Module
-    @SuppressWarnings("unused")
-    public static final Supplier<CreativeModeTab> CATALYST_CORE_WEAPONS = CTCE_TABS.register("catalystcore_tab2",
-            ()-> CreativeModeTab.builder().icon(()-> new ItemStack(CTCEItems.CATALYST_GREATSWORD.get())).title(Component.translatable("creativetab.catalystcore.weapons"))
-                    .displayItems((itemDisplayParameters, output) -> {
-                        ///Heavy Weapons
-                        if(shouldShowInCreative(CTCEItems.UNIVERSE_SWORD.get())) {
-                            output.accept(CTCEItems.UNIVERSE_SWORD);
-                        }
-                        if(shouldShowInCreative(CTCEItems.CATALYST_GREATSWORD.get())) {
-                            output.accept(CTCEItems.CATALYST_GREATSWORD);
-                        }
-                        if(shouldShowInCreative(CTCEItems.CATALYST_ZWEIHANDER.get())) {
-                            output.accept(CTCEItems.CATALYST_ZWEIHANDER);
-                        }
-                        if(shouldShowInCreative(CTCEItems.CATALYST_HALBERD.get())) {
-                            output.accept(CTCEItems.CATALYST_HALBERD);
-                        }
-                        if(shouldShowInCreative(CTCEItems.CATALYST_BIG_BONK.get())) {
-                            output.accept(CTCEItems.CATALYST_BIG_BONK);
-                        }
-                        ///Medium Weapons
-                        if(shouldShowInCreative(CTCEItems.CATALYST_GLADIUS.get())) {
-                            output.accept(CTCEItems.CATALYST_GLADIUS);
-                        }
-                        if(shouldShowInCreative(CTCEItems.CATALYST_RAPIER.get())) {
-                            output.accept(CTCEItems.CATALYST_RAPIER);
-                        }
-                        if(shouldShowInCreative(CTCEItems.CATALYST_SCYTHE.get())) {
-                            output.accept(CTCEItems.CATALYST_SCYTHE);
-                        }
-                        if(shouldShowInCreative(CTCEItems.CATALYST_BROADSWORD.get())) {
-                            output.accept(CTCEItems.CATALYST_BROADSWORD);
-                        }
-                        if(shouldShowInCreative(CTCEItems.CATALYST_ULFBERHT.get())) {
-                            output.accept(CTCEItems.CATALYST_ULFBERHT);
-                        }
-                        if(shouldShowInCreative(CTCEItems.CATALYST_BATTLEAXE.get())) {
-                            output.accept(CTCEItems.CATALYST_BATTLEAXE);
-                        }
-                        ///Light Weapons
-                        if(shouldShowInCreative(CTCEItems.CATALYST_KATAR.get())) {
-                            output.accept(CTCEItems.CATALYST_KATAR);
-                        }
-                        ///Defense
-                        if(shouldShowInCreative(CTCEItems.CATALYST_SHIELD.get())) {
-                            output.accept(CTCEItems.CATALYST_SHIELD);
-                        }
-                    }).build());
+    public static void acceptItems(CreativeModeTab.Output output, Class<?> type) {
+        acceptItems(output, type, e -> true);
+    }
 
-    ///Tools Module
-    @SuppressWarnings("unused")
-    public static final Supplier<CreativeModeTab> CATALYST_CORE_TOOLS = CTCE_TABS.register("catalystcore_tab3",
-            ()-> CreativeModeTab.builder().icon(()-> new ItemStack(CTCEItems.CATALYST_PICKAXE.get())).title(Component.translatable("creativetab.catalystcore.tools"))
-                    .displayItems((itemDisplayParameters, output) -> {
-                        if(shouldShowInCreative(CTCEItems.CATALYST_PAXEL.get())) {
-                            output.accept(CTCEItems.CATALYST_PAXEL.get());
-                        }
-                        if(shouldShowInCreative(CTCEItems.CATALYST_PICKAXE.get())) {
-                            output.accept(CTCEItems.CATALYST_PICKAXE.get());
-                        }
-                        if(shouldShowInCreative(CTCEItems.CATALYST_AXE.get())) {
-                            output.accept(CTCEItems.CATALYST_AXE.get());
-                        }
-                        if(shouldShowInCreative(CTCEItems.CATALYST_SHOVEL.get())) {
-                            output.accept(CTCEItems.CATALYST_SHOVEL.get());
-                        }
-                    }).build());
+    public static void acceptBlocks(CreativeModeTab.Output output, Class<?> type, Predicate<DeferredHolder<Block, ? extends Block>> extraFilter) {
+        allBlockEntries()
+                .filter(e -> type.isInstance(e.get()))
+                .filter(extraFilter)
+                .sorted(Comparator.comparing(e -> e.getId().getPath()))
+                .forEach(e -> output.accept(e.get()));
+    }
 
-    /// Blocks
-    @SuppressWarnings("unused")
-    public static final Supplier<CreativeModeTab> CATALYST_CORE_BLOCKS = CTCE_TABS.register("catalystcore_tab6",
-            ()-> CreativeModeTab.builder()
-                    .icon(()-> new ItemStack(CTCEBlocks.REINFORCED_GLASS.get()))
-                    .title(Component.translatable("creativetab.catalystcore.blocks"))
-                    .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(CTCEBlocks.CATALYST_ALTAR_PEDESTAL);
-                        output.accept(CTCEBlocks.CAULDRON);
-                        output.accept(CTCEBlocks.REINFORCED_GLASS);
-                        output.accept(CTCEBlocks.GRAVITY_ANOMALY);
-                        output.accept(CTCEBlocks.NEBULA_ETERNA);
-                    }).build());
+    public static void acceptBlocks(CreativeModeTab.Output output, Class<?> type) {
+        acceptBlocks(output, type, e -> true);
+    }
+
+    public static Supplier<CreativeModeTab> rgtrTab(int count, Supplier<? extends ItemLike> icon, String id, UnaryOperator<CreativeModeTab.Builder> operator) {
+        return CTCECreativeTabs.CTCE_TABS.register(TAB + count, () -> {
+            CreativeModeTab.Builder bldr = base(icon)
+                    .title(Component.translatable("tab.catalystcore." + id));
+
+            return operator.apply(bldr).build();
+        });
+    }
 
     public static void rgtr(IEventBus eventBus) {
         CTCE_TABS.register(eventBus);
     }
 }
-
