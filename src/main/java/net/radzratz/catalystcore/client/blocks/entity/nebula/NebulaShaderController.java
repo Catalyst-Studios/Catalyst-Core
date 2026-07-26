@@ -1,5 +1,6 @@
 package net.radzratz.catalystcore.client.blocks.entity.nebula;
 
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.PostChain;
@@ -12,13 +13,13 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import org.joml.Vector4f;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -38,9 +39,20 @@ public class NebulaShaderController
     private static final List<NebulaData> currentFrameNebulas = new ArrayList<>();
     private static final Map<BlockPos, Float> fadeMap = new HashMap<>();
 
-    private static final boolean IS_IRIS_LOADED = 
-        ModList.get().isLoaded("iris") || 
-        ModList.get().isLoaded("oculus");
+    private static PostChain nebulaPostChain;
+    private static int lastWidth = 0;
+    private static int lastHeight = 0;
+
+    private static int calculatedCount = 0;
+    private static final float[] centersX = new float[10];
+    private static final float[] centersY = new float[10];
+    private static final float[] radii = new float[10];
+    private static final float[] intensities = new float[10];
+    private static final float[] modes = new float[10];
+    private static final float[] colorsA = new float[30];
+    private static final float[] colorsB = new float[30];
+    private static final float[] progresses = new float[10];
+    private static final float[] starDensities = new float[10];
 
     public static class NebulaData
     {
@@ -89,20 +101,15 @@ public class NebulaShaderController
     }
 
     @SubscribeEvent
-    public static void onRenderStage(RenderLevelStageEvent event)
+    public static void onRenderLevelStage(RenderLevelStageEvent event)
     {
-        if(IS_IRIS_LOADED)
-        {
-            if(currentFrameNebulas.size() != 0) currentFrameNebulas.clear();
-            return;
-        }
-
         if(event.getStage() != RenderLevelStageEvent.Stage.AFTER_LEVEL) return;
 
         Minecraft mc = Minecraft.getInstance();
         if(mc.player == null || mc.level == null)
         {
             currentFrameNebulas.clear();
+            calculatedCount = 0;
             return;
         }
 
@@ -138,7 +145,6 @@ public class NebulaShaderController
                 {
                     fadeMap.put(data.pos, currentFade);
                     processedPositions.add(data.pos);
-
                     data.currentFade = currentFade;
                     validNebulas.add(data);
                 }
@@ -150,48 +156,19 @@ public class NebulaShaderController
         }
 
         fadeMap.keySet().retainAll(processedPositions);
+        validNebulas.sort(Comparator.comparingDouble(data -> camPos.distanceToSqr(Vec3.atCenterOf(data.pos))));
 
-        if(validNebulas.isEmpty())
-        {
-            if(mc.gameRenderer.currentEffect() != null && NEBULA_SHADER.toString().equals(mc.gameRenderer.currentEffect().getName()))
-            {
-                mc.gameRenderer.shutdownEffect();
-            }
-            currentFrameNebulas.clear();
-            return;
-        }
-        else
-        {
-            if(mc.gameRenderer.currentEffect() == null || !NEBULA_SHADER.toString().equals(mc.gameRenderer.currentEffect().getName()))
-            {
-                mc.gameRenderer.loadEffect(NEBULA_SHADER);
-            }
-        }
-
-        validNebulas.sort(Comparator.comparingDouble(data ->
-                camPos.distanceToSqr(Vec3.atCenterOf(data.pos))
-        ));
-
-        int count = 0;
-        float[] centersX = new float[]{-1f, -1f, -1f, -1f, -1f, -1f, -1f, -1f, -1f, -1f};
-        float[] centersY = new float[]{-1f, -1f, -1f, -1f, -1f, -1f, -1f, -1f, -1f, -1f};
-        float[] radii = new float[10];
-        float[] intensities = new float[10];
-        float[] modes = new float[10];
-        float[] colorsA = new float[30];
-        float[] colorsB = new float[30];
-        float[] progresses = new float[10];
-        float[] starDensities = new float[10];
+        Arrays.fill(centersX, -1f);
+        Arrays.fill(centersY, -1f);
+        calculatedCount = 0;
 
         for(NebulaData data : validNebulas)
         {
-            if(count >= 10) break;
+            if(calculatedCount >= 10) break;
 
             BlockPos target = data.pos;
             Vec3 targetCenter = Vec3.atCenterOf(target);
-
-            double distanceSq = camPos.distanceToSqr(targetCenter);
-            float distance = (float) Math.sqrt(distanceSq);
+            float distance = (float) Math.sqrt(camPos.distanceToSqr(targetCenter));
 
             float baseIntensity = Math.max(0.0f, 1.0f - (distance / 20.0f));
             float finalIntensity = baseIntensity * data.strength * data.currentFade;
@@ -204,7 +181,6 @@ public class NebulaShaderController
             );
 
             event.getModelViewMatrix().transform(centerPos);
-
             Vector4f edgePos = new Vector4f(centerPos);
             edgePos.y += data.radius;
 
@@ -215,14 +191,13 @@ public class NebulaShaderController
             {
                 float ndcX = centerPos.x / centerPos.w;
                 float ndcY = centerPos.y / centerPos.w;
-                centersX[count] = (ndcX + 1.0f) * 0.5f;
-                centersY[count] = (ndcY + 1.0f) * 0.5f;
+                centersX[calculatedCount] = (ndcX + 1.0f) * 0.5f;
+                centersY[calculatedCount] = (ndcY + 1.0f) * 0.5f;
 
                 float edgeNdcY = edgePos.y / edgePos.w;
                 float edgeScreenY = (edgeNdcY + 1.0f) * 0.5f;
 
-                float calculatedRadius = Math.abs(edgeScreenY - centersY[count]);
-                radii[count] = Math.min(calculatedRadius, 1.5f);
+                radii[calculatedCount] = Math.min(Math.abs(edgeScreenY - centersY[calculatedCount]), 1.5f);
 
                 if(centerPos.w < 1.0f)
                 {
@@ -230,34 +205,69 @@ public class NebulaShaderController
                     finalIntensity *= Math.max(0.0f, proximityFade);
                 }
 
-                intensities[count] = finalIntensity;
-                modes[count] = (float) data.mode;
-                progresses[count] = data.progress;
-                starDensities[count] = data.starDensity;
+                intensities[calculatedCount] = finalIntensity;
+                modes[calculatedCount] = (float) data.mode;
+                progresses[calculatedCount] = data.progress;
+                starDensities[calculatedCount] = data.starDensity;
 
-                colorsA[count * 3] = data.colorA[0];
-                colorsA[count * 3 + 1] = data.colorA[1];
-                colorsA[count * 3 + 2] = data.colorA[2];
+                colorsA[calculatedCount * 3] = data.colorA[0];
+                colorsA[calculatedCount * 3 + 1] = data.colorA[1];
+                colorsA[calculatedCount * 3 + 2] = data.colorA[2];
 
-                colorsB[count * 3] = data.colorB[0];
-                colorsB[count * 3 + 1] = data.colorB[1];
-                colorsB[count * 3 + 2] = data.colorB[2];
+                colorsB[calculatedCount * 3] = data.colorB[0];
+                colorsB[calculatedCount * 3 + 1] = data.colorB[1];
+                colorsB[calculatedCount * 3 + 2] = data.colorB[2];
 
-                count++;
+                calculatedCount++;
             }
         }
 
-        PostChain effect = mc.gameRenderer.currentEffect();
-        if(effect != null && NEBULA_SHADER.toString().equals(effect.getName()) && passesField != null && count > 0)
+        currentFrameNebulas.clear();
+
+        if(calculatedCount > 0)
+        {
+            renderPostChain(mc, event.getPartialTick().getGameTimeDeltaTicks());
+        }
+    }
+
+    private static void renderPostChain(Minecraft mc, float deltaTicks)
+    {
+        int currentWidth = mc.getWindow().getWidth();
+        int currentHeight = mc.getWindow().getHeight();
+
+        if(nebulaPostChain == null)
+        {
+            try
+            {
+                nebulaPostChain = new PostChain(mc.getTextureManager(), mc.getResourceManager(), mc.getMainRenderTarget(), NEBULA_SHADER);
+                nebulaPostChain.resize(currentWidth, currentHeight);
+                lastWidth = currentWidth;
+                lastHeight = currentHeight;
+            }
+            catch(Exception e)
+            {
+                System.err.println("[CatalystCore] Error loading PostChain: " + e.getMessage());
+                calculatedCount = 0;
+                return;
+            }
+        }
+        else if(lastWidth != currentWidth || lastHeight != currentHeight)
+        {
+            nebulaPostChain.resize(currentWidth, currentHeight);
+            lastWidth = currentWidth;
+            lastHeight = currentHeight;
+        }
+
+        if(passesField != null)
         {
             float timeInSeconds = (System.currentTimeMillis() - START_TIME) / 1000.0f;
             try
             {
                 @SuppressWarnings("unchecked")
-                List<PostPass> passes = (List<PostPass>) passesField.get(effect);
+                List<PostPass> passes = (List<PostPass>) passesField.get(nebulaPostChain);
                 for(PostPass pass : passes)
                 {
-                    pass.getEffect().safeGetUniform("NebulaCount").set(count);
+                    pass.getEffect().safeGetUniform("NebulaCount").set(calculatedCount);
                     pass.getEffect().safeGetUniform("NebulaCentersX").set(centersX);
                     pass.getEffect().safeGetUniform("NebulaCentersY").set(centersY);
                     pass.getEffect().safeGetUniform("NebulaRadii").set(radii);
@@ -273,12 +283,24 @@ public class NebulaShaderController
                         pass.getEffect().safeGetUniform("NebulaTime").set(timeInSeconds);
                     }
                 }
+
+                nebulaPostChain.process(deltaTicks);
+
             }
             catch(IllegalAccessException e)
             {
             }
+            finally
+            {
+                mc.getMainRenderTarget().bindWrite(true);
+                RenderSystem.enableBlend();
+                RenderSystem.defaultBlendFunc();
+                RenderSystem.enableDepthTest();
+                RenderSystem.depthMask(true);
+                RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+            }
         }
 
-        currentFrameNebulas.clear();
+        calculatedCount = 0;
     }
 }

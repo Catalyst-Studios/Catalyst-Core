@@ -43,6 +43,17 @@ repositories {
         name = 'Favouriteless Maven'
         url = 'https://maven.favouriteless.dev/releases'
     }
+
+    exclusiveContent {
+        forRepository {
+            maven {
+                url "https://cursemaven.com"
+            }
+        }
+        filter {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 base {
@@ -112,6 +123,10 @@ dependencies {
     implementation("net.createmod.ponder:Ponder-NeoForge-1.21.1:${ponder_version}")
 
     implementation "net.favouriteless.modopedia:modopedia-neoforge-${minecraft_version}:${modopedia_version}"
+
+    localRuntime("curse.maven:irisshaders-455508:6661598")
+
+    localRuntime("curse.maven:sodium-394468:6382651") 
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
