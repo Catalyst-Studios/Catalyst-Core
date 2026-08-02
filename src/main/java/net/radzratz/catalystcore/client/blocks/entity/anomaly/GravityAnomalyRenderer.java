@@ -22,7 +22,7 @@ public class GravityAnomalyRenderer implements BlockEntityRenderer<GravityAnomal
 
         if(CTCEConfig.CONFIG.anomaly.enableAnomalyShader.get())
         {
-            AnomalyShaderController.registerAnomaly(
+            GravityAnomalyShaderController.registerAnomaly(
                 entity.getBlockPos(), 
                 entity.customRadius, 
                 entity.customStrength
