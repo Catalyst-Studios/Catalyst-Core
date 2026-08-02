@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "catalystcore:item/comet_shard"
+    "layer0": "catalystcore:item/components/comet_shard"
   }
 }

@@ -21,7 +21,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 import net.neoforged.neoforge.items.ItemStackHandler;
-import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
+import net.radzratz.catalystcore.common.registries.CTCEBlockEntityRegistry;
 import net.radzratz.catalystcore.client.items.tags.CTCETags;
 import net.radzratz.catalystcore.common.recipes.cauldron.recipe_executors.ReactionBrewingExecutor;
 import net.radzratz.catalystcore.common.recipes.cauldron.recipe_executors.WaterBrewingExecutor;
@@ -57,7 +57,7 @@ public class CatalystCauldronBlockEntity extends BlockEntity
 
     public CatalystCauldronBlockEntity(BlockPos pos, BlockState state)
     {
-        super(CTCEBlockEntities.CAULDRON.get(), pos, state);
+        super(CTCEBlockEntityRegistry.CAULDRON.get(), pos, state);
     }
 
     public FluidTank getFluidTank()

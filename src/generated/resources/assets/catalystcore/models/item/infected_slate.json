@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "catalystcore:item/infected_slate"
+    "layer0": "catalystcore:item/slates/infected_slate"
   }
 }

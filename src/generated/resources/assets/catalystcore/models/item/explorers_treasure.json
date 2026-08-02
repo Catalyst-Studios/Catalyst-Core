@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "catalystcore:item/explorers_treasure"
+    "layer0": "catalystcore:item/end_game/explorers_treasure"
   }
 }

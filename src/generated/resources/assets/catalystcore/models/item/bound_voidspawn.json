@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "catalystcore:item/bound_voidspawn"
+    "layer0": "catalystcore:item/components/bound_voidspawn"
   }
 }

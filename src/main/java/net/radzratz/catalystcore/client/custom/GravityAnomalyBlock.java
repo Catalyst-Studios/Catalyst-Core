@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
-import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
+import net.radzratz.catalystcore.common.registries.CTCEBlockEntityRegistry;
 import net.radzratz.catalystcore.client.blocks.entity.anomaly.GravityAnomalyBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
@@ -38,7 +38,7 @@ public class GravityAnomalyBlock extends Block implements EntityBlock
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type)
     {
-        return type == CTCEBlockEntities.ANOMALY.get() ?
+        return type == CTCEBlockEntityRegistry.ANOMALY.get() ?
                 (lvl, pos, st, be) -> GravityAnomalyBlockEntity.tick(lvl, pos, st, (GravityAnomalyBlockEntity) be) :
                 null;
     }

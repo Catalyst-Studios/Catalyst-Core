@@ -10,7 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.radzratz.catalystcore.common.recipes.CTCERecipeTypes;
+import net.radzratz.catalystcore.common.registries.CTCERecipeTypeRegistry;
 import net.radzratz.catalystcore.common.recipes.cauldron.types.WaterBrewingRecipeType;
 import org.jetbrains.annotations.NotNull;
 
@@ -45,12 +45,12 @@ public class WaterBrewingCodec extends WaterBrewingRecipeType
     @Override
     public @NotNull RecipeSerializer<?> getSerializer()
     {
-        return CTCERecipeTypes.WATER_BREWING_SERIALIZER.get();
+        return CTCERecipeTypeRegistry.WATER_BREWING_SERIALIZER.get();
     }
 
     @Override
     public @NotNull RecipeType<?> getType()
     {
-        return CTCERecipeTypes.WATER_BREWING.get();
+        return CTCERecipeTypeRegistry.WATER_BREWING.get();
     }
 }

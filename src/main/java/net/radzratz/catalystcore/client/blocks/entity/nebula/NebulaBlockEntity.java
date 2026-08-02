@@ -10,7 +10,7 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
+import net.radzratz.catalystcore.common.registries.CTCEBlockEntityRegistry;
 import net.radzratz.catalystcore.common.registries.CTCEParticleRegistry;
 
 /*
@@ -58,7 +58,7 @@ public class NebulaBlockEntity extends BlockEntity
 
     public NebulaBlockEntity(BlockPos pos, BlockState state)
     {
-        super(CTCEBlockEntities.NEBULA_ETERNA.get(), pos, state);
+        super(CTCEBlockEntityRegistry.NEBULA_ETERNA.get(), pos, state);
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, NebulaBlockEntity entity) {

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "catalystcore:item/pixie_essence"
+    "layer0": "catalystcore:item/phials/pixie_essence"
   }
 }

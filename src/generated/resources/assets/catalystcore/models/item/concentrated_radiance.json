@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "catalystcore:item/concentrated_radiance"
+    "layer0": "catalystcore:item/components/concentrated_radiance"
   }
 }

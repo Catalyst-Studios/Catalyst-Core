@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "catalystcore:item/forbidden_artifact"
+    "layer0": "catalystcore:item/end_game/forbidden_artifact"
   }
 }

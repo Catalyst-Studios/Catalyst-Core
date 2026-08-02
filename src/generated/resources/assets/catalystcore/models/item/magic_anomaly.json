@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "catalystcore:item/magic_anomaly"
+    "layer0": "catalystcore:item/end_game/magic_anomaly"
   }
 }

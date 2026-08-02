@@ -20,7 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.radzratz.catalystcore.common.registries.CTCEParticleRegistry;
-import net.radzratz.catalystcore.common.recipes.CTCERecipeTypes;
+import net.radzratz.catalystcore.common.registries.CTCERecipeTypeRegistry;
 import net.radzratz.catalystcore.common.recipes.pentagram.PentagramRecipeType;
 import net.radzratz.catalystcore.common.recipes.pentagram.PentagramContainer;
 import net.radzratz.catalystcore.common.registries.CTCESoundRegistry;
@@ -260,7 +260,7 @@ public class PentagramEntity extends Entity {
                 .toList());
 
         PentagramContainer container = new PentagramContainer(nearbyItems);
-        Optional<RecipeHolder<PentagramRecipeType>> jsonRecipe = serverLevel.getRecipeManager().getRecipeFor(CTCERecipeTypes.PENTAGRAM_TYPE.get(), container, serverLevel);
+        Optional<RecipeHolder<PentagramRecipeType>> jsonRecipe = serverLevel.getRecipeManager().getRecipeFor(CTCERecipeTypeRegistry.PENTAGRAM_TYPE.get(), container, serverLevel);
 
         if(jsonRecipe.isPresent()) {
             processJsonRecipe(serverLevel, nearbyItems, jsonRecipe.get().value());

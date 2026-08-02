@@ -1,0 +1,100 @@
+{
+  "parent": "minecraft:item/handheld",
+  "display": {
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        280,
+        320
+      ],
+      "scale": [
+        1.9,
+        1.9,
+        0.9
+      ],
+      "translation": [
+        0,
+        11.75,
+        1
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        50
+      ],
+      "scale": [
+        1.9,
+        1.9,
+        0.9
+      ],
+      "translation": [
+        0,
+        11.75,
+        1.5
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        0.95,
+        0.95,
+        0.95
+      ]
+    },
+    "ground": {
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "translation": [
+        0,
+        3,
+        0
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        330
+      ],
+      "scale": [
+        2.1,
+        2.1,
+        1
+      ],
+      "translation": [
+        0,
+        14,
+        5.5
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        60
+      ],
+      "scale": [
+        2.1,
+        2.1,
+        1
+      ],
+      "translation": [
+        0,
+        14,
+        5.5
+      ]
+    }
+  },
+  "textures": {
+    "layer0": "catalystcore:item/weapons/universe_sword"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "catalystcore:item/empty_containment_vessel"
+    "layer0": "catalystcore:item/components/empty_containment_vessel"
   }
 }

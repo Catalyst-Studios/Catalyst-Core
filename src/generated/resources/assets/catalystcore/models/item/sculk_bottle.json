@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "catalystcore:item/sculk_bottle"
+    "layer0": "catalystcore:item/phials/sculk_bottle"
   }
 }

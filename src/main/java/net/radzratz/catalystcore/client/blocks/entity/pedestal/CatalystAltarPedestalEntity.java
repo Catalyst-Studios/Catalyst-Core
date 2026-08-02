@@ -12,7 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
-import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
+import net.radzratz.catalystcore.common.registries.CTCEBlockEntityRegistry;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -41,7 +41,7 @@ public class CatalystAltarPedestalEntity extends BlockEntity
 
     public CatalystAltarPedestalEntity(BlockPos pos, BlockState blockState)
     {
-        super(CTCEBlockEntities.PEDESTAL_ALTAR.get(), pos, blockState);
+        super(CTCEBlockEntityRegistry.PEDESTAL_ALTAR.get(), pos, blockState);
     }
 
     public float getRenderingRotation()

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "catalystcore:item/warden_core"
+    "layer0": "catalystcore:item/cores/warden_core"
   }
 }

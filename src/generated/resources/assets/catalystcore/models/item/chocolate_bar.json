@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "catalystcore:item/chocolate_bar"
+    "layer0": "catalystcore:item/end_game/chocolate_bar"
   }
 }

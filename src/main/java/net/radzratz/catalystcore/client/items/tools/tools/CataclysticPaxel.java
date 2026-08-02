@@ -9,13 +9,12 @@ import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.item.component.Unbreakable;
 import net.minecraft.world.level.block.state.BlockState;
-import net.radzratz.catalystcore.client.items.tools.CTCEConfigPaxelItem;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.function.BooleanSupplier;
 
-public class CataclysticPaxel extends CTCEConfigPaxelItem {
+public class CataclysticPaxel extends CTCEPaxelItem {
     public CataclysticPaxel(Tier tier, Item.Properties properties, Tool toolComponentData, ItemAttributeModifiers attributes, BooleanSupplier module, BooleanSupplier type) {
         super(tier, properties.component(DataComponents.TOOL, toolComponentData)
                 .component(DataComponents.ATTRIBUTE_MODIFIERS, attributes)

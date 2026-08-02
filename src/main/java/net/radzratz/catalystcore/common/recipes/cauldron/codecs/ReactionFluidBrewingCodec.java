@@ -11,7 +11,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.neoforged.neoforge.fluids.FluidStack;
-import net.radzratz.catalystcore.common.recipes.CTCERecipeTypes;
+import net.radzratz.catalystcore.common.registries.CTCERecipeTypeRegistry;
 import net.radzratz.catalystcore.common.recipes.cauldron.types.ReactionBrewingFluidRecipeType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -55,12 +55,12 @@ public class ReactionFluidBrewingCodec extends ReactionBrewingFluidRecipeType
     @Override
     public @NotNull RecipeSerializer<?> getSerializer()
     {
-        return CTCERecipeTypes.REACTION_BREWING_FLUID_SERIALIZER.get();
+        return CTCERecipeTypeRegistry.REACTION_BREWING_FLUID_SERIALIZER.get();
     }
 
     @Override
     public @NotNull RecipeType<?> getType()
     {
-        return CTCERecipeTypes.REACTION_BREWING_FLUID.get();
+        return CTCERecipeTypeRegistry.REACTION_BREWING_FLUID.get();
     }
 }

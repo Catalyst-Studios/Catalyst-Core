@@ -11,7 +11,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.radzratz.catalystcore.CatalystCore;
 import net.radzratz.catalystcore.common.registries.CTCEBlockRegistry;
-import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
+import net.radzratz.catalystcore.common.registries.CTCEBlockEntityRegistry;
 import net.radzratz.catalystcore.client.blocks.entity.anomaly.GravityAnomalyRenderer;
 import net.radzratz.catalystcore.client.blocks.entity.nebula.NebulaRenderer;
 import net.radzratz.catalystcore.common.registries.CTCEEntityRegistry;
@@ -48,10 +48,10 @@ public class CTCEClientEvents {
 
         @SubscribeEvent
         public static void registerCustomRenders(EntityRenderersEvent.RegisterRenderers event) {
-            event.registerBlockEntityRenderer(CTCEBlockEntities.PEDESTAL_ALTAR.get(), CatalystAltarPedestalItemRenderer::new);
-            event.registerBlockEntityRenderer(CTCEBlockEntities.CAULDRON.get(), CatalystCauldronRenderer::new);
-            event.registerBlockEntityRenderer(CTCEBlockEntities.ANOMALY.get(), GravityAnomalyRenderer::new);
-            event.registerBlockEntityRenderer(CTCEBlockEntities.NEBULA_ETERNA.get(), NebulaRenderer::new);
+            event.registerBlockEntityRenderer(CTCEBlockEntityRegistry.PEDESTAL_ALTAR.get(), CatalystAltarPedestalItemRenderer::new);
+            event.registerBlockEntityRenderer(CTCEBlockEntityRegistry.CAULDRON.get(), CatalystCauldronRenderer::new);
+            event.registerBlockEntityRenderer(CTCEBlockEntityRegistry.ANOMALY.get(), GravityAnomalyRenderer::new);
+            event.registerBlockEntityRenderer(CTCEBlockEntityRegistry.NEBULA_ETERNA.get(), NebulaRenderer::new);
         }
 
         // WHY YA COMPLAIN!?

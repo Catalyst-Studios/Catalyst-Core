@@ -32,7 +32,7 @@ import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
-import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
+import net.radzratz.catalystcore.common.registries.CTCEBlockEntityRegistry;
 import net.radzratz.catalystcore.client.blocks.entity.cauldron.CatalystCauldronBlockEntity;
 import net.radzratz.catalystcore.client.items.tags.CTCETags;
 import net.radzratz.catalystcore.common.recipes.cauldron.util.enums.CauldronMode;
@@ -82,7 +82,7 @@ public class CTCECauldron extends BaseEntityBlock {
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, @NotNull BlockState state, @NotNull BlockEntityType<T> type) {
-        return level.isClientSide ? null : createTickerHelper(type, CTCEBlockEntities.CAULDRON.get(), CatalystCauldronBlockEntity::tick);
+        return level.isClientSide ? null : createTickerHelper(type, CTCEBlockEntityRegistry.CAULDRON.get(), CatalystCauldronBlockEntity::tick);
     }
 
     @Override

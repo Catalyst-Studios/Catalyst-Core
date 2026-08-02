@@ -5,6 +5,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.radzratz.catalystcore.CatalystCore;
+import net.radzratz.catalystcore.client.items.foods.CTCEFoodProperties;
 import net.radzratz.catalystcore.client.items.types.*;
 import net.radzratz.catalystcore.client.items.types.phials.CTCEDragonBloodPhial;
 import net.radzratz.catalystcore.client.items.types.phials.CTCEMyceliumPhial;
@@ -87,7 +88,7 @@ public class CTCEItemRegistry {
     public static final DeferredItem<CTCEPhialItem> LIFE_ESSENCE_BOTTLE;
     public static final DeferredItem<CTCEPhialItem> PIXIE_BOTTLE;
 
-    public static final DeferredItem<CTCEFoodItem> BURRITO = rgtrFoods("burrito");
+    public static final DeferredItem<CTCEFoodItem> BURRITO = rgtrFoods("burrito", CTCEFoodProperties.BURRITO, Rarity.UNCOMMON);
 
     static {
         REINFORCED_BOTTLE = rgtrPhials("reinforced_bottle", () -> new CTCEPhialItem(new Item.Properties(), null, null));

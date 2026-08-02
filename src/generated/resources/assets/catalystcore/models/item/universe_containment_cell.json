@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "catalystcore:item/universe_containment_cell"
+    "layer0": "catalystcore:item/end_game/universe_containment_cell"
   }
 }

@@ -1,0 +1,100 @@
+{
+  "parent": "minecraft:item/handheld",
+  "display": {
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        260,
+        300
+      ],
+      "scale": [
+        1.25,
+        1.25,
+        0.8
+      ],
+      "translation": [
+        0,
+        5.25,
+        1.25
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        80,
+        60
+      ],
+      "scale": [
+        1.25,
+        1.25,
+        0.8
+      ],
+      "translation": [
+        0,
+        5.25,
+        1.25
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        0.95,
+        0.95,
+        0.95
+      ]
+    },
+    "ground": {
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "translation": [
+        0,
+        3,
+        0
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        274,
+        312
+      ],
+      "scale": [
+        1.35,
+        1.35,
+        0.8
+      ],
+      "translation": [
+        0,
+        8.25,
+        1.5
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        90,
+        46
+      ],
+      "scale": [
+        1.35,
+        1.35,
+        0.8
+      ],
+      "translation": [
+        0,
+        8.25,
+        1.5
+      ]
+    }
+  },
+  "textures": {
+    "layer0": "catalystcore:item/weapons/netherite_rapier"
+  }
+}

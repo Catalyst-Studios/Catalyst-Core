@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "catalystcore:item/spirit_agglomeratio"
+    "layer0": "catalystcore:item/end_game/spirit_agglomeratio"
   }
 }

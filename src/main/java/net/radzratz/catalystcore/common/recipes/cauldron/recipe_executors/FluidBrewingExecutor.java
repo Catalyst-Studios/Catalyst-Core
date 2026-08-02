@@ -4,7 +4,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.radzratz.catalystcore.client.blocks.entity.cauldron.CatalystCauldronBlockEntity;
-import net.radzratz.catalystcore.common.recipes.CTCERecipeTypes;
+import net.radzratz.catalystcore.common.registries.CTCERecipeTypeRegistry;
 import net.radzratz.catalystcore.common.recipes.cauldron.types.FluidBrewingRecipeType;
 import net.radzratz.catalystcore.common.recipes.cauldron.util.inputs.CauldronInput;
 
@@ -27,7 +27,7 @@ public class FluidBrewingExecutor
         CauldronInput inputs = CauldronInput.of(items, List.of(be.getFluidTank().getFluidInTank(0)));
 
         Optional<RecipeHolder<FluidBrewingRecipeType>> recipeOpt = level.getRecipeManager()
-                .getRecipeFor(CTCERecipeTypes.FLUID_BREWING.get(), inputs, level);
+                .getRecipeFor(CTCERecipeTypeRegistry.FLUID_BREWING.get(), inputs, level);
 
         if (recipeOpt.isEmpty())
         {

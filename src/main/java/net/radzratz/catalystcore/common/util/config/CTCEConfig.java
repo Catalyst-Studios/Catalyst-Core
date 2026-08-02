@@ -69,22 +69,58 @@ public class CTCEConfig {
 
     public static class ModulesConfig {
         public final ModConfigSpec.BooleanValue weaponry;
-        public final ModConfigSpec.BooleanValue battleAxe;
-        public final ModConfigSpec.BooleanValue broadsword;
-        public final ModConfigSpec.BooleanValue gladius;
-        public final ModConfigSpec.BooleanValue greatSword;
-        public final ModConfigSpec.BooleanValue halberd;
-        public final ModConfigSpec.BooleanValue hammer;
-        public final ModConfigSpec.BooleanValue katar;
-        public final ModConfigSpec.BooleanValue rapier;
-        public final ModConfigSpec.BooleanValue scythe;
+        public final ModConfigSpec.BooleanValue battleAxeIron;
+        public final ModConfigSpec.BooleanValue battleAxeDiamond;
+        public final ModConfigSpec.BooleanValue battleAxeNetherite;
+        public final ModConfigSpec.BooleanValue battleAxeCataclystic;
+        public final ModConfigSpec.BooleanValue broadswordCataclystic;
+        public final ModConfigSpec.BooleanValue gladiusIron;
+        public final ModConfigSpec.BooleanValue gladiusDiamond;
+        public final ModConfigSpec.BooleanValue gladiusNetherite;
+        public final ModConfigSpec.BooleanValue gladiusCataclystic;
+        public final ModConfigSpec.BooleanValue greatSwordIron;
+        public final ModConfigSpec.BooleanValue greatSwordDiamond;
+        public final ModConfigSpec.BooleanValue greatSwordNetherite;
+        public final ModConfigSpec.BooleanValue greatSwordCataclystic;
+        public final ModConfigSpec.BooleanValue halberdIron;
+        public final ModConfigSpec.BooleanValue halberdDiamond;
+        public final ModConfigSpec.BooleanValue halberdNetherite;
+        public final ModConfigSpec.BooleanValue halberdCataclystic;
+        public final ModConfigSpec.BooleanValue hammerIron;
+        public final ModConfigSpec.BooleanValue hammerDiamond;
+        public final ModConfigSpec.BooleanValue hammerNetherite;
+        public final ModConfigSpec.BooleanValue hammerCataclystic;
+        public final ModConfigSpec.BooleanValue katarIron;
+        public final ModConfigSpec.BooleanValue katarDiamond;
+        public final ModConfigSpec.BooleanValue katarNetherite;
+        public final ModConfigSpec.BooleanValue katarCataclystic;
+        public final ModConfigSpec.BooleanValue longswordIron;
+        public final ModConfigSpec.BooleanValue longswordDiamond;
+        public final ModConfigSpec.BooleanValue longswordNetherite;
+        public final ModConfigSpec.BooleanValue longswordCataclystic;
+        public final ModConfigSpec.BooleanValue rapierIron;
+        public final ModConfigSpec.BooleanValue rapierDiamond;
+        public final ModConfigSpec.BooleanValue rapierNetherite;
+        public final ModConfigSpec.BooleanValue rapierCataclystic;
+        public final ModConfigSpec.BooleanValue scytheIron;
+        public final ModConfigSpec.BooleanValue scytheDiamond;
+        public final ModConfigSpec.BooleanValue scytheNetherite;
+        public final ModConfigSpec.BooleanValue scytheCataclystic;
         public final ModConfigSpec.BooleanValue shield;
-        public final ModConfigSpec.BooleanValue ulfberht;
+        public final ModConfigSpec.BooleanValue spearCataclystic;
+        public final ModConfigSpec.BooleanValue ulfberhtIron;
+        public final ModConfigSpec.BooleanValue ulfberhtDiamond;
+        public final ModConfigSpec.BooleanValue ulfberhtNetherite;
+        public final ModConfigSpec.BooleanValue ulfberhtCataclystic;
         public final ModConfigSpec.BooleanValue universeSword;
-        public final ModConfigSpec.BooleanValue zweihander;
+        public final ModConfigSpec.BooleanValue zweihanderIron;
+        public final ModConfigSpec.BooleanValue zweihanderDiamond;
+        public final ModConfigSpec.BooleanValue zweihanderNetherite;
+        public final ModConfigSpec.BooleanValue zweihanderCataclystic;
 
         public final ModConfigSpec.BooleanValue tools;
         public final ModConfigSpec.BooleanValue axe;
+        public final ModConfigSpec.BooleanValue hoe;
         public final ModConfigSpec.BooleanValue paxel;
         public final ModConfigSpec.BooleanValue pickaxe;
         public final ModConfigSpec.BooleanValue shovel;
@@ -93,25 +129,76 @@ public class CTCEConfig {
             builder.comment("Catalyst Tools, Weaponry and Armoury").push("tools_and_weaponry");
 
             this.weaponry = weaponAndTool(builder, "catalyst_weaponry_module");
-            this.battleAxe = weaponAndTool(builder, "cataclystic_battle_axe");
-            this.broadsword = weaponAndTool(builder, "cataclystic_broadsword");
-            this.gladius = weaponAndTool(builder, "cataclystic_gladius");
-            this.greatSword = weaponAndTool(builder, "cataclystic_greatsword");
-            this.halberd = weaponAndTool(builder, "cataclystic_halberd");
-            this.hammer = weaponAndTool(builder, "cataclystic_hammer");
-            this.katar = weaponAndTool(builder, "cataclystic_katar");
-            this.rapier = weaponAndTool(builder, "cataclystic_rapier");
-            this.scythe = weaponAndTool(builder, "cataclystic_scythe");
+
+            this.battleAxeIron = weaponAndTool(builder, "iron_battle_axe");
+            this.battleAxeDiamond = weaponAndTool(builder, "diamond_battle_axe");
+            this.battleAxeNetherite = weaponAndTool(builder, "netherite_battle_axe");
+            this.battleAxeCataclystic = weaponAndTool(builder, "cataclystic_battle_axe");
+
+            this.broadswordCataclystic = weaponAndTool(builder, "cataclystic_broadsword");
+
+            this.gladiusIron = weaponAndTool(builder, "iron_gladius");
+            this.gladiusDiamond = weaponAndTool(builder, "diamond_gladius");
+            this.gladiusNetherite = weaponAndTool(builder, "netherite_gladius");
+            this.gladiusCataclystic = weaponAndTool(builder, "cataclystic_gladius");
+
+            this.greatSwordIron = weaponAndTool(builder, "iron_greatsword");
+            this.greatSwordDiamond = weaponAndTool(builder, "diamond_greatsword");
+            this.greatSwordNetherite = weaponAndTool(builder, "netherite_greatsword");
+            this.greatSwordCataclystic = weaponAndTool(builder, "cataclystic_greatsword");
+
+            this.halberdIron = weaponAndTool(builder, "iron_halberd");
+            this.halberdDiamond = weaponAndTool(builder, "diamond_halberd");
+            this.halberdNetherite = weaponAndTool(builder, "netherite_halberd");
+            this.halberdCataclystic = weaponAndTool(builder, "cataclystic_halberd");
+
+            this.hammerIron = weaponAndTool(builder, "iron_hammer");
+            this.hammerDiamond = weaponAndTool(builder, "diamond_hammer");
+            this.hammerNetherite = weaponAndTool(builder, "netherite_hammer");
+            this.hammerCataclystic = weaponAndTool(builder, "cataclystic_hammer");
+
+            this.katarIron = weaponAndTool(builder, "iron_katar");
+            this.katarDiamond = weaponAndTool(builder, "diamond_katar");
+            this.katarNetherite = weaponAndTool(builder, "netherite_katar");
+            this.katarCataclystic = weaponAndTool(builder, "cataclystic_katar");
+
+            this.longswordIron = weaponAndTool(builder, "cataclystic_iron");
+            this.longswordDiamond = weaponAndTool(builder, "cataclystic_diamond");
+            this.longswordNetherite = weaponAndTool(builder, "cataclystic_netherite");
+            this.longswordCataclystic = weaponAndTool(builder, "cataclystic_longsword");
+
+            this.rapierIron = weaponAndTool(builder, "iron_rapier");
+            this.rapierDiamond = weaponAndTool(builder, "diamond_rapier");
+            this.rapierNetherite = weaponAndTool(builder, "netherite_rapier");
+            this.rapierCataclystic = weaponAndTool(builder, "cataclystic_rapier");
+
+            this.scytheIron = weaponAndTool(builder, "iron_scythe");
+            this.scytheDiamond = weaponAndTool(builder, "diamond_scythe");
+            this.scytheNetherite = weaponAndTool(builder, "netherite_scythe");
+            this.scytheCataclystic = weaponAndTool(builder, "cataclystic_scythe");
+
             this.shield = weaponAndTool(builder, "cataclystic_shield");
-            this.ulfberht = weaponAndTool(builder, "cataclystic_ulfberht");
+
+            this.spearCataclystic = weaponAndTool(builder, "cataclystic_spear");
+
+            this.ulfberhtIron = weaponAndTool(builder, "iron_ulfberht");
+            this.ulfberhtDiamond = weaponAndTool(builder, "diamond_ulfberht");
+            this.ulfberhtNetherite = weaponAndTool(builder, "netherite_ulfberht");
+            this.ulfberhtCataclystic = weaponAndTool(builder, "cataclystic_ulfberht");
+
             this.universeSword = weaponAndTool(builder, "universe_sword");
-            this.zweihander = weaponAndTool(builder, "cataclystic_zweihander");
+
+            this.zweihanderIron = weaponAndTool(builder, "iron_zweihander");
+            this.zweihanderDiamond = weaponAndTool(builder, "diamond_zweihander");
+            this.zweihanderNetherite = weaponAndTool(builder, "netherite_zweihander");
+            this.zweihanderCataclystic = weaponAndTool(builder, "cataclystic_zweihander");
 
             builder.pop();
             builder.push("tools");
 
             this.tools = weaponAndTool(builder, "catalyst_tools_module");
             this.axe = weaponAndTool(builder, "cataclystic_axe");
+            this.hoe = weaponAndTool(builder, "cataclystic_hoe");
             this.paxel = weaponAndTool(builder, "cataclystic_paxel");
             this.pickaxe = weaponAndTool(builder, "cataclystic_pickaxe");
             this.shovel = weaponAndTool(builder, "cataclystic_shovel");

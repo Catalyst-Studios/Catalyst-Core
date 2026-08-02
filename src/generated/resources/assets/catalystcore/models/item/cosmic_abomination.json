@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "catalystcore:item/cosmic_abomination"
+    "layer0": "catalystcore:item/end_game/cosmic_abomination"
   }
 }

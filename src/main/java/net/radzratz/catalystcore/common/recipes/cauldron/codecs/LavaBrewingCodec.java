@@ -10,7 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.radzratz.catalystcore.common.recipes.CTCERecipeTypes;
+import net.radzratz.catalystcore.common.registries.CTCERecipeTypeRegistry;
 import net.radzratz.catalystcore.common.recipes.cauldron.types.LavaBrewingRecipeType;
 import org.jetbrains.annotations.NotNull;
 
@@ -42,12 +42,12 @@ public class LavaBrewingCodec extends LavaBrewingRecipeType
     @Override
     public @NotNull RecipeSerializer<?> getSerializer()
     {
-        return CTCERecipeTypes.LAVA_BREWING_SERIALIZER.get();
+        return CTCERecipeTypeRegistry.LAVA_BREWING_SERIALIZER.get();
     }
 
     @Override
     public @NotNull RecipeType<?> getType()
     {
-        return CTCERecipeTypes.LAVA_BREWING.get();
+        return CTCERecipeTypeRegistry.LAVA_BREWING.get();
     }
 }

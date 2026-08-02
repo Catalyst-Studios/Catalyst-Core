@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "catalystcore:item/ancient_relic"
+    "layer0": "catalystcore:item/end_game/ancient_relic"
   }
 }

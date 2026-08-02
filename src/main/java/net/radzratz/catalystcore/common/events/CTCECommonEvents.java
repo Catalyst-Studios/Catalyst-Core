@@ -23,7 +23,7 @@ public class CTCECommonEvents {
         BlockState state = level.getBlockState(event.getPos());
 
         for (CTCEPhialItem phial : CTCEItemRegistry.PHIALS) {
-            if (phial.isEventEnabled()) continue;
+            if (!phial.isEventEnabled()) continue;
             if (!phial.matchesBlock(level, state, player)) continue;
 
             if (!level.isClientSide) {
@@ -44,7 +44,7 @@ public class CTCECommonEvents {
         Player player = event.getEntity();
 
         for (CTCEPhialItem phial : CTCEItemRegistry.PHIALS) {
-            if (phial.isEventEnabled()) continue;
+            if (!phial.isEventEnabled()) continue;
             if (!phial.matchesEntity(target, player)) continue;
 
             if (!player.level().isClientSide) {

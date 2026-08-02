@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
-import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
+import net.radzratz.catalystcore.common.registries.CTCEBlockEntityRegistry;
 import net.radzratz.catalystcore.client.blocks.entity.nebula.NebulaBlockEntity;
 
 import org.jetbrains.annotations.Nullable;
@@ -40,7 +40,7 @@ public class NebulaBlock extends Block implements EntityBlock
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type)
     {
-        return type == CTCEBlockEntities.NEBULA_ETERNA.get() ?
+        return type == CTCEBlockEntityRegistry.NEBULA_ETERNA.get() ?
                 (lvl, pos, st, be) -> NebulaBlockEntity.tick(lvl, pos, st, (NebulaBlockEntity) be) :
                 null;
     }

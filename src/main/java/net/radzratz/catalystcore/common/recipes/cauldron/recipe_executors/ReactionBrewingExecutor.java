@@ -10,7 +10,7 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.radzratz.catalystcore.client.blocks.entity.cauldron.CatalystCauldronBlockEntity;
-import net.radzratz.catalystcore.common.recipes.CTCERecipeTypes;
+import net.radzratz.catalystcore.common.registries.CTCERecipeTypeRegistry;
 import net.radzratz.catalystcore.common.recipes.cauldron.types.ReactionBrewingFluidRecipeType;
 import net.radzratz.catalystcore.common.recipes.cauldron.types.ReactionBrewingItemRecipeType;
 import net.radzratz.catalystcore.common.recipes.cauldron.util.inputs.CauldronInput;
@@ -45,7 +45,7 @@ public class ReactionBrewingExecutor
         CauldronInput input = CauldronInput.of(items, List.of(fluid));
 
         Optional<RecipeHolder<ReactionBrewingItemRecipeType>> recipeOpt = level.getRecipeManager()
-                .getRecipeFor(CTCERecipeTypes.REACTION_BREWING_ITEM.get(), input, level);
+                .getRecipeFor(CTCERecipeTypeRegistry.REACTION_BREWING_ITEM.get(), input, level);
 
         if(recipeOpt.isEmpty())
         {
@@ -143,7 +143,7 @@ public class ReactionBrewingExecutor
         CauldronInput input = CauldronInput.of(items, List.of(fluid));
 
         Optional<RecipeHolder<ReactionBrewingFluidRecipeType>> recipeOpt = level.getRecipeManager()
-                .getRecipeFor(CTCERecipeTypes.REACTION_BREWING_FLUID.get(), input, level);
+                .getRecipeFor(CTCERecipeTypeRegistry.REACTION_BREWING_FLUID.get(), input, level);
 
         if(recipeOpt.isEmpty())
         {

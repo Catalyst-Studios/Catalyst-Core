@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import net.radzratz.catalystcore.client.blocks.entity.CTCEBlockEntities;
+import net.radzratz.catalystcore.common.registries.CTCEBlockEntityRegistry;
 import net.radzratz.catalystcore.common.registries.CTCEParticleRegistry;
 
 @SuppressWarnings("null")
@@ -19,7 +19,7 @@ public class GravityAnomalyBlockEntity extends BlockEntity {
     public float customStrength = 1.5f;
     public boolean active = true;
     public GravityAnomalyBlockEntity(BlockPos pos, BlockState state) {
-        super(CTCEBlockEntities.ANOMALY.get(), pos, state);
+        super(CTCEBlockEntityRegistry.ANOMALY.get(), pos, state);
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, GravityAnomalyBlockEntity entity) {

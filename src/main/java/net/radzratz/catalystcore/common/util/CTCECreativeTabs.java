@@ -11,8 +11,10 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.radzratz.catalystcore.CatalystCore;
-import net.radzratz.catalystcore.client.items.tools.*;
-import net.radzratz.catalystcore.client.items.tools.tools.CataclysticAxe;
+import net.radzratz.catalystcore.client.blocks.types.CTCEGlass;
+import net.radzratz.catalystcore.client.custom.GravityAnomalyBlock;
+import net.radzratz.catalystcore.client.custom.NebulaBlock;
+import net.radzratz.catalystcore.client.items.tools.tools.*;
 import net.radzratz.catalystcore.client.items.tools.weapons.*;
 import net.radzratz.catalystcore.client.items.types.*;
 import net.radzratz.catalystcore.common.registries.CTCEBlockRegistry;
@@ -63,23 +65,40 @@ public class CTCECreativeTabs {
 
         WEAPONRY = rgtrTab(4, CTCEToolsRegistry.CATALYST_GREATSWORD, "weaponry_armoury", tab ->
                 tab.displayItems((params, output) -> {
-                    acceptItems(output, CTCEConfigSwordItem.class);
-                    acceptItems(output, CataclysticBattleAxe.class);
-                    acceptItems(output, CTCEConfigShieldItem.class);
+                    acceptItems(output, CTCEUniverseSwordItem.class);
+                    acceptItems(output, CTCESpearItem.class);
+                    acceptItems(output, CTCEGreatswordItem.class);
+                    acceptItems(output, CTCEZweihanderItem.class);
+                    acceptItems(output, CTCELongswordItem.class);
+                    acceptItems(output, CTCEBattleAxeItem.class);
+                    acceptItems(output, CTCEKatarItem.class);
+                    acceptItems(output, CTCEBigBonkItem.class);
+                    acceptItems(output, CTCEScytheItem.class);
+                    acceptItems(output, CTCERapierItem.class);
+                    acceptItems(output, CTCEHalberdItem.class);
+                    acceptItems(output, CTCEGladiusItem.class);
+                    acceptItems(output, CTCEUlfberhtItem.class);
+                    acceptItems(output, CTCEShieldItem.class);
                 })
         );
 
         TOOLS = rgtrTab(5, CTCEToolsRegistry.CATALYST_PICKAXE, "tools", tab ->
                 tab.displayItems((params, output) -> {
-                    acceptItems(output, CTCEConfigPickaxeItem.class);
-                    acceptItems(output, CTCEConfigShovelItem.class);
-                    acceptItems(output, CTCEConfigPaxelItem.class);
-                    acceptItems(output, CataclysticAxe.class);
+                    acceptItems(output, CTCEPickaxeItem.class);
+                    acceptItems(output, CTCEShovelItem.class);
+                    acceptItems(output, CTCEPaxelItem.class);
+                    acceptItems(output, CTCEAxeItem.class);
+                    acceptItems(output, CTCEHoeItem.class);
                 })
         );
 
-        BLOCKS = rgtrTab(6, CTCEToolsRegistry.CATALYST_GREATSWORD, "blocks", tab ->
-                tab.displayItems((params, output) -> acceptBlocks(output, CTCEBlockRegistry.class)));
+        BLOCKS = rgtrTab(6, CTCEBlockRegistry.REINFORCED_GLASS, "blocks", tab ->
+                tab.displayItems((params, output) -> {
+                    acceptBlocks(output, CTCEGlass.class);
+                    acceptBlocks(output, NebulaBlock.class);
+                    acceptBlocks(output, GravityAnomalyBlock.class);
+                })
+        );
     }
 
     public static CreativeModeTab.Builder base(Supplier<? extends ItemLike> icon) {

@@ -8,7 +8,7 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.radzratz.catalystcore.common.recipes.CTCERecipeTypes;
+import net.radzratz.catalystcore.common.registries.CTCERecipeTypeRegistry;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -59,11 +59,11 @@ public class PentagramRecipeType implements Recipe<PentagramContainer> {
 
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
-        return CTCERecipeTypes.PENTAGRAM_SERIALIZER.get();
+        return CTCERecipeTypeRegistry.PENTAGRAM_SERIALIZER.get();
     }
 
     @Override
     public @NotNull RecipeType<?> getType() {
-        return CTCERecipeTypes.PENTAGRAM_TYPE.get();
+        return CTCERecipeTypeRegistry.PENTAGRAM_TYPE.get();
     }
 }

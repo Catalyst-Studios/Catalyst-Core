@@ -1,0 +1,90 @@
+{
+  "parent": "minecraft:item/handheld",
+  "display": {
+    "firstperson_lefthand": {
+      "rotation": [
+        -15,
+        -90,
+        0
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "translation": [
+        -0.5,
+        3.5,
+        2.5
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        -15,
+        90,
+        0
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "translation": [
+        0.5,
+        3.5,
+        2.5
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        0.95,
+        0.95,
+        0.95
+      ]
+    },
+    "ground": {
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "translation": [
+        0,
+        3,
+        0
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        -40,
+        -90,
+        0
+      ],
+      "translation": [
+        0,
+        -2,
+        -2
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        -40,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        -2,
+        -2
+      ]
+    }
+  },
+  "textures": {
+    "layer0": "catalystcore:item/weapons/netherite_katar"
+  }
+}
