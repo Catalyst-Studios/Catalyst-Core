@@ -34,6 +34,9 @@ public class CTCEBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.DRAGON_IMMUNE).add(CTCEBlockRegistry.NEBULA_ETERNA.get());
         tag(BlockTags.WITHER_IMMUNE).add(CTCEBlockRegistry.NEBULA_ETERNA.get());
 
+        tag(BlockTags.DRAGON_IMMUNE).add(CTCEBlockRegistry.WARP_PORTAL.get());
+        tag(BlockTags.WITHER_IMMUNE).add(CTCEBlockRegistry.WARP_PORTAL.get());
+
         tag(BlockTags.INCORRECT_FOR_STONE_TOOL).add(CTCEBlockRegistry.CAULDRON.get());
         tag(BlockTags.NEEDS_IRON_TOOL).add(CTCEBlockRegistry.CAULDRON.get());
         tag(BlockTags.CAULDRONS).add(CTCEBlockRegistry.CAULDRON.get());

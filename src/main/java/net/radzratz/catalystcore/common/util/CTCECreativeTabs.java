@@ -14,6 +14,7 @@ import net.radzratz.catalystcore.CatalystCore;
 import net.radzratz.catalystcore.client.blocks.types.CTCEGlass;
 import net.radzratz.catalystcore.client.custom.GravityAnomalyBlock;
 import net.radzratz.catalystcore.client.custom.NebulaBlock;
+import net.radzratz.catalystcore.client.custom.WarpBlock;
 import net.radzratz.catalystcore.client.items.tools.tools.*;
 import net.radzratz.catalystcore.client.items.tools.weapons.*;
 import net.radzratz.catalystcore.client.items.types.*;
@@ -97,6 +98,7 @@ public class CTCECreativeTabs {
                     acceptBlocks(output, CTCEGlass.class);
                     acceptBlocks(output, NebulaBlock.class);
                     acceptBlocks(output, GravityAnomalyBlock.class);
+                    acceptBlocks(output, WarpBlock.class);
                 })
         );
     }

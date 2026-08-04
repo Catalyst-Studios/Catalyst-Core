@@ -14,6 +14,7 @@ import net.radzratz.catalystcore.common.registries.CTCEBlockRegistry;
 import net.radzratz.catalystcore.common.registries.CTCEBlockEntityRegistry;
 import net.radzratz.catalystcore.client.blocks.entity.anomaly.GravityAnomalyRenderer;
 import net.radzratz.catalystcore.client.blocks.entity.nebula.NebulaRenderer;
+import net.radzratz.catalystcore.client.blocks.entity.warp.WarpBlockEntityRenderer;
 import net.radzratz.catalystcore.common.registries.CTCEEntityRegistry;
 import net.radzratz.catalystcore.common.registries.CTCEParticleRegistry;
 import net.radzratz.catalystcore.client.visuals.renderer.block.CatalystAltarPedestalItemRenderer;
@@ -52,6 +53,7 @@ public class CTCEClientEvents {
             event.registerBlockEntityRenderer(CTCEBlockEntityRegistry.CAULDRON.get(), CatalystCauldronRenderer::new);
             event.registerBlockEntityRenderer(CTCEBlockEntityRegistry.ANOMALY.get(), GravityAnomalyRenderer::new);
             event.registerBlockEntityRenderer(CTCEBlockEntityRegistry.NEBULA_ETERNA.get(), NebulaRenderer::new);
+            event.registerBlockEntityRenderer(CTCEBlockEntityRegistry.WARP_PORTAL.get(), WarpBlockEntityRenderer::new);
         }
 
         // WHY YA COMPLAIN!?

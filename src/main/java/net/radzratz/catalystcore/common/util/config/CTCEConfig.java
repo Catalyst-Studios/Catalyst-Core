@@ -13,6 +13,7 @@ public class CTCEConfig {
     public final CatalystCurios curioCompatibility;
     public final AnomalyConfig anomaly;
     public final NebulaConfig nebula;
+    public final WarpConfig warp;
 
     static {
         Pair<CTCEConfig, ModConfigSpec> pair = new ModConfigSpec.Builder().configure(CTCEConfig::new);
@@ -29,6 +30,7 @@ public class CTCEConfig {
         this.curioCompatibility = new CatalystCurios(builder);
         this.anomaly = new AnomalyConfig(builder);
         this.nebula = new NebulaConfig(builder);
+        this.warp = new WarpConfig(builder);
 
         builder.pop();
     }
@@ -395,6 +397,55 @@ public class CTCEConfig {
                     .comment("Client Side - Enable the visual effect for the Nebula block")
                     .translation("config.catalystcore.nebula.shader")
                     .define("enableNebulaShader", true);
+
+            builder.pop();
+        }
+    }
+
+    public static class WarpConfig
+    {
+        public final ModConfigSpec.BooleanValue enableWarpShader;
+        public final ModConfigSpec.ConfigValue<Integer> range;
+
+        public final ModConfigSpec.BooleanValue enableKillEffect;
+        public final ModConfigSpec.DoubleValue killDistance;
+        public final ModConfigSpec.BooleanValue enableLightningEffect;
+        public final ModConfigSpec.DoubleValue lightningDistance;
+        public final ModConfigSpec.DoubleValue lightningDamage;
+
+        public WarpConfig(ModConfigSpec.Builder builder)
+        {
+            builder.comment("Warp Portal Settings").push("warp");
+
+            this.enableWarpShader = builder
+                    .comment("Client Side - Enable the visual effect for the Warp block")
+                    .translation("config.catalystcore.warp.shader")
+                    .define("enableWarpShader", true);
+
+            this.range = builder
+                    .comment("Client Side - Range of the shader")
+                    .translation("config.catalystcore.warp.shader")
+                    .define("range", 40);
+
+            this.enableKillEffect = builder
+                    .comment("Server Side - Enable killing players when near the Warp Portal")
+                    .define("enableKillEffect", true);
+
+            this.killDistance = builder
+                    .comment("Server Side - Distance in blocks to kill players")
+                    .defineInRange("killDistance", 5.0d, 0.0d, 15.0d);
+
+            this.enableLightningEffect = builder
+                    .comment("Server Side - Enable spawning 3 lightnings per tick on nearby players")
+                    .define("enableLightningEffect", true);
+
+            this.lightningDistance = builder
+                    .comment("Server Side - Distance in blocks to spawn lightnings on players")
+                    .defineInRange("lightningDistance", 15.0d, 0.0d, 30.0d);
+
+            this.lightningDamage = builder
+                .comment("Server Side - Damage dealt by the lightning wave")
+                .defineInRange("lightningDamage", 10.0d, 0.0d, 1000.0d);
 
             builder.pop();
         }

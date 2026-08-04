@@ -13,6 +13,7 @@ import net.radzratz.catalystcore.client.custom.CTCECauldron;
 import net.radzratz.catalystcore.client.custom.CTCEPedestal;
 import net.radzratz.catalystcore.client.custom.GravityAnomalyBlock;
 import net.radzratz.catalystcore.client.custom.NebulaBlock;
+import net.radzratz.catalystcore.client.custom.WarpBlock;
 
 import java.util.function.Supplier;
 
@@ -41,8 +42,17 @@ public class CTCEBlockRegistry {
                     .noOcclusion()
             ));
 
-        public static final DeferredBlock<NebulaBlock> NEBULA_ETERNA = rgtrBlock("nebula_eterna",
+    public static final DeferredBlock<NebulaBlock> NEBULA_ETERNA = rgtrBlock("nebula_eterna",
             () -> new NebulaBlock(BlockBehaviour.Properties.of()
+                    .strength(-1.0F, 3600000.0F)
+                    .noLootTable()
+                    .noCollission()
+                    .isViewBlocking(((state, world, pos) -> true))
+                    .noOcclusion()
+                    .noTerrainParticles()
+            ));
+    public static final DeferredBlock<WarpBlock> WARP_PORTAL = rgtrBlock("warp_portal",
+            () -> new WarpBlock(BlockBehaviour.Properties.of()
                     .strength(-1.0F, 3600000.0F)
                     .noLootTable()
                     .noCollission()
