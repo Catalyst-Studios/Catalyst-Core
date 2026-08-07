@@ -16,6 +16,7 @@ import net.radzratz.catalystcore.common.compat.modopedia.datagen.MCatalystCodexP
 import net.radzratz.catalystcore.common.compat.modopedia.datagen.MCodexEntriesProvider;
 import net.radzratz.catalystcore.common.compat.modopedia.datagen.MCodexTemplateProvider;
 import net.radzratz.catalystcore.common.compat.modopedia.datagen.MCodexTextureProvider;
+import net.radzratz.catalystcore.common.datagen.langs.CTCELangProvider;
 import net.radzratz.catalystcore.common.datagen.loot_tables.CTCEBlockLootTable;
 import net.radzratz.catalystcore.common.datagen.models.CTCEBlockStateProvider;
 import net.radzratz.catalystcore.common.datagen.models.CTCEModelProvider;
@@ -37,23 +38,27 @@ public class CTCEDataGenerator {
 
         CTCEDataProvider prv = new CTCEDataProvider(pOutput);
 
-        /// Loot Tables
+        // Loot Tables
         prv.addSubProvider(evt.includeServer(), new LootTableProvider(pOutput, Collections.emptySet(),
                 List.of(new LootTableProvider.SubProviderEntry(CTCEBlockLootTable::new, LootContextParamSets.BLOCK)), lProvider));
 
-        /// Tags
+        // Tags
         BlockTagsProvider blockTagsProvider = new CTCEBlockTagProvider(pOutput, lProvider, eFileHelper);
         prv.addSubProvider(evt.includeServer(), blockTagsProvider);
         prv.addSubProvider(evt.includeServer(), new CTCEItemTagProvider(pOutput, lProvider, blockTagsProvider.contentsGetter(), eFileHelper));
 
-        /// Models
+        // Models
         prv.addSubProvider(evt.includeClient(), new CTCEModelProvider(pOutput, eFileHelper));
         prv.addSubProvider(evt.includeClient(), new CTCEBlockStateProvider(pOutput, eFileHelper));
 
-        /// Curios
+        // Langs
+        CTCELangProvider.registerLangs(pOutput);
+        CTCELangProvider.addLangs(prv, evt.includeClient());
+
+        // Curios
         prv.addSubProvider(evt.includeServer(), new CTCECuriosProvider(pOutput, eFileHelper, lProvider));
 
-        /// Modopedia
+        // Modopedia
         prv.addSubProvider(evt.includeServer(), new MCatalystCodexProvider(lProvider, pOutput));
         prv.addSubProvider(evt.includeServer(), new MCodexEntriesProvider(lProvider, pOutput));
         prv.addSubProvider(evt.includeServer(), new MCodexTemplateProvider(lProvider, pOutput));
