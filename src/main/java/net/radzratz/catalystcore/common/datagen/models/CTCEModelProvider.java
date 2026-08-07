@@ -24,7 +24,6 @@ public class CTCEModelProvider extends ItemModelProvider {
         super(output, CatalystCore.id, existingFileHelper);
     }
 
-    // TODO: fix scythe and big bonk models, invert all models
     @SuppressWarnings("unused")
     @Override
     protected void registerModels() {
@@ -39,15 +38,15 @@ public class CTCEModelProvider extends ItemModelProvider {
 
             switch (entry.get()) {
                 case CTCEGreatswordItem greatsword -> greatswordModel(id);
-                case CTCELongswordItem longsword -> greatswordModel(id);
-                case CTCEZweihanderItem zweihander -> bigWeaponModel(id);
+                case CTCELongswordItem longsword -> longswordModel(id);
+                case CTCEZweihanderItem zweihander -> zweihanderModel(id);
                 case CTCEUlfberhtItem ulfberht -> ulfberhtModel(id);
                 case CTCEScytheItem scythe -> scytheModel(id);
                 case CTCERapierItem rapier -> rapierModel(id);
                 case CTCEKatarItem katar -> katarModel(id);
-                case CTCEBigBonkItem bigBonk -> bigWeaponModel(id);
+                case CTCEBigBonkItem bigBonk -> hammerModel(id);
                 case CTCESpearItem spear -> longWeapons(id);
-                case CTCEHalberdItem halberd -> longWeapons(id);
+                case CTCEHalberdItem halberd -> halberdModel(id);
                 case CTCEGladiusItem gladius -> gladiusModel(id);
                 case CTCEBattleAxeItem battleaxe -> battleaxeModel(id);
                 case CTCEUniverseSwordItem universeSword -> bigWeaponModel(id);
@@ -153,12 +152,22 @@ public class CTCEModelProvider extends ItemModelProvider {
 
     public void greatswordModel(ResourceLocation item) {
         handheldWeapon(item, "item/weapons/" + item.getPath(),
-                new float[]{0, -90, 55, 0, 8, 0, 1.70f, 1.70f, 1.20f},
-                new float[]{0, 90, -55, 0, 8, 0, 1.70f, 1.70f, 1.20f},
-                new float[]{0, 90, 55, 0.75f, 8.00f, 1.00f, 1.40f, 1.40f, 1.15f},
-                new float[]{0, 272, 315, 0.00f, 8.00f, 1.00f, 1.40f, 1.40f, 1.15f},
-                new float[]{0, 0, 0, 0, 3, 0, 0.6f, 0.6f, 0.6f},
-                new float[]{0, 180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
+                new float[]{12, -90, 55, 0, 12.5f, 2.5f, 2f, 2f, 1.2f},
+                new float[]{12, 90, -55, 0, 12.5f, 2.5f, 2f, 2f, 1.2f},
+                new float[]{0, 90, 55, 0.75f, 8f, 1f, 1.4f, 1.4f, 1.15f},
+                new float[]{0, -90, -55, 0.75f, 8f, 1f, 1.4f, 1.4f, 1.15f},
+                new float[]{0, 0, 0, 0, 9.25f, 0, 2f, 2f, 1.2f},
+                new float[]{0, -180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
+    }
+
+    public void longswordModel(ResourceLocation item) {
+        handheldWeapon(item, "item/weapons/" + item.getPath(),
+                new float[]{15, -90, 55, 0, 10.75f, 3f, 1.7f, 1.7f, 1.2f},
+                new float[]{15, 90, -55, 0, 10.75f, 3f, 1.7f, 1.7f, 1.2f},
+                new float[]{0, 90, 45, 0.75f, 8f, 1f, 1.5f, 1.5f, 1.2f},
+                new float[]{0, -88, -45, 0.75f, 8f, 1f, 1.5f, 1.5f, 1.2f},
+                new float[]{0, 0, 0, 0, 8.75f, 0, 1.7f, 1.7f, 1.2f},
+                new float[]{0, -180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
     }
 
     public void bigWeaponModel(ResourceLocation item) {
@@ -183,12 +192,22 @@ public class CTCEModelProvider extends ItemModelProvider {
 
     public void scytheModel(ResourceLocation item) {
         handheldWeapon(item, "item/weapons/" + item.getPath(),
-                new float[]{0, -90, 25, 0, -3, 2, 2.5f, 2.5f, 1},
-                new float[]{0, 90, -55, 0, 8, 0, 1.70f, 1.70f, 1.20f},
-                new float[]{0, -90, 25, 0.75f, 2.5f, 1, 1.4f, 1.4f, 1.4f},
-                new float[]{0, -90, -25, 0.75f, 2.5f, 1, 1.4f, 1.4f, 1.4f},
-                new float[]{0, 0, 0, 0, 3, 0, 0.6f, 0.6f, 0.6f},
-                new float[]{0, 180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
+                new float[]{0, -90, 25, 0, 7.75f, 4.75f, 2.5f, 2.5f, 1f},
+                new float[]{0, 90, -25, 0, 7.75f, 4.75f, 2.5f, 2.5f, 1f},
+                new float[]{-25, -90, 25, 0.75f, 8.25f, 1f, 1.5f, 1.5f, 1f},
+                new float[]{-25, 90, -25, 0.75f, 8.25f, 1f, 1.5f, 1.5f, 1f},
+                new float[]{0, 0, 0, 0, 15f, 0, 2.5f, 2.5f, 1f},
+                new float[]{0, -180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
+    }
+
+    public void hammerModel(ResourceLocation item) {
+        handheldWeapon(item, "item/weapons/" + item.getPath(),
+                new float[]{0, 90, 60, 0, 12.75f, 5f, 3f, 3f, 1.5f},
+                new float[]{0, -90, -60, 0, 12.75f, 5f, 3f, 3f, 1.5f},
+                new float[]{0, 90, 50, 0, 13.5f, 1.5f, 3f, 3f, 1.5f},
+                new float[]{0, -90, -50, 0, 13.5f, 1.5f, 3f, 3f, 1.5f},
+                new float[]{0, 0, 0, 0, 17.25f, 0, 3f, 3f, 1.5f},
+                new float[]{0, -180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
     }
 
     public void rapierModel(ResourceLocation item) {
@@ -203,22 +222,22 @@ public class CTCEModelProvider extends ItemModelProvider {
 
     public void katarModel(ResourceLocation item) {
         handheldWeapon(item, "item/weapons/" + item.getPath(),
-                new float[]{-40, 90, 0, 0, -2, -2, 1, 1, 1},
-                new float[]{-40, -90, 0, 0, -2, -2, 1, 1, 1},
+                new float[]{-40, 90, 0, 0, -2, -2, 1f, 1f, 1f},
+                new float[]{-40, -90, 0, 0, -2, -2, 1f, 1f, 1f},
                 new float[]{-15, 90, 0, 0.5f, 3.5f, 2.5f, 0.8f, 0.8f, 0.8f},
                 new float[]{-15, -90, 0, -0.5f, 3.5f, 2.5f, 0.8f, 0.8f, 0.8f},
-                new float[]{0, 0, 0, 0, 3, 0, 0.6f, 0.6f, 0.6f},
-                new float[]{0, 180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
+                new float[]{0, 0, 0, 0, 5f, 0, 1f, 1f, 1f},
+                new float[]{0, -180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
     }
 
     public void longWeapons(ResourceLocation item) {
         handheldWeapon(item, "item/weapons/" + item.getPath(),
-                new float[]{0, -90, 55, 0, 10, 0, 3, 3, 1.5f},
-                new float[]{0, 90, -55, 0, 10, 0, 3, 3, 1.5f},
-                new float[]{0, 280, 60, 0.00f, 9.00f, 1.00f, 1.25f, 1.25f, 0.90f},
-                new float[]{0, 90, 300, 0.00f, 9.00f, 1.00f, 1.25f, 1.25f, 0.90f},
-                new float[]{0, 0, 0, 0, 4, 0, 0.5f, 0.5f, 0.5f},
-                new float[]{0, 180, 0, 0, 0, 0, 0.85f, 0.85f, 0.85f});
+                new float[]{0, 90, 45, 0, 12f, 2.25f, 3f, 3f, 1f},
+                new float[]{0, -90, -45, 0, 12f, 2.25f, 3f, 3f, 1f},
+                new float[]{0, 90, 15, 0, 9f, -3f, 3f, 3f, 1f},
+                new float[]{0, -90, -15, 0, 9f, -3f, 3f, 3f, 1f},
+                new float[]{0, 0, 0, 0, 20f, 0, 3f, 3f, 1f},
+                new float[]{0, -180, 0, 0, 0, 0, 0.85f, 0.85f, 0.85f});
     }
 
     public void gladiusModel(ResourceLocation item) {
@@ -231,13 +250,33 @@ public class CTCEModelProvider extends ItemModelProvider {
                 new float[]{0, 180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
     }
 
+    public void zweihanderModel(ResourceLocation item) {
+        handheldWeapon(item, "item/weapons/" + item.getPath(),
+                new float[]{0, 90, 60, 0, 20.25f, 8f, 3f, 3f, 1f},
+                new float[]{0, -90, -60, 0, 20.25f, 8f, 3f, 3f, 1f},
+                new float[]{0, 90, 35, -0.5f, 16f, 1.5f, 3f, 3f, 1f},
+                new float[]{0, -90, -35, -0.5f, 16f, 1.5f, 3f, 3f, 1f},
+                new float[]{0, 0, 0, 0, 18.5f, 0, 3f, 3f, 1f},
+                new float[]{0, -180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
+    }
+
+    public void halberdModel(ResourceLocation item) {
+        handheldWeapon(item, "item/weapons/" + item.getPath(),
+                new float[]{0, -90, 45, 0, 12f, 2.25f, 3f, 3f, 1f},
+                new float[]{0, 90, -45, 0, 12f, 2.25f, 3f, 3f, 1f},
+                new float[]{0, -90, 55, 3f, 13f, -3f, 3f, 3f, 1f},
+                new float[]{0, 90, -55, 3f, 13f, -3f, 3f, 3f, 1f},
+                new float[]{0, 0, 0, 0, 20f, 0, 3f, 3f, 1f},
+                new float[]{0, -180, 0, 0, 0, 0, 0.85f, 0.85f, 0.85f});
+    }
+
     public void battleaxeModel(ResourceLocation item) {
         handheldWeapon(item, "item/weapons/" + item.getPath(),
-                new float[]{0, -90, 55, 0, 8, 0, 1.70f, 1.70f, 1.20f},
-                new float[]{0, 90, -55, 0, 8, 0, 1.70f, 1.70f, 1.20f},
-                new float[]{0, -90, 25, 0.75f, 2.5f, 1, 1.4f, 1.4f, 1.4f},
-                new float[]{0, -90, -25, 0.75f, 2.5f, 1, 1.4f, 1.4f, 1.4f},
-                new float[]{0, 0, 0, 0, 3, 0, 0.6f, 0.6f, 0.6f},
-                new float[]{0, 180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
+                new float[]{15, -90, 55, 0, 8.25f, 2.75f, 2f, 2f, 1.5f},
+                new float[]{15, 90, -55, 0, 8.25f, 2.75f, 2f, 2f, 1.5f},
+                new float[]{0, -90, 55, 0.75f, 9f, 1f, 2f, 2f, 1.5f},
+                new float[]{0, 90, -55, 0.75f, 9f, 1f, 2f, 2f, 1.5f},
+                new float[]{0, 0, 0, 0, 12.25f, 0, 2f, 2f, 1.5f},
+                new float[]{0, -180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
     }
 }
