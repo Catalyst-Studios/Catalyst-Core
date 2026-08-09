@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "catalystcore:iron_scythe",
+      "required": false
+    },
+    {
+      "id": "catalystcore:diamond_scythe",
+      "required": false
+    },
+    {
+      "id": "catalystcore:netherite_scythe",
+      "required": false
+    },
+    {
+      "id": "catalystcore:cataclystic_scythe",
+      "required": false
+    }
+  ]
+}

@@ -28,12 +28,12 @@ public class CTCETagHelpers
     }
 
     ///Items
-    public static TagKey<Item> catalystItems() {
-        return ItemTags.create(ResourceLocation.fromNamespaceAndPath(CatalystCore.id, "catalyst_items"));
+    public static TagKey<Item> malum(String path) {
+        return ItemTags.create(ResourceLocation.fromNamespaceAndPath("malum", path));
     }
 
-    public static TagKey<Item> catalystTools() {
-        return ItemTags.create(ResourceLocation.fromNamespaceAndPath(CatalystCore.id, "catalyst_tools"));
+    public static TagKey<Item> weapon(String path) {
+        return ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "tools/" + path));
     }
 
     public static TagKey<Item> pathByC(String path) {

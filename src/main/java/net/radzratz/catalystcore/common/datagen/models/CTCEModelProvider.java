@@ -156,7 +156,7 @@ public class CTCEModelProvider extends ItemModelProvider {
                 new float[]{12, 90, -55, 0, 12.5f, 2.5f, 2f, 2f, 1.2f},
                 new float[]{0, 90, 55, 0.75f, 8f, 1f, 1.4f, 1.4f, 1.15f},
                 new float[]{0, -90, -55, 0.75f, 8f, 1f, 1.4f, 1.4f, 1.15f},
-                new float[]{0, 0, 0, 0, 9.25f, 0, 2f, 2f, 1.2f},
+                new float[]{0, 0, 0, 0, 9.25f, 0, 1f, 1f, 1f},
                 new float[]{0, -180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
     }
 
@@ -166,7 +166,7 @@ public class CTCEModelProvider extends ItemModelProvider {
                 new float[]{15, 90, -55, 0, 10.75f, 3f, 1.7f, 1.7f, 1.2f},
                 new float[]{0, 90, 45, 0.75f, 8f, 1f, 1.5f, 1.5f, 1.2f},
                 new float[]{0, -88, -45, 0.75f, 8f, 1f, 1.5f, 1.5f, 1.2f},
-                new float[]{0, 0, 0, 0, 8.75f, 0, 1.7f, 1.7f, 1.2f},
+                new float[]{0, 0, 0, 0, 8.75f, 0, 1f, 1f, 1f},
                 new float[]{0, -180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
     }
 
@@ -176,7 +176,7 @@ public class CTCEModelProvider extends ItemModelProvider {
                 new float[]{0, 90, 330, 0.00f, 14.00f, 5.50f, 2.10f, 2.10f, 1.00f},
                 new float[]{0, 90, 50, 0.00f, 11.75f, 1.50f, 1.90f, 1.90f, 0.90f},
                 new float[]{0, 280, 320, 0.00f, 11.75f, 1.00f, 1.90f, 1.90f, 0.90f},
-                new float[]{0, 0, 0, 0, 3, 0, 0.6f, 0.6f, 0.6f},
+                new float[]{0, 0, 0, 0, 3, 0, 1f, 1f, 1f},
                 new float[]{0, 180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
     }
 
@@ -186,7 +186,7 @@ public class CTCEModelProvider extends ItemModelProvider {
                 new float[]{342, 270, 300, 0.00f, 5.00f, 1.25f, 1.30f, 1.30f, 0.80f},
                 new float[]{20, 90, 30, 0.00f, 5.50f, 1.00f, 1.10f, 1.10f, 0.80f},
                 new float[]{20, 280, 330, 0.00f, 5.50f, 1.00f, 1.10f, 1.10f, 0.80f},
-                new float[]{0, 0, 0, 0, 3, 0, 0.6f, 0.6f, 0.6f},
+                new float[]{0, 0, 0, 0, 3, 0, 1f, 1f, 1f},
                 new float[]{0, 180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
     }
 
@@ -196,7 +196,7 @@ public class CTCEModelProvider extends ItemModelProvider {
                 new float[]{0, 90, -25, 0, 7.75f, 4.75f, 2.5f, 2.5f, 1f},
                 new float[]{-25, -90, 25, 0.75f, 8.25f, 1f, 1.5f, 1.5f, 1f},
                 new float[]{-25, 90, -25, 0.75f, 8.25f, 1f, 1.5f, 1.5f, 1f},
-                new float[]{0, 0, 0, 0, 15f, 0, 2.5f, 2.5f, 1f},
+                new float[]{0, 0, 0, 0, 15f, 0, 1f, 1f, 1f},
                 new float[]{0, -180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
     }
 
@@ -206,7 +206,7 @@ public class CTCEModelProvider extends ItemModelProvider {
                 new float[]{0, -90, -60, 0, 12.75f, 5f, 3f, 3f, 1.5f},
                 new float[]{0, 90, 50, 0, 13.5f, 1.5f, 3f, 3f, 1.5f},
                 new float[]{0, -90, -50, 0, 13.5f, 1.5f, 3f, 3f, 1.5f},
-                new float[]{0, 0, 0, 0, 17.25f, 0, 3f, 3f, 1.5f},
+                new float[]{0, 0, 0, 0, 17.25f, 0, 1f, 1f, 1f},
                 new float[]{0, -180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
     }
 
@@ -216,7 +216,7 @@ public class CTCEModelProvider extends ItemModelProvider {
                 new float[]{0, 274, 312, 0.00f, 8.25f, 1.50f, 1.35f, 1.35f, 0.80f},
                 new float[]{0, 80, 60, 0.00f, 5.25f, 1.25f, 1.25f, 1.25f, 0.80f},
                 new float[]{0, 260, 300, 0.00f, 5.25f, 1.25f, 1.25f, 1.25f, 0.80f},
-                new float[]{0, 0, 0, 0, 3, 0, 0.6f, 0.6f, 0.6f},
+                new float[]{0, 0, 0, 0, 3, 0, 1f, 1f, 1f},
                 new float[]{0, 180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
     }
 
@@ -236,7 +236,7 @@ public class CTCEModelProvider extends ItemModelProvider {
                 new float[]{0, -90, -45, 0, 12f, 2.25f, 3f, 3f, 1f},
                 new float[]{0, 90, 15, 0, 9f, -3f, 3f, 3f, 1f},
                 new float[]{0, -90, -15, 0, 9f, -3f, 3f, 3f, 1f},
-                new float[]{0, 0, 0, 0, 20f, 0, 3f, 3f, 1f},
+                new float[]{0, 0, 0, 0, 20f, 0, 1f, 1f, 1f},
                 new float[]{0, -180, 0, 0, 0, 0, 0.85f, 0.85f, 0.85f});
     }
 
@@ -246,7 +246,7 @@ public class CTCEModelProvider extends ItemModelProvider {
                 new float[]{0, 90, 317, 0.00f, 5.00f, 2.00f, 1.20f, 1.20f, 0.90f},
                 new float[]{0, 270, 35, 0.75f, 4.50f, 1.00f, 1.20f, 1.20f, 0.80f},
                 new float[]{0, 270, 311, 0.75f, 4.50f, 1.00f, 1.20f, 1.20f, 0.80f},
-                new float[]{0, 0, 0, 0, 3, 0, 0.6f, 0.6f, 0.6f},
+                new float[]{0, 0, 0, 0, 3, 0, 1f, 1f, 1f},
                 new float[]{0, 180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
     }
 
@@ -256,7 +256,7 @@ public class CTCEModelProvider extends ItemModelProvider {
                 new float[]{0, -90, -60, 0, 20.25f, 8f, 3f, 3f, 1f},
                 new float[]{0, 90, 35, -0.5f, 16f, 1.5f, 3f, 3f, 1f},
                 new float[]{0, -90, -35, -0.5f, 16f, 1.5f, 3f, 3f, 1f},
-                new float[]{0, 0, 0, 0, 18.5f, 0, 3f, 3f, 1f},
+                new float[]{0, 0, 0, 0, 18.5f, 0, 1f, 1f, 1f},
                 new float[]{0, -180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
     }
 
@@ -266,7 +266,7 @@ public class CTCEModelProvider extends ItemModelProvider {
                 new float[]{0, 90, -45, 0, 12f, 2.25f, 3f, 3f, 1f},
                 new float[]{0, -90, 55, 3f, 13f, -3f, 3f, 3f, 1f},
                 new float[]{0, 90, -55, 3f, 13f, -3f, 3f, 3f, 1f},
-                new float[]{0, 0, 0, 0, 20f, 0, 3f, 3f, 1f},
+                new float[]{0, 0, 0, 0, 20f, 0, 1f, 1f, 1f},
                 new float[]{0, -180, 0, 0, 0, 0, 0.85f, 0.85f, 0.85f});
     }
 
@@ -276,7 +276,7 @@ public class CTCEModelProvider extends ItemModelProvider {
                 new float[]{15, 90, -55, 0, 8.25f, 2.75f, 2f, 2f, 1.5f},
                 new float[]{0, -90, 55, 0.75f, 9f, 1f, 2f, 2f, 1.5f},
                 new float[]{0, 90, -55, 0.75f, 9f, 1f, 2f, 2f, 1.5f},
-                new float[]{0, 0, 0, 0, 12.25f, 0, 2f, 2f, 1.5f},
+                new float[]{0, 0, 0, 0, 12.25f, 0, 1f, 1f, 1f},
                 new float[]{0, -180, 0, 0, 0, 0, 0.95f, 0.95f, 0.95f});
     }
 }

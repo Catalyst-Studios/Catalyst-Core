@@ -48,7 +48,11 @@ public class CTCEBattleAxeItem extends AxeItem {
 
     @Override
     public boolean isBarVisible(@NotNull ItemStack stack) {
-        return !noBarDamage;
+        if (stack.toString().contains("cataclystic")) {
+            return false;
+        }
+
+        return stack.isDamageableItem() && stack.isDamaged();
     }
 
     @Override

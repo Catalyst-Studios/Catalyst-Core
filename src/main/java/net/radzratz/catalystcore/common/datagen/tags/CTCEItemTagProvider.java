@@ -1,120 +1,95 @@
 package net.radzratz.catalystcore.common.datagen.tags;
 
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.radzratz.catalystcore.CatalystCore;
+import net.radzratz.catalystcore.client.items.tags.CTCETags;
+import net.radzratz.catalystcore.client.items.tools.*;
+import net.radzratz.catalystcore.client.items.tools.tools.*;
+import net.radzratz.catalystcore.client.items.tools.weapons.*;
 import net.radzratz.catalystcore.common.registries.CTCEBlockRegistry;
 import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
-import net.radzratz.catalystcore.common.registries.CTCEToolsRegistry;
-import net.radzratz.catalystcore.client.items.tags.CTCETags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import top.theillusivec4.curios.api.CuriosTags;
 
 import java.util.concurrent.CompletableFuture;
 
+import static net.radzratz.catalystcore.common.util.CTCEUtils.allToolEntries;
+
 public class CTCEItemTagProvider extends ItemTagsProvider {
     public CTCEItemTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> blockTags, @Nullable ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, blockTags, CatalystCore.id, existingFileHelper);
+    }
+
+    private void tagByClass(Boolean optional, TagKey<Item> tagKey, Class<?>... types) {
+        for (Class<?> type : types) {
+            if (optional) {
+                allToolEntries()
+                        .filter(e -> type.isInstance(e.get()))
+                        .forEach(e -> tag(tagKey).addOptional(BuiltInRegistries.ITEM.getKey(e.get())));
+            } else {
+                allToolEntries()
+                        .filter(e -> type.isInstance(e.get()))
+                        .forEach(e -> tag(tagKey).add(e.get()));
+            }
+        }
     }
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
         tag(Tags.Items.FOODS).add(CTCEItemRegistry.BURRITO.asItem());
 
-        tag(CTCETags.Items.CATALYST_TOOLS)
-                .add(CTCEToolsRegistry.CATALYST_BIG_BONK.get())
-                .add(CTCEToolsRegistry.CATALYST_BROADSWORD.get())
-                .add(CTCEToolsRegistry.CATALYST_GLADIUS.get())
-                .add(CTCEToolsRegistry.CATALYST_RAPIER.get())
-                .add(CTCEToolsRegistry.CATALYST_GREATSWORD.get())
-                .add(CTCEToolsRegistry.CATALYST_HALBERD.get())
-                .add(CTCEToolsRegistry.CATALYST_KATAR.get())
-                .add(CTCEToolsRegistry.CATALYST_PAXEL.asItem())
-                .add(CTCEToolsRegistry.CATALYST_PICKAXE.get())
-                .add(CTCEToolsRegistry.CATALYST_AXE.asItem())
-                .add(CTCEToolsRegistry.CATALYST_SCYTHE.get())
-                .add(CTCEToolsRegistry.CATALYST_SHIELD.get())
-                .add(CTCEToolsRegistry.CATALYST_SHOVEL.get())
-                .add(CTCEToolsRegistry.CATALYST_ULFBERHT.get())
-                .add(CTCEToolsRegistry.CATALYST_BATTLEAXE.get())
-                .add(CTCEToolsRegistry.CATALYST_ZWEIHANDER.get());
+        Class<?>[] ENCHANTABLE_MELEE = {
+                CTCESwordItem.class, CTCEBattleAxeItem.class, CTCEShovelItem.class,
+                CTCEPickaxeItem.class, CTCEAxeItem.class, CTCEHoeItem.class, CTCEPaxelItem.class,
+        };
+        tagByClass(false, Tags.Items.ENCHANTABLES, ENCHANTABLE_MELEE);
+        tagByClass(false, Tags.Items.MELEE_WEAPON_TOOLS, ENCHANTABLE_MELEE);
 
-        tag(Tags.Items.ENCHANTABLES)
-                .add(CTCEToolsRegistry.CATALYST_GREATSWORD.asItem())
-                .add(CTCEToolsRegistry.CATALYST_ZWEIHANDER.asItem())
-                .add(CTCEToolsRegistry.CATALYST_ULFBERHT.asItem())
-                .add(CTCEToolsRegistry.CATALYST_GLADIUS.asItem())
-                .add(CTCEToolsRegistry.CATALYST_SCYTHE.asItem())
-                .add(CTCEToolsRegistry.CATALYST_RAPIER.asItem())
-                .add(CTCEToolsRegistry.CATALYST_KATAR.asItem())
-                .add(CTCEToolsRegistry.CATALYST_BIG_BONK.asItem())
-                .add(CTCEToolsRegistry.CATALYST_BROADSWORD.asItem())
-                .add(CTCEToolsRegistry.CATALYST_HALBERD.asItem())
-                .add(CTCEToolsRegistry.CATALYST_PICKAXE.asItem())
-                .add(CTCEToolsRegistry.CATALYST_AXE.asItem())
-                .add(CTCEToolsRegistry.CATALYST_PAXEL.asItem())
-                .add(CTCEToolsRegistry.CATALYST_BATTLEAXE.get())
-                .add(CTCEToolsRegistry.UNIVERSE_SWORD.get())
-                .add(CTCEToolsRegistry.CATALYST_SHOVEL.asItem());
+        tagByClass(false, ItemTags.SWORDS, CTCESwordItem.class);
+        tagByClass(false, CTCETags.Items.HAMMER, CTCEBigBonkItem.class);
+        tagByClass(false, CTCETags.Items.TOOL_HAMMER, CTCEBigBonkItem.class);
+        tagByClass(true, CTCETags.Items.MALUM_SCYTHE, CTCEScytheItem.class);
+        tagByClass(false, CTCETags.Items.SCYTHE, CTCEScytheItem.class);
+        tagByClass(false, CTCETags.Items.TOOL_SCYTHE, CTCEScytheItem.class);
+        tagByClass(false, CTCETags.Items.ZWEIHANDER, CTCEZweihanderItem.class);
+        tagByClass(false, CTCETags.Items.TOOL_ZWEIHANDER, CTCEZweihanderItem.class);
+        tagByClass(false, CTCETags.Items.LONGSWORD, CTCELongswordItem.class);
+        tagByClass(false, CTCETags.Items.TOOL_LONGSWORD, CTCELongswordItem.class);
+        tagByClass(false, CTCETags.Items.GREATSWORD, CTCEGreatswordItem.class, CTCEUniverseSwordItem.class);
+        tagByClass(false, CTCETags.Items.TOOL_GREATSWORD, CTCEGreatswordItem.class, CTCEUniverseSwordItem.class);
+        tagByClass(false, CTCETags.Items.RAPIER, CTCERapierItem.class);
+        tagByClass(false, CTCETags.Items.TOOL_RAPIER, CTCERapierItem.class);
+        tagByClass(false, CTCETags.Items.KATAR, CTCEKatarItem.class);
+        tagByClass(false, CTCETags.Items.TOOL_KATAR, CTCEKatarItem.class);
+        tagByClass(false, CTCETags.Items.HALBERD, CTCEHalberdItem.class);
+        tagByClass(false, CTCETags.Items.TOOL_HALBERD, CTCEHalberdItem.class);
+        tagByClass(false, CTCETags.Items.SPEAR, CTCESpearItem.class);
+        tagByClass(false, CTCETags.Items.TOOL_SPEAR, CTCESpearItem.class);
+        tagByClass(false, CTCETags.Items.BATTLEAXE, CTCEBattleAxeItem.class);
+        tagByClass(false, CTCETags.Items.TOOL_BATTLEAXE, CTCEBattleAxeItem.class);
+        tagByClass(false, CTCETags.Items.GLADIUS, CTCEGladiusItem.class);
+        tagByClass(false, CTCETags.Items.TOOL_GLADIUS, CTCEGladiusItem.class);
+        tagByClass(false, CTCETags.Items.ULFBERHT, CTCEUlfberhtItem.class);
+        tagByClass(false, CTCETags.Items.TOOL_ULFBERHT, CTCEUlfberhtItem.class);
 
-        tag(Tags.Items.MELEE_WEAPON_TOOLS)
-                .add(CTCEToolsRegistry.CATALYST_GREATSWORD.asItem())
-                .add(CTCEToolsRegistry.CATALYST_ZWEIHANDER.asItem())
-                .add(CTCEToolsRegistry.CATALYST_ULFBERHT.asItem())
-                .add(CTCEToolsRegistry.CATALYST_GLADIUS.asItem())
-                .add(CTCEToolsRegistry.CATALYST_SCYTHE.asItem())
-                .add(CTCEToolsRegistry.CATALYST_RAPIER.asItem())
-                .add(CTCEToolsRegistry.CATALYST_KATAR.asItem())
-                .add(CTCEToolsRegistry.CATALYST_BIG_BONK.asItem())
-                .add(CTCEToolsRegistry.CATALYST_BROADSWORD.asItem())
-                .add(CTCEToolsRegistry.CATALYST_HALBERD.asItem())
-                .add(CTCEToolsRegistry.CATALYST_PAXEL.asItem())
-                .add(CTCEToolsRegistry.CATALYST_PICKAXE.asItem())
-                .add(CTCEToolsRegistry.CATALYST_AXE.asItem())
-                .add(CTCEToolsRegistry.CATALYST_BATTLEAXE.get())
-                .add(CTCEToolsRegistry.UNIVERSE_SWORD.get())
-                .add(CTCEToolsRegistry.CATALYST_SHOVEL.asItem());
+        tagByClass(false, ItemTags.AXES, CTCEBattleAxeItem.class, CTCEAxeItem.class, CTCEPaxelItem.class);
+        tagByClass(false, ItemTags.SHOVELS, CTCEShovelItem.class, CTCEPaxelItem.class);
+        tagByClass(false, ItemTags.PICKAXES, CTCEPickaxeItem.class, CTCEPaxelItem.class);
+        tagByClass(false, ItemTags.HOES, CTCEHoeItem.class, CTCEPaxelItem.class);
+        tagByClass(false, Tags.Items.TOOLS_SHIELD, CTCEShieldItem.class);
 
-        tag(ItemTags.SWORDS)
-                .add(CTCEToolsRegistry.CATALYST_GREATSWORD.asItem())
-                .add(CTCEToolsRegistry.CATALYST_ZWEIHANDER.asItem())
-                .add(CTCEToolsRegistry.CATALYST_ULFBERHT.asItem())
-                .add(CTCEToolsRegistry.CATALYST_GLADIUS.asItem())
-                .add(CTCEToolsRegistry.CATALYST_SCYTHE.asItem())
-                .add(CTCEToolsRegistry.CATALYST_KATAR.asItem())
-                .add(CTCEToolsRegistry.CATALYST_BROADSWORD.asItem())
-                .add(CTCEToolsRegistry.CATALYST_PAXEL.asItem())
-                .add(CTCEToolsRegistry.CATALYST_RAPIER.asItem())
-                .add(CTCEToolsRegistry.UNIVERSE_SWORD.get())
-                .add(CTCEToolsRegistry.CATALYST_HALBERD.asItem());
-
-        tag(ItemTags.AXES).add(CTCEToolsRegistry.CATALYST_BATTLEAXE.get());
-
-        tag(Tags.Items.TOOLS_SHIELD).add(CTCEToolsRegistry.CATALYST_SHIELD.asItem());
-
-        tag(CTCETags.Items.CATALYST_HAMMER).add(CTCEToolsRegistry.CATALYST_BIG_BONK.asItem());
-
-        tag(Tags.Items.TOOLS)
-                .add(CTCEToolsRegistry.CATALYST_PAXEL.asItem())
-                .add(CTCEToolsRegistry.CATALYST_PICKAXE.asItem())
-                .add(CTCEToolsRegistry.CATALYST_AXE.asItem())
-                .add(CTCEToolsRegistry.CATALYST_SHOVEL.asItem());
-
-        tag(ItemTags.PICKAXES).add(CTCEToolsRegistry.CATALYST_PICKAXE.asItem());
-        tag(ItemTags.SHOVELS).add(CTCEToolsRegistry.CATALYST_SHOVEL.asItem());
-        tag(ItemTags.AXES).add(CTCEToolsRegistry.CATALYST_AXE.asItem());
-
-        tag(ItemTags.SHOVELS).add(CTCEToolsRegistry.CATALYST_PAXEL.asItem());
-        tag(ItemTags.AXES).add(CTCEToolsRegistry.CATALYST_PAXEL.asItem());
-        tag(ItemTags.PICKAXES).add(CTCEToolsRegistry.CATALYST_PAXEL.asItem());
-        tag(ItemTags.HOES).add(CTCEToolsRegistry.CATALYST_PAXEL.asItem());
+        tagByClass(false, Tags.Items.TOOLS, CTCEPaxelItem.class, CTCEHoeItem.class, CTCEPickaxeItem.class, CTCEAxeItem.class, CTCEShovelItem.class);
 
         tag(CuriosTags.createItemTag("catalyst")).add(CTCEItemRegistry.FULL_CATALYST.get());
 

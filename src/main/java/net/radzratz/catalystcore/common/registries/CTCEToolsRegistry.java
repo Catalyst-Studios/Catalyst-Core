@@ -162,7 +162,7 @@ public class CTCEToolsRegistry {
                 30, 4f, Rarity.EPIC, CTCEConfig.CONFIG.modules.weaponry::get, CTCEConfig.CONFIG.modules.zweihanderCataclystic::get);
 
         IRON_GREATSWORD = rgrtGreatSword("iron", 325, false, false, false, Tiers.IRON,
-                15, -4f, Rarity.COMMON, CTCEConfig.CONFIG.modules.weaponry::get, CTCEConfig.CONFIG.modules.greatSwordIron::get);
+                15, -3f, Rarity.COMMON, CTCEConfig.CONFIG.modules.weaponry::get, CTCEConfig.CONFIG.modules.greatSwordIron::get);
         DIAMOND_GREATSWORD = rgrtGreatSword("diamond", 1750, false, false, false, Tiers.DIAMOND,
                 21, -2f, Rarity.UNCOMMON, CTCEConfig.CONFIG.modules.weaponry::get, CTCEConfig.CONFIG.modules.greatSwordDiamond::get);
         NETHERITE_GREATSWORD = rgrtGreatSword("netherite", 2500, false, true, false, Tiers.NETHERITE,

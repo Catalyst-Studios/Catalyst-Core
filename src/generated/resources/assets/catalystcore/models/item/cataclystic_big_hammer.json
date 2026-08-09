@@ -49,9 +49,9 @@
     },
     "ground": {
       "scale": [
-        3,
-        3,
-        1.5
+        1,
+        1,
+        1
       ],
       "translation": [
         0,
