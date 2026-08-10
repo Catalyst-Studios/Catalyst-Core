@@ -241,11 +241,7 @@ public class CTCEItemHelpers {
     public static DeferredItem<CTCEUniverseSwordItem> rgtrUniverseSword(boolean unbreakable, BooleanSupplier module, BooleanSupplier type) {
         return CTCE_TOOLS.register("universe_sword", () ->
                 new CTCEUniverseSwordItem(CTCEToolTiers.CATALYST, unbreakable,
-                        new CTCEUniverseSwordItem.Properties()
-                                .fireResistant()
-                                .setNoRepair()
-                                .rarity(Rarity.EPIC)
-                                .stacksTo(1),
+                        weaponProperties(Rarity.EPIC, CTCEToolTiers.CATALYST.getUses(), unbreakable, true, true),
                         CTCEUniverseSwordItem.createToolProperties(),
                         CTCEUniverseSwordItem.createAttributes(CTCEToolTiers.CATALYST, 499, 8f),
                         module,

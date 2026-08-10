@@ -87,7 +87,7 @@ public class CTCESwordItem extends SwordItem {
 
     @Override
     public boolean isBarVisible(@NotNull ItemStack stack) {
-        if (stack.toString().contains("cataclystic")) {
+        if (stack.toString().contains("cataclystic") || stack.toString().contains("universe")) {
             return false;
         }
 

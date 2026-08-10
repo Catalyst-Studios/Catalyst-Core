@@ -126,7 +126,10 @@ dependencies {
 
     localRuntime("curse.maven:irisshaders-455508:6661598")
 
-    localRuntime("curse.maven:sodium-394468:6382651") 
+    localRuntime("curse.maven:sodium-394468:6382651")
+
+    runtimeOnly "curse.maven:mmmmmmmmmmmm-225738:8510632"
+    runtimeOnly "curse.maven:selene-499980:8510630"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
