@@ -48,6 +48,7 @@ public class CTCELocalizationEN_US extends LanguageProvider {
         add(COSMIC_ABOMINATION.get(), "Cosmic Abomination");
         add(ICAROS.get(), "ICar-Os Device");
         add(ANCIENT_RELIC.get(), "Divine Relic");
+        add(UNSTABLE_QUANTUM_STAR.get(), "Unstable Quantum Star");
 
         add(FRAME_CATALYST.get(), "Empty Catalyst");
         add(SELF_AWARE_CHIP.get(), "Self-Aware Nano Chip");

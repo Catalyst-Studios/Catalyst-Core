@@ -44,6 +44,7 @@ public class CTCEItemRegistry {
     public static final DeferredItem<CTCEEndgameItem> COSMIC_ABOMINATION = rgtrEndGameItems("cosmic_abomination");
     public static final DeferredItem<CTCEEndgameItem> ICAROS = rgtrEndGameItems("icaros");
     public static final DeferredItem<CTCEEndgameItem> ANCIENT_RELIC = rgtrEndGameItems("ancient_relic");
+    public static final DeferredItem<CTCEEndgameItem> UNSTABLE_QUANTUM_STAR = rgtrEndGameItems("unstable_quantum_star");
 
     public static final DeferredItem<CTCEMidGameItem> FRAME_CATALYST = rgtrMidGameItems("empty_catalyst");
     public static final DeferredItem<CTCEMidGameItem> SELF_AWARE_CHIP = rgtrMidGameItems("nano_self_aware");

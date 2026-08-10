@@ -48,11 +48,6 @@
       ]
     },
     "ground": {
-      "scale": [
-        1,
-        1,
-        1
-      ],
       "translation": [
         0,
         3,
