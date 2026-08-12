@@ -124,6 +124,7 @@ public class CTCELocalizationEN_US extends LanguageProvider {
 
         add("item.catalystcore.cataclystic_pickaxe.desc", "The Universe is Craving Its Creations...");
         add("item.catalystcore.cataclystic_axe.desc", "The Universe Powers Says... WATCH OUT FOR THAT TREE!");
+        add("item.catalystcore.cataclystic_hoe.desc", "The Universe is... confused");
         add("item.catalystcore.cataclystic_shovel.desc", "The Universe Powers Says That It Can Create Paths");
         add("item.catalystcore.cataclystic_paxel.desc", "The Universe's Finest Creation...");
 

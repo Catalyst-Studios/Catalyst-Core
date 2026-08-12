@@ -1,15 +1,15 @@
 package net.radzratz.catalystcore.client.items.tools.tools;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.flag.FeatureFlagSet;
-import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Unbreakable;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.function.BooleanSupplier;
 
 public class CTCEHoeItem extends HoeItem {
@@ -27,6 +27,11 @@ public class CTCEHoeItem extends HoeItem {
     @Override
     public boolean isEnabled(@NotNull FeatureFlagSet enabledFeatures) {
         return module.getAsBoolean() && type.getAsBoolean();
+    }
+
+    @Override
+    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, @NotNull List<Component> tooltip, @NotNull TooltipFlag tooltipFlag) {
+        tooltip.add(Component.translatable("item.catalystcore.cataclystic_hoe.desc").withStyle(ChatFormatting.DARK_BLUE));
     }
 
     @Override

@@ -86,7 +86,7 @@ public class CTCEToolsRegistry {
     public static final DeferredItem<CTCEAxeItem> CATALYST_AXE;
 
     static {
-        // todo: add crossbow and bow, adjust damage, speed and uses, and lang entries
+        // todo: add crossbow and bow, adjust damage, speed and uses
         CATALYST_SHIELD = rgtrShield(CTCEConfig.CONFIG.modules.weaponry::get, CTCEConfig.CONFIG.modules.shield::get);
 
         IRON_BIG_BONK = rgtrHammer("iron", 325, false, false, false, Tiers.IRON,
