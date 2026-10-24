@@ -12,11 +12,13 @@ import net.radzratz.catalystcore.client.items.types.CTCEPhialItem;
 import net.radzratz.catalystcore.common.registries.CTCEItemRegistry;
 import net.radzratz.catalystcore.common.util.config.CTCEConfig;
 
+@SuppressWarnings("null")
 @EventBusSubscriber
 public class CTCECommonEvents {
+
     @SubscribeEvent
     public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
-        if (!CTCEConfig.CONFIG.phials.phialEvents.isTrue()) return;
+        if (!CTCEConfig.CONFIG.phials.phialEvents.get()) return;
 
         Level level = event.getLevel();
         Player player = event.getEntity();
@@ -30,15 +32,18 @@ public class CTCECommonEvents {
                 phial.fillFromBlock(level, event.getPos(), state, player);
             }
 
+            player.stopUsingItem();
+            player.swing(event.getHand());
+
             event.setCanceled(true);
-            event.setCancellationResult(InteractionResult.SUCCESS);
+            event.setCancellationResult(InteractionResult.sidedSuccess(level.isClientSide));
             return;
         }
     }
 
     @SubscribeEvent
     public static void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
-        if (!CTCEConfig.CONFIG.phials.phialEvents.isTrue()) return;
+        if (!CTCEConfig.CONFIG.phials.phialEvents.get()) return;
 
         Entity target = event.getTarget();
         Player player = event.getEntity();
@@ -51,8 +56,11 @@ public class CTCECommonEvents {
                 phial.fillFromEntity(target, player);
             }
 
+            player.stopUsingItem();
+            player.swing(event.getHand());
+
             event.setCanceled(true);
-            event.setCancellationResult(InteractionResult.SUCCESS);
+            event.setCancellationResult(InteractionResult.sidedSuccess(player.level().isClientSide));
             return;
         }
     }

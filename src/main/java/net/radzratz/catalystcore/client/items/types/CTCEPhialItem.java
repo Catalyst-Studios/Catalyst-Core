@@ -10,9 +10,11 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.radzratz.catalystcore.client.items.CTCEConfigItem;
+import net.radzratz.catalystcore.common.util.config.CTCEConfig;
 
 import java.util.function.BooleanSupplier;
 
+@SuppressWarnings("null")
 public class CTCEPhialItem extends CTCEConfigItem {
     private final BooleanSupplier phialEvent;
 
@@ -22,7 +24,9 @@ public class CTCEPhialItem extends CTCEConfigItem {
     }
 
     public boolean isEventEnabled() {
-        return phialEvent == null || !phialEvent.getAsBoolean();
+        //return phialEvent == null || !phialEvent.getAsBoolean();
+        boolean globalEnabled = CTCEConfig.CONFIG.phials.phialEvents.get();
+        return globalEnabled && (phialEvent == null || phialEvent.getAsBoolean());
     }
 
     public boolean matchesBlock(Level level, BlockState state, Player player) {
